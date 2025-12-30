@@ -1,194 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T. Dinesh | Infrastructure & Cloud System Administrator</title>
-
-  <meta name="description"
-        content="Infrastructure & Cloud System Administrator with expertise in Azure, Wintel, IAM, Networking, Security, and Production Operations." />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T. Dinesh — Infrastructure & Cloud System Administrator</title>
+  <meta name="description" content="Infrastructure & Cloud System Administrator | IAM | AD | Hardening | Enterprise IT Support | Networking" />
   <link rel="stylesheet" href="./style.css" />
+  <script defer src="./script.js"></script>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="container header-flex">
-    <div class="brand">
-      <!-- Optional PNG Logo -->
-      <img src="./assets/logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
-      <span>T. Dinesh</span>
-    </div>
+<header class="topbar">
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="./index.html">
+        <img class="brand-logo" src="./assets/logo.svg" alt="Logo" />
+        <span>T. Dinesh</span>
+      </a>
 
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <button class="menu" aria-label="Open menu">☰</button>
+
+      <nav class="links" aria-label="Primary">
+        <a class="active" href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./skills.html">Skills</a>
+        <a href="./experience.html">Experience</a>
+        <a href="./projects.html">Work</a>
+        <a href="./security.html">Security</a>
+        <a href="./certifications.html">Certifications</a>
+        <a href="./contact.html">Contact</a>
+        <button class="pill" id="themeToggle" type="button">Theme</button>
+        <a class="pill" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
+      </nav>
+    </div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="container">
-    <h1>Infrastructure & Cloud System Administrator</h1>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container heroWrap">
 
-    <p class="hero-subtitle">
-      Designing, operating, and securing enterprise infrastructure across cloud and on-prem
-      environments with a strong focus on availability, security, and operational excellence.
-    </p>
+      <div class="heroCard">
+        <div class="kicker"><span class="dot"></span> Professional CV</div>
+        <h1 class="h1">Infrastructure & Cloud System Administrator</h1>
+        <p class="sub">
+          System Administrator with strong experience in <b>IAM</b>, <b>Active Directory</b>, end-to-end IT support,
+          system hardening, and incident handling across enterprise and government-scale environments.
+          I can manage networks including <b>APs</b>, <b>firewall policies</b>, and troubleshooting—while keeping
+          documentation and operations clean.
+        </p>
 
-    <div class="hero-actions">
-      <a href="#projects" class="btn primary">View Infrastructure Work</a>
-      <a href="./assets/T_Dinesh_CV.pdf" class="btn ghost" download>Download CV</a>
+        <div class="actions">
+          <a class="btn primary" href="./projects.html">View Infrastructure Work</a>
+          <a class="btn" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
+        </div>
+
+        <div class="note">
+          Company names and internal identifiers are omitted to respect confidentiality agreements.
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="visualTop">
+          <div class="tag">Security-first • SLA-driven • Ops-ready</div>
+          <div class="tag">IAM • AD • Azure • Network</div>
+        </div>
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="visualBody">
+          <div class="mini">
+            <b>Identity & Access</b>
+            <p>Join/move/leave • MFA • access hygiene • least privilege</p>
+          </div>
+          <div class="mini">
+            <b>Hardening & Compliance</b>
+            <p>Baseline hardening • patch governance • incident readiness</p>
+          </div>
+          <div class="mini">
+            <b>Network & Security</b>
+            <p>APs • firewall rules • troubleshooting • operational controls</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <p class="hero-note">
-      *Company names and internal details are omitted to respect confidentiality agreements.
-    </p>
-  </div>
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-  <div class="container">
-    <h2>About Me</h2>
-
-    <p>
-      I am an <strong>Infrastructure & Cloud System Administrator with 7.5+ years of experience</strong>
-      supporting enterprise and government-scale IT environments.
-    </p>
-
-    <p>
-      My expertise spans <strong>Azure infrastructure operations</strong>, <strong>Wintel administration</strong>,
-      <strong>Identity & Access Management (IAM)</strong>, <strong>networking</strong>,
-      <strong>system hardening</strong>, <strong>patch governance</strong>,
-      <strong>backup & disaster recovery</strong>, and <strong>incident response</strong>.
-    </p>
-
-    <p>
-      I am comfortable owning production systems end-to-end—handling escalations, outages,
-      security incidents, and enforcing SLA-driven operational discipline.
-    </p>
-  </div>
-</section>
-
-<!-- ================= EXPERTISE ================= -->
-<section id="expertise" class="section alt">
-  <div class="container">
-    <h2>Core Expertise</h2>
-
-    <div class="grid">
+  <!-- SECTIONS -->
+  <section class="section">
+    <div class="container grid2">
       <div class="card">
-        <h3>Cloud & Infrastructure</h3>
+        <div class="h2">Core Skills</div>
         <ul>
-          <li>Azure IaaS & PaaS administration</li>
-          <li>VM lifecycle & virtual networking</li>
-          <li>Monitoring, logging & health checks</li>
-          <li>Backup & disaster recovery readiness</li>
+          <li>Active Directory • GPO • user lifecycle (JML)</li>
+          <li>IAM operations • MFA • access governance</li>
+          <li>System hardening • patching • vulnerability remediation</li>
+          <li>Enterprise support • incident handling • RCA</li>
+          <li>Networking: APs, firewall policies, routing basics</li>
         </ul>
       </div>
 
       <div class="card">
-        <h3>Systems & IAM</h3>
+        <div class="h2">Highlights</div>
         <ul>
-          <li>Windows Server & endpoint administration</li>
-          <li>Identity lifecycle (join / move / leave)</li>
-          <li>MFA enforcement & access governance</li>
-          <li>Least-privilege security practices</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Networking & Security</h3>
-        <ul>
-          <li>LAN / Wi-Fi infrastructure & access points</li>
-          <li>Firewall policies & network security</li>
-          <li>Patch governance & zero-day readiness</li>
-          <li>Incident response & RCA</li>
+          <li>Government-scale support experience (project context can be described without naming companies)</li>
+          <li>Secure operations mindset: documentation, controls, change discipline</li>
+          <li>Clean, recruiter-friendly portfolio with downloadable CV</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= EXPERIENCE ================= -->
-<section id="experience" class="section">
-  <div class="container">
-    <h2>Professional Experience</h2>
+  <section class="section">
+    <div class="container card">
+      <div class="h2">Next Steps</div>
+      <ul>
+        <li>Open <b>Work</b> to see infrastructure projects & case studies (no company names)</li>
+        <li>Open <b>Security</b> for hardening policies and baseline approach</li>
+        <li>Use <b>Certifications</b> to list your learning roadmap</li>
+      </ul>
+    </div>
+  </section>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Infrastructure & Cloud System Administrator</h3>
-        <span>Enterprise Production Environments | 2023 – Present</span>
-        <ul>
-          <li>Own cloud and on-prem infrastructure operations</li>
-          <li>Manage Azure compute, networking, security & backups</li>
-          <li>Administer IAM, MFA, and access governance</li>
-          <li>Handle incidents, escalations, and RCA</li>
-          <li>Support enterprise networking (APs, firewalls, routing)</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>System Administrator / Infrastructure Support</h3>
-        <span>Enterprise & Government Programs | 2019 – 2023</span>
-        <ul>
-          <li>Supported government-scale IT environments</li>
-          <li>Handled application support and device readiness</li>
-          <li>Ensured continuity in high-impact systems</li>
-        </ul>
-      </div>
+  <div class="container footer">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <span>© <span id="year"></span> T. Dinesh</span>
+      <span>Modern CV • Clean • Professional</span>
     </div>
   </div>
-</section>
+</main>
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class="section alt">
-  <div class="container">
-    <h2>Infrastructure Work</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Azure Operations & Governance</h3>
-        <p>Secure cloud operations, monitoring, backups, and operational discipline.</p>
-      </div>
-
-      <div class="card">
-        <h3>IAM & Access Governance</h3>
-        <p>Identity lifecycle management, MFA enforcement, and access hygiene.</p>
-      </div>
-
-      <div class="card">
-        <h3>Patching & Incident Readiness</h3>
-        <p>System hardening, vulnerability remediation, and RCA-driven improvements.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section">
-  <div class="container">
-    <h2>Contact</h2>
-
-    <p>Email: <a href="mailto:dineshtankala85@outlook.com">dineshtankala85@outlook.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/dinesh-tankala" target="_blank">linkedin.com/in/dinesh-tankala</a></p>
-
-    <p class="note">
-      Detailed organization information is available in the CV or upon request.
-    </p>
-  </div>
-</section>
-
-<footer class="footer">
-  © <span id="year"></span> T. Dinesh
-</footer>
-
-<script src="./script.js"></script>
 </body>
 </html>
