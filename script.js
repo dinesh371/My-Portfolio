@@ -1,28 +1,26 @@
-// Year
-const y = document.getElementById("year");
-if (y) y.textContent = `© ${new Date().getFullYear()} T. Dinesh`;
+(() => {
+  const root = document.documentElement;
 
-// Copy phone
-const copyBtn = document.getElementById("copyPhone");
-if (copyBtn) {
-  copyBtn.addEventListener("click", async () => {
-    const phone = "+91-8331956172";
-    try {
-      await navigator.clipboard.writeText(phone);
-      copyBtn.querySelector("strong").textContent = `${phone} (copied)`;
-      setTimeout(() => copyBtn.querySelector("strong").textContent = `${phone} (click to copy)`, 1200);
-    } catch (e) {
-      alert("Copy failed. Please copy manually: " + phone);
-    }
-  });
-}
+  // set year
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-// Mobile menu
-const nav = document.querySelector(".nav");
-const menu = document.querySelector(".menu");
-if (nav && menu) {
-  menu.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    menu.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-}
+  // mobile menu
+  const nav = document.querySelector(".nav");
+  const menu = document.querySelector(".menu");
+  if (menu && nav) menu.addEventListener("click", () => nav.classList.toggle("open"));
+
+  // theme
+  const saved = localStorage.getItem("theme");
+  if (saved) root.setAttribute("data-theme", saved);
+
+  const toggle = document.getElementById("themeToggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const cur = root.getAttribute("data-theme") || "light";
+      const next = cur === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  }
+})();
