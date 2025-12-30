@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T. Dinesh — Security & Hardening</title>
+  <meta name="description" content="Security posture, system hardening approach, IAM controls, and operational standards." />
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="./index.html">
+        <img class="brand-logo" src="./assets/logo.svg" alt="Logo" />
+        <span>T. Dinesh</span>
+      </a>
+
+      <button class="menu" aria-label="Open menu">☰</button>
+
+      <nav class="links" aria-label="Primary">
+        <a href="./about.html">About</a>
+        <a href="./skills.html">Skills</a>
+        <a href="./experience.html">Experience</a>
+        <a href="./projects.html">Work</a>
+        <a class="active" href="./security.html">Security</a>
+        <a href="./certifications.html">Certifications</a>
+        <a href="./contact.html">Contact</a>
+        <button class="pill-link" id="themeToggle" type="button" aria-label="Toggle theme">Theme</button>
+        <a class="pill-link" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Security & Hardening</h1>
+        <p class="subnote">
+          My approach is based on practical enterprise security: least privilege, hardened baselines, controlled change,
+          and fast incident response — aligned with strong industry practices (e.g., CIS-style baselines, secure-by-default configuration,
+          MFA-first access, logging & monitoring, and continuous patching).
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid2">
+        <div class="card">
+          <h2>Identity & Access Controls</h2>
+          <ul class="bullets">
+            <li><b>Join/Move/Leave</b> lifecycle with approvals & role-based access</li>
+            <li><b>MFA enforcement</b> and privileged access hygiene</li>
+            <li><b>Least privilege</b>: remove standing admin, audit elevated rights</li>
+            <li><b>Access reviews</b>: periodic review of groups/roles and stale accounts</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>System Hardening Baseline</h2>
+          <ul class="bullets">
+            <li>Secure configuration: services, ports, firewall rules, and endpoint policies</li>
+            <li>Account policies: password policy, lockout policy, and privileged role controls</li>
+            <li>OS & application patch management with rollback awareness</li>
+            <li>Secure remote access: VPN / jump-host / RDP controls (where applicable)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Logging, Monitoring & Response</h2>
+          <ul class="bullets">
+            <li>Central logging mindset: authentication, admin actions, policy changes</li>
+            <li>Alert triage and incident handling with clear runbooks</li>
+            <li>RCA after incidents: fix root causes and update controls</li>
+            <li>Operational discipline: change windows, approvals, and documentation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Network & Security Operations</h2>
+          <ul class="bullets">
+            <li>Basic network operations: routing, switching, DNS/DHCP fundamentals</li>
+            <li>Network edge controls: APs, firewall rules, and segmentation concepts</li>
+            <li>Vulnerability remediation: patching + configuration corrections</li>
+            <li>Backup & recovery readiness aligned to business criticality</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container" style="margin-top:14px">
+        <div class="card">
+          <h2>What I can share publicly</h2>
+          <p class="subnote">
+            To respect confidentiality agreements, company names and internal identifiers are not shown here.
+            I can discuss patterns, workflows, and measurable outcomes in a privacy-safe way during interviews.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot">
+      <span class="muted">© <span id="year"></span> T. Dinesh</span>
+      <span class="muted">Security-first • Reliable operations</span>
+    </div>
+  </footer>
+</body>
+</html>

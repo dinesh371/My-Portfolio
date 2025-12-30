@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Work | T. Dinesh</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/logo.svg" alt="TD logo" onerror="this.style.display='none'">
+      <span class="brand-text">T. Dinesh</span>
+    </a>
+    <nav class="links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./experience.html">Experience</a>
+      <a class="active" href="./projects.html">Work</a>
+      <a href="./skills.html">Skills</a>
+      <a href="./certifications.html">Certifications</a>
+      <a href="./contact.html">Contact</a>
+      <a class="pill-link" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
+      <button class="pill-link" id="themeToggle" type="button">Theme</button>
+    </nav>
+    <button class="menu" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main class="page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Infrastructure Work</h1>
+      <p class="muted">Case-study style themes (NDA-friendly, recruiter-friendly).</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid2">
+        <article class="card proj">
+          <h2>Azure Infrastructure Operations & Governance</h2>
+          <p class="muted">VM lifecycle • VNET/NSG • vaults • monitoring/logs • backups</p>
+          <ul class="bullets">
+            <li>Operated Azure environments with security-first controls and disciplined change handling.</li>
+            <li>Standardized operational checks (monitoring, log review, backup validation) for reliability.</li>
+            <li>Improved governance through clean documentation and repeatable runbooks.</li>
+          </ul>
+        </article>
+
+        <article class="card proj">
+          <h2>IAM Operations & Access Governance</h2>
+          <p class="muted">Provisioning • MFA • access policies • lifecycle operations</p>
+          <ul class="bullets">
+            <li>Administered identity lifecycle operations and MFA enforcement.</li>
+            <li>Reduced access errors through standardized onboarding/offboarding workflows.</li>
+            <li>Maintained least-privilege practices and audit readiness.</li>
+          </ul>
+        </article>
+
+        <article class="card proj">
+          <h2>Networking & Security Operations</h2>
+          <p class="muted">APs • firewall policies • routing/connectivity • incident handling</p>
+          <ul class="bullets">
+            <li>Managed LAN/Wi-Fi operations including access points and connectivity troubleshooting.</li>
+            <li>Handled firewall policy updates and network security controls in production environments.</li>
+            <li>Supported routing/connectivity issues and escalations during outages.</li>
+          </ul>
+        </article>
+
+        <article class="card proj">
+          <h2>Patching, Hardening & Incident Readiness</h2>
+          <p class="muted">Patch governance • urgent vulnerabilities • RCA</p>
+          <ul class="bullets">
+            <li>Executed patch cycles with verification and stability awareness.</li>
+            <li>Supported hardening and vulnerability remediation across endpoints/servers.</li>
+            <li>Handled incidents with structured triage, escalation, and RCA-driven improvements.</li>
+          </ul>
+        </article>
+
+        <article class="card proj">
+          <h2>Government Program Operations Support</h2>
+          <p class="muted">Application ops • hardware/software support • continuity</p>
+          <ul class="bullets">
+            <li>Supported mission-critical programs with operations, user enablement, and troubleshooting.</li>
+            <li>Managed device readiness and field-level coordination for continuity.</li>
+            <li>Maintained stability in high-impact service environments.</li>
+          </ul>
+        </article>
+
+        <article class="card proj">
+          <h2>Documentation & Runbooks</h2>
+          <p class="muted">SOPs • checklists • incident playbooks</p>
+          <ul class="bullets">
+            <li>Created SOP-style documentation to reduce support time and improve consistency.</li>
+            <li>Maintained operational checklists for backups, monitoring, patching, and access control.</li>
+            <li>Enabled smoother handovers and audit readiness.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> T. Dinesh</span>
+    <span class="muted">Work</span>
+  </div>
+</footer>
+<script src="./script.js"></script>
+</body>
+</html>
