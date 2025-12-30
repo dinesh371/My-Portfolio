@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Certifications | T. Dinesh</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/logo.svg" alt="TD logo" onerror="this.style.display='none'">
+      <span class="brand-text">T. Dinesh</span>
+    </a>
+    <nav class="links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./experience.html">Experience</a>
+      <a href="./projects.html">Work</a>
+      <a href="./skills.html">Skills</a>
+      <a class="active" href="./certifications.html">Certifications</a>
+      <a href="./contact.html">Contact</a>
+      <a class="pill-link" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
+      <button class="pill-link" id="themeToggle" type="button">Theme</button>
+    </nav>
+    <button class="menu" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main class="page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Certifications</h1>
+      <p class="muted">Credentials aligned with infrastructure, cloud, and security operations.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid2">
+        <div class="card">
+          <h2>Current</h2>
+          <ul class="bullets">
+            <li>Microsoft Certified: Azure Administrator (AZ-104)</li>
+            <li>Microsoft Certified Professional (MCP)</li>
+            <li>Microsoft Technology Associate (MTA)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Optional Roadmap</h2>
+          <ul class="bullets">
+            <li>AZ-500 (Azure Security Engineer)</li>
+            <li>SC-300 (Identity & Access Administrator)</li>
+            <li>ITIL Foundation</li>
+          </ul>
+          <p class="subnote">Include roadmap items only if you plan to pursue them.</p>
+        </div>
+      </div>
+
+      <div class="card callout">
+        <h2>Standards I Follow</h2>
+        <ul class="bullets">
+          <li>CIS-style secure baselines and continuous hardening.</li>
+          <li>Security-first operations: patching, monitoring, remediation.</li>
+          <li>Zero Trust principles: identity/device-driven access decisions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> T. Dinesh</span>
+    <span class="muted">Certifications</span>
+  </div>
+</footer>
+<script src="./script.js"></script>
+</body>
+</html>

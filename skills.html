@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skills Matrix | T. Dinesh</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/logo.svg" alt="TD logo" onerror="this.style.display='none'">
+      <span class="brand-text">T. Dinesh</span>
+    </a>
+    <nav class="links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./experience.html">Experience</a>
+      <a href="./projects.html">Work</a>
+      <a class="active" href="./skills.html">Skills</a>
+      <a href="./certifications.html">Certifications</a>
+      <a href="./contact.html">Contact</a>
+      <a class="pill-link" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
+      <button class="pill-link" id="themeToggle" type="button">Theme</button>
+    </nav>
+    <button class="menu" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main class="page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Skills Matrix</h1>
+      <p class="muted">Infrastructure skills mapped to real operations and standards.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid2">
+        <div class="card">
+          <h2>Cloud & Platform (Azure)</h2>
+          <ul class="bullets">
+            <li>VM lifecycle, governance, monitoring/logs</li>
+            <li>VNET/NSG controls, access rules, backups/DR validation</li>
+            <li>Operational readiness: runbooks, change discipline</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Wintel & Endpoint</h2>
+          <ul class="bullets">
+            <li>Windows Server administration & troubleshooting</li>
+            <li>System baselines, performance tuning, patching</li>
+            <li>Enterprise support & escalation handling</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>IAM</h2>
+          <ul class="bullets">
+            <li>User lifecycle: join/move/leave</li>
+            <li>MFA enforcement & access governance</li>
+            <li>Least privilege + audit readiness practices</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Networking</h2>
+          <ul class="bullets">
+            <li>LAN/Wi-Fi operations, access points & controllers</li>
+            <li>Firewall policies, routing/connectivity troubleshooting</li>
+            <li>Outage handling, escalation coordination</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card callout">
+        <h2>Security & Hardening Standards (Google-aligned)</h2>
+        <ul class="bullets">
+          <li>Security-by-design: continuous remediation + hardened baselines using recognized benchmarks (e.g., CIS).</li>
+          <li>Baseline configuration checks, patch governance, and hardening of servers/endpoints.</li>
+          <li>Integrity mindset for VMs (secure/measured boot concepts) where applicable.</li>
+          <li>Zero Trust mindset (BeyondCorp-style): identity/device-first access principles over perimeter trust.</li>
+          <li>Centralized monitoring, alerting, and RCA-driven preventive actions.</li>
+        </ul>
+        <p class="subnote">
+          Note: This section references widely adopted industry guidance and Google Cloud security concepts
+          to demonstrate professional alignment.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> T. Dinesh</span>
+    <span class="muted">Skills</span>
+  </div>
+</footer>
+<script src="./script.js"></script>
+</body>
+</html>
