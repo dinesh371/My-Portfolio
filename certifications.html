@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -33,12 +33,12 @@
         <a href="security.html">Security</a>
         <a href="contact.html">Contact</a>
         <button class="btn sm ghost" id="themeToggle" type="button">☀ / 🌙</button>
-        <a class="btn sm primary" id="cvLink" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+        <a class="btn sm primary" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
       </nav>
     </div>
   </header>
 
-  <div id="pageWrap" class="pageWrap">
+  <div class="pageWrap" id="pageWrap">
     <main class="container shell">
       <aside class="card side reveal">
         <div class="profile">
@@ -52,21 +52,19 @@
         </div>
 
         <div class="hr"></div>
-        <div class="tagline" id="summary"></div>
+        <div class="tagline">Edit/add your certifications in <b>data.js</b>.</div>
       </aside>
 
       <section class="main">
         <section class="card section reveal">
           <div class="sectionTitle">Certifications</div>
-          <div class="sectionSub">
-            Industry-recognized certifications that validate cloud administration, infrastructure operations, and enterprise support skills.
-          </div>
+          <div class="sectionSub">Industry learning and validation for enterprise operations.</div>
           <div class="hr"></div>
 
           <div id="certList"></div>
         </section>
 
-        <footer class="footer reveal">
+        <footer class="card footer reveal">
           <div class="footerRow">
             <div class="muted">© <span id="year"></span> T. Dinesh</div>
             <div class="footerLinks"><a href="assets/T_Dinesh_CV.pdf" download>Download CV</a></div>
@@ -76,11 +74,11 @@
     </main>
   </div>
 
-  <div class="quick" aria-label="Quick actions">
-    <button class="qbtn" id="qCV" title="Download CV"><span>⬇</span></button>
-    <button class="qbtn" id="qEmail" title="Email"><span>✉</span></button>
-    <button class="qbtn" id="qLinked" title="LinkedIn"><span>in</span></button>
-    <button class="qbtn" id="qTop" title="Top"><span>↑</span></button>
+  <div class="quick">
+    <button class="qbtn" id="qCV"><span>⬇</span></button>
+    <button class="qbtn" id="qEmail"><span>✉</span></button>
+    <button class="qbtn" id="qLinked"><span>in</span></button>
+    <button class="qbtn" id="qTop"><span>↑</span></button>
   </div>
 
   <script src="data.js"></script>

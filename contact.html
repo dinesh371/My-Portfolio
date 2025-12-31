@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -33,12 +33,12 @@
         <a href="security.html">Security</a>
         <a href="contact.html">Contact</a>
         <button class="btn sm ghost" id="themeToggle" type="button">☀ / 🌙</button>
-        <a class="btn sm primary" id="cvLink" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+        <a class="btn sm primary" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
       </nav>
     </div>
   </header>
 
-  <div id="pageWrap" class="pageWrap">
+  <div class="pageWrap" id="pageWrap">
     <main class="container shell">
       <aside class="card side reveal">
         <div class="profile">
@@ -58,13 +58,13 @@
       <section class="main">
         <section class="card section reveal">
           <div class="sectionTitle">Contact</div>
-          <div class="sectionSub">Best way to reach me is via email. I respond quickly and professionally.</div>
+          <div class="sectionSub">Email is the best way to reach me. Connect on LinkedIn/GitHub.</div>
           <div class="hr"></div>
 
           <div class="grid2">
             <div class="exp">
               <div class="expRole">Email</div>
-              <div class="expCompany muted" id="emailText"></div>
+              <div class="expCompany" id="emailText"></div>
               <div class="actions" style="margin-top:12px">
                 <a class="btn primary" id="emailLink" href="#">Send Email</a>
                 <button class="btn ghost" id="copyEmail" type="button">Copy Email</button>
@@ -72,8 +72,8 @@
             </div>
 
             <div class="exp">
-              <div class="expRole">Professional Links</div>
-              <div class="expCompany muted">Connect with me</div>
+              <div class="expRole">Links</div>
+              <div class="expCompany">Professional profiles</div>
               <div class="actions" style="margin-top:12px">
                 <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
                 <a class="btn ghost" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
@@ -81,22 +81,9 @@
               </div>
             </div>
           </div>
-
-          <div class="hr"></div>
-          <div class="exp">
-            <div class="expRole">Availability</div>
-            <div class="expCompany muted">Open to Infrastructure / IAM / Cloud Admin opportunities</div>
-            <ul>
-              <li>Infrastructure & system administration (Windows/Linux basics)</li>
-              <li>IAM / JML lifecycle / access governance</li>
-              <li>Cloud operations (Azure monitoring/logs)</li>
-              <li>Security hardening, audit log review, incident handling</li>
-              <li>Networking support (AP/Wi-Fi, firewall policy support)</li>
-            </ul>
-          </div>
         </section>
 
-        <footer class="footer reveal">
+        <footer class="card footer reveal">
           <div class="footerRow">
             <div class="muted">© <span id="year"></span> T. Dinesh</div>
             <div class="footerLinks"><a href="assets/T_Dinesh_CV.pdf" download>Download CV</a></div>
@@ -106,11 +93,11 @@
     </main>
   </div>
 
-  <div class="quick" aria-label="Quick actions">
-    <button class="qbtn" id="qCV" title="Download CV"><span>⬇</span></button>
-    <button class="qbtn" id="qEmail" title="Email"><span>✉</span></button>
-    <button class="qbtn" id="qLinked" title="LinkedIn"><span>in</span></button>
-    <button class="qbtn" id="qTop" title="Top"><span>↑</span></button>
+  <div class="quick">
+    <button class="qbtn" id="qCV"><span>⬇</span></button>
+    <button class="qbtn" id="qEmail"><span>✉</span></button>
+    <button class="qbtn" id="qLinked"><span>in</span></button>
+    <button class="qbtn" id="qTop"><span>↑</span></button>
   </div>
 
   <script src="data.js"></script>
