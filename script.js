@@ -232,11 +232,9 @@
           <div class="expTop">
             <div>
               <div class="expRole">${c.name}</div>
-              <div class="expCompany">Year: ${c.year}</div>
             </div>
           </div>
           <div class="certRow">
-            <div><strong>Certificate No / Credential ID:</strong> ${c.credentialId}</div>
           </div>
         </article>
       `).join("")}
