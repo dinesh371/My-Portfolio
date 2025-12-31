@@ -202,10 +202,10 @@ window.PORTFOLIO = {
   // You can fill your actual IDs later.
   // =====================
   certifications: [
-    { name: "Microsoft Certified: Azure Administrator (AZ-104)", year: "—", credentialId: "Add your Credential ID here", verifyUrl: "" },
-    { name: "Microsoft Technology Associate (MTA)", year: "—", credentialId: "Add your Certificate No here", verifyUrl: "" },
-    { name: "Microsoft Certified Professional (MCP)", year: "—", credentialId: "Add your Certificate No here", verifyUrl: "" },
-    { name: "Office 365 (Administration / Support)", year: "—", credentialId: "Add your Certificate No here", verifyUrl: "" }
+    { name: "Microsoft Certified: Azure Administrator (AZ-104)"},
+    { name: "Microsoft Technology Associate (MTA)" },
+    { name: "Microsoft Certified Professional (MCP)"},
+    { name: "Office 365 (Administration / Support)" }
   ],
 
   // =====================
