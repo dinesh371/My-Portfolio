@@ -3,7 +3,7 @@ window.PORTFOLIO = {
   title: "Infrastructure & Cloud System Administrator",
   location: "Visakhapatnam, India",
   email: "dineshtankala85@outlook.com",
-  phone: "+91-8897876853",
+  phone: "+91-8331956172",
   linkedin: "https://www.linkedin.com/in/dinesh-tankala",
   github: "https://github.com/dinesh371",
   cvPath: "assets/T_Dinesh_CV.pdf",
