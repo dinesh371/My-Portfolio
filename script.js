@@ -2,7 +2,6 @@
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => document.querySelectorAll(s);
   const p = window.PORTFOLIO;
-
   if (!p) return;
 
   // Active link
@@ -28,7 +27,42 @@
   const heroUrl = pickHero();
   document.documentElement.style.setProperty("--heroUrl", heroUrl ? `url("${heroUrl}")` : "none");
 
-  // Avatar fallback
+  // Helpers
+  const setText = (id, v) => { const el = $(id); if (el) el.textContent = v ?? ""; };
+  const setHref = (id, v) => { const el = $(id); if (el && v) el.setAttribute("href", v); };
+
+  // Bind common
+  setText("#name", p.name);
+  setText("#location", p.location);
+  setText("#tagline", p.tagline);
+  setText("#summary", p.summary);
+  setText("#totalExp", p.totalExperience);
+  setText("#emailText", p.email);
+  setText("#phoneText", p.phone);
+
+  setHref("#cvLink", p.cvPath);
+  setHref("#cvBtn", p.cvPath);
+  setHref("#linkedinLink", p.linkedin);
+  setHref("#githubLink", p.github);
+  setHref("#emailLink", `mailto:${p.email}`);
+
+  // Typing animation (Home title only)
+  const titleEl = $("#title");
+  if (titleEl) {
+    const full = p.title || "";
+    titleEl.classList.add("typing");
+    titleEl.textContent = "";
+    let i = 0;
+    const timer = setInterval(() => {
+      titleEl.textContent = full.slice(0, i++);
+      if (i > full.length) {
+        clearInterval(timer);
+        titleEl.classList.remove("typing");
+      }
+    }, 18);
+  }
+
+  // Avatar (optional profile.jpg)
   function initials(name){
     if(!name) return "TD";
     const parts = name.trim().split(/\s+/);
@@ -41,32 +75,12 @@
   if (fallback) fallback.textContent = initials(p.name);
 
   if (img) {
-    img.src = "assets/profile.jpg"; // optional if you add it
+    img.src = "assets/profile.jpg";
     img.onerror = () => {
       img.style.display = "none";
       if (fallback) fallback.style.display = "flex";
     };
   }
-
-  // Bind common
-  const setText = (id, v) => { const el = $(id); if (el) el.textContent = v ?? ""; };
-  const setHref = (id, v) => { const el = $(id); if (el && v) el.setAttribute("href", v); };
-
-  setText("#name", p.name);
-  setText("#title", p.title);
-  setText("#location", p.location);
-  setText("#tagline", p.tagline);
-  setText("#summary", p.summary);
-  setText("#totalExp", p.totalExperience);
-
-  setText("#emailText", p.email);
-  setText("#phoneText", p.phone);
-
-  setHref("#cvLink", p.cvPath);
-  setHref("#cvBtn", p.cvPath);
-  setHref("#linkedinLink", p.linkedin);
-  setHref("#githubLink", p.github);
-  setHref("#emailLink", `mailto:${p.email}`);
 
   // Copy email
   const copyBtn = $("#copyEmail");
@@ -83,7 +97,7 @@
     });
   }
 
-  // Icons (SVG)
+  // Icons
   const icons = {
     id: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.7"/><path d="M4.5 21c1.4-4 5-6 7.5-6s6.1 2 7.5 6" stroke="currentColor" stroke-width="1.7"/></svg>`,
     cloud: `<svg viewBox="0 0 24 24" fill="none"><path d="M7 12.5c0-2.9 2.1-5.2 5-5.2 2 0 3.7 1.1 4.5 2.8 2 .2 3.5 1.9 3.5 3.9 0 2.2-1.8 4-4 4H9.8C8.2 18 7 16.9 7 15.5v-3Z" stroke="currentColor" stroke-width="1.7"/></svg>`,
@@ -117,13 +131,13 @@
     `).join("");
   }
 
-  // Experience
+  // Experience timeline render
   const expWrap = $("#experienceList");
   if (expWrap && Array.isArray(p.experience)) {
     expWrap.innerHTML = `
       <div class="timeline">
         ${p.experience.map(e => `
-          <article class="exp reveal">
+          <article class="exp reveal" data-search="${(e.role+' '+e.company+' '+e.period+' '+(e.tags||[]).join(' ')).toLowerCase()}">
             <div class="expTop">
               <div>
                 <div class="expRole">${e.role}</div>
@@ -139,13 +153,13 @@
     `;
   }
 
-  // Skills (NO radar)
+  // Skills render (NO radar)
   const skillsGrid = $("#skillsGrid");
   if (skillsGrid && Array.isArray(p.skills)) {
     skillsGrid.innerHTML = `
       <div class="skillsWrap">
         ${p.skills.map(g => `
-          <div class="skillGroup reveal">
+          <div class="skillGroup reveal" data-search="${(g.group+' '+(g.items||[]).map(x=>x.name).join(' ')).toLowerCase()}">
             <div class="sgTitle">${g.group}</div>
             ${(g.items||[]).map(it => `
               <div class="meterRow">
@@ -159,7 +173,7 @@
     `;
   }
 
-  // Animate skill bars when visible
+  // Animate skill bars
   const meterObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if(!e.isIntersecting) return;
@@ -173,13 +187,13 @@
   }, { threshold: 0.18 });
   $$(".skillGroup").forEach(el => meterObserver.observe(el));
 
-  // Projects (diagram removed)
+  // Projects render (diagram removed)
   const proj = $("#projectList");
   if (proj && Array.isArray(p.projects)) {
     proj.innerHTML = `
       <div class="projectGrid">
         ${p.projects.map(pr => `
-          <article class="exp reveal">
+          <article class="exp reveal" data-search="${(pr.title+' '+pr.period+' '+(pr.stack||[]).join(' ')).toLowerCase()}">
             <div class="expTop">
               <div>
                 <div class="expRole">${pr.title}</div>
@@ -209,7 +223,7 @@
     `;
   }
 
-  // Certifications (with credentialId field)
+  // Certifications
   const certList = $("#certList");
   if (certList && Array.isArray(p.certifications)) {
     certList.innerHTML = `
@@ -221,12 +235,9 @@
               <div class="expCompany">Year: ${c.year}</div>
             </div>
           </div>
-
           <div class="certRow">
             <div><strong>Certificate No / Credential ID:</strong> ${c.credentialId}</div>
           </div>
-
-          ${c.verifyUrl ? `<a class="smallLink" href="${c.verifyUrl}" target="_blank" rel="noreferrer">Verify</a>` : ""}
         </article>
       `).join("")}
     `;
@@ -257,7 +268,19 @@
   if (cLoc) cLoc.textContent = p.location;
   if (cLinked) cLinked.setAttribute("href", p.linkedin);
 
-  // Reveal animation
+  // Search filter (Skills + Projects + Experience)
+  const searchBox = $("#searchBox");
+  if (searchBox) {
+    searchBox.addEventListener("input", () => {
+      const q = searchBox.value.trim().toLowerCase();
+      $$("[data-search]").forEach(el => {
+        const hay = (el.getAttribute("data-search") || "");
+        el.style.display = hay.includes(q) ? "" : "none";
+      });
+    });
+  }
+
+  // Reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => e.isIntersecting && e.target.classList.add("in"));
   }, { threshold: 0.12 });
@@ -266,4 +289,8 @@
   // Year
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();
+
+  // Floating buttons
+  const toTop = $("#fabTop");
+  if (toTop) toTop.addEventListener("click", () => window.scrollTo({top:0,behavior:"smooth"}));
 })();
