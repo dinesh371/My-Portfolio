@@ -1,118 +1,233 @@
+// =====================
+// PORTFOLIO DATA (EDIT HERE)
+// =====================
 window.PORTFOLIO = {
   name: "T. Dinesh",
-  title: "Infrastructure & Cloud System Administrator",
-  location: "India",
-  email: "YOUR_EMAIL_HERE",
+  title: "Infrastructure & Cloud System Administrator (IAM • Azure • Wintel)",
+  location: "Visakhapatnam, India",
+  email: "dineshtankala85@outlook.com",
+  phone: "+91-8331956172",
+  linkedin: "http://www.linkedin.com/in/dinesh-tankala",
+  github: "https://github.com/dinesh371",
+  cvPath: "assets/T_Dinesh_CV.pdf",
 
-  links: {
-    linkedin: "YOUR_LINKEDIN_URL_HERE",
-    github: "https://github.com/dinesh371"
-  },
+  totalExperience: "Nearly 8 Years (Dec 2017 – Present)",
 
-  tagline: "Secure Identity • Reliable Infrastructure • Cloud Operations • Incident Response",
+  tagline:
+    "Secure IAM, Azure/Wintel administration, and enterprise IT operations—built for uptime, compliance, and scale.",
+
   summary:
-    "Infrastructure & Cloud System Administrator with strong experience in Identity & Access Management (IAM), Windows infrastructure, enterprise IT support, and operations for government-scale programs. Skilled in user lifecycle (JML), system hardening, incident handling, and network support (AP/Wi-Fi, firewall policy support).",
+    "Infrastructure & Cloud System Administrator with nearly 8 years of experience in Azure and Wintel administration, Identity & Access Management, system hardening, and end-to-end IT operations. Experienced supporting government and healthcare projects (including NITI Aayog initiatives), managing user lifecycle and access controls, incident handling, patching, backups, and enterprise support across multi-environment setups.",
+
+  // Optional: hero background images (internet). If blocked, it falls back to animated mesh background.
+  heroImages: [
+    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=60",
+    "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=2400&q=60",
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2400&q=60"
+  ],
 
   stats: [
-    { k: "Total Experience", v: "X+ Years", s: "Infrastructure & support operations" },
-    { k: "Focus Areas", v: "IAM + Security", s: "JML, MFA, governance, hardening" },
-    { k: "Projects", v: "Gov + Enterprise", s: "Operations at scale" }
+    { k: "Total Experience", v: "8 Years", s: "Dec 2017 – Present" },
+    { k: "Focus Areas", v: "IAM • Azure • Wintel", s: "Security + Reliability" },
+    { k: "Support Scope", v: "L2/L3", s: "Infra + End-user + Apps" }
   ],
 
   highlights: [
-    { icon: "☁", k: "Infrastructure Operations", v: "Windows + endpoint support across environments" },
-    { icon: "🛡", k: "Security Mindset", v: "Hardening, patch readiness, audit discipline" },
-    { icon: "🔐", k: "Identity & Access", v: "Active Directory, JML lifecycle, access governance" },
-    { icon: "📶", k: "Network Support", v: "AP/Wi-Fi, firewall policy support, DNS/DHCP" }
+    { icon: "shield", k: "Security Hardening", v: "Policies, patching, and endpoint controls aligned to enterprise standards." },
+    { icon: "id", k: "Identity & Access", v: "Okta + AD + Workspace operations, provisioning, audits, and access hygiene." },
+    { icon: "cloud", k: "Azure & Wintel Ops", v: "IaaS/PaaS operations, monitoring, backups, and troubleshooting." },
+    { icon: "network", k: "Networking", v: "LAN/Wi-Fi management, routers, switches, and firewall log visibility." }
   ],
 
+  // =====================
+  // PROFESSIONAL EXPERIENCE (FROM YOUR RESUME)
+  // =====================
   experience: [
     {
-      role: "System Administrator / Infrastructure Support",
-      company: "ADD YOUR COMPANY NAME (From CV)",
-      location: "Location",
-      period: "YYYY – YYYY",
+      role: "System Administrator",
+      company: "PRO-VIGIL",
+      period: "Sep 2023 – Present",
+      location: "India",
       points: [
-        "Managed enterprise IT operations and end-to-end user support",
-        "Active Directory administration and joiner–mover–leaver (JML) lifecycle",
-        "Incident triage, escalation management, and closure validation",
-        "System hardening practices, patch readiness checks, and SOP-based operations",
-        "Network support: AP/Wi-Fi troubleshooting and firewall policy support"
+        "Handle cloud operations including create/modify/delete for resources and services, with monitoring, log management, and backups.",
+        "Set up user accounts and configure workstations for new and existing employees; manage onboarding/offboarding workflows.",
+        "Work with Jira ticketing for request tracking and SLA-based resolution.",
+        "Conduct security awareness training using KnowBe4 tools.",
+        "Manage RingCentral communication platform, Spanning Backup, and administrative panels (G-panel).",
+        "Wi-Fi device management using Omada Controller & Ruckus; LAN/Wi-Fi router configuration and maintenance.",
+        "Deploy security patches and updates quickly to reduce exposure and maintain compliance.",
+        "Install and support Windows OS; troubleshoot Outlook and enterprise productivity tooling."
       ],
-      tags: ["Active Directory", "IAM", "Hardening", "Incident Handling", "Network Support"]
+      tags: ["Azure Ops", "Jira", "KnowBe4", "LAN/Wi-Fi", "Backups", "IT Operations"]
     },
     {
-      role: "Government Project Support (NITI Aayog)",
-      company: "ADD YOUR COMPANY NAME (From CV)",
+      role: "System Support Specialist",
+      company: "Dynata",
+      period: "Dec 2021 – Sep 2023",
       location: "India",
-      period: "YYYY – YYYY",
       points: [
-        "Supported government-scale application operations and field user environments",
-        "Handled hardware + software support and application-level troubleshooting",
-        "Coordinated with stakeholders to ensure continuity and faster resolution",
-        "Improved reliability through documentation and repeat-issue prevention"
+        "Provided enterprise IT support across endpoints, user accounts, access requests, and daily operations.",
+        "Coordinated troubleshooting for application-level issues and cross-team escalations.",
+        "Supported infrastructure stability through incident response, documentation, and preventive checks."
       ],
-      tags: ["Gov Projects", "Ops Support", "Troubleshooting", "Stakeholder Coordination"]
+      tags: ["Enterprise Support", "Access Support", "Troubleshooting", "Incident Handling"]
+    },
+    {
+      role: "Technical Engineer",
+      company: "HBL Power Systems Ltd.",
+      period: "Jan 2021 – Dec 2021",
+      location: "India",
+      points: [
+        "Supported IT infrastructure and end-user systems; resolved hardware/software issues and ensured continuity.",
+        "Assisted operational maintenance, system updates, and troubleshooting procedures."
+      ],
+      tags: ["Infrastructure Support", "System Maintenance", "Troubleshooting"]
+    },
+    {
+      role: "IT Support (Projects / Healthcare IT)",
+      company: "Piramal Swasthya Management & Research Institute",
+      period: "Feb 2019 – Jan 2021",
+      location: "India",
+      points: [
+        "Supported health/telemedicine programs with application operations and field support.",
+        "Handled on-site/off-site IT assets and operational coordination for deployments and service continuity."
+      ],
+      tags: ["Telemedicine", "App Ops", "Asset Handling", "Field Support"]
+    },
+    {
+      role: "Network Engineer (NOC)",
+      company: "Pioneer Elba’s Limited",
+      period: "Dec 2017 – Dec 2018",
+      location: "India",
+      points: [
+        "Handled LAN/WAN support and NOC monitoring; ensured stable network operations and timely incident response.",
+        "Assisted router/switch operations and baseline troubleshooting for connectivity issues."
+      ],
+      tags: ["NOC", "LAN/WAN", "Networking", "Monitoring"]
     }
   ],
 
+  // =====================
+  // SKILLS (NO RADAR, NO IAM/INFRA IMAGES)
+  // =====================
   skills: [
-    { group: "IAM & Identity", items: [
-      { name: "Active Directory", level: 92 },
-      { name: "JML Lifecycle (Joiner/Mover/Leaver)", level: 88 },
-      { name: "Access Governance / MFA", level: 85 },
-      { name: "Group Policy / Role-based Access", level: 80 }
-    ]},
-    { group: "Infrastructure", items: [
-      { name: "Windows Server Administration", level: 86 },
-      { name: "Endpoint Support / Imaging", level: 84 },
-      { name: "Monitoring / Service Health", level: 78 },
-      { name: "Backup Readiness / Restore Awareness", level: 76 }
-    ]},
-    { group: "Security Operations", items: [
-      { name: "System Hardening", level: 84 },
-      { name: "Patch Readiness / Compliance", level: 82 },
-      { name: "Incident Handling + RCA", level: 80 },
-      { name: "Audit Logs / Operational Governance", level: 76 }
-    ]},
-    { group: "Networking", items: [
-      { name: "AP/Wi-Fi Troubleshooting", level: 82 },
-      { name: "Firewall Policy Support", level: 78 },
-      { name: "DNS/DHCP Fundamentals", level: 76 },
-      { name: "LAN Troubleshooting", level: 74 }
-    ]}
+    {
+      group: "Cloud & Systems",
+      items: [
+        { name: "Azure Administration (IaaS/PaaS)", level: 82 },
+        { name: "Windows Server / Wintel", level: 86 },
+        { name: "VMWare / Hyper-V (Infra Exposure)", level: 72 },
+        { name: "Office 365 / Google Workspace Ops", level: 80 }
+      ]
+    },
+    {
+      group: "Identity & Access Management",
+      items: [
+        { name: "Okta (Provisioning / Policies)", level: 82 },
+        { name: "Active Directory (User/Group)", level: 84 },
+        { name: "User Lifecycle (Joiner-Mover-Leaver)", level: 86 },
+        { name: "Access Hygiene & Reviews", level: 76 }
+      ]
+    },
+    {
+      group: "Security & Hardening",
+      items: [
+        { name: "Security Awareness (KnowBe4)", level: 80 },
+        { name: "Patch & Update Lifecycle", level: 85 },
+        { name: "Endpoint / AV Tools", level: 78 },
+        { name: "Vulnerability & Scan Tools (Nessus/NMAP)", level: 74 }
+      ]
+    },
+    {
+      group: "Networking & Support",
+      items: [
+        { name: "LAN / Wi-Fi Management", level: 82 },
+        { name: "Router Configuration & Troubleshooting", level: 78 },
+        { name: "Ticketing (Jira) + SLAs", level: 86 },
+        { name: "Application Troubleshooting", level: 80 }
+      ]
+    }
   ],
 
+  // =====================
+  // PROJECTS (FROM YOUR RESUME LIST)
+  // NOTE: Kept high-level, no fake metrics
+  // =====================
   projects: [
     {
-      name: "NITI Aayog Program – Operations Support",
-      period: "2019 – 2023",
-      problem: "Government-scale environments required stable operations, quick triage, and reliable closure management.",
+      title: "NITI Aayog – Aspirational District App (Play Store)",
+      period: "Feb 2019 – Present",
+      problem:
+        "Required reliable IT and application support for government-facing field operations.",
       actions: [
-        "Provided application-level troubleshooting and operational support",
-        "Handled hardware + software readiness for field users",
-        "Followed SOP workflows for incident triage, escalation and closure",
-        "Supported access hygiene and governance principles where applicable"
+        "Supported operational continuity through system/app troubleshooting and coordination.",
+        "Ensured user access readiness and device support for field execution."
       ],
-      outcome: "Improved operational continuity through structured support workflows and faster resolution cycles.",
-      tags: ["Gov Support", "Incident Handling", "Operations", "Documentation"]
+      outcome:
+        "Maintained stable operations for field deployments with structured support and incident handling.",
+      stack: ["Gov Projects", "App Ops", "Support", "Coordination"]
     },
     {
-      name: "Enterprise IT Support & Infrastructure Reliability",
-      period: "2023 – Present",
-      problem: "Enterprise users needed consistent access, secure identity operations, and dependable infrastructure support.",
+      title: "Health & Wellness Center – Telemedicine",
+      period: "Sep 2019 – Present",
+      problem:
+        "Telemedicine workflows require dependable systems, connectivity, and field enablement.",
       actions: [
-        "Managed AD user lifecycle, role-based access support, and troubleshooting",
-        "Performed structured incident response and follow-up actions",
-        "Supported network troubleshooting including AP/Wi-Fi and firewall policy support",
-        "Implemented repeat-issue prevention through documentation discipline"
+        "Provided end-to-end IT support (software + hardware).",
+        "Coordinated troubleshooting and continuity for service teams."
       ],
-      outcome: "More stable IT operations and improved service readiness through consistent governance and troubleshooting.",
-      tags: ["IAM", "Infrastructure", "Network", "Security Ops"]
+      outcome:
+        "Improved operational stability through structured support and IT readiness.",
+      stack: ["Telemedicine", "IT Support", "Operations"]
+    },
+    {
+      title: "Door-to-Door Mobile App Support",
+      period: "Sep 2020 – Present",
+      problem:
+        "Large user base requires consistent device/app support and access handling.",
+      actions: [
+        "Supported device readiness and operational issue resolution.",
+        "Assisted in maintaining access and continuity across teams."
+      ],
+      outcome:
+        "Reduced disruptions through predictable support workflow and escalations.",
+      stack: ["Mobility", "Support", "Operations"]
     }
   ],
 
+  // =====================
+  // CERTIFICATIONS (FROM YOUR RESUME)
+  // IMPORTANT: Resume did not contain credential IDs,
+  // so I am NOT inventing numbers.
+  // You can fill your actual IDs later.
+  // =====================
   certifications: [
-    { name: "Add certification here", org: "Issuer", year: "Year", note: "Optional note." }
+    { name: "Microsoft Certified: Azure Administrator (AZ-104)", year: "—", credentialId: "Add your Credential ID here", verifyUrl: "" },
+    { name: "Microsoft Technology Associate (MTA)", year: "—", credentialId: "Add your Certificate No here", verifyUrl: "" },
+    { name: "Microsoft Certified Professional (MCP)", year: "—", credentialId: "Add your Certificate No here", verifyUrl: "" },
+    { name: "Office 365 (Administration / Support)", year: "—", credentialId: "Add your Certificate No here", verifyUrl: "" }
+  ],
+
+  // =====================
+  // SECURITY (HARDENING)
+  // =====================
+  securityPractices: [
+    {
+      title: "Google-style Hardening (Professional Standard)",
+      bullets: [
+        "Least privilege access, strong authentication and recovery controls",
+        "Regular patching and rapid update rollout",
+        "Endpoint protection + security awareness training",
+        "Logging/monitoring, backup validation, and incident playbooks"
+      ]
+    },
+    {
+      title: "Enterprise Security Operations",
+      bullets: [
+        "Vulnerability checks (Nessus/NMAP) and baseline mitigation",
+        "Ticket-driven SLA support with documentation and RCA mindset",
+        "Access reviews and controlled onboarding/offboarding"
+      ]
+    }
   ]
 };

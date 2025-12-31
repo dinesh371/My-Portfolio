@@ -1,136 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | T. Dinesh</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — T. Dinesh</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg">
-    <div class="bg__mesh"></div><div class="bg__noise"></div>
-    <div class="bg__orb o1"></div><div class="bg__orb o2"></div><div class="bg__orb o3"></div>
-  </div>
-
   <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M7 12.5c0-2.9 2.1-5.2 5-5.2 2 0 3.7 1.1 4.5 2.8 2 .2 3.5 1.9 3.5 3.9 0 2.2-1.8 4-4 4H9.8C8.2 18 7 16.9 7 15.5v-3z" stroke="currentColor" stroke-width="1.6" />
-          </svg>
-        </span>
-        <span class="brand__text">
-          <span class="brand__name">T. Dinesh</span>
-          <span class="brand__role">Infrastructure • Cloud • IAM</span>
-        </span>
-      </a>
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="logoMark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l8 4v6c0 5-3.4 9.2-8 10-4.6-.8-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M8.5 12.2l2.2 2.2 4.8-5.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>T. Dinesh</span>
+        </a>
 
-      <button class="nav__menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+        <div class="links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="experience.html">Experience</a>
+          <a href="projects.html">Case Studies</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="security.html">Security</a>
+          <a href="contact.html">Contact</a>
+        </div>
 
-      <nav class="nav__links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a class="active" href="about.html">About</a>
-        <a href="skills.html">Skills Matrix</a>
-        <a href="experience.html">Experience</a>
-        <a href="projects.html">Case Studies</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
-
-        <button class="btn btn--sm btn--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
-          <span aria-hidden="true">☀</span><span aria-hidden="true">🌙</span>
-        </button>
-
-        <a class="btn btn--sm btn--primary" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+        <div class="navRight">
+          <button class="btn iconBtn menuBtn" data-menu-toggle aria-label="Open menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a class="btn btnGhost" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+          <button class="btn iconBtn" data-theme-toggle aria-label="Switch theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a7 7 0 1 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="section reveal">
-      <div class="section__head">
-        <h2>About</h2>
-        <p class="muted">Infrastructure & Cloud System Administrator with strong IAM and enterprise operations experience.</p>
-      </div>
-
-      <div class="grid2">
-        <article class="card lift">
-          <h3>Professional Summary</h3>
-          <p class="muted" style="line-height:1.75;margin:0;">
-            I support end-to-end IT environments across cloud and on-prem—covering identity administration,
-            system hardening, incident handling, and operational governance. I’ve contributed to
-            government-scale programs and enterprise infrastructure where reliability and security are non-negotiable.
-          </p>
-          <div class="pillrow">
-            <span class="pill">Azure Ops</span>
-            <span class="pill">Active Directory</span>
-            <span class="pill">Join/Move/Leave</span>
-            <span class="pill">Hardening</span>
-            <span class="pill">Incidents + RCA</span>
-          </div>
-        </article>
-
-        <article class="card lift">
-          <h3>Core Strengths</h3>
-          <ul>
-            <li>Identity & access governance (AD, MFA, lifecycle processes)</li>
-            <li>Windows / Wintel administration, patching, monitoring & backups</li>
-            <li>Operational readiness: SLAs, escalations, documentation, RCA</li>
-            <li>Network fundamentals: LAN/Wi-Fi, access points, firewall policy support</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section--alt reveal">
-      <div class="split">
-        <div>
-          <h2>What I’m Known For</h2>
-          <p class="muted">
-            Calm incident handling, disciplined change execution, and security-first thinking.
-            I’m comfortable operating in production environments and improving reliability through
-            standardization and continuous controls.
-          </p>
-          <div class="actions">
-            <a class="btn btn--primary" href="experience.html">View Experience</a>
-            <a class="btn btn--ghost" href="projects.html">View Case Studies</a>
+  <main class="page">
+    <section class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>About</h2>
+            <p>
+              Infrastructure & system administrator with strong experience across enterprise support, IAM,
+              networking, monitoring, and security operations. :contentReference[oaicite:2]{index=2}
+            </p>
           </div>
         </div>
 
-        <div class="imageCard">
-          <img src="assets/network.svg" alt="Network illustration" onerror="this.style.display='none'"/>
-          <div class="imageCard__cap muted">Add a clean SVG/PNG from your browser (optional).</div>
-        </div>
-      </div>
-    </section>
+        <div class="grid2">
+          <div class="card">
+            <div class="cardTitle">
+              <h3>Professional summary</h3>
+              <span class="badge">Profile</span>
+            </div>
+            <p>
+              I support production environments end-to-end: user onboarding and access control, endpoint readiness,
+              system hardening, patch coordination, backups, monitoring, and incident resolution.
+            </p>
+            <ul class="ul">
+              <li>AD administration and user lifecycle (join/move/leave, groups, access)</li>
+              <li>Microsoft 365 support and enterprise endpoint operations</li>
+              <li>VPN/DNS/DHCP troubleshooting + on-prem networking fundamentals</li>
+            </ul>
+          </div>
 
-    <footer class="footer">
-      <div class="footer__row">
-        <div class="muted">© <span id="year"></span> T. Dinesh</div>
-        <div class="footer__links">
-          <a href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
-          <a href="contact.html">Contact</a>
+          <div class="card">
+            <div class="cardTitle">
+              <h3>Public sector & program operations</h3>
+              <span class="badge">Gov</span>
+            </div>
+            <p>
+              Supported government-scale programs and field operations (including NITI Aayog-linked initiatives),
+              handling device readiness, application support, and infrastructure troubleshooting. :contentReference[oaicite:3]{index=3}
+            </p>
+            <ul class="ul">
+              <li>Application-level troubleshooting + escalation to development teams</li>
+              <li>Inventory management for onsite/offsite IT assets</li>
+              <li>Service desk ownership within SLA and RCA-style closures</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
-        </ul>
-        </article>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container foot">
-      <span>© <span id="year"></span> T. Dinesh</span>
-      <span class="muted">Security</span>
+    <div class="container">
+      <div class="foot">
+        <span>© <span id="yr"></span> T. Dinesh</span>
+        <span><a href="contact.html">Contact</a></span>
+      </div>
     </div>
   </footer>
-  <script src="./script.js"></script>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
