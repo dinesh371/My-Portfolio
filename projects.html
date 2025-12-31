@@ -7,89 +7,47 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="bg">
-    <div class="bg__mesh"></div><div class="bg__noise"></div>
-    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-  </div>
+  <div class="bg"><div class="bg__mesh"></div><div class="bg__noise"></div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 
   <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="index.html">
-        <div class="brand__logo">☁</div>
-        <div class="brand__text">
-          <div class="brand__name">T. Dinesh</div>
-          <div class="brand__role">Case Studies</div>
-        </div>
-      </a>
-
-      <button class="menuBtn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
-
+      <a class="brand" href="index.html"><div class="brand__logo">☁</div><div class="brand__text"><div class="brand__name">T. Dinesh</div><div class="brand__role">Case Studies</div></div></a>
+      <button class="menuBtn" id="menuBtn"><span></span><span></span><span></span></button>
       <nav class="navlinks" id="navLinks">
-        <a href="index.html">Overview</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Case Studies</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">Overview</a><a href="experience.html">Experience</a><a href="skills.html">Skills</a><a href="projects.html">Case Studies</a>
+        <a href="certifications.html">Certifications</a><a href="security.html">Security</a><a href="contact.html">Contact</a>
         <button class="btn sm ghost" id="themeToggle" type="button">☀ / 🌙</button>
         <a class="btn sm primary" id="cvLink" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
       </nav>
     </div>
   </header>
 
-  <div id="pageWrap" class="pageWrap">
-    <main class="container shell">
-      <aside class="card side reveal">
-        <div class="profile">
-          <div class="avatar"><img id="profileImg" alt="Profile photo"/></div>
-          <div class="avatarFallback" id="avatarFallback">TD</div>
-          <div>
-            <div class="h1" id="name"></div>
-            <div class="h2" id="title"></div>
-            <div class="small" id="location"></div>
-          </div>
-        </div>
+  <main class="container shell">
+    <aside class="card side reveal">
+      <div class="profile">
+        <div class="avatar"><img id="profileImg" src="assets/profile.png" alt="Profile (optional)"/></div>
+        <div><div class="h1" id="name"></div><div class="h2" id="title"></div><div class="small" id="location"></div></div>
+      </div>
+      <div class="hr"></div>
+      <div class="tagline" id="summary"></div>
+    </aside>
 
+    <section class="main">
+      <section class="card section reveal">
+        <div class="sectionTitle">Case Studies</div>
+        <div class="sectionSub">Professional templates with diagram support — easy to extend later.</div>
         <div class="hr"></div>
-        <div class="tagline"><b id="tagline"></b></div>
-        <div class="tagline" id="summary"></div>
-
-        <div class="hr"></div>
-        <div class="actions">
-          <a class="btn primary" id="cvBtn" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
-          <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn ghost" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </aside>
-
-      <section class="main">
-        <section class="card section reveal">
-          <div class="sectionTitle">Case Studies / Projects</div>
-          <div class="sectionSub">
-            Real-world work and government-scale programs — presented in a structured “Problem → Actions → Outcome” format.
-          </div>
-          <div class="hr"></div>
-
-          <div id="projectList"></div>
-        </section>
-
-        <footer class="footer reveal">
-          <div class="footerRow">
-            <div class="muted">© <span id="year"></span> T. Dinesh</div>
-            <div class="footerLinks"><a href="assets/T_Dinesh_CV.pdf" download>Download CV</a></div>
-          </div>
-        </footer>
+        <div id="projectList"></div>
       </section>
-    </main>
-  </div>
 
-  <div class="quick" aria-label="Quick actions">
-    <button class="qbtn" id="qCV" title="Download CV"><span>⬇</span></button>
-    <button class="qbtn" id="qEmail" title="Email"><span>✉</span></button>
-    <button class="qbtn" id="qLinked" title="LinkedIn"><span>in</span></button>
-    <button class="qbtn" id="qTop" title="Top"><span>↑</span></button>
-  </div>
+      <footer class="footer reveal">
+        <div class="footerRow">
+          <div class="muted">© <span id="year"></span> T. Dinesh</div>
+          <div class="footerLinks"><a href="assets/T_Dinesh_CV.pdf" download>Download CV</a></div>
+        </div>
+      </footer>
+    </section>
+  </main>
 
   <script src="data.js"></script>
   <script src="script.js"></script>

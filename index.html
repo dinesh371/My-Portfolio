@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="bg"><div class="bg__mesh"></div><div class="bg__noise"></div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+  <div class="bg">
+    <div class="bg__mesh"></div><div class="bg__noise"></div>
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  </div>
 
   <header class="topbar">
     <div class="container nav">
       <a class="brand" href="index.html">
-        <div class="brand__logo">☁</div>
+        <div class="brand__logo" aria-hidden="true">☁</div>
         <div class="brand__text">
           <div class="brand__name">T. Dinesh</div>
           <div class="brand__role">Professional CV (Modern)</div>
@@ -37,89 +40,90 @@
     </div>
   </header>
 
-  <div id="pageWrap" class="pageWrap">
-    <main class="container shell">
-      <aside class="card side reveal">
-        <div class="profile">
-          <div class="avatar"><img id="profileImg" alt="Profile photo"/></div>
-          <div class="avatarFallback" id="avatarFallback">TD</div>
+  <main class="container shell">
+    <aside class="card side reveal">
+      <div class="profile">
+        <div class="avatar">
+          <img id="profileImg" src="assets/profile.png" alt="Profile (optional)"/>
+        </div>
+        <div>
+          <div class="h1" id="name">T. Dinesh</div>
+          <div class="h2" id="title">Infrastructure & Cloud System Administrator</div>
+          <div class="small" id="location"></div>
+        </div>
+      </div>
+
+      <div class="metaRow">
+        <div class="meta"><b>Email </b><span id="emailText"></span></div>
+        <div class="meta"><b>Phone</b><span id="+91"></span></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" id="cvBtn" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+        <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn ghost" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        <button class="btn ghost" id="copyEmail" type="button">Copy Email</button>
+      </div>
+
+      <div class="hr"></div>
+      <div class="tagline"><b id="tagline"></b></div>
+      <div class="tagline" id="summary"></div>
+    </aside>
+
+    <section class="main">
+      <section class="card section reveal">
+        <div class="titleRow">
           <div>
-            <div class="h1" id="name">T. Dinesh</div>
-            <div class="h2" id="title">Infrastructure & Cloud System Administrator</div>
-            <div class="small" id="location"></div>
+            <div class="sectionTitle">Overview</div>
+            <div class="sectionSub">A modern, recruiter-friendly overview designed for Infrastructure / Cloud / IAM roles.</div>
           </div>
         </div>
 
-        <div class="metaRow">
-          <div class="meta"><b>Email</b><span id="emailText"></span></div>
-          <div class="meta"><b>Phone</b><span id="phoneText"></span></div>
-        </div>
-
-        <div class="actions">
-          <a class="btn primary" id="cvBtn" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
-          <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn ghost" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
-          <button class="btn ghost" id="copyEmail" type="button">Copy Email</button>
-        </div>
+        <div class="stats" id="stats"></div>
 
         <div class="hr"></div>
-        <div class="tagline"><b id="tagline"></b></div>
-        <div class="tagline" id="summary"></div>
-      </aside>
+        <div class="sectionTitle">Core Capabilities</div>
+        <div class="sectionSub">Security-first operations with strong identity control and scalable support practices.</div>
+        <div class="hr"></div>
 
-      <section class="main">
-        <section class="heroBanner reveal">
-          <div class="heroInner">
-            <div>
-              <div class="heroTitle">Infrastructure • Cloud • IAM — Premium CV Portfolio</div>
-              <div class="heroLead">
-                Security-first system administration across Google Workspace, Windows infrastructure, Azure operations,
-                enterprise support, and incident handling — designed for governance and scale.
-              </div>
-              <div class="heroBadges">
-                <span class="badge">Google Admin</span>
-                <span class="badge">IAM / JML</span>
-                <span class="badge">MFA / 2SV</span>
-                <span class="badge">System Hardening</span>
-                <span class="badge">Azure Ops</span>
-                <span class="badge">AP / Firewall</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card section reveal">
-          <div class="sectionTitle">Overview</div>
-          <div class="sectionSub">Designed like a modern professional CV — fast, clean, recruiter-friendly.</div>
-          <div class="stats" id="stats"></div>
-
-          <div class="hr"></div>
-          <div class="sectionTitle">Core Capabilities</div>
-          <div class="sectionSub">Security-first operations with strong identity control and scalable support practices.</div>
-          <div class="hr"></div>
-          <div class="grid2" id="highlights"></div>
-        </section>
-
-        <footer class="footer reveal">
-          <div class="footerRow">
-            <div class="muted">© <span id="year"></span> T. Dinesh</div>
-            <div class="footerLinks">
-              <a id="emailLink" href="#">Email</a>
-              <a href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
-            </div>
-          </div>
-        </footer>
+        <div class="grid2" id="highlights"></div>
       </section>
-    </main>
-  </div>
 
-  <!-- Quick Actions -->
-  <div class="quick" aria-label="Quick actions">
-    <button class="qbtn" id="qCV" title="Download CV"><span>⬇</span></button>
-    <button class="qbtn" id="qEmail" title="Email"><span>✉</span></button>
-    <button class="qbtn" id="qLinked" title="LinkedIn"><span>in</span></button>
-    <button class="qbtn" id="qTop" title="Top"><span>↑</span></button>
-  </div>
+      <section class="card section reveal">
+        <div class="sectionTitle">Navigate</div>
+        <div class="sectionSub">Each page is structured like a premium CV template.</div>
+        <div class="hr"></div>
+        <div class="grid2">
+          <a class="feature" href="experience.html">
+            <div class="icon">🧭</div>
+            <div><div class="featureK">Experience</div><div class="featureV">Company names + years + impact bullets.</div></div>
+          </a>
+          <a class="feature" href="skills.html">
+            <div class="icon">📊</div>
+            <div><div class="featureK">Skills Matrix</div><div class="featureV">Graphical meters for key skill groups.</div></div>
+          </a>
+          <a class="feature" href="projects.html">
+            <div class="icon">🧩</div>
+            <div><div class="featureK">Case Studies</div><div class="featureV">Problem → Actions → Outcome + diagrams.</div></div>
+          </a>
+          <a class="feature" href="security.html">
+            <div class="icon">🔐</div>
+            <div><div class="featureK">Security</div><div class="featureV">Hardening approach aligned to enterprise/Workspace security.</div></div>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer reveal">
+        <div class="footerRow">
+          <div class="muted">© <span id="year"></span> T. Dinesh</div>
+          <div class="footerLinks">
+            <a id="emailLink" href="#">Email</a>
+            <a href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
