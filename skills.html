@@ -1,106 +1,80 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Skills Matrix | T. Dinesh</title>
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills | T. Dinesh</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<header class="topbar">
-  <div class="container nav">
-    <a class="brand" href="./index.html">
-      <img class="brand-logo" src="./assets/logo.svg" alt="TD logo" onerror="this.style.display='none'">
-      <span class="brand-text">T. Dinesh</span>
-    </a>
-    <nav class="links">
-      <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./experience.html">Experience</a>
-      <a href="./projects.html">Work</a>
-      <a class="active" href="./skills.html">Skills</a>
-      <a href="./certifications.html">Certifications</a>
-      <a href="./contact.html">Contact</a>
-      <a class="pill-link" href="./assets/T_Dinesh_CV.pdf" download>Download CV</a>
-      <button class="pill-link" id="themeToggle" type="button">Theme</button>
-    </nav>
-    <button class="menu" aria-label="Open menu" aria-expanded="false">Menu</button>
-  </div>
-</header>
+  <div class="bg"><div class="bg__mesh"></div><div class="bg__noise"></div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 
-<main class="page">
-  <section class="page-hero">
-    <div class="container">
-      <h1>Skills Matrix</h1>
-      <p class="muted">Infrastructure skills mapped to real operations and standards.</p>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="brand__logo">☁</div><div class="brand__text"><div class="brand__name">T. Dinesh</div><div class="brand__role">Skills</div></div></a>
+      <button class="menuBtn" id="menuBtn"><span></span><span></span><span></span></button>
+      <nav class="navlinks" id="navLinks">
+        <a href="index.html">Overview</a><a href="experience.html">Experience</a><a href="skills.html">Skills</a><a href="projects.html">Case Studies</a>
+        <a href="certifications.html">Certifications</a><a href="security.html">Security</a><a href="contact.html">Contact</a>
+        <button class="btn sm ghost" id="themeToggle" type="button">☀ / 🌙</button>
+        <a class="btn sm primary" id="cvLink" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid2">
-        <div class="card">
-          <h2>Cloud & Platform (Azure)</h2>
-          <ul class="bullets">
-            <li>VM lifecycle, governance, monitoring/logs</li>
-            <li>VNET/NSG controls, access rules, backups/DR validation</li>
-            <li>Operational readiness: runbooks, change discipline</li>
-          </ul>
+  <div id="pageWrap" class="pageWrap">
+    <main class="container shell">
+      <aside class="card side reveal">
+        <div class="profile">
+          <div class="avatar"><img id="profileImg" alt="Profile photo"/></div>
+          <div class="avatarFallback" id="avatarFallback">TD</div>
+          <div><div class="h1" id="name"></div><div class="h2" id="title"></div><div class="small" id="location"></div></div>
         </div>
+        <div class="hr"></div>
+        <div class="tagline" id="summary"></div>
+      </aside>
 
-        <div class="card">
-          <h2>Wintel & Endpoint</h2>
-          <ul class="bullets">
-            <li>Windows Server administration & troubleshooting</li>
-            <li>System baselines, performance tuning, patching</li>
-            <li>Enterprise support & escalation handling</li>
-          </ul>
-        </div>
+      <section class="main">
+        <section class="card section reveal">
+          <div class="sectionTitle">Skills Matrix (Graphical)</div>
+          <div class="sectionSub">Meters + Radar chart (auto-calculated). Perfect for hiring managers.</div>
+          <div class="hr"></div>
 
-        <div class="card">
-          <h2>IAM</h2>
-          <ul class="bullets">
-            <li>User lifecycle: join/move/leave</li>
-            <li>MFA enforcement & access governance</li>
-            <li>Least privilege + audit readiness practices</li>
-          </ul>
-        </div>
+          <div class="searchRow">
+            <input id="searchBox" class="search" placeholder="Search skills (ex: MFA, Azure, Firewall, AD)..." />
+          </div>
 
-        <div class="card">
-          <h2>Networking</h2>
-          <ul class="bullets">
-            <li>LAN/Wi-Fi operations, access points & controllers</li>
-            <li>Firewall policies, routing/connectivity troubleshooting</li>
-            <li>Outage handling, escalation coordination</li>
-          </ul>
-        </div>
-      </div>
+          <div class="hr"></div>
+          <div class="radarWrap reveal">
+            <div class="radarTop">
+              <div class="radarTitle">Skills Radar</div>
+              <div class="radarHint">Auto-calculated from matrix</div>
+            </div>
+            <div id="radarSvg"></div>
+          </div>
 
-      <div class="card callout">
-        <h2>Security & Hardening Standards (Google-aligned)</h2>
-        <ul class="bullets">
-          <li>Security-by-design: continuous remediation + hardened baselines using recognized benchmarks (e.g., CIS).</li>
-          <li>Baseline configuration checks, patch governance, and hardening of servers/endpoints.</li>
-          <li>Integrity mindset for VMs (secure/measured boot concepts) where applicable.</li>
-          <li>Zero Trust mindset (BeyondCorp-style): identity/device-first access principles over perimeter trust.</li>
-          <li>Centralized monitoring, alerting, and RCA-driven preventive actions.</li>
-        </ul>
-        <p class="subnote">
-          Note: This section references widely adopted industry guidance and Google Cloud security concepts
-          to demonstrate professional alignment.
-        </p>
-      </div>
-    </div>
-  </section>
-</main>
+          <div class="hr"></div>
+          <div class="grid2" id="skillsGrid"></div>
+        </section>
 
-<footer class="footer">
-  <div class="container foot">
-    <span>© <span id="year"></span> T. Dinesh</span>
-    <span class="muted">Skills</span>
+        <footer class="footer reveal">
+          <div class="footerRow">
+            <div class="muted">© <span id="year"></span> T. Dinesh</div>
+            <div class="footerLinks"><a href="assets/T_Dinesh_CV.pdf" download>Download CV</a></div>
+          </div>
+        </footer>
+      </section>
+    </main>
   </div>
-</footer>
-<script src="./script.js"></script>
+
+  <div class="quick">
+    <button class="qbtn" id="qCV" title="Download CV"><span>⬇</span></button>
+    <button class="qbtn" id="qEmail" title="Email"><span>✉</span></button>
+    <button class="qbtn" id="qLinked" title="LinkedIn"><span>in</span></button>
+    <button class="qbtn" id="qTop" title="Top"><span>↑</span></button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
