@@ -3,7 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>T. Dinesh — Professional CV</title>
+  <title>T. Dinesh — Infrastructure & Cloud System Administrator</title>
+
+  <!-- SEO -->
+  <meta name="description" content="T. Dinesh — Infrastructure & Cloud System Administrator (IAM • Azure • Wintel). Security-first operations, stable enterprise support, and reliable delivery." />
+  <meta name="keywords" content="Azure Administrator, IAM, Okta, Active Directory, Wintel, System Administrator, Infrastructure Support, Microsoft 365" />
+  <meta name="author" content="T. Dinesh" />
+
+  <!-- OpenGraph (LinkedIn preview) -->
+  <meta property="og:title" content="T. Dinesh — Infrastructure & Cloud System Administrator" />
+  <meta property="og:description" content="Security-first IAM + Azure/Wintel operations. Stable, trusted L2/L3 enterprise support." />
+  <meta property="og:type" content="website" />
+  <!-- Put your hosted URL after you deploy -->
+  <meta property="og:url" content="https://your-domain.com/" />
+  <!-- Optional: add an image after deployment -->
+  <meta property="og:image" content="https://your-domain.com/assets/Profile.JPG" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -56,6 +71,9 @@
             <a class="btn" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
           </div>
 
+          <!-- Tech logo row -->
+          <div class="logoRow" id="toolLogos"></div>
+
           <hr class="sep" />
           <p class="hSub" id="summary"></p>
         </div>
@@ -71,6 +89,7 @@
           </div>
 
           <hr class="sep" />
+
           <div class="kv">Email: <a id="emailLink" href="#"><span id="emailText"></span></a></div>
           <button class="copyBtn" id="copyEmail">Copy Email</button>
 
@@ -107,6 +126,13 @@
     © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
   </div>
 </footer>
+
+<!-- Floating buttons -->
+<div class="fab">
+  <a id="fabCv" href="#" target="_blank" rel="noreferrer">⬇ Download CV</a>
+  <a id="fabMail" href="#">✉ Email</a>
+  <button id="fabTop">↑ Top</button>
+</div>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
