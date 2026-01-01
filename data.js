@@ -192,19 +192,15 @@ window.PORTFOLIO = {
     }
   ],
 
+  // ✅ FIXED: no duplicates, properly closed
   certifications: [
-<<<<<<< HEAD
-    { name: "Microsoft Certified: Azure Administrator (AZ-104)"},
-    { name: "Microsoft Technology Associate (MTA)" },
-    { name: "Microsoft Certified Professional (MCP)"},
-=======
     { name: "Microsoft Certified: Azure Administrator (AZ-104)" },
     { name: "Microsoft Technology Associate (MTA)" },
     { name: "Microsoft Certified Professional (MCP)" },
->>>>>>> 30bdd89cdb6acb55371a683860aa20599f3b802f
     { name: "Office 365 (Administration / Support)" }
   ],
 
+  // ✅ FIXED: correctly placed + properly closed
   securityPractices: [
     {
       title: "Security & Hardening (Enterprise Standard)",
@@ -214,7 +210,18 @@ window.PORTFOLIO = {
         "Endpoint protection + security awareness training",
         "Logging/monitoring, backup validation, and incident playbooks"
       ]
-    },  // Logo row (simple, high-trust tech stack)
+    },
+    {
+      title: "Operational Excellence",
+      bullets: [
+        "Vulnerability checks (Nessus/NMAP) and baseline mitigation",
+        "Ticket-driven SLA support with documentation and RCA mindset",
+        "Access reviews and controlled onboarding/offboarding"
+      ]
+    }
+  ],
+
+  // ✅ FIXED: logos at correct level
   toolLogos: [
     { name: "Azure", key: "azure" },
     { name: "Okta", key: "okta" },
@@ -229,15 +236,5 @@ window.PORTFOLIO = {
     years: 8,
     support: "L2/L3",
     focus: 3
-  },
-
-    {
-      title: "Operational Excellence",
-      bullets: [
-        "Vulnerability checks (Nessus/NMAP) and baseline mitigation",
-        "Ticket-driven SLA support with documentation and RCA mindset",
-        "Access reviews and controlled onboarding/offboarding"
-      ]
-    }
-  ]
+  }
 };
