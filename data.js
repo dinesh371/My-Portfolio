@@ -1,6 +1,7 @@
 // =====================
-// PORTFOLIO DATA (EDIT HERE)
+// PORTFOLIO DATA (FINAL)
 // =====================
+
 window.PORTFOLIO = {
   name: "T. Dinesh",
   title: "Infrastructure & Cloud System Administrator (IAM • Azure • Wintel)",
@@ -11,6 +12,9 @@ window.PORTFOLIO = {
   github: "https://github.com/dinesh371",
   cvPath: "assets/T_Dinesh_CV.pdf",
 
+  // ✅ case-sensitive
+  profileImage: "assets/Profile.JPG",
+
   totalExperience: "Nearly 8 Years (Dec 2017 – Present)",
 
   tagline:
@@ -19,12 +23,14 @@ window.PORTFOLIO = {
   summary:
     "Infrastructure & Cloud System Administrator with nearly 8 years of experience in Azure and Wintel administration, Identity & Access Management, system hardening, and end-to-end IT operations. Experienced supporting government and healthcare projects (including NITI Aayog initiatives), managing user lifecycle and access controls, incident handling, patching, backups, and enterprise support across multi-environment setups.",
 
-  // Optional: hero background images (internet). If blocked, it falls back to animated mesh background.
+  // Safe + stable image CDN (reliable)
   heroImages: [
     "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=60",
     "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=2400&q=60",
     "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2400&q=60"
   ],
+
+  badges: ["IAM", "Azure", "Wintel", "Okta", "Active Directory", "Hardening", "L2/L3"],
 
   stats: [
     { k: "Total Experience", v: "8 Years", s: "Dec 2017 – Present" },
@@ -33,15 +39,19 @@ window.PORTFOLIO = {
   ],
 
   highlights: [
-    { icon: "shield", k: "Security Hardening", v: "Policies, patching, and endpoint controls aligned to enterprise standards." },
+    { icon: "shield", k: "Security Hardening", v: "Policies, patching, endpoint controls aligned to enterprise standards." },
     { icon: "id", k: "Identity & Access", v: "Okta + AD + Workspace operations, provisioning, audits, and access hygiene." },
     { icon: "cloud", k: "Azure & Wintel Ops", v: "IaaS/PaaS operations, monitoring, backups, and troubleshooting." },
     { icon: "network", k: "Networking", v: "LAN/Wi-Fi management, routers, switches, and firewall log visibility." }
   ],
 
-  // =====================
-  // PROFESSIONAL EXPERIENCE (FROM YOUR RESUME)
-  // =====================
+  // ✅ Confidence / credibility section
+  confidence: [
+    { icon: "shield", k: "Safe hire mindset", v: "Calm under pressure—secure operations, clean updates, SLA-driven closure, and documentation." },
+    { icon: "cloud", k: "Operational reliability", v: "Monitoring, backups, patch cycles, and troubleshooting across enterprise environments." },
+    { icon: "id", k: "Access discipline", v: "Joiner/Mover/Leaver, least privilege, audits/reviews, and access hygiene." }
+  ],
+
   experience: [
     {
       role: "System Administrator",
@@ -107,9 +117,6 @@ window.PORTFOLIO = {
     }
   ],
 
-  // =====================
-  // SKILLS (NO RADAR, NO IAM/INFRA IMAGES)
-  // =====================
   skills: [
     {
       group: "Cloud & Systems",
@@ -149,80 +156,83 @@ window.PORTFOLIO = {
     }
   ],
 
-  // =====================
-  // PROJECTS (FROM YOUR RESUME LIST)
-  // NOTE: Kept high-level, no fake metrics
-  // =====================
   projects: [
     {
       title: "NITI Aayog – Aspirational District App (Play Store)",
       period: "Feb 2019 – Present",
-      problem:
-        "Required reliable IT and application support for government-facing field operations.",
+      problem: "Required reliable IT and application support for government-facing field operations.",
       actions: [
         "Supported operational continuity through system/app troubleshooting and coordination.",
         "Ensured user access readiness and device support for field execution."
       ],
-      outcome:
-        "Maintained stable operations for field deployments with structured support and incident handling.",
+      outcome: "Maintained stable operations for field deployments with structured support and incident handling.",
       stack: ["Gov Projects", "App Ops", "Support", "Coordination"]
     },
     {
       title: "Health & Wellness Center – Telemedicine",
       period: "Sep 2019 – Present",
-      problem:
-        "Telemedicine workflows require dependable systems, connectivity, and field enablement.",
+      problem: "Telemedicine workflows require dependable systems, connectivity, and field enablement.",
       actions: [
         "Provided end-to-end IT support (software + hardware).",
         "Coordinated troubleshooting and continuity for service teams."
       ],
-      outcome:
-        "Improved operational stability through structured support and IT readiness.",
+      outcome: "Improved operational stability through structured support and IT readiness.",
       stack: ["Telemedicine", "IT Support", "Operations"]
     },
     {
       title: "Door-to-Door Mobile App Support",
       period: "Sep 2020 – Present",
-      problem:
-        "Large user base requires consistent device/app support and access handling.",
+      problem: "Large user base requires consistent device/app support and access handling.",
       actions: [
         "Supported device readiness and operational issue resolution.",
         "Assisted in maintaining access and continuity across teams."
       ],
-      outcome:
-        "Reduced disruptions through predictable support workflow and escalations.",
+      outcome: "Reduced disruptions through predictable support workflow and escalations.",
       stack: ["Mobility", "Support", "Operations"]
     }
   ],
 
-  // =====================
-  // CERTIFICATIONS (FROM YOUR RESUME)
-  // IMPORTANT: Resume did not contain credential IDs,
-  // so I am NOT inventing numbers.
-  // You can fill your actual IDs later.
-  // =====================
   certifications: [
+<<<<<<< HEAD
     { name: "Microsoft Certified: Azure Administrator (AZ-104)"},
     { name: "Microsoft Technology Associate (MTA)" },
     { name: "Microsoft Certified Professional (MCP)"},
+=======
+    { name: "Microsoft Certified: Azure Administrator (AZ-104)" },
+    { name: "Microsoft Technology Associate (MTA)" },
+    { name: "Microsoft Certified Professional (MCP)" },
+>>>>>>> 30bdd89cdb6acb55371a683860aa20599f3b802f
     { name: "Office 365 (Administration / Support)" }
   ],
 
-  // =====================
-  // SECURITY (HARDENING)
-  // =====================
   securityPractices: [
     {
-      title: "Google-style Hardening (Professional Standard)",
+      title: "Security & Hardening (Enterprise Standard)",
       bullets: [
         "Least privilege access, strong authentication and recovery controls",
         "Regular patching and rapid update rollout",
         "Endpoint protection + security awareness training",
         "Logging/monitoring, backup validation, and incident playbooks"
       ]
-    },
+    },  // Logo row (simple, high-trust tech stack)
+  toolLogos: [
+    { name: "Azure", key: "azure" },
+    { name: "Okta", key: "okta" },
+    { name: "Active Directory", key: "ad" },
+    { name: "Microsoft 365", key: "m365" },
+    { name: "Windows Server", key: "windows" },
+    { name: "Security Hardening", key: "shield" }
+  ],
+
+  // Count-up values (these animate on Home)
+  counters: {
+    years: 8,
+    support: "L2/L3",
+    focus: 3
+  },
+
     {
-      title: "Enterprise Security Operations",
+      title: "Operational Excellence",
       bullets: [
         "Vulnerability checks (Nessus/NMAP) and baseline mitigation",
         "Ticket-driven SLA support with documentation and RCA mindset",
