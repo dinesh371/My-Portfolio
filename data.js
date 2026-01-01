@@ -40,9 +40,10 @@ window.PORTFOLIO = {
 
   highlights: [
     { icon: "shield", k: "Security Hardening", v: "Policies, patching, endpoint controls aligned to enterprise standards." },
-    { icon: "id", k: "Identity & Access", v: "Okta + AD + Workspace operations, provisioning, audits, and access hygiene." },
+    { icon: "id", k: "Identity & Access", v: "Okta + AD + Workspace operations, provisioning, audits,Google Workspace, Microsoft 365 and access hygiene." },
     { icon: "cloud", k: "Azure & Wintel Ops", v: "IaaS/PaaS operations, monitoring, backups, and troubleshooting." },
     { icon: "network", k: "Networking", v: "LAN/Wi-Fi management, routers, switches, and firewall log visibility." }
+     { icon: "Endpoint Security & EDR", k: "Endpoint Security & EDR", v: "CrowdStrike, Webroot, Sophos log visibility." }
   ],
 
   // ✅ Confidence / credibility section
@@ -68,7 +69,7 @@ window.PORTFOLIO = {
         "Deploy security patches and updates quickly to reduce exposure and maintain compliance.",
         "Install and support Windows OS; troubleshoot Outlook and enterprise productivity tooling."
       ],
-      tags: ["Azure Ops", "Jira", "KnowBe4", "LAN/Wi-Fi", "Backups", "IT Operations"]
+      tags: ["Azure Ops", "Jira", "KnowBe4", "LAN/Wi-Fi", "Backups", "IT Operations","CrowdStrike","PRTG","Sophos" ]
     },
     {
       role: "System Support Specialist",
