@@ -1,28 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
-  <meta name="description" content="T. Dinesh — Infrastructure & Cloud System Administrator (IAM • Azure • Wintel). Professional CV Portfolio." />
   <title>T. Dinesh — Professional CV</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="topbar" role="banner">
+<header class="topbar">
   <div class="container">
     <div class="navbar">
-      <a class="brand" href="index.html" aria-label="Home">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none">
           <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
           <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
         </svg>
         <span>Professional CV</span>
       </a>
 
-      <nav class="links" id="navLinks" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
+      <nav class="links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="experience.html">Experience</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
@@ -32,114 +31,78 @@
       </nav>
 
       <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false">Menu</button>
-        <button class="iconBtn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
-          <span class="themeIcon" aria-hidden="true">☾</span>
-        </button>
+        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
+        <button class="iconBtn" id="themeBtn" title="Toggle theme">Theme</button>
         <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
       </div>
     </div>
   </div>
 </header>
 
-<main>
+<section class="hero">
+  <div class="container">
+    <div class="heroCard">
+      <div class="heroInner">
+        <div>
+          <div class="chip"><span class="dot"></span><span id="totalExp"></span></div>
 
-  <section class="hero" aria-label="Intro">
-    <div class="container">
-      <div class="heroCard">
-        <div class="heroGlow" aria-hidden="true"></div>
+          <h1 class="hTitle" id="name">T. Dinesh</h1>
+          <div class="hSub" id="title"></div>
+          <p class="hSub" id="tagline"></p>
 
-        <div class="heroInner">
-          <div class="heroLeft">
-            <div class="chip">
-              <span class="dot"></span>
-              <span id="totalExp"></span>
-            </div>
-
-            <h1 class="hTitle" id="name">T. Dinesh</h1>
-
-            <div class="hSub">
-              <span class="typingCaret" aria-hidden="true"></span>
-              <span id="title"></span>
-            </div>
-
-            <p class="hTag" id="tagline"></p>
-
-            <div class="cta">
-              <a class="btn primary" id="cvBtn" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
-              <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="btn" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-
-            <div class="heroDivider"></div>
-
-            <p class="summary" id="summary"></p>
-
-            <div class="miniBadges" id="miniBadges" aria-label="Quick badges"></div>
+          <div class="cta">
+            <a class="btn primary" id="cvBtn" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+            <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
           </div>
 
-          <aside class="cardMini" aria-label="Quick Info">
-            <div class="profile">
-              <div class="avatarWrap">
-                <img
-                  class="profileImg"
-                  id="profileImg"
-                  alt="Profile photo"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="avatarFallback" id="avatarFallback"></div>
-                <span class="statusDot" title="Available" aria-hidden="true"></span>
-              </div>
+          <hr class="sep" />
+          <p class="hSub" id="summary"></p>
+        </div>
 
-              <div>
-                <div class="pName">Quick Info</div>
-                <div class="pMeta"><span id="location"></span></div>
-              </div>
+        <div class="cardMini">
+          <div class="profile">
+            <img class="profileImg" id="profileImg" alt="Profile photo" />
+            <div class="avatarFallback" id="avatarFallback"></div>
+            <div>
+              <div class="pName">Quick Info</div>
+              <div class="pMeta"><span id="location"></span></div>
             </div>
+          </div>
 
-            <div class="miniDivider"></div>
+          <hr class="sep" />
+          <div class="kv">Email: <a id="emailLink" href="#"><span id="emailText"></span></a></div>
+          <button class="copyBtn" id="copyEmail">Copy Email</button>
 
-            <div class="kv">
-              <span class="k">Email</span>
-              <a class="v" id="emailLink" href="#"><span id="emailText"></span></a>
-            </div>
-            <button class="copyBtn" id="copyEmail">Copy Email</button>
-
-            <div class="kv">
-              <span class="k">Phone</span>
-              <a class="v" id="phoneLink" href="#"><span id="phoneText"></span></a>
-            </div>
-
-            <div class="miniDivider"></div>
-
-            <div class="pillRow">
-              <a class="pill" id="pillLinkedIn" href="#" target="_blank" rel="noreferrer" aria-label="Open LinkedIn">LinkedIn ↗</a>
-              <a class="pill" id="pillGitHub" href="#" target="_blank" rel="noreferrer" aria-label="Open GitHub">GitHub ↗</a>
-            </div>
-          </aside>
+          <div class="kv">Phone: <a id="phoneLink" href="#"><span id="phoneText"></span></a></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" aria-label="At a Glance">
-    <div class="container">
-      <h2 class="sectionTitle">At a Glance</h2>
-      <div class="grid" id="stats"></div>
-    </div>
-  </section>
+<section class="section">
+  <div class="container">
+    <h2 class="sectionTitle">At a Glance</h2>
+    <div class="grid" id="stats"></div>
+  </div>
+</section>
 
-  <section class="section" aria-label="What I Deliver">
-    <div class="container">
-      <h2 class="sectionTitle">What I Deliver</h2>
-      <div class="features" id="highlights"></div>
-    </div>
-  </section>
+<section class="section">
+  <div class="container">
+    <h2 class="sectionTitle">What I Deliver</h2>
+    <div class="features" id="highlights"></div>
+  </div>
+</section>
 
-</main>
+<section class="section">
+  <div class="container">
+    <h2 class="sectionTitle">Why I’m a Safe Hire</h2>
+    <div class="features" id="confidence"></div>
+  </div>
+</section>
 
-<footer class="footer" role="contentinfo">
+<footer class="footer">
   <div class="container">
     © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
   </div>
