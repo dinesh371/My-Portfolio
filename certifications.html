@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Certifications — T. Dinesh</title>
+  <meta name="description" content="Professional certifications and training — T. Dinesh" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,28 +12,28 @@
 <header class="topbar">
   <div class="container">
     <div class="navbar">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none">
+      <a class="brand" href="index.html" aria-label="Go to Home">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
           <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
         </svg>
         <span>Professional CV</span>
       </a>
 
-      <nav class="links" id="navLinks">
+      <nav class="links" id="navLinks" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="experience.html">Experience</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
+        <a href="certifications.html" class="active" aria-current="page">Certifications</a>
         <a href="security.html">Security</a>
         <a href="contact.html">Contact</a>
       </nav>
 
       <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
-        <button class="iconBtn" id="themeBtn">Theme</button>
+        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false">Menu</button>
+        <button class="iconBtn" id="themeBtn" type="button">Theme</button>
         <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
       </div>
     </div>
@@ -42,13 +43,30 @@
 <section class="pageHero">
   <div class="container">
     <h1>Certifications</h1>
-    <p>Add credential IDs later if you want — the page is already recruiter-ready.</p>
+    <p>Recruiter-friendly credential list. Add credential IDs / verification links anytime.</p>
+
+    <!-- Optional: Search + Filter (works when script.js supports it) -->
+    <div class="searchBar" style="margin-top: 14px;">
+      <input id="certSearch" class="searchInput" placeholder="Search (Azure, IAM, CrowdStrike, ITIL...)" />
+    </div>
+
+    <div class="pillRow" id="certFilters" style="margin-top: 10px;">
+      <!-- script.js can inject filter pills here -->
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div id="certList"></div>
+
+    <!-- This list is filled by script.js; fallback text stays if JS fails -->
+    <div id="certList" aria-live="polite">
+      <div class="muted" style="padding: 10px 0;">
+        Certifications will appear here. If you don’t see them, ensure <code>data.js</code> includes a
+        <code>window.PORTFOLIO.certifications</code> array and <code>script.js</code> is loading.
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -60,5 +78,7 @@
 
 <script src="data.js"></script>
 <script src="script.js"></script>
+
+<!-- If you want search to work even without modifying script.js, tell me and I’ll add a tiny inline JS snippet -->
 </body>
 </html>
