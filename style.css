@@ -598,6 +598,82 @@ hr.sep{
   }
   .links.open{ display:flex; }
 }
+/* =========================
+   EXTRA POLISH (FINAL ADD-ONS)
+   ========================= */
+
+/* Logo row */
+.logoRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 14px;
+}
+.logoPill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius: 999px;
+  border:1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  font-weight: 900;
+  transition: .15s ease;
+}
+.logoPill:hover{ transform: translateY(-2px); background: var(--card); color: var(--text); }
+.logoPill svg{ width:18px; height:18px; opacity:.95; }
+
+/* Floating action buttons */
+.fab{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:99;
+}
+.fab a, .fab button{
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(5,8,20,.55);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  padding:12px 14px;
+  border-radius: 16px;
+  font-weight:1000;
+  cursor:pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  transition:.15s ease;
+}
+:root[data-theme="light"] .fab a,
+:root[data-theme="light"] .fab button{
+  background: rgba(255,255,255,.75);
+  border-color: rgba(10,13,20,.10);
+  box-shadow: 0 10px 24px rgba(16,18,24,.10);
+}
+.fab a:hover, .fab button:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.06);
+}
+:root[data-theme="light"] .fab a:hover,
+:root[data-theme="light"] .fab button:hover{
+  background: rgba(10,13,20,.06);
+}
+
+/* Count-up number style */
+.statV .countUp{
+  font-variant-numeric: tabular-nums;
+}
+
+/* Smooth scroll */
+html{ scroll-behavior:smooth; }
+
+/* Better selection */
+::selection{
+  background: rgba(124,92,255,.35);
+}
+
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
