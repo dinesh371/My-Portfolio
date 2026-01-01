@@ -1,105 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — T. Dinesh</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="logoMark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l8 4v6c0 5-3.4 9.2-8 10-4.6-.8-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M8.5 12.2l2.2 2.2 4.8-5.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>T. Dinesh</span>
+        </a>
 
-<header class="topbar">
-  <div class="container">
-    <div class="navbar">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
-        </svg>
-        <span>Professional CV</span>
-      </a>
+        <div class="links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="experience.html">Experience</a>
+          <a href="projects.html">Case Studies</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="security.html">Security</a>
+          <a href="contact.html">Contact</a>
+        </div>
 
-      <nav class="links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
+        <div class="navRight">
+          <button class="btn iconBtn menuBtn" data-menu-toggle aria-label="Open menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a class="btn btnGhost" href="assets/T_Dinesh_CV.pdf" download>Download CV</a>
+          <button class="btn iconBtn" data-theme-toggle aria-label="Switch theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a7 7 0 1 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </nav>
+    </div>
+  </header>
 
-      <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
-        <button class="iconBtn" id="themeBtn">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+  <main class="page">
+    <section class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>About</h2>
+            <p>
+              Infrastructure & system administrator with strong experience across enterprise support, IAM,
+              networking, monitoring, and security operations. :contentReference[oaicite:2]{index=2}
+            </p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <div class="cardTitle">
+              <h3>Professional summary</h3>
+              <span class="badge">Profile</span>
+            </div>
+            <p>
+              I support production environments end-to-end: user onboarding and access control, endpoint readiness,
+              system hardening, patch coordination, backups, monitoring, and incident resolution.
+            </p>
+            <ul class="ul">
+              <li>AD administration and user lifecycle (join/move/leave, groups, access)</li>
+              <li>Microsoft 365 support and enterprise endpoint operations</li>
+              <li>VPN/DNS/DHCP troubleshooting + on-prem networking fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="cardTitle">
+              <h3>Public sector & program operations</h3>
+              <span class="badge">Gov</span>
+            </div>
+            <p>
+              Supported government-scale programs and field operations (including NITI Aayog-linked initiatives),
+              handling device readiness, application support, and infrastructure troubleshooting. :contentReference[oaicite:3]{index=3}
+            </p>
+            <ul class="ul">
+              <li>Application-level troubleshooting + escalation to development teams</li>
+              <li>Inventory management for onsite/offsite IT assets</li>
+              <li>Service desk ownership within SLA and RCA-style closures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="foot">
+        <span>© <span id="yr"></span> T. Dinesh</span>
+        <span><a href="contact.html">Contact</a></span>
       </div>
     </div>
-  </div>
-</header>
+  </footer>
 
-<section class="pageHero">
-  <div class="container">
-    <h1>About</h1>
-    <p>A security-first Infrastructure & Cloud System Administrator focused on IAM discipline, operational stability, and calm incident handling.</p>
-  </div>
-</section>
-  
-  <div class="grid2">
-  <!-- Professional Summary -->
-  <div class="card reveal">
-    <div class="cardTitle">
-      <h3>Professional Summary</h3>
-      <span class="badge">Profile</span>
-    </div>
-
-    <p class="pText">
-      Security-first System Administrator with 8+ years of experience supporting IT infrastructure, endpoint security,
-      and cloud environments across India and US operations. Hands-on with Google Workspace administration
-      (user lifecycle, security policies, Vault, audit logs, MDM), Azure IaaS/PaaS operations, and IAM with Okta.
-      Known for fast SLA closures, strong documentation, and calm incident handling.
-    </p>
-
-    <ul class="ul">
-      <li><strong>Cloud & Productivity:</strong> Google Workspace Admin (Gmail/Drive/Meet/Calendar), G-Panel, Spanning Backup; Azure VM/VNet, Key Vault, Recovery Vault, App Services</li>
-      <li><strong>Identity & Access:</strong> Okta user provisioning, MFA/2SV enforcement, OU/group policy design, access controls & security baselines</li>
-      <li><strong>Security Ops:</strong> Endpoint protection (CrowdStrike/Webroot/Sophos), vulnerability tools (Nessus/Arctic Wolf), security awareness training (KnowBe4)</li>
-      <li><strong>IT Operations:</strong> Onboarding/offboarding, patching & zero-day response (LANDesk/Ivanti, NinjaOne, ManageEngine), ticket lifecycle ownership in Jira</li>
-      <li><strong>Network & Support:</strong> LAN/Wi-Fi operations (Omada/Ruckus), troubleshooting VPN/DNS/DHCP, and enterprise workstation readiness</li>
-    </ul>
-  </div>
-
-  <!-- Public Sector & Program Operations -->
-  <div class="card reveal">
-    <div class="cardTitle">
-      <h3>Public Sector & Program Operations</h3>
-      <span class="badge">Gov</span>
-    </div>
-
-    <p class="pText">
-      Supported government-scale health and field programs requiring high availability, strict device controls,
-      and operational continuity. Provided L2/L3 support for distributed teams, ensured device readiness,
-      coordinated escalations with development/ops teams, and maintained asset lifecycle tracking for
-      on-site/off-site deployments.
-    </p>
-
-    <ul class="ul">
-      <li><strong>Program Support:</strong> Field application enablement and IT operations for initiatives such as NITI Aayog Aspirational District and Telemedicine programs</li>
-      <li><strong>Device Readiness:</strong> Tablets/mobiles onboarding, MDM policy enforcement, role-based access setup, and deployment coordination for remote sites</li>
-      <li><strong>Operational Continuity:</strong> SLA-driven incident resolution, structured escalation, RCA mindset, and documentation for recurring issues</li>
-      <li><strong>Asset & Inventory:</strong> End-to-end tracking of IT assets, procurement support, replacements, and secure disposal workflow</li>
-    </ul>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="container">
-    © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
-  </div>
-</footer>
-
-<script src="data.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
