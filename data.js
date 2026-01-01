@@ -208,7 +208,23 @@ window.PORTFOLIO = {
         "Endpoint protection + security awareness training",
         "Logging/monitoring, backup validation, and incident playbooks"
       ]
-    },
+    },  // Logo row (simple, high-trust tech stack)
+  toolLogos: [
+    { name: "Azure", key: "azure" },
+    { name: "Okta", key: "okta" },
+    { name: "Active Directory", key: "ad" },
+    { name: "Microsoft 365", key: "m365" },
+    { name: "Windows Server", key: "windows" },
+    { name: "Security Hardening", key: "shield" }
+  ],
+
+  // Count-up values (these animate on Home)
+  counters: {
+    years: 8,
+    support: "L2/L3",
+    focus: 3
+  },
+
     {
       title: "Operational Excellence",
       bullets: [
