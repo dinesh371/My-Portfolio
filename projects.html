@@ -2,19 +2,23 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — T. Dinesh</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
 <header class="topbar">
   <div class="container">
     <div class="navbar">
+
       <a class="brand" href="index.html">
         <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z"
+                stroke="currentColor" stroke-width="1.6"/>
+          <path d="M7.5 12h9"
+                stroke="currentColor" stroke-width="1.6"/>
         </svg>
         <span>Professional CV</span>
       </a>
@@ -24,17 +28,20 @@
         <a href="about.html">About</a>
         <a href="experience.html">Experience</a>
         <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
+        <a href="projects.html" class="active">Projects</a>
       </nav>
 
       <div class="btnRow">
         <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
         <button class="iconBtn" id="themeBtn">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <a class="iconBtn"
+           href="assets/T_Dinesh_CV.pdf"
+           target="_blank"
+           rel="noreferrer">
+          Download CV
+        </a>
       </div>
+
     </div>
   </div>
 </header>
@@ -42,27 +49,33 @@
 <section class="pageHero">
   <div class="container">
     <h1>Projects</h1>
-    <p>Case study style summaries showing ownership, coordination, and reliable delivery.</p>
+    <p>
+      Case-study style summaries highlighting ownership, coordination,
+      and reliable delivery across public sector and enterprise programs.
+    </p>
 
     <div class="searchBar">
-      <input id="searchBox" class="searchInput" placeholder="Search projects (telemedicine, NITI Aayog...)" />
+      <input
+        id="searchBox"
+        class="searchInput"
+        placeholder="Search projects (Telemedicine, NITI Aayog…)" />
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div id="projectList"></div>
+  <div class="container" id="projectsContainer">
+    <!-- Project cards injected via JS -->
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
-    © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
+    © <span id="year"></span>
+    <span id="nameFooter"></span>. All rights reserved.
   </div>
 </footer>
 
 <script src="data.js"></script>
-<script src="script.js"></script>
 </body>
 </html>
