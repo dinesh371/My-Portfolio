@@ -348,16 +348,13 @@
           <div class="expTop">
             <div>
               <div class="expRole">${c.name}</div>
-<<<<<<< HEAD
             </div>
           </div>
           <div class="certRow">
           </div>
-=======
-              <div class="pMeta">Credential ID: <em>(add if available)</em></div>
+            <div class="pMeta">Credential ID: <em>(add if available)</em></div>
             </div>
           </div>
->>>>>>> 30bdd89cdb6acb55371a683860aa20599f3b802f
         </article>
       `).join("")}
     `;
@@ -466,3 +463,4 @@
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();
 })();
+
