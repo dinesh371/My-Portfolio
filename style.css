@@ -479,7 +479,7 @@ hr.sep{
 }
 
 /* Projects */
-.projectGrid{ display:grid; grid-template-columns: 1fr; gap:12px; }
+.projectGrid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; }
 .pMeta{ color:var(--muted); font-weight:900; margin-top:6px; }
 .pBlock{ margin-top:12px; }
 .pLabel{ font-weight:1000; margin-bottom:6px; }
@@ -579,6 +579,7 @@ hr.sep{
   .skillsWrap{ grid-template-columns: 1fr; }
   .contactGrid{ grid-template-columns: 1fr; }
   .grid2{ grid-template-columns: 1fr; }
+  .projectGrid{ grid-template-columns: 1fr; }
 
   .menuBtn{ display:inline-flex; }
   .links{
