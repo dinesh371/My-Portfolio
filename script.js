@@ -462,5 +462,23 @@
   // -------------------------
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();
+
+
+  // -------------------------
+  // Page-specific: Contact (Work Samples)
+  // -------------------------
+  const ws = $("#workSamples");
+  if (ws && Array.isArray(p.workSamples) && p.workSamples.length) {
+    ws.innerHTML = p.workSamples
+      .map(s => {
+        const safeTitle = s.title || "Work sample";
+        const safeUrl = s.url || "#";
+        const note = s.note ? `<div class="muted">${s.note}</div>` : "";
+        return `
+          <div class="kv"><a class="smallLink" href="${safeUrl}" target="_blank" rel="noreferrer">${safeTitle}</a>${note}</div>
+        `;
+      })
+      .join("");
+  }
 })();
 
