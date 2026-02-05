@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — T. Dinesh</title>
   <meta name="description" content="About — Senior System Administrator | IT Infrastructure | IAM | Endpoint & IT Operations — T. Dinesh" />
+
+  <!-- IMPORTANT: GitHub Pages Project Site -->
+  <base href="/My-Portfolio/">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<div class="grain"></div>
 
 <header class="topbar">
   <div class="container">
@@ -32,67 +38,118 @@
       </nav>
 
       <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false">Menu</button>
-        <button class="iconBtn" id="themeBtn" type="button">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">
-          Download CV
-        </a>
+        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false" type="button">☰ Menu</button>
+        <button class="iconBtn" id="themeBtn" type="button" title="Toggle theme">🌓 Theme</button>
+        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ CV</a>
       </div>
     </div>
   </div>
 </header>
 
+<!-- HERO (more premium) -->
 <section class="pageHero">
   <div class="container">
-    <h1>About</h1>
-    <p>
-      Senior System Administrator | IT Infrastructure | IAM | Endpoint & IT Operations supporting secure,
-      reliable enterprise operations across endpoints, identity, and core services.
+    <div class="chip" style="margin-bottom:12px;">
+      <span class="dot"></span>
+      <span>About</span>
+    </div>
+
+    <h1 style="margin:0;">T. Dinesh</h1>
+    <p style="margin:10px 0 0;" class="hSub">
+      Senior System Administrator focused on secure IAM, endpoint reliability, and stable enterprise operations.
+      I work end-to-end: onboarding, access control, patching, monitoring, and incident resolution.
     </p>
+
+    <div class="cta" style="margin-top:14px;">
+      <a class="btn primary" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ Download CV</a>
+      <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">in LinkedIn</a>
+      <a class="btn" id="githubLink" href="#" target="_blank" rel="noreferrer">⌂ GitHub</a>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
+    <!-- Two column: Main + Sidebar -->
     <div class="grid2">
-      <div class="card">
+
+      <!-- MAIN -->
+      <div class="card reveal">
         <div class="cardTitle">
           <h3>Professional summary</h3>
           <span class="badge">Profile</span>
         </div>
 
-        <p>
-          I support production environments end-to-end: user onboarding and access control,
-          endpoint readiness, system hardening, patch coordination, backups, monitoring,
-          and incident resolution.
+        <p class="pText">
+          I support production environments end-to-end: user onboarding and access control, endpoint readiness,
+          system hardening, patch coordination, backups, monitoring, and incident resolution.
         </p>
 
-        <ul class="ul">
-          <li>AD/Okta administration and user lifecycle (join/move/leave, groups, access)</li>
-          <li>Jira ITSM + NinjaOne administration (ticketing, automation, patching)</li>
-          <li>Google Workspace + Microsoft 365 administration, endpoint operations, and ITSM</li>
-          <li>SOC audit support (logs/evidence) + security controls, patch compliance, and reporting</li>
-        </ul>
+        <div class="pBlock">
+          <div class="pLabel">Core strengths</div>
+          <ul class="ul">
+            <li>AD / Okta administration and user lifecycle (Joiner–Mover–Leaver, groups, access reviews)</li>
+            <li>Jira ITSM + NinjaOne operations (ticketing, automation, patching, endpoint visibility)</li>
+            <li>Google Workspace + Microsoft 365 administration (accounts, permissions, collaboration controls)</li>
+            <li>Audit support (logs/evidence) + security controls, patch compliance, and reporting</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="card">
+      <!-- SIDEBAR -->
+      <div class="card reveal">
+        <div class="cardTitle">
+          <h3>Quick profile</h3>
+          <span class="badge">Snapshot</span>
+        </div>
+
+        <div class="kv">Role: <strong>Infrastructure & Cloud System Administrator</strong></div>
+        <div class="kv">Experience: <strong><span id="totalExp"></span></strong></div>
+        <div class="kv">Location: <strong><span id="location"></span></strong></div>
+
+        <hr class="sep" />
+
+        <div class="kv">Email: <a id="emailLink" href="#"><strong><span id="emailText"></span></strong></a></div>
+        <button class="copyBtn" id="copyEmail" type="button">Copy Email</button>
+
+        <div class="kv" style="margin-top:10px;">Phone: <a id="phoneLink" href="#"><strong><span id="phoneText"></span></strong></a></div>
+
+        <hr class="sep" />
+
+        <div class="pLabel">What I’m known for</div>
+        <div class="tags" style="margin-top:10px;">
+          <span class="tag">Security-first</span>
+          <span class="tag">IAM</span>
+          <span class="tag">Endpoint Ops</span>
+          <span class="tag">Patching</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">L2/L3 Support</span>
+        </div>
+      </div>
+
+      <!-- FULL WIDTH CARD (optional) -->
+      <div class="card reveal" style="grid-column: 1 / -1;">
         <div class="cardTitle">
           <h3>Public sector & program operations</h3>
           <span class="badge">Gov</span>
         </div>
 
-        <p>
-          Supported government-scale programs and field operations (including NITI Aayog-linked initiatives),
-          handling device readiness, application support, and infrastructure troubleshooting.
+        <p class="pText">
+          Supported government-scale programs and field operations, handling device readiness,
+          application support, and infrastructure troubleshooting with SLA-driven ownership.
         </p>
 
-        <ul class="ul">
-          <li>Application-level troubleshooting + escalation to development teams</li>
-          <li>IT asset inventory management (onsite/offsite) and device readiness</li>
-          <li>Service desk ownership: SLA-driven closures, clear documentation, and escalation management</li>
-        </ul>
+        <div class="pBlock">
+          <div class="pLabel">Highlights</div>
+          <ul class="ul">
+            <li>Application-level troubleshooting and escalation to development teams</li>
+            <li>IT asset inventory management (onsite/offsite) and device readiness checks</li>
+            <li>Service desk ownership: clean documentation, stakeholder updates, SLA closures</li>
+          </ul>
+        </div>
       </div>
+
     </div>
 
   </div>
