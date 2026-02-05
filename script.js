@@ -1,3 +1,4 @@
+// script.js
 (() => {
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => document.querySelectorAll(s);
@@ -6,12 +7,25 @@
   if (!p) return;
 
   // -------------------------
+  // Helpers
+  // -------------------------
+  const setText = (sel, v) => { const el = $(sel); if (el) el.textContent = v ?? ""; };
+  const setHref = (sel, v) => { const el = $(sel); if (el && v) el.setAttribute("href", v); };
+
+  // Bulletproof CV path: prevents 404 if data.js has wrong file name
+  const CV_FALLBACK = "assets/T_Dinesh_CV.pdf";
+  const cvPathSafe = (typeof p.cvPath === "string" && p.cvPath.trim().length)
+    ? p.cvPath.trim()
+    : CV_FALLBACK;
+
+  // -------------------------
   // Theme (persisted)
   // -------------------------
   const saved = localStorage.getItem("theme");
   if (saved === "light" || saved === "dark") {
     document.documentElement.setAttribute("data-theme", saved);
   }
+
   const themeBtn = $("#themeBtn");
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
@@ -23,7 +37,7 @@
   }
 
   // -------------------------
-  // Active link
+  // Active link (works with /My-Portfolio/)
   // -------------------------
   const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   $$(".links a").forEach(a => {
@@ -37,14 +51,20 @@
   const menuBtn = $("#menuBtn");
   const navLinks = $("#navLinks");
   if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
   }
 
-  // Close menu on outside click (nice UX)
+  // Close menu on outside click
   document.addEventListener("click", (e) => {
     if (!navLinks || !navLinks.classList.contains("open")) return;
     const inside = navLinks.contains(e.target) || (menuBtn && menuBtn.contains(e.target));
-    if (!inside) navLinks.classList.remove("open");
+    if (!inside) {
+      navLinks.classList.remove("open");
+      if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+    }
   });
 
   // -------------------------
@@ -54,7 +74,7 @@
     const arr = p.heroImages || [];
     if (!arr.length) return "";
     const d = new Date();
-    const seed = (d.getFullYear() * 10000) + ((d.getMonth()+1) * 100) + d.getDate();
+    const seed = (d.getFullYear() * 10000) + ((d.getMonth() + 1) * 100) + d.getDate();
     return arr[seed % arr.length];
   }
 
@@ -68,12 +88,6 @@
   }
 
   // -------------------------
-  // Helpers
-  // -------------------------
-  const setText = (sel, v) => { const el = $(sel); if (el) el.textContent = v ?? ""; };
-  const setHref = (sel, v) => { const el = $(sel); if (el && v) el.setAttribute("href", v); };
-
-  // -------------------------
   // Bind common fields
   // -------------------------
   setText("#name", p.name);
@@ -85,12 +99,16 @@
   setText("#emailText", p.email);
   setText("#phoneText", p.phone);
 
-  setHref("#cvLink", p.cvPath);
-  setHref("#cvBtn", p.cvPath);
+  // Important: CV links (safe)
+  setHref("#cvLink", cvPathSafe);
+  setHref("#cvBtn", cvPathSafe);
+
+  // Social links
   setHref("#linkedinLink", p.linkedin);
   setHref("#githubLink", p.github);
-  setHref("#emailLink", `mailto:${p.email}`);
 
+  // Email + phone
+  setHref("#emailLink", p.email ? `mailto:${p.email}` : "");
   const phoneClean = String(p.phone || "").replace(/[^\d+]/g, "");
   setHref("#phoneLink", phoneClean ? `tel:${phoneClean}` : "");
 
@@ -115,11 +133,11 @@
   // -------------------------
   // Avatar with safe fallback
   // -------------------------
-  function initials(name){
-    if(!name) return "TD";
+  function initials(name) {
+    if (!name) return "TD";
     const parts = name.trim().split(/\s+/);
     const a = parts[0]?.[0] || "T";
-    const b = parts.length > 1 ? parts[parts.length-1][0] : (parts[0]?.[1] || "D");
+    const b = parts.length > 1 ? parts[parts.length - 1][0] : (parts[0]?.[1] || "D");
     return (a + b).toUpperCase();
   }
 
@@ -156,7 +174,7 @@
   if (copyBtn) {
     copyBtn.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText(p.email);
+        await navigator.clipboard.writeText(p.email || "");
         const old = copyBtn.textContent;
         copyBtn.textContent = "Copied ✓";
         setTimeout(() => (copyBtn.textContent = old), 1100);
@@ -175,7 +193,6 @@
     shield: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 5-3.4 9-8 10-4.6-1-8-5-8-10V7l8-4Z" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 12.5l1.8 1.8L15.8 10" stroke="currentColor" stroke-width="1.7"/></svg>`,
     network: `<svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v4H7V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M5 17h6v4H5v-4Z" stroke="currentColor" stroke-width="1.7"/><path d="M13 17h6v4h-6v-4Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v6" stroke="currentColor" stroke-width="1.7"/></svg>`,
 
-    // Tech icons (simple, clean)
     azure: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 18H4L12 3Z" stroke="currentColor" stroke-width="1.7"/><path d="M10.2 14.2h7.2" stroke="currentColor" stroke-width="1.7"/></svg>`,
     okta: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v10" stroke="currentColor" stroke-width="1.7"/></svg>`,
     ad: `<svg viewBox="0 0 24 24" fill="none"><path d="M7 8h10v8H7V8Z" stroke="currentColor" stroke-width="1.7"/><path d="M9 11h6M9 13.5h4" stroke="currentColor" stroke-width="1.7"/></svg>`,
@@ -188,13 +205,16 @@
   // -------------------------
   const stats = $("#stats");
   if (stats) {
-    stats.innerHTML = (p.stats||[]).map(s => {
-      const val = s.count ? `<span class="countUp" data-to="${s.v}" data-suffix="${s.suffix||''}">0</span>` : s.v;
+    stats.innerHTML = (p.stats || []).map(s => {
+      const val = s.count
+        ? `<span class="countUp" data-to="${s.v}" data-suffix="${s.suffix || ""}">0</span>`
+        : s.v;
+
       return `
         <div class="stat reveal">
           <div class="statK">${s.k}</div>
           <div class="statV">${val}</div>
-          <div class="statS">${s.s}</div>
+          <div class="statS">${s.s || ""}</div>
         </div>
       `;
     }).join("");
@@ -202,7 +222,7 @@
 
   const hi = $("#highlights");
   if (hi) {
-    hi.innerHTML = (p.highlights||[]).map(h => `
+    hi.innerHTML = (p.highlights || []).map(h => `
       <div class="feature reveal">
         <div class="icon">${icons[h.icon] || icons.cloud}</div>
         <div>
@@ -215,7 +235,7 @@
 
   const conf = $("#confidence");
   if (conf) {
-    conf.innerHTML = (p.confidence||[]).map(h => `
+    conf.innerHTML = (p.confidence || []).map(h => `
       <div class="feature reveal">
         <div class="icon">${icons[h.icon] || icons.shield}</div>
         <div>
@@ -226,9 +246,7 @@
     `).join("");
   }
 
-  // -------------------------
-  // Logo row render (Home only)
-  // -------------------------
+  // Logo row
   const logoWrap = $("#toolLogos");
   if (logoWrap && Array.isArray(p.toolLogos)) {
     logoWrap.innerHTML = p.toolLogos.map(t => `
@@ -247,16 +265,16 @@
     expWrap.innerHTML = `
       <div class="timeline">
         ${p.experience.map(e => `
-          <article class="exp reveal" data-search="${(e.role+' '+e.company+' '+e.period+' '+(e.tags||[]).join(' ')).toLowerCase()}">
+          <article class="exp reveal" data-search="${(e.role + " " + e.company + " " + e.period + " " + (e.tags || []).join(" ")).toLowerCase()}">
             <div class="expTop">
               <div>
                 <div class="expRole">${e.role}</div>
-                <div class="expCompany">${e.company} • ${e.location || ""}</div>
+                <div class="expCompany">${e.company}${e.location ? ` • ${e.location}` : ""}</div>
               </div>
               <div class="expPeriod">${e.period}</div>
             </div>
-            <ul>${(e.points||[]).map(x => `<li>${x}</li>`).join("")}</ul>
-            <div class="tags">${(e.tags||[]).map(t => `<span class="tag">${t}</span>`).join("")}</div>
+            <ul>${(e.points || []).map(x => `<li>${x}</li>`).join("")}</ul>
+            <div class="tags">${(e.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}</div>
           </article>
         `).join("")}
       </div>
@@ -271,9 +289,9 @@
     skillsGrid.innerHTML = `
       <div class="skillsWrap">
         ${p.skills.map(g => `
-          <div class="skillGroup reveal" data-search="${(g.group+' '+(g.items||[]).map(x=>x.name).join(' ')).toLowerCase()}">
+          <div class="skillGroup reveal" data-search="${(g.group + " " + (g.items || []).map(x => x.name).join(" ")).toLowerCase()}">
             <div class="sgTitle">${g.group}</div>
-            ${(g.items||[]).map(it => `
+            ${(g.items || []).map(it => `
               <div class="meterRow">
                 <div class="mName">${it.name}</div>
                 <div class="mBar"><div class="mFill" style="width:${it.level}%"></div></div>
@@ -288,11 +306,11 @@
   // Animate skill bars
   const meterObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if(!e.isIntersecting) return;
+      if (!e.isIntersecting) return;
       e.target.querySelectorAll(".mFill").forEach(fill => {
         const w = fill.style.width;
         fill.style.width = "0%";
-        requestAnimationFrame(() => fill.style.width = w);
+        requestAnimationFrame(() => (fill.style.width = w));
       });
       meterObserver.unobserve(e.target);
     });
@@ -307,30 +325,30 @@
     proj.innerHTML = `
       <div class="projectGrid">
         ${p.projects.map(pr => `
-          <article class="exp reveal" data-search="${(pr.title+' '+pr.period+' '+(pr.stack||[]).join(' ')).toLowerCase()}">
+          <article class="exp reveal" data-search="${(pr.title + " " + pr.period + " " + (pr.stack || []).join(" ")).toLowerCase()}">
             <div class="expTop">
               <div>
                 <div class="expRole">${pr.title}</div>
-                <div class="pMeta">${pr.period}</div>
+                <div class="pMeta">${pr.period || ""}</div>
               </div>
             </div>
 
             <div class="pBlock">
               <div class="pLabel">Problem</div>
-              <div class="pText">${pr.problem}</div>
+              <div class="pText">${pr.problem || ""}</div>
             </div>
 
             <div class="pBlock">
               <div class="pLabel">Actions</div>
-              <ul>${(pr.actions||[]).map(x => `<li>${x}</li>`).join("")}</ul>
+              <ul>${(pr.actions || []).map(x => `<li>${x}</li>`).join("")}</ul>
             </div>
 
             <div class="pBlock">
               <div class="pLabel">Outcome</div>
-              <div class="pText">${pr.outcome}</div>
+              <div class="pText">${pr.outcome || ""}</div>
             </div>
 
-            <div class="tags">${(pr.stack||[]).map(t => `<span class="tag">${t}</span>`).join("")}</div>
+            <div class="tags">${(pr.stack || []).map(t => `<span class="tag">${t}</span>`).join("")}</div>
           </article>
         `).join("")}
       </div>
@@ -338,26 +356,45 @@
   }
 
   // -------------------------
-  // Certifications render
+  // Certifications render (FIXED)
   // -------------------------
   const certList = $("#certList");
   if (certList && Array.isArray(p.certifications)) {
-    certList.innerHTML = `
-      ${p.certifications.map(c => `
-        <article class="exp reveal">
+    certList.innerHTML = p.certifications.map(c => {
+      const issuer = c.issuer ? `<div class="expCompany">${c.issuer}</div>` : "";
+      const year = c.year ? `<div class="expPeriod">${c.year}</div>` : "";
+
+      const metaParts = [];
+      if (c.id) metaParts.push(`<div class="pMeta">Credential ID: <strong>${c.id}</strong></div>`);
+      if (c.verify) metaParts.push(`<a class="smallLink" href="${c.verify}" target="_blank" rel="noreferrer">Verify</a>`);
+
+      const metaRow = metaParts.length ? `<div class="certRow">${metaParts.join("")}</div>` : "";
+
+      return `
+        <article class="exp reveal" data-search="${(c.name + " " + (c.issuer || "") + " " + (c.year || "")).toLowerCase()}">
           <div class="expTop">
             <div>
               <div class="expRole">${c.name}</div>
+              ${issuer}
             </div>
+            ${year}
           </div>
-          <div class="certRow">
-          </div>
-            <div class="pMeta">Credential ID: <em>(add if available)</em></div>
-            </div>
-          </div>
+          ${metaRow}
         </article>
-      `).join("")}
-    `;
+      `;
+    }).join("");
+  }
+
+  // Certifications search input (your cert page uses #certSearch)
+  const certSearch = $("#certSearch");
+  if (certSearch) {
+    certSearch.addEventListener("input", () => {
+      const q = certSearch.value.trim().toLowerCase();
+      $$("[data-search]").forEach(el => {
+        const hay = (el.getAttribute("data-search") || "");
+        el.style.display = hay.includes(q) ? "" : "none";
+      });
+    });
   }
 
   // -------------------------
@@ -365,14 +402,12 @@
   // -------------------------
   const secWrap = $("#securityList");
   if (secWrap && Array.isArray(p.securityPractices)) {
-    secWrap.innerHTML = `
-      ${p.securityPractices.map(s => `
-        <article class="exp reveal">
-          <div class="expRole">${s.title}</div>
-          <ul>${(s.bullets||[]).map(x => `<li>${x}</li>`).join("")}</ul>
-        </article>
-      `).join("")}
-    `;
+    secWrap.innerHTML = p.securityPractices.map(s => `
+      <article class="exp reveal">
+        <div class="expRole">${s.title}</div>
+        <ul>${(s.bullets || []).map(x => `<li>${x}</li>`).join("")}</ul>
+      </article>
+    `).join("");
   }
 
   // -------------------------
@@ -383,15 +418,13 @@
   const cPhone = $("#cPhone");
   const cLoc = $("#cLoc");
   const cLinked = $("#cLinked");
-  if (cName) cName.textContent = p.name;
-  if (cEmail) cEmail.textContent = p.email;
-  if (cPhone) cPhone.textContent = p.phone;
-  if (cLoc) cLoc.textContent = p.location;
-  if (cLinked) cLinked.setAttribute("href", p.linkedin);
+  if (cName) cName.textContent = p.name || "";
+  if (cEmail) cEmail.textContent = p.email || "";
+  if (cPhone) cPhone.textContent = p.phone || "";
+  if (cLoc) cLoc.textContent = p.location || "";
+  if (cLinked && p.linkedin) cLinked.setAttribute("href", p.linkedin);
 
-  // -------------------------
-  // Search filter
-  // -------------------------
+  // Search filter for pages using #searchBox (experience/projects/skills)
   const searchBox = $("#searchBox");
   if (searchBox) {
     searchBox.addEventListener("input", () => {
@@ -423,10 +456,10 @@
       const start = performance.now();
 
       const step = (t) => {
-        const p = Math.min(1, (t - start) / duration);
-        const v = Math.floor(to * (0.15 + 0.85*p));
+        const pr = Math.min(1, (t - start) / duration);
+        const v = Math.floor(to * (0.15 + 0.85 * pr));
         el.textContent = `${v}${suffix}`;
-        if (p < 1) requestAnimationFrame(step);
+        if (pr < 1) requestAnimationFrame(step);
         else el.textContent = `${to}${suffix}`;
       };
       requestAnimationFrame(step);
@@ -450,8 +483,8 @@
   const fabMail = $("#fabMail");
   const fabTop = $("#fabTop");
 
-  if (fabCv) fabCv.setAttribute("href", p.cvPath);
-  if (fabMail) fabMail.setAttribute("href", `mailto:${p.email}`);
+  if (fabCv) fabCv.setAttribute("href", cvPathSafe);
+  if (fabMail && p.email) fabMail.setAttribute("href", `mailto:${p.email}`);
 
   if (fabTop) {
     fabTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -463,22 +496,16 @@
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();
 
-
   // -------------------------
-  // Page-specific: Contact (Work Samples)
+  // Work samples (Contact page)
   // -------------------------
   const ws = $("#workSamples");
   if (ws && Array.isArray(p.workSamples) && p.workSamples.length) {
-    ws.innerHTML = p.workSamples
-      .map(s => {
-        const safeTitle = s.title || "Work sample";
-        const safeUrl = s.url || "#";
-        const note = s.note ? `<div class="muted">${s.note}</div>` : "";
-        return `
-          <div class="kv"><a class="smallLink" href="${safeUrl}" target="_blank" rel="noreferrer">${safeTitle}</a>${note}</div>
-        `;
-      })
-      .join("");
+    ws.innerHTML = p.workSamples.map(s => {
+      const safeTitle = s.title || "Work sample";
+      const safeUrl = s.url || "#";
+      const note = s.note ? `<div class="muted">${s.note}</div>` : "";
+      return `<div class="kv"><a class="smallLink" href="${safeUrl}" target="_blank" rel="noreferrer">${safeTitle}</a>${note}</div>`;
+    }).join("");
   }
 })();
-
