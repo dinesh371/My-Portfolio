@@ -4,65 +4,168 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Experience — T. Dinesh</title>
+
+  <base href="/My-Portfolio/">
+
+  <meta name="description" content="Professional Experience — Infrastructure & Cloud System Administrator — T. Dinesh" />
+  <meta name="author" content="T. Dinesh" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="grain"></div>
 
-<header class="topbar">
-  <div class="container">
-    <div class="navbar">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
-        </svg>
-        <span>Professional CV</span>
-      </a>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          <span>Professional CV</span>
+        </a>
 
-      <nav class="links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+        <nav class="links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="experience.html" class="active">Experience</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="security.html">Security</a>
+          <a href="contact.html">Contact</a>
+        </nav>
 
-      <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
-        <button class="iconBtn" id="themeBtn">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <div class="btnRow">
+          <button class="iconBtn menuBtn" id="menuBtn">☰ Menu</button>
+          <button class="iconBtn" id="themeBtn">🌓 Theme</button>
+          <a class="iconBtn" href="assets/T_Dinesh_CV.pdf" target="_blank">⬇ CV</a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<section class="pageHero">
-  <div class="container">
-    <h1>Professional Experience</h1>
-    <p><strong>Total Experience:</strong> <span id="totalExp"></span></p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroInner">
+          <div>
+            <div class="chip">
+              <span class="dot"></span>
+              <span>Experience</span>
+            </div>
 
-    <div class="searchBar">
-      <input id="searchBox" class="searchInput" placeholder="Search experience (company, role, skills...)" />
+            <h1 class="hTitle">Hands-on Enterprise IT Operations</h1>
+            <p class="hSub">
+              Nearly 8 years supporting production environments across identity,
+              endpoints, cloud, and service operations.
+            </p>
+
+            <hr class="sep" />
+
+            <p class="hSub">
+              I focus on stability, security, and accountability. Every role below reflects
+              ownership of systems, users, and outcomes.
+            </p>
+          </div>
+
+          <div class="cardMini">
+            <div class="pName">Career Snapshot</div>
+            <hr class="sep" />
+            <div class="kv">Infrastructure & IAM</div>
+            <div class="kv">Endpoint & Cloud Ops</div>
+            <div class="kv">ITSM & Audit Support</div>
+            <div class="kv">Public Sector Exposure</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div id="experienceList"></div>
-  </div>
-</section>
+  <!-- Experience Timeline -->
+  <section class="section">
+    <div class="container">
 
-<footer class="footer">
-  <div class="container">
-    © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
-  </div>
-</footer>
+      <div class="card">
+        <div class="cardTitle">
+          <h3>System Administrator</h3>
+          <span class="badge">PRO-VIGIL</span>
+        </div>
+        <p class="muted">Sep 2023 – Present</p>
 
-<script src="data.js"></script>
-<script src="script.js"></script>
+        <ul class="ul">
+          <li>Own identity and access lifecycle using Okta and Active Directory</li>
+          <li>Administer Google Workspace and Microsoft 365 environments</li>
+          <li>Manage endpoint security, patching, and automation via NinjaOne</li>
+          <li>Support SOC audits with logs, evidence, and compliance reporting</li>
+          <li>Act as escalation point for critical infrastructure incidents</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>System Support Specialist</h3>
+          <span class="badge">Dynata</span>
+        </div>
+        <p class="muted">Dec 2021 – Sep 2023</p>
+
+        <ul class="ul">
+          <li>Handled enterprise user support across endpoints and applications</li>
+          <li>Managed Jira ITSM workflows and SLA-driven ticket resolution</li>
+          <li>Maintained IT asset inventory for onsite and remote users</li>
+          <li>Supported M365, VPN, endpoint security, and access controls</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>Technical Engineer</h3>
+          <span class="badge">HBL Power Systems</span>
+        </div>
+        <p class="muted">Jan 2021 – Dec 2021</p>
+
+        <ul class="ul">
+          <li>Provided infrastructure and application support for internal teams</li>
+          <li>Handled system monitoring, troubleshooting, and escalation</li>
+          <li>Supported production environments with uptime focus</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>IT Support Executive</h3>
+          <span class="badge">Piramal Swasthya</span>
+        </div>
+        <p class="muted">Feb 2019 – Jan 2021</p>
+
+        <ul class="ul">
+          <li>Supported public-sector healthcare programs and field teams</li>
+          <li>Managed device readiness and application troubleshooting</li>
+          <li>Worked within SLA-bound service environments</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
+    </div>
+  </footer>
+
+  <div class="fab">
+    <a href="assets/T_Dinesh_CV.pdf" target="_blank">⬇ Download CV</a>
+    <a href="contact.html">✉ Email</a>
+    <button id="fabTop">↑ Top</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
