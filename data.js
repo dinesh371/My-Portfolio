@@ -1,5 +1,5 @@
 // data.js
-// Make sure this file loads BEFORE script.js (you already have it correct)
+// Make sure this file loads BEFORE script.js
 
 window.PORTFOLIO = {
   // Basics
@@ -8,45 +8,43 @@ window.PORTFOLIO = {
   tagline: "Security-first IAM + Azure/Wintel operations | Stable enterprise support | Reliable delivery",
   location: "India",
   totalExperience: "8+ Years Experience",
-  email: "dineshtankala85@outlook.com",     // <-- change
-  phone: "+91 8331956172",           // <-- change
+  email: "dineshtankala85@outlook.com",
+  phone: "+91 8331956172",
 
   // Links
-  cvPath: "assets/T_Dinesh_CV.pdf",  // ✅ IMPORTANT: Must match your real file name in /assets/
-  linkedin: "https://www.linkedin.com/in/your-profile/",  // <-- change
-  github: "https://github.com/dinesh371",                 // <-- change
+  // IMPORTANT: this must match the exact filename in /assets/ (case sensitive)
+  cvPath: "assets/T_Dinesh_CV.pdf",
+  linkedin: "https://www.linkedin.com/in/your-profile/",   // <-- replace with real LinkedIn
+  github: "https://github.com/dinesh371",
 
   // Profile image
   profileImage: "assets/Profile.JPG",
 
-  // Optional: rotating hero images (put images in /assets/)
-  heroImages: [
-    "assets/hero1.jpg",
-    "assets/hero2.jpg",
-    "assets/hero3.jpg"
-  ],
+  // Optional: rotating hero images (ONLY keep if these files exist in /assets/)
+  // If you don't have these, set heroImages: []
+  heroImages: [],
 
-  // Stats (Home - At a Glance)
+  // Home - At a Glance
   stats: [
-    { k: "Years", v: 4, suffix: "+", s: "Hands-on experience", count: true },
-    { k: "Tickets / Month", v: 300, suffix: "+", s: "Ops support volume (example)", count: true },
-    { k: "Uptime Focus", v: "99.9%", s: "Reliability & stability" }
+    { k: "Experience", v: 8, suffix: "+", s: "Years in IT operations", count: true },
+    { k: "Core Focus", v: "IAM + Cloud", s: "Secure access & stable infrastructure" },
+    { k: "Support", v: "L2 / L3", s: "Enterprise troubleshooting & delivery" }
   ],
 
   // What I Deliver
   highlights: [
-    { icon: "cloud", k: "Azure Administration", v: "VMs, storage, monitoring, backup, patching, incident response." },
-    { icon: "id", k: "Identity & Access (IAM)", v: "AD, Azure AD, Okta, RBAC, access reviews, joiner/mover/leaver." },
-    { icon: "network", k: "Wintel & Enterprise Support", v: "Windows Server, troubleshooting, AD/GPO basics, endpoint issues." },
-    { icon: "shield", k: "Security-first Operations", v: "Least privilege mindset, audit-friendly documentation, hardening basics." }
+    { icon: "cloud", k: "Azure Administration", v: "Compute, storage, monitoring, backup, patching and incident support." },
+    { icon: "id", k: "Identity & Access (IAM)", v: "AD / Azure AD (Entra), Okta, RBAC, access reviews and JML process." },
+    { icon: "network", k: "Wintel & Enterprise Support", v: "Windows Server, endpoint support, troubleshooting and standardization." },
+    { icon: "shield", k: "Security-first Operations", v: "Least privilege, audit-friendly changes and clean documentation." }
   ],
 
   // Why I’m a Safe Hire
   confidence: [
-    { icon: "shield", k: "Reliable ownership", v: "Follows through on tasks, clear updates, predictable delivery." },
-    { icon: "cloud", k: "Calm during incidents", v: "Structured troubleshooting and clean handoffs for faster resolution." },
-    { icon: "network", k: "Documentation habit", v: "Runbooks, SOPs, and fixes written so issues don’t repeat." },
-    { icon: "id", k: "Access hygiene", v: "Role clarity, access review support, and clean approvals flow." }
+    { icon: "shield", k: "Reliable ownership", v: "Clear updates, solid follow-through, and consistent delivery." },
+    { icon: "cloud", k: "Calm under pressure", v: "Structured troubleshooting and clean escalation during incidents." },
+    { icon: "network", k: "Documentation habit", v: "Runbooks, SOPs and fix notes to prevent repeat issues." },
+    { icon: "id", k: "Access hygiene", v: "Role clarity, review cycles, and controlled approvals." }
   ],
 
   // Tech logo pills (shown under CTA)
@@ -58,78 +56,79 @@ window.PORTFOLIO = {
     { key: "windows", name: "Windows Server" }
   ],
 
-  // Experience page data (example)
+  // Experience page
   experience: [
     {
       role: "Infrastructure / System Administrator",
-      company: "Your Company",
+      company: "Your Company",        // <-- replace
       location: "India",
-      period: "2022 - Present",
+      period: "2022 - Present",       // <-- replace if needed
       points: [
-        "Handled daily infrastructure support for Windows and cloud workloads.",
-        "Managed IAM requests (Okta/AD/Azure AD) and access reviews.",
-        "Performed troubleshooting, monitoring and incident coordination."
+        "Supported infrastructure operations for Windows and cloud workloads.",
+        "Handled IAM requests (AD / Azure AD / Okta) and access review activities.",
+        "Worked on monitoring, troubleshooting, patching and incident coordination."
       ],
       tags: ["Azure", "Okta", "Windows", "IAM", "L2 Support"]
     }
   ],
 
-  // Skills page data (example)
+  // Skills page
   skills: [
     {
       group: "Cloud & Identity",
       items: [
-        { name: "Azure Admin", level: 80 },
+        { name: "Azure Administration", level: 80 },
         { name: "Azure AD / Entra", level: 75 },
         { name: "Okta (IAM)", level: 70 }
       ]
     },
     {
-      group: "Wintel & Support",
+      group: "Wintel & Operations",
       items: [
-        { name: "Windows Server", level: 78 },
+        { name: "Windows Server", level: 80 },
         { name: "Troubleshooting", level: 85 },
-        { name: "Documentation", level: 82 }
+        { name: "Documentation / SOPs", level: 82 }
       ]
     }
   ],
 
-  // Projects page data (example)
+  // Projects page
   projects: [
     {
       title: "IAM Cleanup + Access Review Process",
       period: "2024",
       problem: "Over-provisioned access and inconsistent approvals increased risk.",
       actions: [
-        "Created role-based access matrix.",
+        "Defined role-based access matrix and approval flow.",
         "Implemented review cycles and removal workflow.",
-        "Documented SOP for approvals and escalations."
+        "Documented SOP for access requests and escalations."
       ],
       outcome: "Improved access hygiene and reduced unnecessary privileges.",
       stack: ["Okta", "Azure AD", "RBAC", "SOP"]
     }
   ],
 
-  // Certifications page data (optional)
+  // Certifications page
+  // Supports: { name, issuer, year, id, verify }
   certifications: [
-    { name: "Microsoft Azure Fundamentals (AZ-900)" }
+    { name: "Microsoft Azure Fundamentals (AZ-900)", issuer: "Microsoft", year: "2024" }
   ],
 
-  // Security page data (optional)
+  // Security page
   securityPractices: [
     {
       title: "Operational Security Practices",
       bullets: [
         "Least privilege and role-based access approach.",
         "Change tracking and documentation for audit readiness.",
-        "Basic hardening and patch-first mindset."
+        "Patch-first mindset with basic hardening practices."
       ]
     }
   ],
 
-  // Contact page: work samples (optional)
+  // Contact page
   workSamples: [
-    { title: "LinkedIn Profile", url: "https://www.linkedin.com/in/your-profile/", note: "Updated profile" },
-    { title: "GitHub", url: "https://github.com/dinesh371", note: "Projects / scripts" }
+    { title: "GitHub", url: "https://github.com/dinesh371", note: "Projects / scripts" },
+    { title: "Portfolio Source", url: "https://github.com/dinesh371/My-Portfolio", note: "Website code repository" }
   ]
 };
