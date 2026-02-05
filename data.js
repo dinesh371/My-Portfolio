@@ -12,7 +12,7 @@ window.PORTFOLIO = {
   github: "https://github.com/dinesh371",
 
   // CV download (used across the site)
-  cvPath: "assets/T_Dinesh_Resume.pdf",
+  cvPath: "assets/T_Dinesh_CV.pdf",
 
   // case-sensitive
   profileImage: "assets/Profile.JPG",
