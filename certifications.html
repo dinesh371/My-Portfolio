@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Certifications — T. Dinesh</title>
   <meta name="description" content="Professional certifications and training — T. Dinesh" />
+
+  <!-- IMPORTANT: GitHub Pages Project Site -->
+  <base href="/My-Portfolio/">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<div class="grain"></div>
 
 <header class="topbar">
   <div class="container">
@@ -32,9 +38,9 @@
       </nav>
 
       <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false">Menu</button>
-        <button class="iconBtn" id="themeBtn" type="button">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false" type="button">☰ Menu</button>
+        <button class="iconBtn" id="themeBtn" type="button" title="Toggle theme">🌓 Theme</button>
+        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ CV</a>
       </div>
     </div>
   </div>
@@ -42,28 +48,68 @@
 
 <section class="pageHero">
   <div class="container">
-    <h1>Certifications</h1>
-    <p>Recruiter-friendly credential list. Add credential IDs / verification links anytime.</p>
 
-    <!-- Optional: Search + Filter (works when script.js supports it) -->
-    <div class="searchBar" style="margin-top: 14px;">
-      <input id="certSearch" class="searchInput" placeholder="Search (Azure, IAM, CrowdStrike, ITIL...)" />
+    <div class="chip" style="margin-bottom:12px;">
+      <span class="dot"></span>
+      <span>Certifications</span>
     </div>
 
-    <div class="pillRow" id="certFilters" style="margin-top: 10px;">
-      <!-- script.js can inject filter pills here -->
+    <div class="grid2" style="align-items: stretch;">
+      <!-- Left: Title + Search -->
+      <div class="card" style="margin:0;">
+        <div class="cardTitle">
+          <h3 style="margin:0;">Recruiter-friendly credentials</h3>
+          <span class="badge">Verified-ready</span>
+        </div>
+
+        <p class="pText" style="margin-top:8px;">
+          Clean list of certifications and training. Add credential IDs or verification links anytime.
+        </p>
+
+        <div class="searchBar" style="margin-top: 14px;">
+          <input id="certSearch" class="searchInput" placeholder="Search (Azure, IAM, Okta, ITIL...)" />
+        </div>
+
+        <div id="certFilters" class="tags" style="margin-top: 12px;">
+          <!-- optional: filter pills if you add later -->
+          <span class="tag">Cloud</span>
+          <span class="tag">IAM</span>
+          <span class="tag">Security</span>
+          <span class="tag">IT Ops</span>
+        </div>
+      </div>
+
+      <!-- Right: Snapshot -->
+      <div class="card" style="margin:0;">
+        <div class="cardTitle">
+          <h3 style="margin:0;">Snapshot</h3>
+          <span class="badge">Quick view</span>
+        </div>
+
+        <div class="kv">Name: <strong><span id="nameFooter"></span></strong></div>
+        <div class="kv">Role: <strong>Infrastructure & Cloud System Administrator</strong></div>
+
+        <hr class="sep" />
+
+        <div class="kv">Total certifications: <strong><span id="certCount">0</span></strong></div>
+        <div class="kv">Last updated: <strong><span id="certUpdated">—</span></strong></div>
+
+        <hr class="sep" />
+
+        <a class="smallLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ Download CV</a>
+      </div>
     </div>
+
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <!-- This list is filled by script.js; fallback text stays if JS fails -->
     <div id="certList" aria-live="polite">
       <div class="muted" style="padding: 10px 0;">
-        Certifications will appear here. If you don’t see them, ensure <code>data.js</code> includes a
-        <code>window.PORTFOLIO.certifications</code> array and <code>script.js</code> is loading.
+        Certifications will appear here. If you don’t see them, ensure <code>data.js</code> includes
+        <code>window.PORTFOLIO.certifications</code> and <code>script.js</code> is loading.
       </div>
     </div>
 
@@ -79,6 +125,19 @@
 <script src="data.js"></script>
 <script src="script.js"></script>
 
-<!-- If you want search to work even without modifying script.js, tell me and I’ll add a tiny inline JS snippet -->
+<!-- Tiny helper (UI-only): shows cert count + updated date -->
+<script>
+  (function () {
+    try {
+      const p = window.PORTFOLIO || {};
+      const list = Array.isArray(p.certifications) ? p.certifications : [];
+      const countEl = document.getElementById("certCount");
+      const updEl = document.getElementById("certUpdated");
+      if (countEl) countEl.textContent = String(list.length);
+      if (updEl) updEl.textContent = new Date().toLocaleDateString();
+    } catch {}
+  })();
+</script>
+
 </body>
 </html>
