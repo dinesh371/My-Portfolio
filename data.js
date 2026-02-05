@@ -7,9 +7,9 @@ window.PORTFOLIO = {
   title: "Infrastructure & Cloud System Administrator",
   tagline: "Security-first IAM + Azure/Wintel operations | Stable enterprise support | Reliable delivery",
   location: "India",
-  totalExperience: "4+ Years Experience",
-  email: "yourmail@example.com",     // <-- change
-  phone: "+91 0000000000",           // <-- change
+  totalExperience: "8+ Years Experience",
+  email: "dineshtankala85@outlook.com",     // <-- change
+  phone: "+91 8331956172",           // <-- change
 
   // Links
   cvPath: "assets/T_Dinesh_CV.pdf",  // ✅ IMPORTANT: Must match your real file name in /assets/
