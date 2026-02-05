@@ -1,75 +1,111 @@
-/* =========================
-   EXPERIENCE PAGE POLISH
-   ========================= */
-
-/* Experience card */
-.card{
-  border:1px solid var(--glassBorder);
-  background: linear-gradient(180deg, var(--glass2), var(--glass));
-  border-radius: var(--radius);
-  padding:18px;
-  margin-bottom:16px;
-  box-shadow: var(--shadow2);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  transition: .15s ease;
-}
-.card:hover{
-  transform: translateY(-2px);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Card header */
-.cardTitle{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+body {
+  background: #ffffff;
+  color: #1f2933;
+  line-height: 1.6;
 }
 
-.cardTitle h3{
-  margin:0;
-  font-size:18px;
-  font-weight:1000;
-  letter-spacing:-.2px;
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Company badge */
-.badge{
-  font-size:12px;
-  font-weight:900;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid rgba(124,92,255,.25);
-  background: rgba(124,92,255,.14);
-  color: var(--text);
-  white-space:nowrap;
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #1f2933;
+  font-weight: 500;
 }
 
-/* Period text */
-.muted{
-  margin:6px 0 10px;
-  font-size:13px;
-  font-weight:850;
-  color: var(--muted);
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Bullet list */
-.ul{
-  margin:0;
-  padding-left:18px;
+.hero h1 {
+  font-size: 3rem;
 }
 
-.ul li{
-  margin:8px 0;
-  line-height:1.6;
-  font-weight:850;
-  color: rgba(169,183,208,.92);
-}
-:root[data-theme="light"] .ul li{
-  color: rgba(10,13,20,.78);
+.hero p {
+  margin: 15px 0;
+  color: #555;
 }
 
-/* Better bullet marker */
-.ul li::marker{
-  color: var(--accent2);
+.btn {
+  padding: 12px 28px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.section {
+  padding: 80px 10%;
+}
+
+.gray {
+  background: #f8fafc;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.timeline .item {
+  margin-bottom: 30px;
+}
+
+.timeline span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .navbar nav {
+    display: none;
+  }
 }
