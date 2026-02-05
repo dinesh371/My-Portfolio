@@ -4,10 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Skills — T. Dinesh</title>
+
+  <base href="/My-Portfolio/">
+
+  <meta name="description" content="Technical Skills — Infrastructure, Cloud, IAM, Endpoint & IT Operations — T. Dinesh" />
+  <meta name="author" content="T. Dinesh" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
+  <div class="grain"></div>
+
+<<<<<<< HEAD
 <header class="topbar">
   <div class="container">
     <div class="navbar">
@@ -27,40 +36,58 @@
         <a href="security.html">Security</a>
         <a href="contact.html">Contact</a>
       </nav>
+=======
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          <span>Professional CV</span>
+        </a>
 
-      <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
-        <button class="iconBtn" id="themeBtn">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <nav class="links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="experience.html">Experience</a>
+          <a href="skills.html" class="active">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="security.html">Security</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+>>>>>>> 5d7f8eb7e0307001454373aa89b1406190d2d907
+
+        <div class="btnRow">
+          <button class="iconBtn menuBtn" id="menuBtn">☰ Menu</button>
+          <button class="iconBtn" id="themeBtn">🌓 Theme</button>
+          <a class="iconBtn" href="assets/T_Dinesh_CV.pdf" target="_blank">⬇ CV</a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<section class="pageHero">
-  <div class="container">
-    <h1>Skills</h1>
-    <p>Clean, recruiter-friendly skill meters focused on enterprise infrastructure & security.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroInner">
+          <div>
+            <div class="chip">
+              <span class="dot"></span>
+              <span>Skills</span>
+            </div>
 
-    <div class="searchBar">
-      <input id="searchBox" class="searchInput" placeholder="Search skills (Azure, Okta, AD, Security...)" />
-    </div>
-  </div>
-</section>
+            <h1 class="hTitle">Core Technical Expertise</h1>
+            <p class="hSub">
+              Practical, production-ready skills built from running real
+              enterprise environments, not labs.
+            </p>
 
-<section class="section">
-  <div class="container">
-    <div id="skillsGrid"></div>
-  </div>
-</section>
+            <hr class="sep" />
 
-<footer class="footer">
-  <div class="container">
-    © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
-  </div>
-</footer>
-
-<script src="data.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+            <p class="hSub">
+              My strength is connecting identity, endpoints, cloud, and IT

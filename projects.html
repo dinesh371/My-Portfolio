@@ -2,81 +2,202 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects — T. Dinesh</title>
+
+  <base href="/My-Portfolio/">
+
+  <meta name="description" content="Projects — Infrastructure, IAM, Automation & Security Operations — T. Dinesh" />
+  <meta name="author" content="T. Dinesh" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="grain"></div>
 
-<header class="topbar">
-  <div class="container">
-    <div class="navbar">
-
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z"
-                stroke="currentColor" stroke-width="1.6"/>
-          <path d="M7.5 12h9"
-                stroke="currentColor" stroke-width="1.6"/>
-        </svg>
-        <span>Professional CV</span>
-      </a>
-
-      <nav class="links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html" class="active">Projects</a>
-      </nav>
-
-      <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
-        <button class="iconBtn" id="themeBtn">Theme</button>
-        <a class="iconBtn"
-           href="assets/T_Dinesh_CV.pdf"
-           target="_blank"
-           rel="noreferrer">
-          Download CV
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          <span>Professional CV</span>
         </a>
+
+        <nav class="links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="experience.html">Experience</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="security.html">Security</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="btnRow">
+          <button class="iconBtn menuBtn" id="menuBtn">☰ Menu</button>
+          <button class="iconBtn" id="themeBtn">🌓 Theme</button>
+          <a class="iconBtn" href="assets/T_Dinesh_CV.pdf" target="_blank">⬇ CV</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroInner">
+          <div>
+            <div class="chip">
+              <span class="dot"></span>
+              <span>Projects</span>
+            </div>
+
+            <h1 class="hTitle">Real Work, Real Impact</h1>
+            <p class="hSub">
+              Selected projects where I improved security, stability,
+              and operational efficiency in live environments.
+            </p>
+
+            <hr class="sep" />
+
+            <p class="hSub">
+              Each project below reflects hands-on ownership, not oversight.
+            </p>
+          </div>
+
+          <div class="cardMini">
+            <div class="pName">Focus Areas</div>
+            <hr class="sep" />
+            <div class="kv">IAM</div>
+            <div class="kv">Automation</div>
+            <div class="kv">Security</div>
+            <div class="kv">IT Operations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section">
+    <div class="container">
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>Identity Lifecycle Automation (Okta)</h3>
+          <span class="badge">IAM</span>
+        </div>
+
+        <p>
+          <strong>Problem:</strong> Manual user provisioning led to delays,
+          access inconsistencies, and audit gaps.
+        </p>
+        <p>
+          <strong>Action:</strong> Standardized join, move, leave workflows
+          using Okta groups and role-based access.
+        </p>
+        <p>
+          <strong>Result:</strong> Faster onboarding, cleaner access reviews,
+          and improved audit readiness.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>Endpoint Management & Patch Compliance</h3>
+          <span class="badge">Endpoint</span>
+        </div>
+
+        <p>
+          <strong>Problem:</strong> Inconsistent patching and limited endpoint visibility.
+        </p>
+        <p>
+          <strong>Action:</strong> Centralized endpoint monitoring and patching using NinjaOne,
+          with alerting and reporting.
+        </p>
+        <p>
+          <strong>Result:</strong> Higher patch compliance, reduced security exposure,
+          and faster incident resolution.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>Google Workspace & Microsoft 365 Governance</h3>
+          <span class="badge">Workspace</span>
+        </div>
+
+        <p>
+          <strong>Problem:</strong> License sprawl and inconsistent user configurations.
+        </p>
+        <p>
+          <strong>Action:</strong> Cleaned up licenses, standardized policies,
+          and tightened email and access controls.
+        </p>
+        <p>
+          <strong>Result:</strong> Lower operational noise and improved security posture.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>ITSM Process Optimization</h3>
+          <span class="badge">ITSM</span>
+        </div>
+
+        <p>
+          <strong>Problem:</strong> High ticket turnaround times and unclear ownership.
+        </p>
+        <p>
+          <strong>Action:</strong> Refined Jira ITSM workflows, SLAs, and escalation paths.
+        </p>
+        <p>
+          <strong>Result:</strong> Faster resolutions and improved service transparency.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="cardTitle">
+          <h3>SOC Audit & Compliance Support</h3>
+          <span class="badge">Security</span>
+        </div>
+
+        <p>
+          <strong>Problem:</strong> Time-consuming evidence collection during audits.
+        </p>
+        <p>
+          <strong>Action:</strong> Centralized logs, standardized reports,
+          and prepared audit-ready documentation.
+        </p>
+        <p>
+          <strong>Result:</strong> Smoother audits with fewer follow-ups.
+        </p>
       </div>
 
     </div>
-  </div>
-</header>
+  </section>
 
-<section class="pageHero">
-  <div class="container">
-    <h1>Projects</h1>
-    <p>
-      Case-study style summaries highlighting ownership, coordination,
-      and reliable delivery across public sector and enterprise programs.
-    </p>
-
-    <div class="searchBar">
-      <input
-        id="searchBox"
-        class="searchInput"
-        placeholder="Search projects (Telemedicine, NITI Aayog…)" />
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
     </div>
-  </div>
-</section>
+  </footer>
 
-<section class="section">
-  <div class="container" id="projectList">
-    <!-- Project cards injected via JS -->
+  <div class="fab">
+    <a href="assets/T_Dinesh_CV.pdf" target="_blank">⬇ Download CV</a>
+    <a href="contact.html">✉ Email</a>
+    <button id="fabTop">↑ Top</button>
   </div>
-</section>
 
-<footer class="footer">
-  <div class="container">
-    © <span id="year"></span>
-    <span id="nameFooter"></span>. All rights reserved.
-  </div>
-</footer>
-
-<script src="data.js"></script>
-<script src="script.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
