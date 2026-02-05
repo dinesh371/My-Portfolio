@@ -6,10 +6,8 @@
   <title>About — T. Dinesh</title>
   <meta name="description" content="About — Senior System Administrator | IT Infrastructure | IAM | Endpoint & IT Operations — T. Dinesh" />
 
-  <!-- IMPORTANT: GitHub Pages Project Site -->
-  <base href="/My-Portfolio/">
-
-  <link rel="stylesheet" href="style.css" />
+  <!-- FIX: use absolute path for GitHub Pages project site -->
+  <link rel="stylesheet" href="/My-Portfolio/style.css" />
 </head>
 <body>
 
@@ -18,7 +16,7 @@
 <header class="topbar">
   <div class="container">
     <div class="navbar">
-      <a class="brand" href="index.html" aria-label="Go to Home">
+      <a class="brand" href="/My-Portfolio/index.html" aria-label="Go to Home">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
           <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
@@ -27,26 +25,25 @@
       </a>
 
       <nav class="links" id="navLinks" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active" aria-current="page">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
+        <a href="/My-Portfolio/index.html">Home</a>
+        <a href="/My-Portfolio/about.html" class="active" aria-current="page">About</a>
+        <a href="/My-Portfolio/experience.html">Experience</a>
+        <a href="/My-Portfolio/skills.html">Skills</a>
+        <a href="/My-Portfolio/projects.html">Projects</a>
+        <a href="/My-Portfolio/certifications.html">Certifications</a>
+        <a href="/My-Portfolio/security.html">Security</a>
+        <a href="/My-Portfolio/contact.html">Contact</a>
       </nav>
 
       <div class="btnRow">
         <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false" type="button">☰ Menu</button>
         <button class="iconBtn" id="themeBtn" type="button" title="Toggle theme">🌓 Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ CV</a>
+        <a class="iconBtn" id="cvLink" href="/My-Portfolio/assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ CV</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- HERO (more premium) -->
 <section class="pageHero">
   <div class="container">
     <div class="chip" style="margin-bottom:12px;">
@@ -55,13 +52,13 @@
     </div>
 
     <h1 style="margin:0;">T. Dinesh</h1>
-    <p style="margin:10px 0 0;" class="hSub">
+    <p class="hSub" style="margin:10px 0 0;">
       Senior System Administrator focused on secure IAM, endpoint reliability, and stable enterprise operations.
       I work end-to-end: onboarding, access control, patching, monitoring, and incident resolution.
     </p>
 
     <div class="cta" style="margin-top:14px;">
-      <a class="btn primary" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ Download CV</a>
+      <a class="btn primary" href="/My-Portfolio/assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">⬇ Download CV</a>
       <a class="btn ghost" id="linkedinLink" href="#" target="_blank" rel="noreferrer">in LinkedIn</a>
       <a class="btn" id="githubLink" href="#" target="_blank" rel="noreferrer">⌂ GitHub</a>
     </div>
@@ -70,11 +67,8 @@
 
 <section class="section">
   <div class="container">
-
-    <!-- Two column: Main + Sidebar -->
     <div class="grid2">
 
-      <!-- MAIN -->
       <div class="card reveal">
         <div class="cardTitle">
           <h3>Professional summary</h3>
@@ -97,7 +91,6 @@
         </div>
       </div>
 
-      <!-- SIDEBAR -->
       <div class="card reveal">
         <div class="cardTitle">
           <h3>Quick profile</h3>
@@ -128,7 +121,6 @@
         </div>
       </div>
 
-      <!-- FULL WIDTH CARD (optional) -->
       <div class="card reveal" style="grid-column: 1 / -1;">
         <div class="cardTitle">
           <h3>Public sector & program operations</h3>
@@ -151,7 +143,6 @@
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -161,7 +152,8 @@
   </div>
 </footer>
 
-<script src="data.js"></script>
-<script src="script.js"></script>
+<!-- FIX: absolute script paths -->
+<script src="/My-Portfolio/data.js"></script>
+<script src="/My-Portfolio/script.js"></script>
 </body>
 </html>
