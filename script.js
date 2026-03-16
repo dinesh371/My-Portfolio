@@ -3,20 +3,7 @@
 const $ = s => document.querySelector(s)
 const $$ = s => document.querySelectorAll(s)
 
-/* ==========================
-PAGE FADE
-========================== */
-
-document.body.style.opacity=0
-
-window.addEventListener("load",()=>{
-document.body.style.transition="opacity .6s ease"
-document.body.style.opacity=1
-})
-
-/* ==========================
-NAV ACTIVE
-========================== */
+/* NAV ACTIVE */
 
 const page=(location.pathname.split("/").pop()||"index.html").toLowerCase()
 
@@ -25,9 +12,7 @@ const href=(a.getAttribute("href")||"").toLowerCase()
 a.classList.toggle("active",href===page)
 })
 
-/* ==========================
-MOBILE MENU
-========================== */
+/* MOBILE MENU */
 
 const menuBtn=$("#menuBtn")
 const navLinks=$("#navLinks")
@@ -38,16 +23,14 @@ menuBtn.onclick=()=>navLinks.classList.toggle("open")
 
 document.addEventListener("click",e=>{
 if(!navLinks.classList.contains("open")) return
-if(!navLinks.contains(e.target) && !menuBtn.contains(e.target)){
+if(!navLinks.contains(e.target)&&!menuBtn.contains(e.target)){
 navLinks.classList.remove("open")
 }
 })
 
 }
 
-/* ==========================
-SCROLL REVEAL
-========================== */
+/* REVEAL */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -60,63 +43,7 @@ observer.unobserve(entry.target)
 
 $$(".reveal").forEach(el=>observer.observe(el))
 
-/* ==========================
-COUNT STATS
-========================== */
-
-$$(".countUp").forEach(el=>{
-
-const to=parseInt(el.dataset.to||0)
-let start=0
-
-function step(){
-
-start+=Math.ceil(to/20)
-
-if(start>to) start=to
-
-el.textContent=start
-
-if(start<to) requestAnimationFrame(step)
-
-}
-
-step()
-
-})
-
-/* ==========================
-CARD TILT
-========================== */
-
-$$(".card,.infra-card,.security-card,.ops-card").forEach(card=>{
-
-card.addEventListener("mousemove",e=>{
-
-const rect=card.getBoundingClientRect()
-
-const x=e.clientX-rect.left
-const y=e.clientY-rect.top
-
-const centerX=rect.width/2
-const centerY=rect.height/2
-
-const rotateX=(y-centerY)/12
-const rotateY=(centerX-x)/12
-
-card.style.transform=`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-
-})
-
-card.addEventListener("mouseleave",()=>{
-card.style.transform=""
-})
-
-})
-
-/* ==========================
-CURSOR GLOW
-========================== */
+/* CURSOR GLOW */
 
 const cursor=document.createElement("div")
 cursor.className="cursorGlow"
@@ -127,9 +54,7 @@ cursor.style.left=e.clientX+"px"
 cursor.style.top=e.clientY+"px"
 })
 
-/* ==========================
-TOPBAR SCROLL
-========================== */
+/* NAVBAR BLUR */
 
 const topbar=document.querySelector(".topbar")
 
@@ -143,9 +68,30 @@ topbar.classList.remove("scrolled")
 
 })
 
-/* ==========================
-NETWORK TOPOLOGY
-========================== */
+/* TERMINAL COMMAND TYPING */
+
+const cmds=document.querySelectorAll(".cmd")
+
+cmds.forEach(cmd=>{
+
+const text=cmd.dataset.text
+let i=0
+
+function type(){
+
+if(i<text.length){
+cmd.textContent+=text.charAt(i)
+i++
+setTimeout(type,40)
+}
+
+}
+
+type()
+
+})
+
+/* NETWORK TOPOLOGY */
 
 const canvas=document.getElementById("networkCanvas")
 
@@ -221,19 +167,7 @@ draw()
 
 }
 
-/* ==========================
-SCROLL TOP
-========================== */
-
-const topBtn=$("#fabTop")
-
-if(topBtn){
-topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"})
-}
-
-/* ==========================
-YEAR
-========================== */
+/* YEAR */
 
 const year=$("#year")
 if(year) year.textContent=new Date().getFullYear()
