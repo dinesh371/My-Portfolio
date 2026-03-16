@@ -1,346 +1,346 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>T. Dinesh | IT Infrastructure & Security Operations</title>
+<title>T. Dinesh | Infrastructure Engineer</title>
 
-<meta name="description"
-content="System Administrator | IT Infrastructure | IAM | Endpoint Security | Cloud & Enterprise Operations"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:#070b17;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(10px);
+z-index:10;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:90px;
+font-weight:800;
+line-height:0.9;
+background:linear-gradient(90deg,#4f9cff,#8a6cff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:700px;
+color:#bfc7d9;
+margin-top:20px;
+}
+
+/* TERMINAL */
+
+.terminal-section{
+padding:100px 20px;
+display:flex;
+justify-content:center;
+}
+
+.terminal{
+width:800px;
+background:#0d111c;
+border-radius:12px;
+padding:20px;
+font-family:monospace;
+box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+
+.dot{
+height:12px;
+width:12px;
+border-radius:50%;
+display:inline-block;
+margin-right:6px;
+}
+
+.red{background:#ff605c}
+.yellow{background:#ffbd44}
+.green{background:#00ca4e}
+
+.terminal-body{
+margin-top:15px;
+}
+
+.terminal-output{
+color:#4ade80;
+}
+
+/* INFRASTRUCTURE */
+
+.infra{
+padding:100px 60px;
+text-align:center;
+}
+
+.infra-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.infra-card{
+padding:30px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+transition:.3s;
+}
+
+.infra-card:hover{
+transform:scale(1.1);
+border:1px solid #4f9cff;
+}
+
+/* METRICS */
+
+.metrics{
+display:flex;
+justify-content:center;
+gap:100px;
+padding:100px;
+text-align:center;
+}
+
+.metric h2{
+font-size:60px;
+color:#4f9cff;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+color:#7a8296;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+</style>
 
 </head>
 
 <body>
 
+<div class="nav">
 
-<canvas id="networkCanvas"></canvas>
+<div><b>T. Dinesh</b></div>
 
-
-<header class="topbar">
-
-<div class="container">
-
-<div class="navbar">
-
-<a class="brand" href="index.html">
-
-<svg viewBox="0 0 24 24" fill="none">
-
-<path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z"
-stroke="currentColor" stroke-width="1.6"/>
-
-<path d="M7.5 12h9"
-stroke="currentColor" stroke-width="1.6"/>
-
-</svg>
-
-</a>
-
-<nav class="links">
-
-<a href="index.html" class="active">Home</a>
+<div>
 <a href="about.html">About</a>
 <a href="experience.html">Experience</a>
 <a href="skills.html">Skills</a>
 <a href="projects.html">Projects</a>
 <a href="certifications.html">Certifications</a>
-<a href="security.html">Security</a>
 <a href="contact.html">Contact</a>
-
-</nav>
-
-<div class="btnRow">
-
-<button class="iconBtn" id="themeBtn">Theme</button>
-
-<a class="iconBtn"
-href="assets/T_Dinesh_CV.pdf"
-target="_blank">
-
-Download CV
-
-</a>
-
 </div>
 
 </div>
-</div>
-
-</header>
-
 
 
 <section class="hero">
 
-<div class="container">
+<h1>INFRASTRUCTURE<br>ENGINEER</h1>
 
-<h1 class="heroTitle">
+<p>
 
-IT INFRASTRUCTURE  
-<br>
-& SECURITY OPERATIONS
+System Administrator specializing in enterprise IT infrastructure,
+Identity & Access Management, endpoint security, and IT operations.
 
-</h1>
+Managing secure enterprise systems for 300+ users and ensuring
+reliable infrastructure operations.
 
-<p class="heroSubtitle">
+</p>
 
-Managing enterprise IT environments across Identity, Cloud,
-Endpoint Security, and Network Infrastructure.
+</section>
 
+
+<section class="terminal-section">
+
+<div class="terminal">
+
+<div>
+<span class="dot red"></span>
+<span class="dot yellow"></span>
+<span class="dot green"></span>
+</div>
+
+<div class="terminal-body">
+
+<p>$ whoami</p>
+<p class="terminal-output">
+T. Dinesh - System Administrator
+</p>
+
+<p>$ skills</p>
+<p class="terminal-output">
+IAM | Microsoft 365 | Google Workspace |
+NinjaOne | Jira ITSM | Ruckus Networking
+</p>
+
+<p>$ experience</p>
+<p class="terminal-output">
+8+ years enterprise IT infrastructure
+</p>
+
+<p>$ users_supported</p>
+<p class="terminal-output">
+300+ enterprise users
 </p>
 
 </div>
 
+</div>
+
 </section>
 
 
+<section class="infra">
 
-<section class="section">
-
-<div class="container">
-
-<h2 class="sectionTitle">Enterprise Infrastructure Architecture</h2>
+<h2>Enterprise Infrastructure Stack</h2>
 
 <div class="infra-grid">
 
-<div class="infra-card">
+<div class="infra-card">Identity<br>Okta / IAM</div>
 
-☁ Cloud Platform
-<br>
-Azure / SaaS
+<div class="infra-card">Endpoint<br>NinjaOne / Webroot</div>
 
-</div>
+<div class="infra-card">Productivity<br>Microsoft 365</div>
 
-<div class="infra-card">
+<div class="infra-card">Collaboration<br>Zoom / RingCentral</div>
 
-Identity Layer
-<br>
-Okta IAM
+<div class="infra-card">ITSM<br>Jira Service Management</div>
 
-</div>
-
-<div class="infra-card">
-
-Endpoint Security
-<br>
-NinjaOne
-
-</div>
-
-<div class="infra-card">
-
-Productivity
-<br>
-Microsoft 365
-
-</div>
-
-<div class="infra-card">
-
-Collaboration
-<br>
-Google Workspace
-
-</div>
-
-<div class="infra-card">
-
-Network
-<br>
-Ruckus LAN / WiFi
-
-</div>
-
-<div class="infra-card">
-
-IT Service Management
-<br>
-Jira ITSM
-
-</div>
-
-<div class="infra-card">
-
-Security Layer
-<br>
-Webroot / Sophos
-
-</div>
-
-</div>
+<div class="infra-card">Network<br>Ruckus WiFi</div>
 
 </div>
 
 </section>
 
 
+<section class="metrics">
 
-<section class="section">
-
-<div class="container">
-
-<h2 class="sectionTitle">Operations Dashboard</h2>
-
-<div class="ops-grid">
-
-<div class="ops-card">
-
-Users Managed
-
-<h3>300+</h3>
-
+<div class="metric">
+<h2>500+</h2>
+<p>Enterprise Endpoints</p>
 </div>
 
-<div class="ops-card">
-
-Enterprise Endpoints
-
-<h3>500+</h3>
-
+<div class="metric">
+<h2>50+</h2>
+<p>Enterprise Applications</p>
 </div>
 
-<div class="ops-card">
-
-Applications Managed
-
-<h3>50+</h3>
-
-</div>
-
-<div class="ops-card">
-
-Tickets Resolved
-
-<h3>20000+</h3>
-
-</div>
-
-</div>
-
+<div class="metric">
+<h2>20000+</h2>
+<p>Tickets Resolved</p>
 </div>
 
 </section>
 
 
+<footer>
 
-<section class="section terminalSection">
-
-<div class="container">
-
-<h2 class="sectionTitle">Operations Console</h2>
-
-<div class="terminal">
-
-<p>$ scan_network</p>
-<p class="terminalGreen">500 endpoints active</p>
-
-<p>$ check_identity</p>
-<p class="terminalGreen">Okta authentication operational</p>
-
-<p>$ cloud_status</p>
-<p class="terminalGreen">Microsoft 365 services healthy</p>
-
-<p>$ patch_compliance</p>
-<p class="terminalGreen">All endpoints compliant</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<footer class="footer">
-
-<div class="container">
-
-© <span id="year"></span> T. Dinesh
-
-</div>
+© 2026 T. Dinesh
 
 </footer>
 
 
-
-<script src="script.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
 
-const canvas = document.getElementById("networkCanvas");
+const scene = new THREE.Scene();
 
-const ctx = canvas.getContext("2d");
+const camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const renderer = new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
 
-const nodes = [];
+document.body.appendChild(renderer.domElement);
 
-for(let i=0;i<40;i++){
+const geometry = new THREE.IcosahedronGeometry(5,1);
 
-nodes.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-vx:(Math.random()-0.5)*0.5,
-vy:(Math.random()-0.5)*0.5
-})
+const material = new THREE.MeshBasicMaterial({
+wireframe:true,
+color:0x4f9cff
+});
 
-}
+const sphere = new THREE.Mesh(geometry,material);
+
+scene.add(sphere);
+
+camera.position.z = 10;
 
 function animate(){
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
+requestAnimationFrame(animate);
 
-nodes.forEach(n=>{
+sphere.rotation.x += 0.002;
+sphere.rotation.y += 0.003;
 
-n.x+=n.vx
-n.y+=n.vy
-
-if(n.x<0||n.x>canvas.width)n.vx*=-1
-if(n.y<0||n.y>canvas.height)n.vy*=-1
-
-ctx.beginPath()
-ctx.arc(n.x,n.y,2,0,Math.PI*2)
-ctx.fillStyle="#4f9cff"
-ctx.fill()
-
-})
-
-for(let i=0;i<nodes.length;i++){
-
-for(let j=i+1;j<nodes.length;j++){
-
-const dx=nodes[i].x-nodes[j].x
-const dy=nodes[i].y-nodes[j].y
-const dist=Math.sqrt(dx*dx+dy*dy)
-
-if(dist<120){
-
-ctx.beginPath()
-ctx.moveTo(nodes[i].x,nodes[i].y)
-ctx.lineTo(nodes[j].x,nodes[j].y)
-ctx.strokeStyle="rgba(79,156,255,0.15)"
-ctx.stroke()
+renderer.render(scene,camera);
 
 }
 
-}
-
-}
-
-requestAnimationFrame(animate)
-
-}
-
-animate()
+animate();
 
 </script>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({duration:1000});
+</script>
+
 </body>
-</html>
+</html
