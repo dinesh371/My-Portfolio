@@ -3,7 +3,36 @@
 const $ = s => document.querySelector(s)
 const $$ = s => document.querySelectorAll(s)
 
-/* NAV ACTIVE */
+const p = window.PORTFOLIO
+if(!p) return
+
+
+/* ==========================
+THEME SWITCH
+========================== */
+
+const savedTheme = localStorage.getItem("theme")
+
+if(savedTheme){
+document.documentElement.setAttribute("data-theme",savedTheme)
+}
+
+const themeBtn=$("#themeBtn")
+
+if(themeBtn){
+themeBtn.onclick=()=>{
+const cur=document.documentElement.getAttribute("data-theme") || "dark"
+const next = cur==="dark" ? "light" : "dark"
+
+document.documentElement.setAttribute("data-theme",next)
+localStorage.setItem("theme",next)
+}
+}
+
+
+/* ==========================
+ACTIVE NAV LINK
+========================== */
 
 const page=(location.pathname.split("/").pop()||"index.html").toLowerCase()
 
@@ -12,7 +41,10 @@ const href=(a.getAttribute("href")||"").toLowerCase()
 a.classList.toggle("active",href===page)
 })
 
-/* MOBILE MENU */
+
+/* ==========================
+MOBILE MENU
+========================== */
 
 const menuBtn=$("#menuBtn")
 const navLinks=$("#navLinks")
@@ -23,151 +55,415 @@ menuBtn.onclick=()=>navLinks.classList.toggle("open")
 
 document.addEventListener("click",e=>{
 if(!navLinks.classList.contains("open")) return
-if(!navLinks.contains(e.target)&&!menuBtn.contains(e.target)){
+if(!navLinks.contains(e.target) && !menuBtn.contains(e.target)){
 navLinks.classList.remove("open")
 }
 })
 
 }
 
-/* REVEAL */
+
+/* ==========================
+HERO IMAGE ROTATION
+========================== */
+
+function heroPick(){
+
+const arr=p.heroImages||[]
+if(!arr.length) return ""
+
+const d=new Date()
+const seed=d.getDate()+d.getMonth()+d.getFullYear()
+
+return arr[seed % arr.length]
+
+}
+
+const hero=heroPick()
+
+if(hero){
+
+const img=new Image()
+
+img.onload=()=>{
+document.documentElement.style.setProperty("--heroUrl",`url("${hero}")`)
+}
+
+img.src=hero
+
+}
+
+
+/* ==========================
+COMMON DATA BINDING
+========================== */
+
+function setText(sel,val){
+const el=$(sel)
+if(el) el.textContent=val||""
+}
+
+function setHref(sel,val){
+const el=$(sel)
+if(el && val) el.href=val
+}
+
+setText("#name",p.name)
+setText("#nameFooter",p.name)
+setText("#location",p.location)
+setText("#tagline",p.tagline)
+setText("#summary",p.summary)
+setText("#totalExp",p.totalExperience)
+
+setText("#emailText",p.email)
+setText("#phoneText",p.phone)
+
+setHref("#linkedinLink",p.linkedin)
+setHref("#githubLink",p.github)
+setHref("#cvLink",p.cvPath)
+setHref("#cvBtn",p.cvPath)
+
+setHref("#emailLink","mailto:"+p.email)
+
+
+/* ==========================
+TITLE TYPING EFFECT
+========================== */
+
+const title=$("#title")
+
+if(title){
+
+const text=p.title||""
+let i=0
+
+title.classList.add("typing")
+
+const timer=setInterval(()=>{
+
+title.textContent=text.slice(0,i++)
+
+if(i>text.length){
+clearInterval(timer)
+title.classList.remove("typing")
+}
+
+},18)
+
+}
+
+
+/* ==========================
+PROFILE IMAGE
+========================== */
+
+const img=$("#profileImg")
+const fallback=$("#avatarFallback")
+
+function initials(name){
+
+if(!name) return "TD"
+
+const parts=name.split(" ")
+return (parts[0][0]+(parts[1]?.[0]||"")).toUpperCase()
+
+}
+
+if(fallback){
+fallback.textContent=initials(p.name)
+}
+
+if(img && p.profileImage){
+
+const test=new Image()
+
+test.onload=()=>{
+img.src=p.profileImage
+img.style.display="block"
+fallback.style.display="none"
+}
+
+test.onerror=()=>{
+img.style.display="none"
+}
+
+test.src=p.profileImage
+
+}
+
+
+/* ==========================
+COPY EMAIL
+========================== */
+
+const copy=$("#copyEmail")
+
+if(copy){
+
+copy.onclick=async()=>{
+
+try{
+
+await navigator.clipboard.writeText(p.email)
+
+const old=copy.textContent
+copy.textContent="Copied ✓"
+
+setTimeout(()=>copy.textContent=old,1200)
+
+}catch{
+
+alert("Clipboard copy blocked")
+
+}
+
+}
+
+}
+
+
+/* ==========================
+STATS RENDER
+========================== */
+
+const stats=$("#stats")
+
+if(stats){
+
+stats.innerHTML=(p.stats||[]).map(s=>`
+
+<div class="stat reveal">
+
+<div class="statK">${s.k}</div>
+
+<div class="statV">
+
+<span class="countUp" data-to="${parseInt(s.v)||0}">0</span>
+
+</div>
+
+<div class="statS">${s.s}</div>
+
+</div>
+
+`).join("")
+
+}
+
+
+/* ==========================
+EXPERIENCE RENDER
+========================== */
+
+const expWrap=$("#experienceList")
+
+if(expWrap){
+
+expWrap.innerHTML=(p.experience||[]).map(e=>`
+
+<article class="exp reveal" data-search="${(e.role+" "+e.company+" "+(e.tags||[]).join(" ")).toLowerCase()}">
+
+<div class="expRole">${e.role}</div>
+
+<div class="expCompany">${e.company}</div>
+
+<div class="expPeriod">${e.period}</div>
+
+<ul>
+
+${(e.points||[]).map(x=>`<li>${x}</li>`).join("")}
+
+</ul>
+
+</article>
+
+`).join("")
+
+}
+
+
+/* ==========================
+PROJECTS RENDER
+========================== */
+
+const proj=$("#projectList")
+
+if(proj){
+
+proj.innerHTML=(p.projects||[]).map(pr=>`
+
+<article class="exp reveal"
+data-search="${(pr.title+" "+(pr.stack||[]).join(" ")).toLowerCase()}">
+
+<div class="expRole">${pr.title}</div>
+
+<div class="expPeriod">${pr.period}</div>
+
+<div class="pBlock">
+
+<div class="pLabel">Problem</div>
+<div class="pText">${pr.problem}</div>
+
+</div>
+
+<div class="pBlock">
+
+<div class="pLabel">Outcome</div>
+<div class="pText">${pr.outcome}</div>
+
+</div>
+
+<div class="tags">
+
+${(pr.stack||[]).map(t=>`<span class="tag">${t}</span>`).join("")}
+
+</div>
+
+</article>
+
+`).join("")
+
+}
+
+
+/* ==========================
+CERTIFICATIONS RENDER
+========================== */
+
+const cert=$("#certList")
+
+if(cert){
+
+cert.innerHTML=(p.certifications||[]).map(c=>`
+
+<article class="exp reveal">
+
+<div class="expRole">${c.name}</div>
+
+</article>
+
+`).join("")
+
+}
+
+
+/* ==========================
+SKILLS RENDER
+========================== */
+
+const skills=$("#skillsGrid")
+
+if(skills){
+
+skills.innerHTML=(p.skills||[]).map(g=>`
+
+<div class="skillGroup reveal">
+
+<div class="sgTitle">${g.group}</div>
+
+${g.items.map(i=>`
+
+<div class="meterRow">
+
+<div class="mName">${i.name}</div>
+
+<div class="mBar">
+
+<div class="mFill" style="width:${i.level}%"></div>
+
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`).join("")
+
+}
+
+
+/* ==========================
+SEARCH FILTER
+========================== */
+
+const search=$("#searchBox")
+
+if(search){
+
+search.oninput=()=>{
+
+const q=search.value.toLowerCase()
+
+$$("[data-search]").forEach(el=>{
+
+const hay=el.dataset.search||""
+
+el.style.display=hay.includes(q)?"":"none"
+
+})
+
+}
+
+}
+
+
+/* ==========================
+SCROLL REVEAL
+========================== */
 
 const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("in")
-observer.unobserve(entry.target)
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("in")
 }
 })
-},{threshold:.15})
+},{threshold:.12})
 
 $$(".reveal").forEach(el=>observer.observe(el))
 
-/* CURSOR GLOW */
 
-const cursor=document.createElement("div")
-cursor.className="cursorGlow"
-document.body.appendChild(cursor)
+/* ==========================
+COUNT UP STATS
+========================== */
 
-document.addEventListener("mousemove",e=>{
-cursor.style.left=e.clientX+"px"
-cursor.style.top=e.clientY+"px"
-})
+$$(".countUp").forEach(el=>{
 
-/* NAVBAR BLUR */
+const to=parseInt(el.dataset.to||0)
+let start=0
 
-const topbar=document.querySelector(".topbar")
+const step=()=>{
 
-window.addEventListener("scroll",()=>{
+start+=Math.ceil(to/20)
 
-if(window.scrollY>40){
-topbar.classList.add("scrolled")
-}else{
-topbar.classList.remove("scrolled")
-}
+if(start>to) start=to
 
-})
+el.textContent=start
 
-/* TERMINAL COMMAND TYPING */
-
-const cmds=document.querySelectorAll(".cmd")
-
-cmds.forEach(cmd=>{
-
-const text=cmd.dataset.text
-let i=0
-
-function type(){
-
-if(i<text.length){
-cmd.textContent+=text.charAt(i)
-i++
-setTimeout(type,40)
-}
+if(start<to) requestAnimationFrame(step)
 
 }
 
-type()
+step()
 
 })
 
-/* NETWORK TOPOLOGY */
 
-const canvas=document.getElementById("networkCanvas")
+/* ==========================
+SCROLL TO TOP
+========================== */
 
-if(canvas){
+const topBtn=$("#fabTop")
 
-const ctx=canvas.getContext("2d")
-
-function resize(){
-canvas.width=canvas.offsetWidth
-canvas.height=canvas.offsetHeight
+if(topBtn){
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"})
 }
 
-resize()
-window.addEventListener("resize",resize)
 
-const nodes=[...document.querySelectorAll(".networkMap .node")]
-
-let packetOffset=0
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-const core=document.querySelector(".node.core")
-
-if(!core) return
-
-const parent=canvas.getBoundingClientRect()
-
-const coreRect=core.getBoundingClientRect()
-
-const cx=coreRect.left-parent.left+coreRect.width/2
-const cy=coreRect.top-parent.top+coreRect.height/2
-
-nodes.forEach(n=>{
-
-if(n===core) return
-
-const rect=n.getBoundingClientRect()
-
-const x=rect.left-parent.left+rect.width/2
-const y=rect.top-parent.top+rect.height/2
-
-ctx.beginPath()
-ctx.moveTo(cx,cy)
-ctx.lineTo(x,y)
-
-ctx.strokeStyle="rgba(124,92,255,.45)"
-ctx.lineWidth=1.5
-ctx.stroke()
-
-const dx=x-cx
-const dy=y-cy
-
-const px=cx+dx*(packetOffset%100)/100
-const py=cy+dy*(packetOffset%100)/100
-
-ctx.beginPath()
-ctx.arc(px,py,3,0,Math.PI*2)
-
-ctx.fillStyle="#2ee9a6"
-ctx.fill()
-
-})
-
-packetOffset+=1
-
-requestAnimationFrame(draw)
-
-}
-
-draw()
-
-}
-
-/* YEAR */
+/* ==========================
+YEAR
+========================== */
 
 const year=$("#year")
 if(year) year.textContent=new Date().getFullYear()
