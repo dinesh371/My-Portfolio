@@ -1,83 +1,157 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — T. Dinesh</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<title>Contact — T. Dinesh</title>
+
+<meta name="description"
+content="Contact T. Dinesh — System Administrator specializing in IT Infrastructure, IAM, Endpoint Security and Enterprise IT Operations."/>
+
+<link rel="stylesheet" href="style.css"/>
+
 </head>
+
 <body>
 
 <header class="topbar">
-  <div class="container">
-    <div class="navbar">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
-        </svg>
-      </a>
+<div class="container">
 
-      <nav class="links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<div class="navbar">
 
-      <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn">Menu</button>
-        <button class="iconBtn" id="themeBtn">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
-      </div>
-    </div>
-  </div>
+<a class="brand" href="index.html">
+<svg viewBox="0 0 24 24" fill="none">
+<path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
+<path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
+</svg>
+</a>
+
+<nav class="links" id="navLinks">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="experience.html">Experience</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="certifications.html">Certifications</a>
+<a href="security.html">Security</a>
+<a href="contact.html" class="active">Contact</a>
+
+</nav>
+
+<div class="btnRow">
+<button class="iconBtn menuBtn" id="menuBtn">Menu</button>
+<button class="iconBtn" id="themeBtn">Theme</button>
+<a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">
+Download CV
+</a>
+</div>
+
+</div>
+</div>
 </header>
 
 <section class="pageHero">
-  <div class="container">
-    <h1>Contact</h1>
-    <p>Reach out confidently — I respond professionally and quickly.</p>
-  </div>
+<div class="container">
+
+<h1>Contact</h1>
+
+<p>
+Interested in collaborating, discussing IT infrastructure opportunities,
+or learning more about my work? Feel free to reach out.
+</p>
+
+</div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div class="contactGrid">
-      <div class="contactItem reveal">
-        <div class="expRole" id="cName"></div>
-        <div class="kv">Location: <span id="cLoc"></span></div>
-        <div class="kv">Email: <span id="cEmail"></span></div>
-        <div class="kv">Phone: <span id="cPhone"></span></div>
-        <a class="smallLink" id="cLinked" target="_blank" rel="noreferrer">Open LinkedIn</a>
-      </div>
 
-      <div class="contactItem reveal">
-        <div class="expRole">Quick Message</div>
-        <p class="pText">Click below to email me directly (opens your mail app).</p>
-        <a class="btn primary" id="emailLink" href="#">Email Me</a>
-      </div>
+<div class="container">
 
-      <div class="contactItem reveal">
-        <div class="expRole">Work samples</div>
-        <p class="pText">A couple of links to recent work (hosted projects).</p>
-        <div id="workSamples"></div>
-      </div>
-    </div>
-  </div>
+<div class="contactGrid">
+
+<!-- Profile -->
+
+<div class="contactItem reveal">
+
+<div class="expRole" id="cName"></div>
+
+<div class="kv">
+<strong>Location:</strong>
+<span id="cLoc"></span>
+</div>
+
+<div class="kv">
+<strong>Email:</strong>
+<span id="cEmail"></span>
+</div>
+
+<div class="kv">
+<strong>Phone:</strong>
+<span id="cPhone"></span>
+</div>
+
+<a class="smallLink" id="cLinked" target="_blank" rel="noreferrer">
+View LinkedIn Profile →
+</a>
+
+</div>
+
+<!-- Email CTA -->
+
+<div class="contactItem reveal">
+
+<div class="expRole">
+Quick Message
+</div>
+
+<p class="pText">
+If you'd like to discuss infrastructure projects,
+IT operations roles, or collaboration opportunities,
+send me a quick message.
+</p>
+
+<a class="btn primary" id="emailLink" href="#">
+Send Email
+</a>
+
+</div>
+
+<!-- Work / Portfolio -->
+
+<div class="contactItem reveal">
+
+<div class="expRole">
+Portfolio & Work
+</div>
+
+<p class="pText">
+A few selected examples of projects and hosted work.
+</p>
+
+<div id="workSamples"></div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <footer class="footer">
-  <div class="container">
-    © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
-  </div>
+<div class="container">
+
+© <span id="year"></span>
+<span id="nameFooter"></span>.
+All rights reserved.
+
+</div>
 </footer>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
