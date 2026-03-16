@@ -8,6 +8,18 @@ if(!p) return
 
 
 /* ==========================
+PAGE FADE IN
+========================== */
+
+document.body.style.opacity=0
+
+window.addEventListener("load",()=>{
+document.body.style.transition="opacity .6s ease"
+document.body.style.opacity=1
+})
+
+
+/* ==========================
 THEME SWITCH
 ========================== */
 
@@ -327,64 +339,6 @@ ${(pr.stack||[]).map(t=>`<span class="tag">${t}</span>`).join("")}
 
 
 /* ==========================
-CERTIFICATIONS RENDER
-========================== */
-
-const cert=$("#certList")
-
-if(cert){
-
-cert.innerHTML=(p.certifications||[]).map(c=>`
-
-<article class="exp reveal">
-
-<div class="expRole">${c.name}</div>
-
-</article>
-
-`).join("")
-
-}
-
-
-/* ==========================
-SKILLS RENDER
-========================== */
-
-const skills=$("#skillsGrid")
-
-if(skills){
-
-skills.innerHTML=(p.skills||[]).map(g=>`
-
-<div class="skillGroup reveal">
-
-<div class="sgTitle">${g.group}</div>
-
-${g.items.map(i=>`
-
-<div class="meterRow">
-
-<div class="mName">${i.name}</div>
-
-<div class="mBar">
-
-<div class="mFill" style="width:${i.level}%"></div>
-
-</div>
-
-</div>
-
-`).join("")}
-
-</div>
-
-`).join("")
-
-}
-
-
-/* ==========================
 SEARCH FILTER
 ========================== */
 
@@ -414,12 +368,13 @@ SCROLL REVEAL
 ========================== */
 
 const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("in")
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("in")
+observer.unobserve(entry.target)
 }
 })
-},{threshold:.12})
+},{threshold:0.15})
 
 $$(".reveal").forEach(el=>observer.observe(el))
 
@@ -446,6 +401,67 @@ if(start<to) requestAnimationFrame(step)
 }
 
 step()
+
+})
+
+
+/* ==========================
+CARD TILT EFFECT
+========================== */
+
+$$(".card,.infra-card,.security-card,.ops-card").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=card.getBoundingClientRect()
+
+const x=e.clientX-rect.left
+const y=e.clientY-rect.top
+
+const centerX=rect.width/2
+const centerY=rect.height/2
+
+const rotateX=(y-centerY)/12
+const rotateY=(centerX-x)/12
+
+card.style.transform=`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+
+})
+
+card.addEventListener("mouseleave",()=>{
+card.style.transform="rotateX(0) rotateY(0)"
+})
+
+})
+
+
+/* ==========================
+CURSOR GLOW
+========================== */
+
+const cursor=document.createElement("div")
+cursor.className="cursorGlow"
+document.body.appendChild(cursor)
+
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px"
+cursor.style.top=e.clientY+"px"
+})
+
+
+/* ==========================
+TOPBAR SCROLL EFFECT
+========================== */
+
+const topbar=document.querySelector(".topbar")
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>40){
+topbar.classList.add("scrolled")
+}else{
+topbar.classList.remove("scrolled")
+}
 
 })
 
