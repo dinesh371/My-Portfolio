@@ -71,12 +71,13 @@ Download CV
 </header>
 
 
+<!-- HERO -->
 
 <section class="pageHero">
 
 <div class="container">
 
-<h1>About</h1>
+<h1>About Me</h1>
 
 <p>
 
@@ -91,6 +92,7 @@ secure production environments.
 </section>
 
 
+<!-- SUMMARY -->
 
 <section class="section">
 
@@ -98,7 +100,7 @@ secure production environments.
 
 <div class="grid2">
 
-<div class="card">
+<div class="card reveal">
 
 <div class="cardTitle">
 
@@ -116,23 +118,18 @@ endpoint security, collaboration platforms, and IT service delivery.
 
 <ul class="ul">
 
-<li>IAM administration using Okta and Active Directory</li>
-
-<li>Endpoint management with NinjaOne, Webroot, and patch governance</li>
-
+<li>Identity & Access Management using Okta and Active Directory</li>
+<li>Endpoint automation with NinjaOne and patch governance</li>
 <li>Microsoft 365 and Google Workspace administration</li>
-
-<li>ITSM workflows using Jira Service Management</li>
-
-<li>SOC audit readiness, compliance evidence, and log monitoring</li>
+<li>ITSM workflows through Jira Service Management</li>
+<li>SOC audit readiness and compliance reporting</li>
 
 </ul>
 
 </div>
 
 
-
-<div class="card">
+<div class="card reveal">
 
 <div class="cardTitle">
 
@@ -150,13 +147,10 @@ ensuring high availability, system hardening, and operational reliability.
 
 <ul class="ul">
 
-<li>LAN / WiFi infrastructure management (Ruckus controllers)</li>
-
-<li>Endpoint provisioning, monitoring, and patch compliance</li>
-
-<li>Incident management with root cause analysis</li>
-
-<li>Asset lifecycle management and device readiness</li>
+<li>LAN and WiFi infrastructure management (Ruckus)</li>
+<li>Endpoint provisioning and monitoring</li>
+<li>Incident response and root cause analysis</li>
+<li>Asset lifecycle and device readiness</li>
 
 </ul>
 
@@ -170,6 +164,8 @@ ensuring high availability, system hardening, and operational reliability.
 
 
 
+<!-- INFRASTRUCTURE STACK -->
+
 <section class="section">
 
 <div class="container">
@@ -178,28 +174,61 @@ ensuring high availability, system hardening, and operational reliability.
 
 <div class="infra-grid">
 
-<div class="infra-card">
-☁ Azure Cloud
+<div class="infra-card reveal">☁ Azure Cloud</div>
+<div class="infra-card reveal">Microsoft 365</div>
+<div class="infra-card reveal">Google Workspace</div>
+<div class="infra-card reveal">Okta IAM</div>
+<div class="infra-card reveal">NinjaOne Endpoint</div>
+<div class="infra-card reveal">Ruckus Network</div>
+
 </div>
 
-<div class="infra-card">
-Microsoft 365
 </div>
 
-<div class="infra-card">
-Google Workspace
+</section>
+
+
+
+<!-- SECURITY STACK -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="sectionTitle">Security Stack</h2>
+
+<div class="security-grid">
+
+<div class="security-card reveal">
+
+🛡 Identity Security  
+<br>
+Okta SSO + MFA
+
 </div>
 
-<div class="infra-card">
-IAM — Okta
+<div class="security-card reveal">
+
+Endpoint Protection  
+<br>
+Webroot / Sophos
+
 </div>
 
-<div class="infra-card">
-Endpoint — NinjaOne
+<div class="security-card reveal">
+
+Patch Governance  
+<br>
+NinjaOne
+
 </div>
 
-<div class="infra-card">
-Network — Ruckus
+<div class="security-card reveal">
+
+Compliance & Audit  
+<br>
+SOC Controls
+
 </div>
 
 </div>
@@ -210,43 +239,75 @@ Network — Ruckus
 
 
 
+<!-- OPERATIONS METRICS -->
+
 <section class="section">
 
 <div class="container">
 
-<h2 class="sectionTitle">Security Stack</h2>
+<h2 class="sectionTitle">Operations Metrics</h2>
 
-<div class="security-grid">
+<div class="ops-grid">
 
-<div class="security-card">
+<div class="ops-card reveal">
+Users Supported
+<h3>300+</h3>
+</div>
 
-🛡 Identity Security
-<br>
-Okta SSO + MFA
+<div class="ops-card reveal">
+Endpoints Managed
+<h3>500+</h3>
+</div>
+
+<div class="ops-card reveal">
+Enterprise Apps
+<h3>40+</h3>
+</div>
+
+<div class="ops-card reveal">
+IT Tickets Resolved
+<h3>10K+</h3>
+</div>
 
 </div>
 
-<div class="security-card">
+</div>
 
-Endpoint Protection
-<br>
-Webroot / Sophos
+</section>
+
+
+
+<!-- TERMINAL STYLE SECTION -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="sectionTitle">Operations Console</h2>
+
+<div class="terminalBox reveal">
+
+<div class="terminalHeader">
+
+<div class="terminalDot red"></div>
+<div class="terminalDot yellow"></div>
+<div class="terminalDot green"></div>
 
 </div>
 
-<div class="security-card">
+<div class="terminalBody">
 
-Patch Governance
-<br>
-NinjaOne
+<p><span class="prompt">$</span> system_status</p>
+<p class="terminalGreen">Infrastructure Operational</p>
 
-</div>
+<p><span class="prompt">$</span> iam_status</p>
+<p class="terminalGreen">Okta Authentication Active</p>
 
-<div class="security-card">
+<p><span class="prompt">$</span> endpoint_health</p>
+<p class="terminalGreen">Endpoints Secure & Compliant</p>
 
-Compliance & Audit
-<br>
-SOC Controls
+<p><span class="prompt">$</span> network_status</p>
+<p class="terminalGreen">Ruckus WiFi Stable</p>
 
 </div>
 
