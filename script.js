@@ -7,9 +7,9 @@ const p = window.PORTFOLIO
 if(!p) return
 
 
-/* --------------------------
+/* ==========================
 THEME SWITCH
--------------------------- */
+========================== */
 
 const savedTheme = localStorage.getItem("theme")
 
@@ -17,12 +17,12 @@ if(savedTheme){
 document.documentElement.setAttribute("data-theme",savedTheme)
 }
 
-const themeBtn = $("#themeBtn")
+const themeBtn=$("#themeBtn")
 
 if(themeBtn){
 themeBtn.onclick=()=>{
-const cur=document.documentElement.getAttribute("data-theme")||"dark"
-const next=cur==="dark"?"light":"dark"
+const cur=document.documentElement.getAttribute("data-theme") || "dark"
+const next = cur==="dark" ? "light" : "dark"
 
 document.documentElement.setAttribute("data-theme",next)
 localStorage.setItem("theme",next)
@@ -30,9 +30,9 @@ localStorage.setItem("theme",next)
 }
 
 
-/* --------------------------
+/* ==========================
 ACTIVE NAV LINK
--------------------------- */
+========================== */
 
 const page=(location.pathname.split("/").pop()||"index.html").toLowerCase()
 
@@ -42,28 +42,30 @@ a.classList.toggle("active",href===page)
 })
 
 
-/* --------------------------
+/* ==========================
 MOBILE MENU
--------------------------- */
+========================== */
 
 const menuBtn=$("#menuBtn")
 const navLinks=$("#navLinks")
 
-if(menuBtn){
-menuBtn.onclick=()=>navLinks.classList.toggle("open")
-}
+if(menuBtn && navLinks){
 
-document.addEventListener("click",(e)=>{
-if(!navLinks?.classList.contains("open"))return
-if(!navLinks.contains(e.target)&&!menuBtn.contains(e.target)){
+menuBtn.onclick=()=>navLinks.classList.toggle("open")
+
+document.addEventListener("click",e=>{
+if(!navLinks.classList.contains("open")) return
+if(!navLinks.contains(e.target) && !menuBtn.contains(e.target)){
 navLinks.classList.remove("open")
 }
 })
 
+}
 
-/* --------------------------
+
+/* ==========================
 HERO IMAGE ROTATION
--------------------------- */
+========================== */
 
 function heroPick(){
 
@@ -80,6 +82,7 @@ return arr[seed % arr.length]
 const hero=heroPick()
 
 if(hero){
+
 const img=new Image()
 
 img.onload=()=>{
@@ -87,12 +90,13 @@ document.documentElement.style.setProperty("--heroUrl",`url("${hero}")`)
 }
 
 img.src=hero
+
 }
 
 
-/* --------------------------
-COMMON FIELD BINDING
--------------------------- */
+/* ==========================
+COMMON DATA BINDING
+========================== */
 
 function setText(sel,val){
 const el=$(sel)
@@ -122,9 +126,9 @@ setHref("#cvBtn",p.cvPath)
 setHref("#emailLink","mailto:"+p.email)
 
 
-/* --------------------------
+/* ==========================
 TITLE TYPING EFFECT
--------------------------- */
+========================== */
 
 const title=$("#title")
 
@@ -135,12 +139,12 @@ let i=0
 
 title.classList.add("typing")
 
-const type=setInterval(()=>{
+const timer=setInterval(()=>{
 
 title.textContent=text.slice(0,i++)
 
 if(i>text.length){
-clearInterval(type)
+clearInterval(timer)
 title.classList.remove("typing")
 }
 
@@ -149,16 +153,20 @@ title.classList.remove("typing")
 }
 
 
-/* --------------------------
+/* ==========================
 PROFILE IMAGE
--------------------------- */
+========================== */
 
 const img=$("#profileImg")
 const fallback=$("#avatarFallback")
 
 function initials(name){
+
+if(!name) return "TD"
+
 const parts=name.split(" ")
 return (parts[0][0]+(parts[1]?.[0]||"")).toUpperCase()
+
 }
 
 if(fallback){
@@ -184,9 +192,9 @@ test.src=p.profileImage
 }
 
 
-/* --------------------------
-COPY EMAIL BUTTON
--------------------------- */
+/* ==========================
+COPY EMAIL
+========================== */
 
 const copy=$("#copyEmail")
 
@@ -198,13 +206,14 @@ try{
 
 await navigator.clipboard.writeText(p.email)
 
+const old=copy.textContent
 copy.textContent="Copied ✓"
 
-setTimeout(()=>copy.textContent="Copy Email",1200)
+setTimeout(()=>copy.textContent=old,1200)
 
 }catch{
 
-alert("Clipboard blocked")
+alert("Clipboard copy blocked")
 
 }
 
@@ -213,24 +222,9 @@ alert("Clipboard blocked")
 }
 
 
-/* --------------------------
-ICONS
--------------------------- */
-
-const icons={
-
-shield:`<svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 5-3.4 9-8 10-4.6-1-8-5-8-10V7l8-4Z" stroke="currentColor" stroke-width="1.7"/></svg>`,
-
-cloud:`<svg viewBox="0 0 24 24" fill="none"><path d="M7 12.5c0-2.9 2.1-5.2 5-5.2 2 0 3.7 1.1 4.5 2.8 2 .2 3.5 1.9 3.5 3.9 0 2.2-1.8 4-4 4H9.8C8.2 18 7 16.9 7 15.5v-3Z" stroke="currentColor" stroke-width="1.7"/></svg>`,
-
-network:`<svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v4H7V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M5 17h6v4H5v-4Z" stroke="currentColor" stroke-width="1.7"/></svg>`
-
-}
-
-
-/* --------------------------
+/* ==========================
 STATS RENDER
--------------------------- */
+========================== */
 
 const stats=$("#stats")
 
@@ -257,9 +251,9 @@ stats.innerHTML=(p.stats||[]).map(s=>`
 }
 
 
-/* --------------------------
+/* ==========================
 EXPERIENCE RENDER
--------------------------- */
+========================== */
 
 const expWrap=$("#experienceList")
 
@@ -267,7 +261,7 @@ if(expWrap){
 
 expWrap.innerHTML=(p.experience||[]).map(e=>`
 
-<article class="exp reveal">
+<article class="exp reveal" data-search="${(e.role+" "+e.company+" "+(e.tags||[]).join(" ")).toLowerCase()}">
 
 <div class="expRole">${e.role}</div>
 
@@ -277,7 +271,7 @@ expWrap.innerHTML=(p.experience||[]).map(e=>`
 
 <ul>
 
-${e.points.map(x=>`<li>${x}</li>`).join("")}
+${(e.points||[]).map(x=>`<li>${x}</li>`).join("")}
 
 </ul>
 
@@ -288,9 +282,74 @@ ${e.points.map(x=>`<li>${x}</li>`).join("")}
 }
 
 
-/* --------------------------
+/* ==========================
+PROJECTS RENDER
+========================== */
+
+const proj=$("#projectList")
+
+if(proj){
+
+proj.innerHTML=(p.projects||[]).map(pr=>`
+
+<article class="exp reveal"
+data-search="${(pr.title+" "+(pr.stack||[]).join(" ")).toLowerCase()}">
+
+<div class="expRole">${pr.title}</div>
+
+<div class="expPeriod">${pr.period}</div>
+
+<div class="pBlock">
+
+<div class="pLabel">Problem</div>
+<div class="pText">${pr.problem}</div>
+
+</div>
+
+<div class="pBlock">
+
+<div class="pLabel">Outcome</div>
+<div class="pText">${pr.outcome}</div>
+
+</div>
+
+<div class="tags">
+
+${(pr.stack||[]).map(t=>`<span class="tag">${t}</span>`).join("")}
+
+</div>
+
+</article>
+
+`).join("")
+
+}
+
+
+/* ==========================
+CERTIFICATIONS RENDER
+========================== */
+
+const cert=$("#certList")
+
+if(cert){
+
+cert.innerHTML=(p.certifications||[]).map(c=>`
+
+<article class="exp reveal">
+
+<div class="expRole">${c.name}</div>
+
+</article>
+
+`).join("")
+
+}
+
+
+/* ==========================
 SKILLS RENDER
--------------------------- */
+========================== */
 
 const skills=$("#skillsGrid")
 
@@ -325,9 +384,34 @@ ${g.items.map(i=>`
 }
 
 
-/* --------------------------
+/* ==========================
+SEARCH FILTER
+========================== */
+
+const search=$("#searchBox")
+
+if(search){
+
+search.oninput=()=>{
+
+const q=search.value.toLowerCase()
+
+$$("[data-search]").forEach(el=>{
+
+const hay=el.dataset.search||""
+
+el.style.display=hay.includes(q)?"":"none"
+
+})
+
+}
+
+}
+
+
+/* ==========================
 SCROLL REVEAL
--------------------------- */
+========================== */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
@@ -340,17 +424,17 @@ e.target.classList.add("in")
 $$(".reveal").forEach(el=>observer.observe(el))
 
 
-/* --------------------------
+/* ==========================
 COUNT UP STATS
--------------------------- */
+========================== */
 
 $$(".countUp").forEach(el=>{
 
 const to=parseInt(el.dataset.to||0)
-
 let start=0
 
 const step=()=>{
+
 start+=Math.ceil(to/20)
 
 if(start>to) start=to
@@ -366,30 +450,22 @@ step()
 })
 
 
-/* --------------------------
+/* ==========================
 SCROLL TO TOP
--------------------------- */
+========================== */
 
 const topBtn=$("#fabTop")
 
 if(topBtn){
-
-topBtn.onclick=()=>window.scrollTo({
-top:0,
-behavior:"smooth"
-})
-
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"})
 }
 
 
-/* --------------------------
+/* ==========================
 YEAR
--------------------------- */
+========================== */
 
 const year=$("#year")
-
-if(year){
-year.textContent=new Date().getFullYear()
-}
+if(year) year.textContent=new Date().getFullYear()
 
 })()
