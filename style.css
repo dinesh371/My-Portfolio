@@ -1,19 +1,4 @@
-/* =====================================
-ENTERPRISE INFRASTRUCTURE PORTFOLIO
-FINAL UPGRADED PREMIUM CSS
-===================================== */
-
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
-
-/* ===============================
-ROOT VARIABLES
-=============================== */
-
 :root{
-
---font:Inter,system-ui,sans-serif;
---display:"Space Grotesk",Inter;
 
 --bg0:#050814;
 --bg1:#07122c;
@@ -27,221 +12,41 @@ ROOT VARIABLES
 
 --accent:#7c5cff;
 --accent2:#2ee9a6;
---accent3:#66a6ff;
 
 --radius:20px;
---shadow:0 24px 80px rgba(0,0,0,.55);
 
---container:1120px;
 }
 
-/* ===============================
-GLOBAL
-=============================== */
+/* base */
 
-*{box-sizing:border-box}
-
-html,body{
+body{
 margin:0;
-padding:0;
-font-family:var(--font);
 color:var(--text);
+font-family:Inter,system-ui;
+overflow-x:hidden;
+
 background:
 radial-gradient(circle at 20% 10%,rgba(124,92,255,.16),transparent 40%),
 radial-gradient(circle at 90% 20%,rgba(46,233,166,.12),transparent 40%),
 linear-gradient(180deg,var(--bg1),var(--bg0));
-overflow-x:hidden;
-scroll-behavior:smooth;
 }
 
-/* ===============================
-ANIMATED BACKGROUND MESH
-=============================== */
-
-body::before{
-content:"";
-position:fixed;
-inset:-80px;
-
-background:
-radial-gradient(520px 420px at 20% 30%,rgba(124,92,255,.25),transparent 60%),
-radial-gradient(600px 420px at 80% 10%,rgba(46,233,166,.18),transparent 60%);
-
-filter:blur(14px);
-opacity:.9;
-animation:meshMove 14s ease-in-out infinite alternate;
-z-index:-2;
-}
-
-@keyframes meshMove{
-0%{transform:translate3d(0,0,0)}
-100%{transform:translate3d(-40px,30px,0)}
-}
-
-/* grid overlay */
-
-body::after{
-content:"";
-position:fixed;
-inset:0;
-
-background-image:
-linear-gradient(rgba(124,92,255,.05) 1px,transparent 1px),
-linear-gradient(90deg,rgba(124,92,255,.05) 1px,transparent 1px);
-
-background-size:60px 60px;
-opacity:.4;
-z-index:-1;
-}
-
-/* ===============================
-CONTAINER
-=============================== */
-
-.container{
-width:min(var(--container),calc(100% - 36px));
-margin:auto;
-}
-
-/* ===============================
-NAVBAR
-=============================== */
+/* navbar */
 
 .topbar{
 position:sticky;
 top:0;
-z-index:50;
-backdrop-filter:blur(12px);
 background:rgba(5,8,20,.7);
+backdrop-filter:blur(12px);
 border-bottom:1px solid var(--line);
 transition:.3s;
 }
 
 .topbar.scrolled{
 background:rgba(5,8,20,.85);
-backdrop-filter:blur(18px);
 }
 
-.navbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 0;
-}
-
-.links{
-display:flex;
-gap:12px;
-padding:6px;
-border-radius:999px;
-border:1px solid var(--line);
-background:var(--panel);
-}
-
-.links a{
-padding:8px 12px;
-border-radius:999px;
-font-weight:800;
-color:var(--muted);
-transition:.18s;
-}
-
-.links a:hover{
-background:var(--card);
-color:var(--text);
-}
-
-.links a.active{
-background:rgba(124,92,255,.15);
-border:1px solid rgba(124,92,255,.25);
-color:var(--text);
-}
-
-/* buttons */
-
-.iconBtn{
-border:1px solid var(--line);
-background:var(--panel);
-padding:10px 12px;
-border-radius:14px;
-cursor:pointer;
-font-weight:900;
-transition:.18s;
-}
-
-.iconBtn:hover{
-background:var(--card);
-transform:translateY(-2px);
-}
-
-/* ===============================
-HERO
-=============================== */
-
-.hero{
-padding:60px 0 30px;
-border-bottom:1px solid var(--line);
-}
-
-.heroCard{
-border:1px solid var(--line);
-background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
-border-radius:24px;
-padding:28px;
-box-shadow:var(--shadow);
-}
-
-.hTitle{
-font-family:var(--display);
-font-size:clamp(36px,5vw,56px);
-line-height:1.05;
-margin:10px 0;
-
-background:linear-gradient(135deg,#ffffff,var(--accent),var(--accent2));
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-}
-
-.hSub{
-color:var(--muted);
-font-size:18px;
-line-height:1.7;
-max-width:720px;
-}
-
-/* buttons */
-
-.cta{
-display:flex;
-gap:10px;
-margin-top:18px;
-flex-wrap:wrap;
-}
-
-.btn{
-border:1px solid var(--line);
-background:var(--panel);
-padding:10px 14px;
-border-radius:14px;
-font-weight:900;
-transition:.18s;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 30px rgba(124,92,255,.25);
-}
-
-.btn.primary{
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-border:none;
-box-shadow:0 10px 40px rgba(124,92,255,.35);
-}
-
-/* ===============================
-CARD
-=============================== */
+/* cards */
 
 .card,
 .infra-card,
@@ -255,184 +60,19 @@ padding:18px;
 
 transition:
 transform .25s ease,
-background .25s ease,
-border .25s ease,
-box-shadow .25s ease;
+background .25s ease;
 
-transform-style:preserve-3d;
 }
 
 .card:hover,
 .infra-card:hover,
 .security-card:hover,
 .ops-card:hover{
-
 transform:translateY(-4px);
 background:var(--card);
 }
 
-/* ===============================
-INFRA GRID
-=============================== */
-
-.infra-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:14px;
-}
-
-/* ===============================
-SECURITY GRID
-=============================== */
-
-.security-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:14px;
-}
-
-/* ===============================
-TERMINAL
-=============================== */
-
-.terminalBox{
-background:#020617;
-border-radius:var(--radius);
-border:1px solid var(--line);
-font-family:monospace;
-overflow:hidden;
-}
-
-.terminalHeader{
-display:flex;
-gap:6px;
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.terminalDot{
-width:10px;
-height:10px;
-border-radius:999px;
-}
-
-.red{background:#ff5f56}
-.yellow{background:#ffbd2e}
-.green{background:#27c93f}
-
-.terminalBody{
-padding:16px;
-font-size:14px;
-}
-
-.prompt{color:var(--accent3)}
-
-.terminalGreen{
-color:var(--accent2);
-text-shadow:0 0 6px rgba(46,233,166,.6);
-}
-
-/* ===============================
-SKILLS
-=============================== */
-
-.skillsWrap{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-}
-
-.skillGroup{
-border:1px solid var(--line);
-background:var(--panel);
-border-radius:var(--radius);
-padding:18px;
-}
-
-.mBar{
-height:10px;
-background:rgba(255,255,255,.08);
-border-radius:999px;
-overflow:hidden;
-margin-top:6px;
-}
-
-.mFill{
-height:100%;
-background:linear-gradient(90deg,var(--accent),var(--accent2));
-transition:width 1.2s ease;
-box-shadow:0 0 10px rgba(124,92,255,.5);
-}
-
-/* ===============================
-TIMELINE
-=============================== */
-
-.timeline{
-display:grid;
-gap:14px;
-}
-
-.exp{
-border:1px solid var(--line);
-background:var(--panel);
-border-radius:var(--radius);
-padding:18px;
-}
-
-.exp:hover{
-background:var(--card);
-transform:translateY(-3px);
-}
-
-/* ===============================
-CONTACT
-=============================== */
-
-.contactGrid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
-
-.contactItem{
-border:1px solid var(--line);
-background:var(--panel);
-border-radius:var(--radius);
-padding:18px;
-}
-
-/* ===============================
-FLOATING BUTTONS
-=============================== */
-
-.fab{
-position:fixed;
-right:16px;
-bottom:16px;
-display:flex;
-flex-direction:column;
-gap:10px;
-z-index:90;
-}
-
-.fab a{
-border:1px solid var(--line);
-background:var(--panel);
-padding:12px 14px;
-border-radius:16px;
-font-weight:900;
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-transition:.18s;
-}
-
-.fab a:hover{
-transform:translateY(-3px);
-}
-
-/* ===============================
-REVEAL ANIMATION
-=============================== */
+/* reveal */
 
 .reveal{
 opacity:0;
@@ -445,9 +85,7 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* ===============================
-CURSOR GLOW
-=============================== */
+/* cursor */
 
 .cursorGlow{
 position:fixed;
@@ -460,47 +98,45 @@ transform:translate(-50%,-50%);
 opacity:.6;
 filter:blur(4px);
 z-index:9999;
-mix-blend-mode:screen;
 }
 
-/* ===============================
-FOOTER
-=============================== */
+/* network */
 
-.footer{
-border-top:1px solid var(--line);
-padding:18px 0;
-margin-top:28px;
-color:var(--muted);
+.networkMap{
+position:relative;
+height:420px;
+border-radius:20px;
+border:1px solid var(--line);
+background:var(--panel);
+overflow:hidden;
 }
 
-/* ===============================
-RESPONSIVE
-=============================== */
-
-@media(max-width:980px){
-
-.links{
-display:none;
+.node{
 position:absolute;
-right:20px;
-top:60px;
-flex-direction:column;
-padding:14px;
-background:rgba(5,8,20,.95);
-border-radius:18px;
+padding:10px 14px;
+border-radius:14px;
+font-size:13px;
+font-weight:900;
+border:1px solid rgba(255,255,255,.15);
+background:rgba(5,8,20,.9);
+transition:.2s;
 }
 
-.links.open{
-display:flex;
+.node:hover{
+transform:scale(1.1);
+border-color:var(--accent);
 }
 
-.skillsWrap{
-grid-template-columns:1fr;
+.node.core{
+top:45%;
+left:50%;
+transform:translate(-50%,-50%);
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+color:white;
 }
 
-.contactGrid{
-grid-template-columns:1fr;
-}
-
+#networkCanvas{
+position:absolute;
+inset:0;
+pointer-events:none;
 }
