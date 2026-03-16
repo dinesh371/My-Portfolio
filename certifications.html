@@ -1,83 +1,257 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Certifications — T. Dinesh</title>
-  <meta name="description" content="Professional certifications and training — T. Dinesh" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certifications — T. Dinesh</title>
+
+<meta name="description" content="Professional certifications in Microsoft Azure, enterprise IT administration, and infrastructure operations — T. Dinesh"/>
+
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+
+/* Certification grid */
+
+.certGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+/* Certification card */
+
+.certCard{
+background:var(--card-bg,#1e1e1e);
+border-radius:12px;
+padding:22px;
+transition:all .25s ease;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.certCard:hover{
+transform:translateY(-6px);
+box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+/* Logo */
+
+.certLogo{
+height:48px;
+margin-bottom:16px;
+}
+
+/* Title */
+
+.certTitle{
+font-size:16px;
+font-weight:600;
+margin-bottom:6px;
+}
+
+/* issuer */
+
+.certIssuer{
+font-size:13px;
+opacity:.75;
+margin-bottom:10px;
+}
+
+/* verify link */
+
+.verifyBtn{
+display:inline-block;
+font-size:13px;
+margin-top:6px;
+text-decoration:none;
+color:#4da3ff;
+}
+
+.verifyBtn:hover{
+text-decoration:underline;
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header class="topbar">
-  <div class="container">
-    <div class="navbar">
-      <a class="brand" href="index.html" aria-label="Go to Home">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M7.5 12h9" stroke="currentColor" stroke-width="1.6"/>
-        </svg>
-      </a>
+<div class="container">
+<div class="navbar">
 
-      <nav class="links" id="navLinks" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html" class="active" aria-current="page">Certifications</a>
-        <a href="security.html">Security</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<a class="brand" href="index.html">
+<svg viewBox="0 0 24 24" fill="none">
+<path d="M12 2l9 5v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.6"/>
+</svg>
+</a>
 
-      <div class="btnRow">
-        <button class="iconBtn menuBtn" id="menuBtn" aria-controls="navLinks" aria-expanded="false">Menu</button>
-        <button class="iconBtn" id="themeBtn" type="button">Theme</button>
-        <a class="iconBtn" id="cvLink" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
-      </div>
-    </div>
-  </div>
+<nav class="links">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="experience.html">Experience</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="certifications.html" class="active">Certifications</a>
+<a href="security.html">Security</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<div class="btnRow">
+<button class="iconBtn" id="themeBtn">Theme</button>
+<a class="iconBtn" href="assets/T_Dinesh_CV.pdf" target="_blank">Download CV</a>
+</div>
+
+</div>
+</div>
 </header>
 
 <section class="pageHero">
-  <div class="container">
-    <h1>Certifications</h1>
-    <p>Recruiter-friendly credential list. Add credential IDs / verification links anytime.</p>
 
-    <!-- Optional: Search + Filter (works when script.js supports it) -->
-    <div class="searchBar" style="margin-top: 14px;">
-      <input id="certSearch" class="searchInput" placeholder="Search (Azure, IAM, CrowdStrike, ITIL...)" />
-    </div>
+<div class="container">
 
-    <div class="pillRow" id="certFilters" style="margin-top: 10px;">
-      <!-- script.js can inject filter pills here -->
-    </div>
-  </div>
+<h1>Certifications</h1>
+
+<p>
+Industry certifications validating expertise in cloud platforms,
+enterprise IT infrastructure, identity management, and secure IT operations.
+</p>
+
+</div>
+
 </section>
 
 <section class="section">
-  <div class="container">
 
-    <!-- This list is filled by script.js; fallback text stays if JS fails -->
-    <div id="certList" aria-live="polite">
-      <div class="muted" style="padding: 10px 0;">
-        Certifications will appear here. If you don’t see them, ensure <code>data.js</code> includes a
-        <code>window.PORTFOLIO.certifications</code> array and <code>script.js</code> is loading.
-      </div>
-    </div>
+<div class="container">
 
-  </div>
+<div class="certGrid">
+
+<!-- AZ104 -->
+
+<div class="certCard">
+
+<img src="assets/logos/azure.png" class="certLogo">
+
+<div class="certTitle">
+Azure Administrator Associate
+</div>
+
+<div class="certIssuer">
+Microsoft • AZ-104
+</div>
+
+<a class="verifyBtn" href="#" target="_blank">
+Verify credential →
+</a>
+
+</div>
+
+<!-- AZ900 -->
+
+<div class="certCard">
+
+<img src="assets/logos/azure.png" class="certLogo">
+
+<div class="certTitle">
+Azure Fundamentals
+</div>
+
+<div class="certIssuer">
+Microsoft • AZ-900
+</div>
+
+<a class="verifyBtn" href="#" target="_blank">
+Verify credential →
+</a>
+
+</div>
+
+<!-- MCP -->
+
+<div class="certCard">
+
+<img src="assets/logos/microsoft.png" class="certLogo">
+
+<div class="certTitle">
+Microsoft Certified Professional
+</div>
+
+<div class="certIssuer">
+Microsoft Certification
+</div>
+
+</div>
+
+<!-- MTA -->
+
+<div class="certCard">
+
+<img src="assets/logos/microsoft.png" class="certLogo">
+
+<div class="certTitle">
+Microsoft Technology Associate
+</div>
+
+<div class="certIssuer">
+Microsoft Certification
+</div>
+
+</div>
+
+<!-- M365 -->
+
+<div class="certCard">
+
+<img src="assets/logos/microsoft365.png" class="certLogo">
+
+<div class="certTitle">
+Microsoft 365 Administration
+</div>
+
+<div class="certIssuer">
+Enterprise Productivity Platform
+</div>
+
+</div>
+
+<!-- RingCentral -->
+
+<div class="certCard">
+
+<img src="assets/logos/ringcentral.png" class="certLogo">
+
+<div class="certTitle">
+RingCentral Certified Professional
+</div>
+
+<div class="certIssuer">
+RingCentral • 2024
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <footer class="footer">
-  <div class="container">
-    © <span id="year"></span> <span id="nameFooter"></span>. All rights reserved.
-  </div>
+
+<div class="container">
+
+© <span id="year"></span> T. Dinesh. All rights reserved.
+
+</div>
+
 </footer>
 
-<script src="data.js"></script>
 <script src="script.js"></script>
 
-<!-- If you want search to work even without modifying script.js, tell me and I’ll add a tiny inline JS snippet -->
 </body>
 </html>
