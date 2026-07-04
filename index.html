@@ -1,1227 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T. Dinesh | Senior IT System Administrator</title>
-  <meta name="description" content="Portfolio of T. Dinesh, Senior IT System Administrator specializing in enterprise IT operations, IAM, endpoint security, cloud administration, networking, and automation." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-:root {
-  --bg: #05070b;
-  --bg-soft: #10151d;
-  --panel: rgba(13, 18, 28, 0.94);
-  --panel-soft: rgba(17, 23, 35, 0.92);
-  --text: #edf2fb;
-  --muted: #a7b1c2;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 92, 92, 0.22);
-  --red: #ff4d4f;
-  --red-strong: #e5393b;
-  --cyan: #12c2ff;
-  --green: #2dd4bf;
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-  --font-head: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 84px;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  color: var(--text);
-  background:
-    radial-gradient(circle at top right, rgba(18, 194, 255, 0.11), transparent 18%),
-    radial-gradient(circle at bottom left, rgba(255, 77, 79, 0.12), transparent 22%),
-    linear-gradient(180deg, #030405 0%, #08111b 40%, #05070b 100%);
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 15%, rgba(255, 77, 79, 0.06), transparent 20%),
-    radial-gradient(circle at 82% 80%, rgba(18, 194, 255, 0.08), transparent 18%);
-}
-
-a {
-  color: inherit;
-}
-
-.container {
-  width: min(1280px, calc(100% - 40px));
-  margin: 0 auto;
-}
-
-#splash {
-  position: fixed;
-  inset: 0;
-  background: #030405;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  gap: 18px;
-  transition: opacity 0.55s ease, visibility 0.55s ease;
-}
-
-#splash.gone {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.splash-mark {
-  width: 94px;
-  height: 94px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--red), #881014);
-  color: #fff;
-  font-family: var(--font-head);
-  font-size: 2rem;
-  font-weight: 800;
-  box-shadow: 0 18px 40px rgba(255, 77, 79, 0.24);
-}
-
-.splash-line {
-  width: 220px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.splash-line span {
-  display: block;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(90deg, var(--red), var(--cyan));
-  border-radius: 999px;
-}
-
-#splash p {
-  margin: 0;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.top-strip {
-  position: relative;
-  z-index: 10;
-  background: var(--red);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.top-strip-inner {
-  min-height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.main-header {
-  position: relative;
-  z-index: 10;
-  background: #000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.main-header-inner {
-  min-height: 118px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 18px;
-}
-
-.header-contact {
-  justify-self: start;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.contact-icon {
-  color: var(--red);
-  font-size: 1.25rem;
-}
-
-.header-brand {
-  text-align: center;
-}
-
-.brand-logo {
-  width: 74px;
-  height: 74px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: white;
-  font-family: var(--font-head);
-  font-size: 1.9rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--red), #881014);
-  box-shadow: 0 14px 36px rgba(255, 77, 79, 0.22);
-}
-
-.brand-title {
-  font-family: var(--font-head);
-  font-size: 1.65rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.brand-sub {
-  color: var(--red);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
-
-.header-cta {
-  justify-self: end;
-  background: var(--red);
-  color: #fff;
-  text-decoration: none;
-  padding: 16px 26px;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  transition: all 0.25s ease;
-}
-
-.header-cta:hover {
-  background: var(--red-strong);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(255, 77, 79, 0.22);
-}
-
-.main-nav-bar {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.nav-inner {
-  min-height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.nav-inner a {
-  text-decoration: none;
-  color: #dce2ec;
-  font-size: 14px;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-.nav-inner a:hover,
-.nav-inner a.active {
-  color: var(--red);
-}
-
-.nav-inner a:hover::after,
-.nav-inner a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -18px;
-  height: 2px;
-  background: var(--red);
-}
-
-main {
-  position: relative;
-  z-index: 2;
-}
-
-.hero {
-  position: relative;
-  min-height: 82vh;
-  display: flex;
-  align-items: center;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.72)),
-    radial-gradient(circle at top right, rgba(18, 194, 255, 0.16), transparent 25%),
-    linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.46) 50%, rgba(0,0,0,0.86) 100%);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.38) 56%, rgba(0,0,0,0.76) 100%),
-    url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  filter: saturate(0.75) contrast(1.1);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 77, 79, 0.06), transparent 30%, rgba(18, 194, 255, 0.05) 100%);
-}
-
-.hero-inner {
-  position: relative;
-  padding: 96px 0;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: rgba(255, 77, 79, 0.14);
-  border: 1px solid rgba(255, 77, 79, 0.22);
-  color: #ff9798;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-
-.hero h1 {
-  max-width: 860px;
-  margin: 0 0 18px;
-  font-family: var(--font-head);
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-}
-
-.hero h1 span {
-  color: var(--red);
-}
-
-.hero-desc {
-  max-width: 760px;
-  font-size: 1.1rem;
-  line-height: 1.85;
-  color: #d3dae6;
-  margin: 0 0 30px;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  padding: 14px 24px;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  transition: all 0.25s ease;
-}
-
-.btn-primary {
-  background: var(--red);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--red-strong);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(255, 77, 79, 0.22);
-}
-
-.btn-outline {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--text);
-}
-
-.btn-outline:hover {
-  border-color: var(--red);
-  background: rgba(255, 77, 79, 0.12);
-}
-
-.helper-note {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.app-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-.app-chip,
-.tech-cloud span,
-.tool-row span,
-.project-tags span,
-.summary-points span {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
-  color: #d8dfeb;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 34px;
-}
-
-.stat-card,
-.exp-card,
-.skill-card,
-.project-card,
-.cert-card,
-.contact-link,
-.contact-form-card {
-  background: linear-gradient(180deg, rgba(14, 18, 27, 0.96), rgba(10, 14, 22, 0.96));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.stat-card {
-  padding: 22px;
-}
-
-.stat-num {
-  font-family: var(--font-head);
-  font-size: clamp(1.7rem, 3vw, 2.5rem);
-  line-height: 1;
-  color: white;
-}
-
-.stat-label {
-  margin-top: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.stat-sub {
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.content-section {
-  padding: 92px 0 0;
-}
-
-.section-head {
-  margin-bottom: 34px;
-}
-
-.section-tag {
-  display: inline-block;
-  color: var(--red);
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  margin-bottom: 12px;
-}
-
-.section-head h2,
-.contact-left h2 {
-  margin: 0;
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1;
-  letter-spacing: -0.05em;
-}
-
-.section-head h2 span,
-.contact-left h2 span {
-  color: var(--red);
-}
-
-.section-head p,
-.contact-left p {
-  max-width: 760px;
-  margin: 16px 0 0;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.timeline {
-  position: relative;
-  padding-left: 44px;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, rgba(255, 77, 79, 0), rgba(255, 77, 79, 1), rgba(18, 194, 255, 0.7), rgba(18, 194, 255, 0));
-}
-
-.exp-card {
-  position: relative;
-  padding: 30px;
-  margin-bottom: 24px;
-}
-
-.exp-card::before {
-  content: "";
-  position: absolute;
-  left: -38px;
-  top: 34px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 0 0 6px rgba(255, 77, 79, 0.12);
-}
-
-.exp-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.exp-head h3,
-.skill-card h3,
-.project-card h3,
-.cert-card h3,
-.contact-form-card h3 {
-  margin: 0;
-  font-family: var(--font-head);
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
-}
-
-.exp-company,
-.project-type,
-.cert-card p {
-  margin: 8px 0 0;
-  color: var(--red);
-  font-weight: 700;
-}
-
-.exp-date {
-  color: var(--text);
-  background: rgba(255, 77, 79, 0.12);
-  border: 1px solid rgba(255, 77, 79, 0.2);
-  padding: 8px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.exp-list,
-.skill-card ul {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-.exp-list li + li,
-.skill-card li + li {
-  margin-top: 8px;
-}
-
-.tool-row,
-.tech-cloud,
-.project-tags,
-.summary-points {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 22px;
-}
-
-.skills-grid,
-.projects-grid,
-.certs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.skill-card,
-.project-card,
-.cert-card,
-.contact-form-card {
-  padding: 26px;
-}
-
-.skill-icon,
-.cert-icon {
-  font-size: 2rem;
-  margin-bottom: 14px;
-}
-
-.project-block {
-  margin-top: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.project-block strong {
-  color: var(--text);
-}
-
-.cert-card span {
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.contact-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.contact-links {
-  display: grid;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.contact-link {
-  display: grid;
-  gap: 6px;
-  padding: 18px 20px;
-  text-decoration: none;
-}
-
-.contact-link strong {
-  color: var(--text);
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-}
-
-.contact-link span {
-  color: var(--muted);
-  word-break: break-word;
-}
-
-.contact-form-card p {
-  margin: 14px 0 0;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-footer {
-  padding: 56px 0 28px;
-}
-
-.footer-inner {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 20px;
-}
-
-.footer-inner p {
-  margin: 0;
-  color: var(--muted);
-  text-align: center;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stat-card:hover,
-.exp-card:hover,
-.skill-card:hover,
-.project-card:hover,
-.cert-card:hover,
-.contact-link:hover,
-.contact-form-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--line-strong);
-  box-shadow: 0 24px 70px rgba(255, 77, 79, 0.09);
-}
-
-@media (max-width: 1100px) {
-  .skills-grid,
-  .projects-grid,
-  .certs-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<title>Dinesh Tankala — IT Infrastructure Manager</title>
+<meta name="description" content="Dinesh Tankala — IT Infrastructure Manager & Cybersecurity Professional. Microsoft 365, Azure, Okta, networking, ITSM & change management. Building secure, scalable, intelligent digital infrastructure.">
+<meta property="og:title" content="Dinesh Tankala — IT Infrastructure Manager">
+<meta property="og:description" content="Building secure, scalable & intelligent digital infrastructure.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050816;--bg-2:#0F172A;--blue:#3B82F6;--purple:#7C3AED;--cyan:#06B6D4;--pink:#EC4899;
+    --white:#FFFFFF;--text:#EAECF5;--muted:#8A93B2;--muted-2:#5a6485;
+    --line:rgba(255,255,255,.09);--glass:rgba(255,255,255,.045);--glass-2:rgba(255,255,255,.07);
+    --radius:22px;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;--display:'Space Grotesk',sans-serif;
   }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;position:relative;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--purple);color:#fff;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
 
-  .hero-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform;}
+  .orb.b1{width:520px;height:520px;background:radial-gradient(circle,var(--purple),transparent 70%);top:-120px;left:-100px;animation:float1 18s ease-in-out infinite;}
+  .orb.b2{width:460px;height:460px;background:radial-gradient(circle,var(--blue),transparent 70%);top:20%;right:-140px;animation:float2 22s ease-in-out infinite;}
+  .orb.b3{width:420px;height:420px;background:radial-gradient(circle,var(--cyan),transparent 70%);bottom:-120px;left:20%;animation:float3 20s ease-in-out infinite;}
+  .orb.b4{width:360px;height:360px;background:radial-gradient(circle,var(--pink),transparent 70%);bottom:10%;right:15%;opacity:.35;animation:float1 26s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(60px,50px);}}
+  @keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(-70px,40px);}}
+  @keyframes float3{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,-50px);}}
+  #net{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;}
+  body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 0%,transparent 40%,var(--bg) 88%);}
+  .spotlight{position:fixed;width:520px;height:520px;border-radius:50%;z-index:1;pointer-events:none;background:radial-gradient(circle,rgba(124,58,237,.10),transparent 65%);transform:translate(-50%,-50%);transition:opacity .3s;opacity:0;}
 
-@media (max-width: 820px) {
-  .main-header-inner {
-    grid-template-columns: 1fr;
-    padding: 18px 0 24px;
-  }
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);}
+  .cursor-dot{width:6px;height:6px;background:var(--cyan);}
+  .cursor-ring{width:32px;height:32px;border:1.5px solid rgba(255,255,255,.4);transition:width .2s,height .2s,border-color .2s,background .2s;}
+  .cursor-ring.hover{width:56px;height:56px;border-color:var(--cyan);background:rgba(6,182,212,.08);}
+  body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none;}
 
-  .header-contact,
-  .header-cta {
-    justify-self: center;
-  }
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--blue),var(--purple),var(--cyan));box-shadow:0 0 10px rgba(124,58,237,.6);}
 
-  .nav-inner {
-    gap: 16px;
-  }
+  header{position:fixed;top:16px;left:0;right:0;z-index:55;transition:top .3s;}
+  nav{max-width:1160px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:100px;box-shadow:0 8px 32px -12px rgba(0,0,0,.5);margin-left:24px;margin-right:24px;}
+  .logo{font-family:var(--display);font-weight:700;font-size:16px;display:flex;align-items:center;gap:9px;}
+  .logo .mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700;}
+  .navlinks{display:flex;gap:26px;font-size:13.5px;color:var(--muted);}
+  .navlinks a{transition:color .22s;position:relative;}
+  .navlinks a:hover,.navlinks a.active{color:var(--white);}
+  .nav-right{display:flex;align-items:center;gap:12px;}
+  .theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:border-color .25s;}
+  .theme-btn:hover{border-color:var(--cyan);}
+  .nav-cta{font-size:13px;padding:9px 18px;border-radius:100px;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;font-weight:600;transition:filter .25s;}
+  .nav-cta:hover{filter:brightness(1.12);}
+  .navburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;}
+  .navburger span{width:20px;height:2px;background:var(--text);border-radius:2px;}
 
-  .nav-inner a:hover::after,
-  .nav-inner a.active::after {
-    bottom: -10px;
-  }
+  .btn{font-size:14px;padding:14px 26px;border-radius:100px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:9px;transition:transform .2s,border-color .25s,background .25s,box-shadow .25s;position:relative;overflow:hidden;font-weight:500;}
+  .btn.grad{background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));background-size:180% 180%;color:#fff;border-color:transparent;font-weight:600;animation:gradShift 6s ease infinite;}
+  @keyframes gradShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+  .btn.grad:hover{box-shadow:0 14px 34px -12px rgba(124,58,237,.6);}
+  .btn.glass{background:var(--glass);backdrop-filter:blur(10px);}
+  .btn.glass:hover{border-color:var(--cyan);background:var(--glass-2);}
 
-  .contact-wrap,
-  .skills-grid,
-  .projects-grid,
-  .certs-grid {
-    grid-template-columns: 1fr;
-  }
+  section{padding:120px 0;position:relative;}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:transparent;background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;}
+  .eyebrow::before{content:'';width:26px;height:1px;background:linear-gradient(90deg,var(--cyan),var(--purple));}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;line-height:1.08;margin-bottom:18px;}
+  .sec-title .grad,.about-lead .grad,h1.name .grad{background:linear-gradient(120deg,var(--blue),var(--purple) 45%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .sec-sub{color:var(--muted);max-width:60ch;font-size:1.02rem;margin-bottom:64px;}
 
-  .hero-inner {
-    padding: 72px 0;
-  }
-}
+  .glass-card{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--radius);position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;}
+  .glass-card::before{content:'';position:absolute;inset:0;border-radius:var(--radius);padding:1px;pointer-events:none;opacity:0;transition:opacity .3s;background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
+  .glass-card:hover{transform:translateY(-6px);}
+  .glass-card:hover::before{opacity:.8;}
 
-@media (max-width: 640px) {
-  .container {
-    width: min(100% - 24px, 1280px);
-  }
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  .status-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--cyan);border:1px solid rgba(6,182,212,.3);background:rgba(6,182,212,.07);padding:7px 14px;border-radius:100px;margin-bottom:26px;}
+  .status-pill .dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:blink 2s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+  h1.name{font-family:var(--display);font-weight:700;font-size:clamp(2.8rem,7vw,5rem);line-height:1;letter-spacing:-.03em;}
+  .rotator{height:2.4em;margin-top:14px;font-family:var(--display);font-weight:600;font-size:clamp(1.1rem,2.4vw,1.7rem);overflow:hidden;position:relative;}
+  .rotator .r-item{position:absolute;left:0;width:100%;opacity:0;transform:translateY(100%);transition:opacity .5s,transform .5s;color:transparent;background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;}
+  .rotator .r-item.on{opacity:1;transform:translateY(0);}
+  .rotator .r-item.off{opacity:0;transform:translateY(-100%);}
+  .headline{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2vw,1.5rem);color:var(--text);margin-top:22px;letter-spacing:-.01em;max-width:20ch;}
+  .typed{color:var(--muted);margin-top:20px;font-size:1.02rem;max-width:52ch;min-height:3.2em;}
+  .typed .caret{display:inline-block;width:2px;height:1.05em;background:var(--cyan);margin-left:2px;vertical-align:-2px;animation:caret 1s step-end infinite;}
+  @keyframes caret{50%{opacity:0;}}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;}
 
-  .top-strip-inner {
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px 0;
-  }
+  .avatar-wrap{display:flex;justify-content:center;perspective:1000px;}
+  .avatar{position:relative;width:min(340px,80vw);aspect-ratio:1;border-radius:28px;padding:3px;will-change:transform;transform-style:preserve-3d;transition:transform .18s ease-out;}
+  .avatar::before{content:'';position:absolute;inset:-2px;border-radius:30px;z-index:-1;background:conic-gradient(from 0deg,var(--blue),var(--purple),var(--cyan),var(--pink),var(--blue));animation:spin 6s linear infinite;filter:blur(9px);opacity:.9;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:26px;display:block;}
+  .avatar .ring2{position:absolute;inset:-2px;border-radius:30px;padding:2px;background:conic-gradient(from 180deg,var(--cyan),var(--purple),var(--blue),var(--cyan));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 8s linear infinite reverse;}
+  .float-badge{position:absolute;background:var(--glass-2);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:12px;display:flex;align-items:center;gap:8px;box-shadow:0 10px 30px -12px rgba(0,0,0,.6);}
+  .float-badge .ic{font-size:16px;}
+  .fb-1{top:8%;left:-8%;animation:bob 5s ease-in-out infinite;}
+  .fb-2{bottom:12%;right:-10%;animation:bob 6s ease-in-out infinite .5s;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 
-  .brand-title {
-    font-size: 1.35rem;
-  }
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:90px;}
+  .stat{background:rgba(15,23,42,.5);backdrop-filter:blur(12px);padding:28px 24px;text-align:center;}
+  .stat .n{font-family:var(--display);font-weight:700;font-size:2.1rem;background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px;}
 
-  .nav-inner {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 4px;
-  }
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .about-lead{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.5;letter-spacing:-.01em;}
+  .about-body p{color:var(--muted);margin-bottom:16px;}
+  .about-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+  .fact{padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--glass);}
+  .fact .k{font-family:var(--mono);font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.06em;}
+  .fact .v{font-size:.95rem;margin-top:4px;}
 
-  .hero-actions {
-    flex-direction: column;
-  }
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
+  .skill{padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);display:flex;flex-direction:column;gap:10px;transition:transform .25s,border-color .25s,background .25s;}
+  .skill:hover{transform:translateY(-5px);border-color:rgba(6,182,212,.4);background:var(--glass-2);}
+  .skill .ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(124,58,237,.18));border:1px solid var(--line);}
+  .skill .nm{font-weight:600;font-size:.95rem;}
+  .skill .bar{height:4px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;}
+  .skill .bar i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:width 1s ease;}
 
-  .btn {
-    width: 100%;
-  }
+  .timeline{position:relative;padding-left:34px;}
+  .timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--purple),var(--cyan),transparent);}
+  .tl-item{position:relative;padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:'';position:absolute;left:-34px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan);box-shadow:0 0 12px rgba(6,182,212,.6);}
+  .tl-item.past::before{border-color:var(--muted-2);box-shadow:none;}
+  .tl-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;}
+  .tl-role{font-family:var(--display);font-weight:600;font-size:1.2rem;}
+  .tl-org{color:var(--cyan);font-size:.92rem;}
+  .tl-time{font-family:var(--mono);font-size:12px;color:var(--muted);}
+  .tl-item ul{list-style:none;margin-top:14px;}
+  .tl-item li{position:relative;padding-left:20px;color:var(--muted);font-size:.93rem;margin-bottom:8px;max-width:72ch;}
+  .tl-item li::before{content:'▹';position:absolute;left:0;color:var(--purple);}
+  .tl-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+  .tl-tag{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:100px;}
 
-  .hero-stats {
-    grid-template-columns: 1fr;
-  }
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
 
-  .exp-head {
-    flex-direction: column;
-  }
+  .cert{padding:24px;}
+  .cert .badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;background:linear-gradient(135deg,rgba(6,182,212,.2),rgba(124,58,237,.2));border:1px solid var(--line);}
+  .cert h3{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:6px;}
+  .cert .issuer{color:var(--cyan);font-family:var(--mono);font-size:11.5px;}
+  .cert .meta{color:var(--muted-2);font-family:var(--mono);font-size:11px;margin-top:8px;}
 
-  .timeline {
-    padding-left: 34px;
-  }
+  .service{padding:28px 24px;}
+  .service .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:18px;background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(236,72,153,.18));border:1px solid var(--line);}
+  .service h3{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:10px;}
+  .service p{color:var(--muted);font-size:.93rem;}
 
-  .exp-card::before {
-    left: -29px;
-  }
-}
+  .project{padding:0;display:flex;flex-direction:column;}
+  .project .preview{aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1226,#131c3a);}
+  .project .preview .glyph{font-size:3.4rem;filter:drop-shadow(0 6px 18px rgba(6,182,212,.4));transition:transform .4s;z-index:1;}
+  .project:hover .preview .glyph{transform:scale(1.12) rotate(-4deg);}
+  .project .preview::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(124,58,237,.35),transparent 60%);}
+  .project .pv-tags{position:absolute;bottom:12px;left:12px;z-index:2;display:flex;gap:6px;flex-wrap:wrap;}
+  .project .pv-tags span{font-family:var(--mono);font-size:10px;background:rgba(5,8,22,.7);backdrop-filter:blur(6px);border:1px solid var(--line);padding:3px 9px;border-radius:100px;color:var(--text);}
+  .project .pbody{padding:22px 24px;flex:1;display:flex;flex-direction:column;}
+  .project h3{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:8px;}
+  .project .pdesc{color:var(--muted);font-size:.92rem;flex:1;}
+  .project .metrics{display:flex;gap:20px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
+  .project .metric .mn{font-family:var(--display);font-weight:700;font-size:1.25rem;background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .project .metric .ml{font-size:11px;color:var(--muted);}
 
+  .video-shell{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#0b1020;box-shadow:0 30px 80px -30px rgba(0,0,0,.7);}
+  .video-shell video{width:100%;height:100%;object-fit:cover;display:block;}
+  .video-poster{position:absolute;inset:0;background-size:cover;background-position:50% 22%;}
+  .video-poster::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,22,.35),rgba(5,8,22,.75));}
+  .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:84px;height:84px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;animation:ring 2.4s infinite;}
+  @keyframes ring{0%{box-shadow:0 0 0 0 rgba(124,58,237,.5);}70%{box-shadow:0 0 0 24px rgba(124,58,237,0);}100%{box-shadow:0 0 0 0 rgba(124,58,237,0);}}
+  .video-note{position:absolute;bottom:16px;left:16px;z-index:3;font-family:var(--mono);font-size:12px;color:var(--text);background:rgba(5,8,22,.7);backdrop-filter:blur(6px);padding:7px 12px;border-radius:10px;border:1px solid var(--line);}
+
+  .quote{padding:28px;}
+  .quote p{font-size:1.02rem;line-height:1.6;margin-bottom:20px;}
+  .quote .by{display:flex;align-items:center;gap:12px;}
+  .quote .by .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;}
+  .quote .by .nm{font-weight:600;font-size:.92rem;}
+  .quote .by .rl{color:var(--muted);font-size:.8rem;}
+  .note-tag{font-family:var(--mono);font-size:11px;color:var(--muted-2);border:1px dashed var(--line);padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:middle;}
+
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;white-space:nowrap;}
+  .mtrack{display:inline-flex;animation:scroll 30s linear infinite;}
+  .mtrack span{font-family:var(--display);font-size:1.15rem;color:var(--muted-2);display:inline-flex;align-items:center;}
+  .mtrack span b{color:var(--text);font-weight:500;padding:0 24px;}
+  .mtrack span i{color:var(--cyan);font-style:normal;}
+  @keyframes scroll{to{transform:translateX(-50%);}}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .form-card{padding:34px;}
+  .field{margin-bottom:16px;}
+  .field label{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:7px;}
+  .field input,.field textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);font-family:var(--sans);font-size:.95rem;transition:border-color .25s,background .25s;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--cyan);background:rgba(6,182,212,.05);}
+  .field textarea{resize:vertical;min-height:110px;}
+  .channels{display:flex;flex-direction:column;gap:12px;}
+  .channel{display:flex;align-items:center;gap:16px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--glass);transition:transform .25s,border-color .25s,background .25s;}
+  .channel:hover{transform:translateX(6px);border-color:rgba(6,182,212,.4);background:var(--glass-2);}
+  .channel .ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(124,58,237,.2));border:1px solid var(--line);}
+  .channel .k{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .channel .v{font-family:var(--display);font-size:1.02rem;font-weight:500;word-break:break-word;}
+
+  .footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;}
+  .footer .socials{display:flex;justify-content:center;gap:14px;margin-bottom:18px;}
+  .footer .socials a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--glass);display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .25s,border-color .25s,color .25s;}
+  .footer .socials a:hover{transform:translateY(-4px);border-color:var(--cyan);color:var(--cyan);}
+  .footer .cp{font-family:var(--mono);font-size:11.5px;color:var(--muted-2);}
+
+  .top-btn{position:fixed;bottom:26px;right:26px;z-index:55;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(12px);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s,border-color .25s;}
+  .top-btn.show{opacity:1;pointer-events:auto;}
+  .top-btn:hover{border-color:var(--cyan);transform:translateY(-4px);}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  body.light{--bg:#f4f6fc;--bg-2:#e8ecf7;--text:#0d1330;--muted:#5a6485;--muted-2:#9aa2c0;--line:rgba(10,20,60,.12);--glass:rgba(255,255,255,.6);--glass-2:rgba(255,255,255,.8);}
+  body.light .orb{opacity:.3;}
+  body.light #net{opacity:.25;}
+  body.light .stat{background:rgba(255,255,255,.6);}
+  body.light .project .preview{background:linear-gradient(135deg,#dfe6fb,#eef1fc);}
+
+  @media (max-width:920px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}.avatar-wrap{order:-1;margin-bottom:20px;}.grid-3{grid-template-columns:1fr 1fr;}}
+  @media (max-width:680px){.navlinks,.nav-cta{display:none;}.navburger{display:flex;}.stats{grid-template-columns:1fr 1fr;}.grid-3,.grid-2{grid-template-columns:1fr;}.about-facts{grid-template-columns:1fr;}.cursor-dot,.cursor-ring,.spotlight{display:none;}nav{margin-left:8px;margin-right:8px;}section{padding:90px 0;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}.reveal{opacity:1;transform:none;}}
+
+  .mobile-menu{position:fixed;inset:0;z-index:54;background:rgba(5,8,22,.96);backdrop-filter:blur(14px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:opacity .3s;}
+  .mobile-menu.open{opacity:1;pointer-events:auto;}
+  .mobile-menu a{font-family:var(--display);font-size:1.5rem;font-weight:600;}
+  .mobile-menu .close{position:absolute;top:24px;right:24px;font-size:28px;background:none;border:none;color:var(--text);cursor:pointer;}
 </style>
 </head>
 <body>
-  <div id="splash" aria-hidden="true">
-    <div class="splash-mark">TD</div>
-    <div class="splash-line"><span id="splash-fill"></span></div>
-    <p>Loading enterprise portfolio</p>
-  </div>
 
-  <div class="top-strip">
-    <div class="container top-strip-inner">
-      <div class="top-left">SENIOR IT SYSTEM ADMINISTRATOR</div>
-      <div class="top-right">
-        <span>IAM</span>
-        <span class="dot"></span>
-        <span>SECURITY</span>
-        <span class="dot"></span>
-        <span>AUTOMATION</span>
-      </div>
+<div class="progress" id="progress"></div>
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"></div>
+<div class="spotlight" id="spot"></div>
+
+<div class="aurora"><div class="orb b1"></div><div class="orb b2"></div><div class="orb b3"></div><div class="orb b4"></div></div>
+<canvas id="net"></canvas>
+
+<header id="hdr">
+  <nav>
+    <div class="logo"><span class="mark">DT</span> Dinesh Tankala</div>
+    <div class="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
     </div>
-  </div>
-
-  <header class="main-header">
-    <div class="container main-header-inner">
-      <a class="header-contact" href="tel:+918331956172" aria-label="Call T. Dinesh">
-        <span class="contact-icon">☎</span>
-        <span>+91 8331956172</span>
-      </a>
-
-      <div class="header-brand">
-        <div class="brand-logo">TD</div>
-        <div class="brand-text">
-          <div class="brand-title">T. Dinesh</div>
-          <div class="brand-sub">Senior IT System Administrator</div>
-        </div>
-      </div>
-
-      <a href="#contact" class="header-cta">GET IN TOUCH</a>
-    </div>
-  </header>
-
-  <nav class="main-nav-bar" id="mainNav">
-    <div class="container nav-inner">
-      <a href="#hero" class="active">Home</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+      <button class="navburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
+</header>
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-inner reveal">
-        <div class="hero-badge">Open to Senior IT Roles</div>
-        <h1>Secure. Scalable. <span>Always On.</span></h1>
-        <p class="hero-desc">
-          Architecting secure, scalable enterprise IT infrastructures with 8+ years of expertise in identity management,
-          endpoint security, cloud operations, ITSM, and end-to-end system administration.
-        </p>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="menuClose">✕</button>
+  <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+  <a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
+</div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#experience">View Experience</a>
-          <a class="btn btn-outline" href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noreferrer">LinkedIn Profile</a>
-          <a class="btn btn-outline" href="mailto:dineshtankala85@outlook.com">Email Me</a>
-          <a class="btn btn-outline" href="#cv-note">Download CV</a>
-        </div>
-
-        <p id="cv-note" class="helper-note">Replace the Download CV link with your PDF path when you upload your resume file, for example <strong>assets/Dinesh_CV.pdf</strong>.</p>
-
-        <div class="app-strip" aria-label="Core platforms">
-          <span class="app-chip">Okta</span>
-          <span class="app-chip">Microsoft 365</span>
-          <span class="app-chip">Google Workspace</span>
-          <span class="app-chip">NinjaOne</span>
-          <span class="app-chip">Jira ITSM</span>
-          <span class="app-chip">Sophos</span>
-          <span class="app-chip">Webroot</span>
-          <span class="app-chip">Ruckus</span>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-card">
-            <div class="stat-num">8+</div>
-            <div class="stat-label">Years Experience</div>
-            <div class="stat-sub">Enterprise IT operations</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">500+</div>
-            <div class="stat-label">Endpoints Secured</div>
-            <div class="stat-sub">Patch and security coverage</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">10K+</div>
-            <div class="stat-label">Tickets Resolved</div>
-            <div class="stat-sub">With SLA discipline</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">99.9%</div>
-            <div class="stat-label">System Uptime</div>
-            <div class="stat-sub">Reliable IT operations</div>
-          </div>
-        </div>
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-pill"><span class="dot"></span>Open to IT leadership roles · Hyderabad, India</div>
+      <h1 class="name">Dinesh <span class="grad">Tankala.</span></h1>
+      <div class="rotator" id="rotator">
+        <span class="r-item on">IT Infrastructure Manager</span>
+        <span class="r-item">Cybersecurity Professional</span>
+        <span class="r-item">Microsoft 365 Administrator</span>
+        <span class="r-item">Cloud &amp; Network Engineer</span>
+        <span class="r-item">Okta Identity Specialist</span>
       </div>
-    </section>
-
-    <section id="experience" class="content-section reveal">
-      <div class="section-head">
-        <span class="section-tag">Career Path</span>
-        <h2>Professional <span>Experience</span></h2>
-        <p>Real-world IT operations, security, support, and automation across enterprise environments.</p>
+      <p class="headline">Building Secure, Scalable &amp; Intelligent Digital Infrastructure</p>
+      <p class="typed"><span id="typed"></span><span class="caret"></span></p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn grad" data-mag>Explore my work</a>
+        <a href="assets/Dinesh_Tankala_Resume.pdf" class="btn glass" download>Download resume</a>
+        <a href="#contact" class="btn glass">Contact me</a>
       </div>
-
-      <div class="timeline">
-        <article class="exp-card">
-          <div class="exp-head">
-            <div>
-              <h3>Senior System Administrator</h3>
-              <p class="exp-company">Pro-Vigil Surveillance Services</p>
-            </div>
-            <span class="exp-date">Sep 2023 – Present</span>
-          </div>
-          <ul class="exp-list">
-            <li>Manage end-to-end enterprise IT operations covering IAM, endpoint security, IT asset inventory, and ITSM using Jira and NinjaOne.</li>
-            <li>Own incident management lifecycle including triage, root cause analysis, resolution, and SLA adherence across business-critical systems.</li>
-            <li>Administer Jira workflows, queues, SLAs, automations, and reporting to support IT operations and leadership visibility.</li>
-            <li>Lead endpoint management using NinjaOne for OS and application patching, zero-day remediation, monitoring, and compliance reporting.</li>
-            <li>Administer Google Workspace and Microsoft 365 including user provisioning, group management, security policies, and joiner-mover-leaver lifecycle.</li>
-            <li>Support SOC audit and compliance by providing IAM logs, endpoint security evidence, patch compliance reports, and audit documentation.</li>
-            <li>Oversee LAN and Wi-Fi infrastructure using Ruckus controllers, ensuring secure and reliable connectivity.</li>
-          </ul>
-          <div class="tool-row">
-            <span>KnowBe4</span><span>RingCentral</span><span>NinjaOne</span><span>Jira ITSM</span><span>Sophos</span><span>Webroot</span><span>Ruckus</span><span>Google Workspace</span><span>Microsoft 365</span>
-          </div>
-        </article>
-
-        <article class="exp-card">
-          <div class="exp-head">
-            <div>
-              <h3>System Support Specialist</h3>
-              <p class="exp-company">Dynata</p>
-            </div>
-            <span class="exp-date">Dec 2021 – Sep 2023</span>
-          </div>
-          <ul class="exp-list">
-            <li>Supported enterprise IT operations with focus on endpoint management, IAM support, and ITSM processes.</li>
-            <li>Provided L2 and L3 support for Windows servers, desktops, and business applications in a global environment.</li>
-            <li>Managed ticket resolution through Jira, ensuring adherence to SLAs and escalation procedures.</li>
-            <li>Supported endpoint patching, vulnerability remediation, and security monitoring activities.</li>
-            <li>Supported audit readiness through access reviews, endpoint compliance reports, and security evidence collection.</li>
-          </ul>
-        </article>
-
-        <article class="exp-card">
-          <div class="exp-head">
-            <div>
-              <h3>Technical Engineer</h3>
-              <p class="exp-company">HBL Power Systems Ltd.</p>
-            </div>
-            <span class="exp-date">Jan 2021 – Dec 2021</span>
-          </div>
-          <ul class="exp-list">
-            <li>Supported IT infrastructure operations including servers, networks, and firewall management.</li>
-            <li>Installed, configured, and maintained routers, switches, servers, and structured cabling.</li>
-            <li>Assisted with system upgrades, preventive maintenance, and security controls.</li>
-          </ul>
-        </article>
-
-        <article class="exp-card">
-          <div class="exp-head">
-            <div>
-              <h3>Earlier Roles</h3>
-              <p class="exp-company">Various IT Operations and Support</p>
-            </div>
-            <span class="exp-date">2017 – 2021</span>
-          </div>
-          <ul class="exp-list">
-            <li><strong>Network Engineer – NOC, Pioneer Elba's Ltd.</strong> (Dec 2017 – Oct 2018): Monitored network operations, handled incident escalation, and ensured uptime across enterprise networks.</li>
-            <li><strong>IT Support Engineer – Progressive Infovision Pvt. Ltd.</strong>: Delivered desktop and infrastructure support, troubleshooting hardware, software, and connectivity issues.</li>
-            <li><strong>IT Support Executive – Piramal Swasthya</strong> (Feb 2019 – Jan 2021): Managed IT operations, user support, asset tracking, and infrastructure services.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills" class="content-section reveal">
-      <div class="section-head">
-        <span class="section-tag">Expertise</span>
-        <h2>Technical <span>Skills</span></h2>
-        <p>Enterprise-grade capabilities built through production support, security administration, and cross-functional IT operations.</p>
-      </div>
-
-      <div class="skills-grid">
-        <article class="skill-card">
-          <div class="skill-icon">🖥️</div>
-          <h3>IT Operations and Administration</h3>
-          <ul>
-            <li>Google Workspace Administration</li>
-            <li>Microsoft 365 / Office 365</li>
-            <li>Jira ITSM / Ticketing + SLAs</li>
-            <li>IT Asset Management</li>
-            <li>Incident Lifecycle Management</li>
-          </ul>
-        </article>
-
-        <article class="skill-card">
-          <div class="skill-icon">🔐</div>
-          <h3>IAM and Security</h3>
-          <ul>
-            <li>Okta IAM / SSO / MFA</li>
-            <li>Active Directory / RBAC</li>
-            <li>SOC Audit Support</li>
-            <li>KnowBe4 Security Awareness</li>
-            <li>Zero Trust Principles</li>
-          </ul>
-        </article>
-
-        <article class="skill-card">
-          <div class="skill-icon">💾</div>
-          <h3>Endpoint and Patch Management</h3>
-          <ul>
-            <li>NinjaOne Endpoint Management</li>
-            <li>Patch Compliance and Critical Updates</li>
-            <li>Webroot and Sophos Endpoint Security</li>
-            <li>Remote Support with TeamViewer</li>
-            <li>Zero-Day Vulnerability Remediation</li>
-          </ul>
-        </article>
-
-        <article class="skill-card">
-          <div class="skill-icon">📡</div>
-          <h3>Networking and Infrastructure</h3>
-          <ul>
-            <li>Ruckus Wi-Fi Controller / SSID / VLAN</li>
-            <li>LAN and Wi-Fi Troubleshooting</li>
-            <li>Router and Switch Configuration</li>
-            <li>Sophos Firewall Management</li>
-            <li>Network Segmentation and Security</li>
-          </ul>
-        </article>
-
-        <article class="skill-card">
-          <div class="skill-icon">☁️</div>
-          <h3>Cloud Platforms</h3>
-          <ul>
-            <li>Microsoft Azure (AZ-104 Certified)</li>
-            <li>Azure Active Directory</li>
-            <li>Microsoft Entra ID</li>
-            <li>Google Workspace Admin Console</li>
-            <li>Adobe Admin Console</li>
-          </ul>
-        </article>
-
-        <article class="skill-card">
-          <div class="skill-icon">🤝</div>
-          <h3>Collaboration and Ops Tools</h3>
-          <ul>
-            <li>Zoom, RingCentral, Teams</li>
-            <li>Wrike Project Management</li>
-            <li>Lucid and Scribe Documentation</li>
-            <li>Process Documentation and SOPs</li>
-            <li>Cross-team Collaboration</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="tech-cloud">
-        <span>Okta</span><span>Active Directory</span><span>Microsoft 365</span><span>Azure</span><span>Google Workspace</span><span>NinjaOne</span><span>Jira Service Mgmt</span><span>Webroot</span><span>Sophos</span><span>Ruckus WiFi</span><span>KnowBe4</span><span>RingCentral</span><span>TeamViewer</span><span>Windows Server</span><span>VLAN</span><span>RBAC</span><span>SSO / MFA</span><span>SLA Management</span><span>Zoom</span><span>Wrike</span><span>Adobe Admin</span><span>Scribe</span>
-      </div>
-    </section>
-
-    <section id="projects" class="content-section reveal">
-      <div class="section-head">
-        <span class="section-tag">Case Studies</span>
-        <h2>Projects and <span>Implementations</span></h2>
-        <p>Enterprise infrastructure rollouts, application operations, support programs, and operational improvements.</p>
-      </div>
-
-      <div class="projects-grid">
-        <article class="project-card">
-          <h3>Okta IAM and SSO Implementation</h3>
-          <p class="project-type">Enterprise Rollout</p>
-          <div class="project-block"><strong>Challenge:</strong> Siloed identity systems across applications with no centralized access governance or MFA enforcement.</div>
-          <div class="project-block"><strong>Outcome:</strong> Centralized identity controls, enforced MFA, improved security posture, and reduced access review burden.</div>
-          <div class="project-tags"><span>Okta</span><span>IAM</span><span>SSO</span><span>MFA</span><span>RBAC</span></div>
-        </article>
-
-        <article class="project-card">
-          <h3>NinjaOne Endpoint Automation</h3>
-          <p class="project-type">Operational Program</p>
-          <div class="project-block"><strong>Challenge:</strong> Inconsistent patch compliance across 500+ endpoints with manual tracking and high risk exposure.</div>
-          <div class="project-block"><strong>Outcome:</strong> Improved patch compliance, automated remediation, and real-time endpoint visibility.</div>
-          <div class="project-tags"><span>NinjaOne</span><span>Patch Mgmt</span><span>Automation</span><span>Compliance</span></div>
-        </article>
-
-        <article class="project-card">
-          <h3>Ruckus Wi-Fi Deployment</h3>
-          <p class="project-type">Infrastructure Deployment</p>
-          <div class="project-block"><strong>Challenge:</strong> Unstable wireless connectivity across sites with no VLAN segmentation.</div>
-          <div class="project-block"><strong>Outcome:</strong> Stable wireless coverage, VLAN isolation, and enhanced security posture.</div>
-          <div class="project-tags"><span>Ruckus</span><span>Wi-Fi</span><span>VLAN</span><span>Security</span></div>
-        </article>
-
-        <article class="project-card">
-          <h3>NITI Aayog – Aspirational District App</h3>
-          <p class="project-type">Government Field Ops</p>
-          <div class="project-block"><strong>Period:</strong> Feb 2019 – Present</div>
-          <div class="project-block"><strong>Outcome:</strong> Stable operations for field deployments with predictable support workflows across government districts.</div>
-          <div class="project-tags"><span>Gov Projects</span><span>App Ops</span><span>Support</span></div>
-        </article>
-
-        <article class="project-card">
-          <h3>Health and Wellness Telemedicine</h3>
-          <p class="project-type">Telemedicine Ops</p>
-          <div class="project-block"><strong>Period:</strong> Sep 2019 – Present</div>
-          <div class="project-block"><strong>Outcome:</strong> Improved operational stability through consistent IT readiness and proactive issue resolution.</div>
-          <div class="project-tags"><span>Telemedicine</span><span>IT Support</span><span>Operations</span></div>
-        </article>
-
-        <article class="project-card">
-          <h3>Community Mobilizer Mobile App</h3>
-          <p class="project-type">Field Operations</p>
-          <div class="project-block"><strong>Period:</strong> Oct 2019 – Present</div>
-          <div class="project-block"><strong>Outcome:</strong> Improved field continuity with reliable IT support coverage and structured escalation processes.</div>
-          <div class="project-tags"><span>Field Ops</span><span>App Support</span><span>Access</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="certifications" class="content-section reveal">
-      <div class="section-head">
-        <span class="section-tag">Credentials</span>
-        <h2>Licenses and <span>Certifications</span></h2>
-        <p>Industry-recognized certifications demonstrating expertise in cloud administration, IT support, and security fundamentals.</p>
-      </div>
-
-      <div class="certs-grid">
-        <article class="cert-card"><div class="cert-icon">☁️</div><h3>Microsoft Certified: Azure Administrator Associate (AZ-104)</h3><p>Microsoft</p><span>Issued Aug 2024 · ID: D9F1FEF486097F16</span></article>
-        <article class="cert-card"><div class="cert-icon">🔒</div><h3>Cybersecurity Fundamentals</h3><p>IBM</p><span>Issued Dec 2025</span></article>
-        <article class="cert-card"><div class="cert-icon">🛡️</div><h3>ISC2 Candidate</h3><p>ISC2</p><span>Issued Mar 2026 · Expires Mar 2027</span></article>
-        <article class="cert-card"><div class="cert-icon">🏅</div><h3>Microsoft Certified Professional (MCP)</h3><p>Microsoft</p><span>Issued Jan 2019 · ID: H031-0539</span></article>
-        <article class="cert-card"><div class="cert-icon">🖥️</div><h3>Microsoft Technology Associate (MTA)</h3><p>Windows Server Administration Fundamentals</p><span>Issued Jul 2017 · ID: 7vkC-uGhh</span></article>
-        <article class="cert-card"><div class="cert-icon">☎️</div><h3>Introduction and Essential Setup</h3><p>RingCentral</p><span>Issued May 2024 · ID: ds3t3oepe92b</span></article>
-        <article class="cert-card"><div class="cert-icon">💼</div><h3>Microsoft Office 365</h3><p>Microsoft</p><span>Issued Aug 2020 · ID: 37461797</span></article>
-      </div>
-    </section>
-
-    <section id="contact" class="content-section reveal">
-      <div class="contact-wrap">
-        <div class="contact-left">
-          <span class="section-tag">Let's Connect</span>
-          <h2>Ready to support <span>next-gen</span> enterprise IT.</h2>
-          <p>Specializing in secure infrastructure, identity management, endpoint protection, and operational excellence. Let’s connect for senior IT operations, infrastructure, and admin roles.</p>
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:dineshtankala85@outlook.com"><strong>Email</strong><span>dineshtankala85@outlook.com</span></a>
-            <a class="contact-link" href="tel:+918331956172"><strong>Phone</strong><span>+91 8331956172</span></a>
-            <a class="contact-link" href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noreferrer"><strong>LinkedIn</strong><span>linkedin.com/in/dinesh-tankala</span></a>
-          </div>
-        </div>
-        <div class="contact-form-card">
-          <h3>Professional Summary</h3>
-          <p>Experienced IT administrator with proven capability across enterprise support, IAM, endpoint management, ITSM, networking, and cloud platforms. Comfortable managing business-critical systems, compliance support, user lifecycle administration, and infrastructure operations in fast-moving environments.</p>
-          <div class="summary-points">
-            <span>Enterprise IT Operations</span>
-            <span>Okta / IAM / SSO</span>
-            <span>Google Workspace</span>
-            <span>Microsoft 365</span>
-            <span>NinjaOne</span>
-            <span>Network & Wi-Fi Ops</span>
-            <span>Audit Support</span>
-            <span>ITSM & SLA Discipline</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <p>Built for T. Dinesh · Senior IT System Administrator · Hyderabad, India</p>
     </div>
-  </footer>
+    <div class="avatar-wrap">
+      <div class="avatar" id="avatar">
+        <div class="ring2"></div>
+        <img src="assets/dinesh-avatar.jpg" alt="Dinesh Tankala">
+        <div class="float-badge fb-1"><span class="ic">🔐</span> Okta · Zero Trust</div>
+        <div class="float-badge fb-2"><span class="ic">☁️</span> Azure · M365</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const splashFill = document.getElementById('splash-fill');
-    const splash = document.getElementById('splash');
-    let progress = 0;
-    const splashTimer = setInterval(() => {
-      progress += Math.random() * 14;
-      splashFill.style.width = Math.min(progress, 100) + '%';
-      if (progress >= 100) {
-        clearInterval(splashTimer);
-        setTimeout(() => splash.classList.add('gone'), 300);
-      }
-    }, 90);
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><div class="n" data-count="8" data-suffix="+">0</div><div class="l">Years in IT</div></div>
+    <div class="stat"><div class="n" data-count="500" data-suffix="+">0</div><div class="l">Endpoints secured</div></div>
+    <div class="stat"><div class="n" data-count="10" data-suffix="K+">0</div><div class="l">Tickets resolved</div></div>
+    <div class="stat"><div class="n" data-count="99.9" data-suffix="%">0</div><div class="l">Uptime maintained</div></div>
+  </div>
+</div>
 
-    const navLinks = document.querySelectorAll('.nav-inner a');
-    const sections = [...navLinks].map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow reveal">About me</span>
+    <div class="about-grid">
+      <div class="reveal"><p class="about-lead">I lead the teams and systems that keep enterprise IT <span class="grad">secure, compliant, and always on</span> — from identity to endpoints to the cloud.</p></div>
+      <div class="about-body reveal">
+        <p>I'm an IT infrastructure and cybersecurity professional with 8+ years spanning NOC operations, enterprise support, and now IT leadership. My focus is identity and access management, endpoint security, cloud administration, and the ITSM discipline that ties operations to measurable outcomes.</p>
+        <p>Day to day I own IAM (Okta SSO/MFA, Active Directory), endpoint and patch management across 500+ machines, Microsoft 365 &amp; Azure administration, and <strong style="color:var(--text)">ITSM and change management</strong> in Jira: structured change control, approvals, incident lifecycle, and the reporting leadership relies on.</p>
+        <div class="about-facts">
+          <div class="fact"><div class="k">Location</div><div class="v">Hyderabad, India</div></div>
+          <div class="fact"><div class="k">Role</div><div class="v">IT Infrastructure Manager</div></div>
+          <div class="fact"><div class="k">Focus</div><div class="v">Security · Cloud · ITSM</div></div>
+          <div class="fact"><div class="k">Availability</div><div class="v">Open to roles</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.nav-inner a').forEach(a => a.classList.remove('active'));
-          const active = document.querySelector(`.nav-inner a[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { threshold: 0.35 });
+<section id="skills">
+  <div class="wrap">
+    <span class="eyebrow reveal">Toolkit</span>
+    <h2 class="sec-title reveal">Skills &amp; <span class="grad">technologies</span></h2>
+    <p class="sec-sub reveal">The platforms and disciplines I work in every day, from identity to infrastructure.</p>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
 
-    sections.forEach(section => sectionObserver.observe(section));
+<section id="experience" style="background:linear-gradient(180deg,transparent,rgba(15,23,42,.4),transparent);">
+  <div class="wrap">
+    <span class="eyebrow reveal">Career</span>
+    <h2 class="sec-title reveal">Experience <span class="grad">timeline</span></h2>
+    <p class="sec-sub reveal">Real operations across NOC, enterprise support, and IT leadership.</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-top"><div><span class="tl-role">IT Infrastructure Manager / Team Lead</span> · <span class="tl-org">Pro-Vigil Surveillance Services</span></div><span class="tl-time">SEP 2023 — PRESENT</span></div>
+        <ul>
+          <li>Lead the IT operations team — priorities, coaching, and delivery across IAM, endpoint security, and ITSM.</li>
+          <li>Own ITSM &amp; change management in Jira: change control, approvals, incident lifecycle, SLA adherence, and leadership reporting.</li>
+          <li>Manage IAM (Okta SSO/MFA, Active Directory) and endpoint security across 500+ machines with NinjaOne.</li>
+          <li>Administer Microsoft 365 &amp; Google Workspace — provisioning, security policy, joiner-mover-leaver lifecycle.</li>
+          <li>Support SOC audits with IAM logs, endpoint evidence, and patch-compliance reporting; oversee Ruckus LAN/Wi-Fi.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">ITSM</span><span class="tl-tag">Change Mgmt</span><span class="tl-tag">Okta</span><span class="tl-tag">NinjaOne</span><span class="tl-tag">M365</span><span class="tl-tag">Team Leadership</span></div>
+      </div>
+      <div class="tl-item past reveal">
+        <div class="tl-top"><div><span class="tl-role">System Support Specialist</span> · <span class="tl-org">Dynata</span></div><span class="tl-time">DEC 2021 — SEP 2023</span></div>
+        <ul>
+          <li>L2/L3 support for Windows servers, desktops, and business apps in a global environment.</li>
+          <li>Managed ticket resolution and escalations through Jira with strict SLA adherence.</li>
+          <li>Supported endpoint patching, vulnerability remediation, and audit readiness.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">Windows Server</span><span class="tl-tag">Jira</span><span class="tl-tag">Endpoint</span></div>
+      </div>
+      <div class="tl-item past reveal">
+        <div class="tl-top"><div><span class="tl-role">Technical Engineer</span> · <span class="tl-org">HBL Power Systems Ltd.</span></div><span class="tl-time">JAN 2021 — DEC 2021</span></div>
+        <ul>
+          <li>Supported IT infrastructure — servers, networks, and firewall management.</li>
+          <li>Installed and maintained routers, switches, servers, and structured cabling.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">Networking</span><span class="tl-tag">Firewall</span><span class="tl-tag">Infrastructure</span></div>
+      </div>
+      <div class="tl-item past reveal">
+        <div class="tl-top"><div><span class="tl-role">Network &amp; IT Support (NOC / Field)</span> · <span class="tl-org">Pioneer Elba's · Progressive Infovision · Piramal Swasthya</span></div><span class="tl-time">2017 — 2021</span></div>
+        <ul>
+          <li>NOC network monitoring and incident escalation ensuring enterprise uptime.</li>
+          <li>Desktop and infrastructure support; IT operations, user support, and asset tracking.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">NOC</span><span class="tl-tag">Support</span><span class="tl-tag">Asset Mgmt</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12 });
+<section id="video">
+  <div class="wrap">
+    <span class="eyebrow reveal">Introduction</span>
+    <h2 class="sec-title reveal">Meet me in <span class="grad">60 seconds</span></h2>
+    <p class="sec-sub reveal">A short intro — who I am and how I work. (Recording coming soon.)</p>
+    <div class="video-shell reveal" id="videoShell">
+      <video id="introVideo" poster="assets/dinesh-photo.jpg" preload="none" playsinline>
+        <source src="assets/intro.mp4" type="video/mp4">
+      </video>
+      <div class="video-poster" id="videoPoster" style="background-image:url('assets/dinesh-photo.jpg')"></div>
+      <button class="play-btn" id="playBtn" aria-label="Play intro">▶</button>
+      <div class="video-note" id="videoNote">Add <b>assets/intro.mp4</b> to enable the intro video</div>
+    </div>
+  </div>
+</section>
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  </script>
+<section id="projects" style="background:linear-gradient(180deg,transparent,rgba(15,23,42,.4),transparent);">
+  <div class="wrap">
+    <span class="eyebrow reveal">Case files</span>
+    <h2 class="sec-title reveal">Projects &amp; <span class="grad">implementations</span></h2>
+    <p class="sec-sub reveal">Infrastructure programs driven end to end — with the impact that followed.</p>
+    <div class="grid-3" id="projGrid"></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <span class="eyebrow reveal">What I do</span>
+    <h2 class="sec-title reveal">Services &amp; <span class="grad">capabilities</span></h2>
+    <p class="sec-sub reveal">How I help organizations run secure, reliable IT operations.</p>
+    <div class="grid-3" id="servGrid"></div>
+  </div>
+</section>
+
+<section id="certs" style="background:linear-gradient(180deg,transparent,rgba(15,23,42,.4),transparent);">
+  <div class="wrap">
+    <span class="eyebrow reveal">Credentials</span>
+    <h2 class="sec-title reveal">Licenses &amp; <span class="grad">certifications</span></h2>
+    <p class="sec-sub reveal">Verified training across cloud, security, and IT fundamentals.</p>
+    <div class="grid-3" id="certGrid"></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <span class="eyebrow reveal">Word of mouth</span>
+    <h2 class="sec-title reveal">What colleagues <span class="grad">say</span> <span class="note-tag">editable placeholders</span></h2>
+    <p class="sec-sub reveal">Replace these with real quotes from managers or teammates when you're ready.</p>
+    <div class="grid-2">
+      <div class="glass-card quote reveal"><p>"Add a short quote from a manager or colleague here — something about how you handled an incident, a rollout, or led the team under pressure."</p><div class="by"><span class="av">?</span><div><div class="nm">Colleague name</div><div class="rl">Title · Company</div></div></div></div>
+      <div class="glass-card quote reveal"><p>"A second testimonial goes here. Two or three sentences about your reliability, technical depth, or leadership work best."</p><div class="by"><span class="av">?</span><div><div class="nm">Colleague name</div><div class="rl">Title · Company</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack">
+    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Azure</b><i>·</i><b>Active Directory</b><i>·</i><b>Intune</b><i>·</i><b>NinjaOne</b><i>·</i><b>Sophos</b><i>·</i><b>Fortinet</b><i>·</i><b>Cisco</b><i>·</i><b>VMware</b><i>·</i><b>PowerShell</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
+    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Azure</b><i>·</i><b>Active Directory</b><i>·</i><b>Intune</b><i>·</i><b>NinjaOne</b><i>·</i><b>Sophos</b><i>·</i><b>Fortinet</b><i>·</i><b>Cisco</b><i>·</i><b>VMware</b><i>·</i><b>PowerShell</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Get in touch</span>
+    <h2 class="sec-title reveal">Let's build something <span class="grad">reliable</span></h2>
+    <p class="sec-sub reveal">Open to IT leadership and senior infrastructure roles. Reach out through any channel.</p>
+    <div class="contact-grid">
+      <div class="glass-card form-card reveal">
+        <div class="field"><label>Name</label><input type="text" id="fName" placeholder="Your name"></div>
+        <div class="field"><label>Email</label><input type="email" id="fEmail" placeholder="you@company.com"></div>
+        <div class="field"><label>Phone</label><input type="tel" id="fPhone" placeholder="+91 ..."></div>
+        <div class="field"><label>Company</label><input type="text" id="fCompany" placeholder="Company (optional)"></div>
+        <div class="field"><label>Message</label><textarea id="fMsg" placeholder="How can I help?"></textarea></div>
+        <button class="btn grad" id="sendBtn" data-mag style="width:100%;justify-content:center;">Send message</button>
+      </div>
+      <div>
+        <div class="channels">
+          <a href="mailto:dineshtankala85@outlook.com" class="channel reveal"><span class="ic">✉️</span><div><div class="k">Email</div><div class="v">dineshtankala85@outlook.com</div></div></a>
+          <a href="tel:+918331956172" class="channel reveal"><span class="ic">📞</span><div><div class="k">Phone</div><div class="v">+91 83319 56172</div></div></a>
+          <a href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener" class="channel reveal"><span class="ic">💼</span><div><div class="k">LinkedIn</div><div class="v">in/dinesh-tankala</div></div></a>
+          <a href="https://wa.me/918331956172" target="_blank" rel="noopener" class="channel reveal"><span class="ic">💬</span><div><div class="k">WhatsApp</div><div class="v">+91 83319 56172</div></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <div class="wrap">
+    <div class="socials">
+      <a href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a href="mailto:dineshtankala85@outlook.com" aria-label="Email">✉</a>
+      <a href="tel:+918331956172" aria-label="Phone">☎</a>
+    </div>
+    <div class="cp">© 2026 Dinesh Tankala · IT Infrastructure Manager · Hyderabad, India</div>
+  </div>
+</div>
+
+<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  const skills=[['Microsoft 365','🟦',95],['Azure','☁️',88],['Active Directory','🗂️',92],['Windows Server','🖥️',90],['VMware','🧱',80],['Hyper-V','⚙️',80],['Networking','🌐',88],['Cisco','🔀',82],['Fortinet','🛡️',80],['Okta','🔐',92],['Intune','📱',85],['Exchange Online','📧',88],['PowerShell','⌨️',82],['Linux','🐧',78],['Cybersecurity','🔒',88],['Cloud Computing','🌩️',86],['Backup & DR','💾',85],['Automation','🤖',80],['ITSM','🎫',92],['Change Management','🔁',90]];
+  const sg=document.getElementById('skillsGrid');
+  skills.forEach(([nm,ic,lvl])=>{const d=document.createElement('div');d.className='skill reveal';d.innerHTML='<div class="ic">'+ic+'</div><div class="nm">'+nm+'</div><div class="bar"><i data-lvl="'+lvl+'"></i></div>';sg.appendChild(d);});
+
+  const projects=[['Okta IAM & SSO Rollout','🔐','Centralized identity across every app and enforced MFA org-wide, cutting access-review overhead.',['Okta','SSO','MFA'],[['100%','MFA coverage'],['↓60%','access tickets']]],['NinjaOne Endpoint Automation','💾','Brought 500+ endpoints under automated, real-time patch compliance with zero-day remediation.',['NinjaOne','Automation'],[['500+','endpoints'],['↑98%','patch compliance']]],['ITSM & Change Management','🔁','Stood up structured change control, approvals, and SLA reporting in Jira for the whole IT function.',['Jira','ITSM','Change'],[['10K+','tickets'],['SLA','discipline']]],['Ruckus Wi-Fi Deployment','📡','Segmented and stabilized wireless across sites with VLAN isolation and secure SSIDs.',['Ruckus','VLAN'],[['Multi-site','coverage'],['VLAN','isolation']]],['M365 & Azure Administration','☁️','Full user lifecycle, security policy, and collaboration platform management at scale.',['M365','Azure','Entra'],[['99.9%','uptime'],['JML','lifecycle']]],['SOC Audit Enablement','🛡️','Delivered IAM logs, endpoint evidence, and compliance reporting to pass security audits.',['SOC','Compliance'],[['Audit','ready'],['Evidence','pipeline']]]];
+  const pg=document.getElementById('projGrid');
+  projects.forEach(([t,g,d,tags,metrics])=>{const el=document.createElement('div');el.className='glass-card project reveal';el.innerHTML='<div class="preview"><span class="glyph">'+g+'</span><div class="pv-tags">'+tags.map(x=>'<span>'+x+'</span>').join('')+'</div></div><div class="pbody"><h3>'+t+'</h3><p class="pdesc">'+d+'</p><div class="metrics">'+metrics.map(m=>'<div class="metric"><div class="mn">'+m[0]+'</div><div class="ml">'+m[1]+'</div></div>').join('')+'</div></div>';pg.appendChild(el);});
+
+  const services=[['Identity & Access','🔐','Okta SSO/MFA, Active Directory, RBAC, and Zero Trust — the right access for the right people.'],['Endpoint & Patch','💾','NinjaOne, Intune, Sophos & Webroot — compliance, monitoring, and zero-day remediation.'],['Cloud & Collaboration','☁️','Microsoft 365, Azure/Entra, and Google Workspace administration across the user lifecycle.'],['ITSM & Change Mgmt','🔁','Jira change control, approvals, incident lifecycle, SLAs, and leadership reporting.'],['Network & Security','🌐','Ruckus Wi-Fi, VLAN segmentation, Fortinet/Sophos firewalls, and secure connectivity.'],['Backup & DR','🧯','Resilient backup strategy and disaster-recovery readiness for business continuity.']];
+  const svg=document.getElementById('servGrid');
+  services.forEach(([t,ic,d])=>{const el=document.createElement('div');el.className='glass-card service reveal';el.innerHTML='<div class="ic">'+ic+'</div><h3>'+t+'</h3><p>'+d+'</p>';svg.appendChild(el);});
+
+  const certs=[['Azure Administrator Associate (AZ-104)','MICROSOFT','Issued Aug 2024 · ID D9F1FEF486097F16','☁️'],['Cybersecurity Fundamentals','IBM','Issued Dec 2025','🔒'],['ISC2 Candidate','ISC2','Issued Mar 2026 · Expires Mar 2027','🛡️'],['Microsoft Certified Professional','MICROSOFT','Issued Jan 2019 · ID H031-0539','🏅'],['MTA: Windows Server Administration','MICROSOFT','Issued Jul 2017 · ID 7vkC-uGhh','🖥️'],['Introduction & Essential Setup','RINGCENTRAL','Issued May 2024 · ID ds3t3oepe92b','☎️']];
+  const cg=document.getElementById('certGrid');
+  certs.forEach(([n,i,m,ic])=>{const el=document.createElement('div');el.className='glass-card cert reveal';el.innerHTML='<div class="badge">'+ic+'</div><h3>'+n+'</h3><div class="issuer">'+i+'</div><div class="meta">'+m+'</div>';cg.appendChild(el);});
+
+  const revObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var bars=e.target.querySelectorAll?e.target.querySelectorAll('.bar i'):[];bars.forEach(function(b){b.style.width=b.dataset.lvl+'%';});revObs.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
+
+  const cObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);cObs.unobserve(e.target);}});},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){cObs.observe(el);});
+  function count(el){var t=parseFloat(el.dataset.count),suf=el.dataset.suffix||'',dec=String(t).indexOf('.')>-1,c=0,step=t/45;(function tick(){c+=step;if(c>=t){el.textContent=(dec?t.toFixed(1):t)+suf;return;}el.textContent=(dec?c.toFixed(1):Math.floor(c))+suf;requestAnimationFrame(tick);})();}
+
+  var items=[].slice.call(document.querySelectorAll('#rotator .r-item')),ri=0;
+  if(!reduce)setInterval(function(){items[ri].classList.remove('on');items[ri].classList.add('off');var prev=ri;ri=(ri+1)%items.length;setTimeout(function(){items[prev].classList.remove('off');},500);items[ri].classList.add('on');},2600);
+
+  var typedEl=document.getElementById('typed');
+  var txt="I design and run enterprise IT that stays secure, compliant, and always on — identity, endpoints, cloud, and the ITSM discipline behind it all.";
+  if(reduce){typedEl.textContent=txt;}else{var i=0;(function type(){if(i<=txt.length){typedEl.textContent=txt.slice(0,i);i++;setTimeout(type,26);}})();}
+
+  if(fine && !reduce){
+    document.body.classList.add('cursor-on');
+    var dot=document.getElementById('cDot'),ring=document.getElementById('cRing'),spot=document.getElementById('spot');
+    var rx=innerWidth/2,ry=innerHeight/2,tx=rx,ty=ry;
+    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';spot.style.left=e.clientX+'px';spot.style.top=e.clientY+'px';spot.style.opacity='1';});
+    (function loop(){rx+=(tx-rx)*.18;ry+=(ty-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+    document.querySelectorAll('a,button,.skill,.glass-card,.channel').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('hover');});el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});});
+    document.querySelectorAll('[data-mag]').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});b.addEventListener('mouseleave',function(){b.style.transform='translate(0,0)';});});
+    var av=document.getElementById('avatar'),avw=av.closest('.avatar-wrap');
+    avw.addEventListener('mousemove',function(e){var r=av.getBoundingClientRect();av.style.transform='rotateY('+((e.clientX-r.left)/r.width-.5)*16+'deg) rotateX('+(-((e.clientY-r.top)/r.height-.5)*16)+'deg)';});
+    avw.addEventListener('mouseleave',function(){av.style.transform='rotateY(0) rotateX(0)';});
+  }
+
+  var cv=document.getElementById('net');
+  if(!reduce){var ctx=cv.getContext('2d'),W,H,pts;
+    function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;var n=Math.min(70,Math.floor(W*H/22000));pts=[];for(var k=0;k<n;k++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});}
+    size();addEventListener('resize',size);
+    (function draw(){ctx.clearRect(0,0,W,H);for(var a=0;a<pts.length;a++){var p=pts[a];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.fillStyle='rgba(6,182,212,.7)';ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,7);ctx.fill();for(var b=a+1;b<pts.length;b++){var q=pts[b],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);if(d<130){ctx.strokeStyle='rgba(124,58,237,'+(.14*(1-d/130))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}requestAnimationFrame(draw);})();}
+
+  var prog=document.getElementById('progress'),topBtn=document.getElementById('topBtn');
+  addEventListener('scroll',function(){var st=scrollY,h=document.body.scrollHeight-innerHeight;prog.style.width=(st/h*100)+'%';topBtn.classList.toggle('show',st>500);});
+  topBtn.onclick=function(){scrollTo({top:0,behavior:'smooth'});};
+  var navA=[].slice.call(document.querySelectorAll('.navlinks a'));
+  var secs=navA.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){navA.forEach(function(a){a.classList.remove('active');});var l=document.querySelector('.navlinks a[href="#'+e.target.id+'"]');if(l)l.classList.add('active');}});},{rootMargin:'-45% 0px -45% 0px'});
+  secs.forEach(function(s){spy.observe(s);});
+
+  var tb=document.getElementById('themeBtn');
+  tb.onclick=function(){document.body.classList.toggle('light');var lt=document.body.classList.contains('light');tb.textContent=lt?'☀️':'🌙';document.querySelector('meta[name=theme-color]').content=lt?'#f4f6fc':'#050816';};
+
+  var mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=function(){mm.classList.add('open');};
+  document.getElementById('menuClose').onclick=function(){mm.classList.remove('open');};
+  mm.querySelectorAll('a').forEach(function(a){a.onclick=function(){mm.classList.remove('open');};});
+
+  var vid=document.getElementById('introVideo'),poster=document.getElementById('videoPoster'),playBtn=document.getElementById('playBtn'),note=document.getElementById('videoNote');
+  playBtn.onclick=function(){vid.play().then(function(){poster.style.display='none';playBtn.style.display='none';note.style.display='none';vid.setAttribute('controls','');}).catch(function(){note.textContent='No intro.mp4 found yet — add it to /assets to enable playback.';note.style.color='#EC4899';});};
+  vid.addEventListener('error',function(){note.textContent='No intro.mp4 found yet — add it to /assets to enable playback.';});
+
+  document.getElementById('sendBtn').onclick=function(){var n=fName.value||'',e=fEmail.value||'',p=fPhone.value||'',c=fCompany.value||'',m=fMsg.value||'';var body='Name: '+n+'%0D%0AEmail: '+e+'%0D%0APhone: '+p+'%0D%0ACompany: '+c+'%0D%0A%0D%0A'+m;location.href='mailto:dineshtankala85@outlook.com?subject=Portfolio enquiry from '+encodeURIComponent(n)+'&body='+body;};
+})();
+</script>
 </body>
 </html>
