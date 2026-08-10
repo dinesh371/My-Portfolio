@@ -5,7 +5,7 @@
   --blue:#4EA1FF;--violet:#A78BFA;--pink:#F472B6;--cyan:#22D3EE;--orange:#FB923C;
   --c-about:#2DD4BF;--c-skills:#E8A33D;--c-experience:#4EA1FF;--c-projects:#A78BFA;
   --c-certs:#F472B6;--c-contact:#22D3EE;--c-firewall:#FB7185;
-  --text:#E9EAEA;--muted:#8B9198;--muted-2:#5c6167;
+  --text:#E9EAEA;--muted:#8B9198;--muted-2:#848688;
   --line:rgba(255,255,255,.09);
   --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
   --radius:10px;
@@ -86,8 +86,8 @@ button{font-family:inherit;cursor:pointer;}
 
 /* Desktop icons */
 .icons{
-  position:absolute;top:56px;left:18px;z-index:10;
-  display:grid;grid-template-columns:repeat(1,84px);gap:6px;
+  position:absolute;top:56px;left:18px;bottom:64px;z-index:10;
+  display:flex;flex-direction:column;flex-wrap:wrap;align-content:flex-start;gap:6px;
 }
 .icon{
   display:flex;flex-direction:column;align-items:center;gap:6px;
@@ -104,7 +104,6 @@ button{font-family:inherit;cursor:pointer;}
   border:1px solid var(--line);
   transition:box-shadow .2s,border-color .2s;
 }
-.icon[data-app="about"] .icon-glyph{box-shadow:inset 0 0 0 1px rgba(45,212,191,.25);}
 .icon[data-app="about"]:hover .icon-glyph{border-color:var(--c-about);box-shadow:0 0 18px -4px var(--c-about);}
 .icon[data-app="skills"]:hover .icon-glyph{border-color:var(--c-skills);box-shadow:0 0 18px -4px var(--c-skills);}
 .icon[data-app="experience"]:hover .icon-glyph{border-color:var(--c-experience);box-shadow:0 0 18px -4px var(--c-experience);}
@@ -143,9 +142,10 @@ button{font-family:inherit;cursor:pointer;}
 }
 .win-head:active{cursor:grabbing;}
 .win-dots{display:flex;gap:7px;}
-.win-dots span{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.2);cursor:pointer;transition:filter .15s,transform .15s;}
-.win-dots span:hover{filter:brightness(1.25);transform:scale(1.12);}
-.win-dots span:active{transform:scale(.9);}
+.win-dots button{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.2);cursor:pointer;transition:filter .15s,transform .15s;padding:0;}
+.win-dots button:hover{filter:brightness(1.25);transform:scale(1.12);}
+.win-dots button:active{transform:scale(.9);}
+.win-dots button:focus-visible{outline:2px solid var(--teal-light);outline-offset:2px;}
 .wd-close{background:#F2645A;}
 .wd-min{background:#E8A33D;}
 .wd-max{background:#2DD4BF;}
@@ -256,20 +256,28 @@ button{font-family:inherit;cursor:pointer;}
 .start-btn:hover{background:rgba(255,255,255,.1);border-color:var(--amber);}
 .start-btn:active{transform:scale(.96);}
 .start-glyph{color:var(--amber);}
-.taskbar-tabs{display:flex;gap:8px;flex:1;overflow-x:auto;}
+.taskbar-tabs{display:flex;gap:8px;flex:1;overflow-x:auto;scrollbar-width:thin;}
+.taskbar-tabs::-webkit-scrollbar{height:4px;}
+.taskbar-tabs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:4px;}
 .taskbar-tab{
-  display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 8px 0 12px;
+  display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 8px 0 0;
   background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;
   font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;
   transition:background .15s;
 }
 .taskbar-tab:hover{background:rgba(255,255,255,.09);}
+.taskbar-tab .tab-label{
+  background:none;border:none;color:inherit;font-family:inherit;font-size:inherit;
+  height:100%;padding:0 6px 0 12px;cursor:pointer;
+}
+.taskbar-tab .tab-label:focus-visible{outline:2px solid var(--teal-light);outline-offset:-2px;}
 .taskbar-tab .tab-close{
   display:inline-flex;align-items:center;justify-content:center;
-  width:16px;height:16px;border-radius:4px;color:var(--muted-2);
-  cursor:pointer;font-size:12px;transition:background .12s,color .12s;
+  width:16px;height:16px;border-radius:4px;color:var(--muted-2);background:none;border:none;
+  cursor:pointer;font-size:12px;transition:background .12s,color .12s;padding:0;
 }
 .taskbar-tab .tab-close:hover{background:var(--red);color:#fff;}
+.taskbar-tab .tab-close:focus-visible{outline:2px solid var(--teal-light);}
 .taskbar-tab.active{border-color:var(--teal-light);color:var(--text);}
 .taskbar-tab.active[data-app="about"]{border-color:var(--c-about);}
 .taskbar-tab.active[data-app="skills"]{border-color:var(--c-skills);}
