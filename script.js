@@ -202,9 +202,9 @@
     win.innerHTML =
       '<div class="win-head">'+
         '<div class="win-dots">'+
-          '<span class="wd-close" data-act="close" title="Close"></span>'+
-          '<span class="wd-min" data-act="min" title="Minimize"></span>'+
-          '<span class="wd-max" data-act="max" title="Maximize"></span>'+
+          '<button type="button" class="wd-close" data-act="close" aria-label="Close window" title="Close"></button>'+
+          '<button type="button" class="wd-min" data-act="min" aria-label="Minimize window" title="Minimize"></button>'+
+          '<button type="button" class="wd-max" data-act="max" aria-label="Maximize window" title="Maximize"></button>'+
         '</div>'+
         '<div class="win-title">'+appTitles[app]+'</div>'+
         '<div style="width:53px"></div>'+
@@ -218,10 +218,10 @@
     populateWindow(app, win);
 
     // Taskbar tab
-    const tab = document.createElement('button');
+    const tab = document.createElement('div');
     tab.className = 'taskbar-tab';
     tab.dataset.app = app;
-    tab.innerHTML = '<span class="tab-label">'+appTitles[app]+'</span><span class="tab-close" data-close="'+app+'">✕</span>';
+    tab.innerHTML = '<button type="button" class="tab-label">'+appTitles[app]+'</button><button type="button" class="tab-close" aria-label="Close '+appTitles[app]+'">✕</button>';
     tab.querySelector('.tab-label').onclick = function(){ openApp(app); };
     tab.querySelector('.tab-close').onclick = function(e){ e.stopPropagation(); closeApp(app); };
     taskbarTabs.appendChild(tab);
@@ -276,8 +276,11 @@
     head.addEventListener('pointermove', function(e){
       if(!dragging) return;
       const dx = e.clientX - sx, dy = e.clientY - sy;
-      win.style.left = Math.max(0, ox + dx) + 'px';
-      win.style.top = Math.max(38, oy + dy) + 'px';
+      const headH = head.offsetHeight || 40;
+      const maxLeft = window.innerWidth - 60;
+      const maxTop = window.innerHeight - 48 - headH;
+      win.style.left = Math.min(maxLeft, Math.max(0, ox + dx)) + 'px';
+      win.style.top = Math.min(maxTop, Math.max(38, oy + dy)) + 'px';
     });
     head.addEventListener('pointerup', function(){ dragging = false; });
   }
@@ -298,8 +301,11 @@
     handle.addEventListener('pointermove', function(e){
       if(!resizing) return;
       const dw = e.clientX - sx, dh = e.clientY - sy;
-      win.style.width = Math.max(320, sw + dw) + 'px';
-      win.style.maxHeight = Math.max(220, sh + dh) + 'px';
+      const rect = win.getBoundingClientRect();
+      const maxW = window.innerWidth - rect.left - 12;
+      const maxH = window.innerHeight - rect.top - 60;
+      win.style.width = Math.min(maxW, Math.max(320, sw + dw)) + 'px';
+      win.style.maxHeight = Math.min(maxH, Math.max(220, sh + dh)) + 'px';
     });
     handle.addEventListener('pointerup', function(){ resizing = false; });
   }
