@@ -1,82 +1,290 @@
 (function(){
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  const skills=[['Team Leadership','🧑\u200d💼',90],['Okta / IAM','🔐',92],['Active Directory','🗂️',90],['Firewall Management','🔥',84],['Microsoft 365','🟦',95],['Google Workspace','📇',88],['Azure','☁️',85],['NinjaOne','💾',92],['CrowdStrike EDR','🦅',85],['Webroot','🛡️',82],['Jira / ITSM','🎫',92],['Change Management','🔁',90],['PRTG Monitoring','📡',82],['Proxmox','🧱',80],['Snipe-IT','🏷️',80],['Matrix & COSEC','🚪',78],['RingCentral','☎️',82],['Zoom','🎥',82],['KnowBe4','📚',80],['Wrike','🗒️',78],['TeamViewer','🖱️',80],['greytHR / ADP','🧾',78],['SOC Audit & Compliance','🔍',88]];
-  const sg=document.getElementById('skillsGrid');
-  skills.forEach(([nm,ic,lvl])=>{const d=document.createElement('div');d.className='skill reveal';d.innerHTML='<div class="ic">'+ic+'</div><div class="nm">'+nm+'</div><div class="bar"><i data-lvl="'+lvl+'"></i></div>';sg.appendChild(d);});
-
-  const projects=[
-    ['Okta IAM & SSO Rollout','🔐','Identity','Centralized identity across every enterprise application and enforced org-wide MFA, cutting access-review overhead and closing a long-standing audit gap.',['Okta','SSO','MFA'],[['100%','MFA coverage'],['↓60%','access tickets']],true],
-    ['NinjaOne Endpoint Automation','💾','Endpoint','Brought 500+ endpoints under automated, real-time patch compliance with zero-day remediation and standardized provisioning.',['NinjaOne','Automation'],[['500+','endpoints'],['↑98%','patch compliance']],false],
-    ['ITSM & Change Management','🔁','ITSM','Stood up structured change control, approvals, and SLA reporting in Jira for the whole IT function — the backbone leadership now reports from.',['Jira','ITSM','Change'],[['10K+','tickets'],['SLA','discipline']],false],
-    ['Ruckus Wi-Fi Deployment','📡','Network','Segmented and stabilized wireless across sites with VLAN isolation and secure SSIDs, eliminating recurring connectivity complaints.',['Ruckus','VLAN'],[['Multi-site','coverage'],['VLAN','isolation']],false],
-    ['M365 & Azure Administration','☁️','Cloud','Full user lifecycle, security policy, and collaboration platform management at scale across a hybrid on-prem/cloud identity model.',['M365','Azure','Entra'],[['99.9%','uptime'],['JML','lifecycle']],false],
-    ['SOC Audit Enablement','🛡️','Compliance','Delivered IAM logs, endpoint evidence, and compliance reporting that took the org through security audits without critical findings.',['SOC','Compliance'],[['Audit','ready'],['Evidence','pipeline']],false]
+  /* ---------------- DATA ---------------- */
+  const skillCats = [
+    ['Leadership & Identity', [['Team Leadership','🧑\u200d💼'],['Okta / IAM','🔐'],['Active Directory','🗂️']]],
+    ['Endpoint & Network', [['NinjaOne','💾'],['CrowdStrike EDR','🦅'],['Webroot','🛡️'],['Firewall Mgmt','🔥'],['PRTG Monitoring','📡']]],
+    ['Cloud & SaaS', [['Microsoft 365','🟦'],['Google Workspace','📇'],['Azure','☁️'],['RingCentral','☎️'],['Zoom','🎥'],['KnowBe4','📚']]],
+    ['ITSM & Ops', [['Jira / ITSM','🎫'],['Change Management','🔁'],['Proxmox','🧱'],['Snipe-IT','🏷️'],['Matrix & COSEC','🚪']]],
+    ['Governance', [['SOC Audit & Compliance','🔍'],['greytHR / ADP','🧾'],['Wrike','🗒️'],['TeamViewer','🖱️']]]
   ];
-  const pg=document.getElementById('projGrid');
-  projects.forEach(([t,g,cat,d,tags,metrics,featured])=>{const el=document.createElement('div');el.className='glass-card project reveal'+(featured?' featured':'');el.innerHTML='<div class="preview"><span class="proj-cat">'+cat+'</span>'+(featured?'<span class="proj-featured-tag">Featured</span>':'')+'<div class="proj-badge">'+g+'</div><div class="pv-tags">'+tags.map(x=>'<span>'+x+'</span>').join('')+'</div></div><div class="pbody"><h3>'+t+'</h3><p class="pdesc">'+d+'</p><div class="metrics">'+metrics.map(m=>'<div class="metric"><div class="mn">'+m[0]+'</div><div class="ml">'+m[1]+'</div></div>').join('')+'</div></div>';pg.appendChild(el);});
 
-  const services=[['Identity & Access','🔐','Okta SSO/MFA, Active Directory, RBAC, and Zero Trust — the right access for the right people.'],['Endpoint & Patch','💾','NinjaOne, Intune, Sophos & Webroot — compliance, monitoring, and zero-day remediation.'],['Cloud & Collaboration','☁️','Microsoft 365, Azure/Entra, and Google Workspace administration across the user lifecycle.'],['ITSM & Change Mgmt','🔁','Jira change control, approvals, incident lifecycle, SLAs, and leadership reporting.'],['Network & Security','🌐','Ruckus Wi-Fi, multi-site LAN, firewall administration, and PRTG monitoring — stable, secure connectivity.'],['Backup & DR','🧯','Resilient backup strategy and disaster-recovery readiness for business continuity.']];
-  const svg=document.getElementById('servGrid');
-  services.forEach(([t,ic,d])=>{const el=document.createElement('div');el.className='glass-card service reveal';el.innerHTML='<div class="ic">'+ic+'</div><h3>'+t+'</h3><p>'+d+'</p>';svg.appendChild(el);});
+  const experience = [
+    {role:'Team Lead – IT Infrastructure & Operations', org:'Pro-Vigil Surveillance Services', time:'Sep 2023 — Present', current:true,
+      items:[
+        'Lead day-to-day IT operations across endpoint security, cloud/SaaS, IAM, ITSM, networks, monitoring, virtualization, and asset management.',
+        'Own end-to-end ITSM & change management in Jira: change control, approvals, incident lifecycle, leadership reporting.',
+        'Manage IAM (Okta SSO/MFA, Active Directory) and endpoint security across 500+ machines with NinjaOne, CrowdStrike EDR, Webroot.',
+        'Run multi-site network ops (Vizag, Hyderabad, HQ, SOC) with PRTG monitoring, firewall administration, Proxmox virtualization.',
+        'Coordinate US/India onboarding-offboarding, manage IT assets via Snipe-IT, and extend SOC audit support to cloud/SaaS apps.'
+      ]},
+    {role:'System Support Specialist', org:'Dynata', time:'Dec 2021 — Sep 2023', current:false,
+      items:[
+        'Delivered L2/L3 support for Windows servers, desktops, and business apps across a global user base.',
+        'Managed incidents through Jira within SLA and escalation timelines.',
+        'Supported onboarding/offboarding, endpoint provisioning, and audit readiness.'
+      ]},
+    {role:'Technical Engineer', org:'HBL Power Systems Ltd.', time:'Jan 2021 — Dec 2021', current:false,
+      items:[
+        'Supported server, network, and firewall operations; installed and maintained routers, switches, structured cabling.'
+      ]},
+    {role:'Earlier Experience', org:'Piramal Swasthya · Progressive Infovision · Pioneer Elba\'s', time:'2017 — 2021', current:false,
+      items:[
+        'IT Support Executive, IT Support Engineer, and Network Engineer (NOC) roles across enterprise support and field operations.'
+      ]}
+  ];
 
-  const certs=[['Azure Administrator Associate (AZ-104)','MICROSOFT','Certified','☁️'],['Azure Fundamentals (AZ-900)','MICROSOFT','Certified','🌩️'],['Microsoft Certified Professional (MCP)','MICROSOFT','Certified','🏅'],['MTA: Windows Server Administration','MICROSOFT','Certified','🖥️'],['Microsoft 365 Administration','MICROSOFT','Certified','🟦'],['RingCentral Certified Professional','RINGCENTRAL','Issued 2024','☎️']];
-  const cg=document.getElementById('certGrid');
-  certs.forEach(([n,i,m,ic])=>{const el=document.createElement('div');el.className='glass-card cert reveal';el.innerHTML='<div class="badge">'+ic+'</div><h3>'+n+'</h3><div class="issuer">'+i+'</div><div class="meta">'+m+'</div>';cg.appendChild(el);});
+  const projects = [
+    ['Okta IAM & SSO Rollout','Identity','Centralized identity across every enterprise application and enforced org-wide MFA, closing a long-standing audit gap.',[['100%','MFA coverage'],['↓60%','access tickets']]],
+    ['NinjaOne Endpoint Automation','Endpoint','Brought 500+ endpoints under automated, real-time patch compliance with zero-day remediation.',[['500+','endpoints'],['↑98%','patch compliance']]],
+    ['ITSM & Change Management','ITSM','Stood up structured change control, approvals, and SLA reporting in Jira for the whole IT function.',[['10K+','tickets'],['SLA','discipline']]],
+    ['M365 & Azure Administration','Cloud','Full user lifecycle, security policy, and collaboration platform management across a hybrid identity model.',[['99.9%','uptime'],['JML','lifecycle']]]
+  ];
 
-  const revObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var bars=e.target.querySelectorAll?e.target.querySelectorAll('.bar i'):[];bars.forEach(function(b){b.style.width=b.dataset.lvl+'%';});revObs.unobserve(e.target);}});},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
+  const certs = [
+    ['☁️','Azure Administrator Associate (AZ-104)','Microsoft'],
+    ['🌩️','Azure Fundamentals (AZ-900)','Microsoft'],
+    ['🏅','Microsoft Certified Professional (MCP)','Microsoft'],
+    ['🖥️','MTA: Windows Server Administration','Microsoft'],
+    ['🟦','Microsoft 365 Administration','Microsoft'],
+    ['☎️','RingCentral Certified Professional','RingCentral · 2024']
+  ];
 
-  const cObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);cObs.unobserve(e.target);}});},{threshold:.5});
-  document.querySelectorAll('[data-count]').forEach(function(el){cObs.observe(el);});
-  function count(el){var t=parseFloat(el.dataset.count),suf=el.dataset.suffix||'',dec=String(t).indexOf('.')>-1,c=0,step=t/45;(function tick(){c+=step;if(c>=t){el.textContent=(dec?t.toFixed(1):t)+suf;return;}el.textContent=(dec?c.toFixed(1):Math.floor(c))+suf;requestAnimationFrame(tick);})();}
+  /* ---------------- BOOT SEQUENCE ---------------- */
+  const bootLines = [
+    'DineshOS v3.0 — initializing kernel...  [ OK ]',
+    'Mounting identity module (Okta / Active Directory)...  [ OK ]',
+    'Starting endpoint protection (NinjaOne, CrowdStrike, Webroot)...  [ OK ]',
+    'Loading ITSM services (Jira change control)...  [ OK ]',
+    'Checking network interfaces (Vizag · Hyderabad · HQ · SOC)...  [ OK ]',
+    'Verifying SOC compliance & audit evidence...  [ OK ]',
+    'System ready. Welcome, Dinesh Tankala.'
+  ];
+  const bootEl = document.getElementById('bootLines');
+  const bootBar = document.getElementById('bootBar');
+  const bootScreen = document.getElementById('boot');
 
-  var items=[].slice.call(document.querySelectorAll('#rotator .r-item')),ri=0;
-  if(!reduce)setInterval(function(){items[ri].classList.remove('on');items[ri].classList.add('off');var prev=ri;ri=(ri+1)%items.length;setTimeout(function(){items[prev].classList.remove('off');},500);items[ri].classList.add('on');},2600);
+  function runBoot(){
+    if(reduce){ bootScreen.classList.add('gone'); return; }
+    let i = 0;
+    function next(){
+      if(i >= bootLines.length){
+        setTimeout(()=>bootScreen.classList.add('gone'), 400);
+        return;
+      }
+      const line = document.createElement('div');
+      line.className = 'ln';
+      const text = bootLines[i];
+      line.innerHTML = text.replace('[ OK ]','<span class="ok">[ OK ]</span>');
+      bootEl.appendChild(line);
+      i++;
+      bootBar.style.width = Math.round((i/bootLines.length)*100)+'%';
+      setTimeout(next, 260);
+    }
+    next();
+  }
+  runBoot();
 
-  var typedEl=document.getElementById('typed');
-  var txt="I design and run enterprise IT that stays secure, compliant, and always on — identity, endpoints, cloud, and the ITSM discipline behind it all.";
-  if(reduce){typedEl.textContent=txt;}else{var i=0;(function type(){if(i<=txt.length){typedEl.textContent=txt.slice(0,i);i++;setTimeout(type,26);}})();}
+  /* ---------------- CLOCK ---------------- */
+  function tick(){
+    const now = new Date();
+    const s = now.toLocaleTimeString('en-US',{hour12:false});
+    const c1 = document.getElementById('clock');
+    const c2 = document.getElementById('clockSmall');
+    if(c1) c1.textContent = s;
+    if(c2) c2.textContent = s;
+  }
+  tick(); setInterval(tick, 1000);
 
-  if(fine && !reduce){
-    document.body.classList.add('cursor-on');
-    var dot=document.getElementById('cDot'),ring=document.getElementById('cRing'),spot=document.getElementById('spot');
-    var rx=innerWidth/2,ry=innerHeight/2,tx=rx,ty=ry;
-    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';spot.style.left=e.clientX+'px';spot.style.top=e.clientY+'px';spot.style.opacity='1';});
-    (function loop(){rx+=(tx-rx)*.18;ry+=(ty-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button,.skill,.glass-card,.channel').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('hover');});el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});});
-    document.querySelectorAll('[data-mag]').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});b.addEventListener('mouseleave',function(){b.style.transform='translate(0,0)';});});
-    var av=document.getElementById('avatar'),avw=av.closest('.avatar-wrap');
-    avw.addEventListener('mousemove',function(e){var r=av.getBoundingClientRect();av.style.transform='rotateY('+((e.clientX-r.left)/r.width-.5)*16+'deg) rotateX('+(-((e.clientY-r.top)/r.height-.5)*16)+'deg)';});
-    avw.addEventListener('mouseleave',function(){av.style.transform='rotateY(0) rotateX(0)';});
+  /* ---------------- WINDOW MANAGER ---------------- */
+  const windowsLayer = document.getElementById('windows');
+  const taskbarTabs = document.getElementById('taskbarTabs');
+  const openWins = {};
+  let zTop = 10;
+
+  const appTitles = {
+    about:'About.txt', skills:'Skills.app', experience:'Experience.log',
+    projects:'Projects.dir', certs:'Certifications.lic', contact:'Contact.sh'
+  };
+
+  function populateWindow(app, root){
+    if(app === 'skills'){
+      const box = root.querySelector('#skillsCats');
+      skillCats.forEach(([cat, items])=>{
+        const wrap = document.createElement('div');
+        const title = document.createElement('div');
+        title.className = 'skill-cat-title'; title.textContent = cat;
+        const row = document.createElement('div'); row.className = 'skill-chip-row';
+        items.forEach(([name, ic])=>{
+          const chip = document.createElement('span'); chip.className = 'skill-chip';
+          chip.innerHTML = '<span>'+ic+'</span><span>'+name+'</span>';
+          row.appendChild(chip);
+        });
+        wrap.appendChild(title); wrap.appendChild(row);
+        box.appendChild(wrap);
+      });
+    }
+    if(app === 'experience'){
+      const box = root.querySelector('#expLog');
+      experience.forEach(e=>{
+        const entry = document.createElement('div');
+        entry.className = 'exp-entry' + (e.current ? '' : ' past');
+        entry.innerHTML =
+          '<div class="exp-role">'+e.role+'</div>'+
+          '<div class="exp-org">'+e.org+'</div>'+
+          '<div class="exp-time">'+e.time+'</div>'+
+          '<ul>'+e.items.map(i=>'<li>'+i+'</li>').join('')+'</ul>';
+        box.appendChild(entry);
+      });
+    }
+    if(app === 'projects'){
+      const box = root.querySelector('#projGrid');
+      projects.forEach(([name, tag, desc, metrics])=>{
+        const card = document.createElement('div'); card.className = 'proj-card';
+        card.innerHTML =
+          '<div class="proj-top"><span class="proj-name">'+name+'</span><span class="proj-tag">'+tag+'</span></div>'+
+          '<div class="proj-desc">'+desc+'</div>'+
+          '<div class="proj-metrics">'+metrics.map(m=>'<div class="m"><div class="n">'+m[0]+'</div><div class="l">'+m[1]+'</div></div>').join('')+'</div>';
+        box.appendChild(card);
+      });
+    }
+    if(app === 'certs'){
+      const box = root.querySelector('#certList');
+      certs.forEach(([ic, name, issuer])=>{
+        const row = document.createElement('div'); row.className = 'cert-row';
+        row.innerHTML = '<span class="cert-ic">'+ic+'</span><div><div class="cert-name">'+name+'</div><div class="cert-issuer">'+issuer+'</div></div>';
+        box.appendChild(row);
+      });
+    }
   }
 
-  var cv=document.getElementById('net');
-  if(!reduce){var ctx=cv.getContext('2d'),W,H,pts;
-    function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;var n=Math.min(70,Math.floor(W*H/22000));pts=[];for(var k=0;k<n;k++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});}
-    size();addEventListener('resize',size);
-    (function draw(){ctx.clearRect(0,0,W,H);for(var a=0;a<pts.length;a++){var p=pts[a];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.fillStyle='rgba(6,182,212,.7)';ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,7);ctx.fill();for(var b=a+1;b<pts.length;b++){var q=pts[b],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);if(d<130){ctx.strokeStyle='rgba(124,58,237,'+(.14*(1-d/130))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}requestAnimationFrame(draw);})();}
+  function bringToFront(win){
+    zTop += 1;
+    win.style.zIndex = zTop;
+  }
 
-  var prog=document.getElementById('progress'),topBtn=document.getElementById('topBtn');
-  addEventListener('scroll',function(){var st=scrollY,h=document.body.scrollHeight-innerHeight;prog.style.width=(st/h*100)+'%';topBtn.classList.toggle('show',st>500);});
-  topBtn.onclick=function(){scrollTo({top:0,behavior:'smooth'});};
-  var navA=[].slice.call(document.querySelectorAll('.navlinks a'));
-  var secs=navA.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
-  var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){navA.forEach(function(a){a.classList.remove('active');});var l=document.querySelector('.navlinks a[href="#'+e.target.id+'"]');if(l)l.classList.add('active');}});},{rootMargin:'-45% 0px -45% 0px'});
-  secs.forEach(function(s){spy.observe(s);});
+  function setActiveTab(app){
+    document.querySelectorAll('.taskbar-tab').forEach(t=>t.classList.remove('active'));
+    const tab = document.querySelector('.taskbar-tab[data-app="'+app+'"]');
+    if(tab) tab.classList.add('active');
+  }
 
-  var tb=document.getElementById('themeBtn');
-  tb.onclick=function(){document.body.classList.toggle('light');var lt=document.body.classList.contains('light');tb.textContent=lt?'☀️':'🌙';document.querySelector('meta[name=theme-color]').content=lt?'#f6f3ec':'#0A0E13';};
+  function openApp(app){
+    if(openWins[app]){
+      const w = openWins[app];
+      w.classList.remove('minimized');
+      w.classList.add('open');
+      bringToFront(w);
+      setActiveTab(app);
+      return;
+    }
+    const tpl = document.getElementById('tpl-'+app);
+    if(!tpl) return;
 
-  var mm=document.getElementById('mobileMenu');
-  document.getElementById('burger').onclick=function(){mm.classList.add('open');};
-  document.getElementById('menuClose').onclick=function(){mm.classList.remove('open');};
-  mm.querySelectorAll('a').forEach(function(a){a.onclick=function(){mm.classList.remove('open');};});
+    const win = document.createElement('div');
+    win.className = 'win';
+    win.dataset.app = app;
 
-  var vid=document.getElementById('introVideo'),poster=document.getElementById('videoPoster'),playBtn=document.getElementById('playBtn'),note=document.getElementById('videoNote');
-  playBtn.onclick=function(){vid.play().then(function(){poster.style.display='none';playBtn.style.display='none';note.style.display='none';vid.setAttribute('controls','');}).catch(function(){note.textContent='No intro.mp4 found yet — add it to /assets to enable playback.';note.style.color='#EC4899';});};
-  vid.addEventListener('error',function(){note.textContent='No intro.mp4 found yet — add it to /assets to enable playback.';});
+    const offset = Object.keys(openWins).length * 26;
+    win.style.left = (60 + offset) + 'px';
+    win.style.top = (72 + offset) + 'px';
 
-  document.getElementById('sendBtn').onclick=function(){var n=fName.value||'',e=fEmail.value||'',p=fPhone.value||'',c=fCompany.value||'',m=fMsg.value||'';var body='Name: '+n+'%0D%0AEmail: '+e+'%0D%0APhone: '+p+'%0D%0ACompany: '+c+'%0D%0A%0D%0A'+m;location.href='mailto:dineshtankala85@outlook.com?subject=Portfolio enquiry from '+encodeURIComponent(n)+'&body='+body;};
+    win.innerHTML =
+      '<div class="win-head">'+
+        '<div class="win-dots">'+
+          '<span class="wd-close" data-act="close"></span>'+
+          '<span class="wd-min" data-act="min"></span>'+
+          '<span class="wd-max" data-act="max"></span>'+
+        '</div>'+
+        '<div class="win-title">'+appTitles[app]+'</div>'+
+        '<div style="width:53px"></div>'+
+      '</div>'+
+      '<div class="win-scroll"></div>';
+
+    const scrollArea = win.querySelector('.win-scroll');
+    scrollArea.appendChild(tpl.content.cloneNode(true));
+    windowsLayer.appendChild(win);
+    populateWindow(app, win);
+
+    // Taskbar tab
+    const tab = document.createElement('button');
+    tab.className = 'taskbar-tab';
+    tab.dataset.app = app;
+    tab.textContent = appTitles[app];
+    tab.onclick = function(){ openApp(app); };
+    taskbarTabs.appendChild(tab);
+
+    openWins[app] = win;
+    bringToFront(win);
+    requestAnimationFrame(()=>win.classList.add('open'));
+    setActiveTab(app);
+    makeDraggable(win);
+
+    win.querySelector('[data-act="close"]').onclick = function(e){
+      e.stopPropagation();
+      win.classList.remove('open');
+      setTimeout(()=>{ win.remove(); tab.remove(); delete openWins[app]; }, 180);
+    };
+    win.querySelector('[data-act="min"]').onclick = function(e){
+      e.stopPropagation();
+      win.classList.add('minimized');
+      tab.classList.remove('active');
+    };
+    win.querySelector('[data-act="max"]').onclick = function(e){
+      e.stopPropagation();
+      win.classList.toggle('maximized');
+    };
+    win.addEventListener('mousedown', ()=>{ bringToFront(win); setActiveTab(app); });
+  }
+
+  function makeDraggable(win){
+    const head = win.querySelector('.win-head');
+    let dragging = false, sx=0, sy=0, ox=0, oy=0;
+    head.addEventListener('pointerdown', function(e){
+      if(e.target.closest('.win-dots')) return;
+      dragging = true;
+      sx = e.clientX; sy = e.clientY;
+      const rect = win.getBoundingClientRect();
+      ox = rect.left; oy = rect.top;
+      head.setPointerCapture(e.pointerId);
+    });
+    head.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      win.style.left = Math.max(0, ox + dx) + 'px';
+      win.style.top = Math.max(38, oy + dy) + 'px';
+    });
+    head.addEventListener('pointerup', function(){ dragging = false; });
+  }
+
+  document.querySelectorAll('.icon[data-app]').forEach(function(icon){
+    icon.addEventListener('click', function(){ openApp(icon.dataset.app); });
+  });
+  document.querySelectorAll('.start-menu-list button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openApp(btn.dataset.app);
+      document.getElementById('startMenu').classList.remove('open');
+    });
+  });
+
+  /* ---------------- START MENU ---------------- */
+  const startBtn = document.getElementById('startBtn');
+  const startMenu = document.getElementById('startMenu');
+  startBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    startMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e){
+    if(!startMenu.contains(e.target) && e.target !== startBtn){
+      startMenu.classList.remove('open');
+    }
+  });
+
+  /* Auto-open About on first load for orientation (after boot) */
+  if(!reduce){
+    setTimeout(()=>openApp('about'), bootLines.length*260 + 700);
+  } else {
+    openApp('about');
+  }
 })();
