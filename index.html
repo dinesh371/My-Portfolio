@@ -3,266 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0A0E13">
-<title>Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security</title>
-<meta name="description" content="Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security. IAM, Endpoint Security, ITSM & Change Management, Cloud & SaaS, Network & Virtualization. Building secure, scalable, intelligent digital infrastructure.">
-<meta property="og:title" content="Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security">
-<meta property="og:description" content="Building secure, scalable & intelligent digital infrastructure.">
-<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B0D10">
+<title>DineshOS — Dinesh Tankala, Team Lead IT Infrastructure & Security</title>
+<meta name="description" content="Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security. An interactive desktop-style portfolio: IAM, Endpoint Security, ITSM & Change Management, Cloud & SaaS, Network & Virtualization.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 
-<div class="progress" id="progress"></div>
-<div class="cursor-dot" id="cDot"></div>
-<div class="cursor-ring" id="cRing"></div>
-<div class="spotlight" id="spot"></div>
-
-<div class="aurora"><div class="orb b1"></div><div class="orb b2"></div><div class="orb b3"></div><div class="orb b4"></div></div>
-<canvas id="net"></canvas>
-<div class="grain"></div>
-
-<header id="hdr">
-  <nav>
-    <div class="logo"><span class="mark">DT</span> Dinesh Tankala</div>
-    <div class="navlinks">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
-      <a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
-    </div>
-    <div class="nav-right">
-      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
-      <a href="#contact" class="nav-cta">Let's talk</a>
-      <button class="navburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close" id="menuClose">✕</button>
-  <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
-  <a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
-</div>
-
-<section class="hero" id="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="status-pill hero-enter" style="animation-delay:.05s"><span class="dot"></span>Open to IT leadership roles · Visakhapatnam, India</div>
-      <h1 class="name hero-enter" style="animation-delay:.15s">Dinesh <span class="grad">Tankala.</span></h1>
-      <div class="rotator hero-enter" id="rotator" style="animation-delay:.25s">
-        <span class="r-item on">Team Lead – IT Infrastructure &amp; Operations</span>
-        <span class="r-item">IAM &amp; Endpoint Security Specialist</span>
-        <span class="r-item">ITSM &amp; Change Management Lead</span>
-        <span class="r-item">Cloud &amp; SaaS Administrator</span>
-        <span class="r-item">Network &amp; Virtualization Lead</span>
-      </div>
-      <p class="headline hero-enter" style="animation-delay:.35s">Building Secure, Scalable &amp; Intelligent Digital Infrastructure</p>
-      <p class="typed hero-enter" style="animation-delay:.45s"><span id="typed"></span><span class="caret"></span></p>
-      <div class="hero-cta hero-enter" style="animation-delay:.55s">
-        <a href="#projects" class="btn grad" data-mag>Explore my work</a>
-        <a href="assets/T_Dinesh_CV .pdf" class="btn glass" download>Download resume</a>
-        <a href="#contact" class="btn glass">Contact me</a>
-      </div>
-    </div>
-    <div class="avatar-wrap hero-enter" style="animation-delay:.3s">
-      <div class="avatar" id="avatar">
-        <div class="ring2"></div>
-        <img src="assets/dinesh-avatar.jpg" alt="Dinesh Tankala">
-        <div class="float-badge fb-1"><span class="ic">🔐</span> Okta · Zero Trust</div>
-        <div class="float-badge fb-2"><span class="ic">☁️</span> Azure · M365</div>
-      </div>
-      <div class="noc-panel reveal">
-        <div class="noc-top"><span>Infra Status</span><span class="live"><span class="dot"></span>Live</span></div>
-        <div class="noc-rows">
-          <div class="noc-row"><span class="lbl">Endpoints online</span><span class="val ok">500+</span></div>
-          <div class="noc-row"><span class="lbl">Uptime (30d)</span><span class="val ok">99.9%</span></div>
-          <div class="noc-row"><span class="lbl">Open incidents</span><span class="val">0 critical</span></div>
-        </div>
-        <div class="noc-wave" aria-hidden="true">
-          <i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:0s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.35s"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap">
-  <div class="stats reveal">
-    <div class="stat"><div class="n" data-count="8" data-suffix="+">0</div><div class="l">Years in IT</div></div>
-    <div class="stat"><div class="n" data-count="500" data-suffix="+">0</div><div class="l">Endpoints secured</div></div>
-    <div class="stat"><div class="n" data-count="10" data-suffix="K+">0</div><div class="l">Tickets resolved</div></div>
-    <div class="stat"><div class="n" data-count="99.9" data-suffix="%">0</div><div class="l">Uptime maintained</div></div>
+<!-- BOOT SCREEN -->
+<div id="boot" class="boot">
+  <div class="boot-inner">
+    <div class="boot-logo">DINESH<span>OS</span></div>
+    <div class="boot-lines" id="bootLines"></div>
+    <div class="boot-bar"><i id="bootBar"></i></div>
   </div>
 </div>
 
-<section id="about">
-  <div class="wrap">
-    <span class="eyebrow reveal">About me</span>
-    <div class="about-grid">
-      <div class="reveal"><p class="about-lead">I lead the teams and systems that keep enterprise IT <span class="grad">secure, compliant, and always on</span> — from identity to endpoints to the cloud.</p></div>
-      <div class="about-body reveal">
-        <p>I'm an IT Infrastructure, Operations & Security professional with 8+ years across enterprise IT support, system administration, cloud/SaaS administration, IAM, endpoint security, ITSM, network infrastructure, and IT governance. I now work in a Team Lead capacity — coordinating day-to-day operations, incident priorities, escalations, SLA performance, and technical support for the team.</p>
-        <p>Day to day I own IAM (Okta SSO/MFA, Active Directory), endpoint security across 500+ machines (NinjaOne, CrowdStrike EDR, Webroot), <strong style="color:var(--text)">ITSM and change management</strong> in Jira, and multi-site network &amp; virtualization (Vizag, Hyderabad, HQ, SOC — Proxmox, PRTG). I also support SOC audits, license/vendor governance, and cloud/SaaS reviews across Microsoft 365, Google Workspace, and the wider enterprise app stack.</p>
-        <div class="about-facts">
-          <div class="fact"><div class="k">Location</div><div class="v">Visakhapatnam, India</div></div>
-          <div class="fact"><div class="k">Role</div><div class="v">Team Lead – IT Infrastructure &amp; Operations</div></div>
-          <div class="fact"><div class="k">Focus</div><div class="v">IAM · Endpoint · ITSM · Network</div></div>
-          <div class="fact"><div class="k">Availability</div><div class="v">Open to roles</div></div>
-        </div>
-      </div>
+<!-- DESKTOP -->
+<div id="desktop" class="desktop">
+  <div class="wallpaper-grid"></div>
+  <div class="wallpaper-glow"></div>
+
+  <!-- Menu bar -->
+  <div class="menubar">
+    <div class="menubar-left">
+      <span class="menubar-logo">DineshOS</span>
+      <span class="menubar-sep">|</span>
+      <span class="menubar-role">Team Lead — IT Infrastructure, Operations &amp; Security</span>
+    </div>
+    <div class="menubar-right">
+      <span class="menubar-status"><span class="dot"></span>System Operational</span>
+      <span class="menubar-clock" id="clock">00:00:00</span>
     </div>
   </div>
-</section>
 
-<section id="skills">
-  <div class="wrap">
-    <span class="eyebrow reveal">Toolkit</span>
-    <h2 class="sec-title reveal">Skills &amp; <span class="grad">technologies</span></h2>
-    <p class="sec-sub reveal">The platforms and disciplines I work in every day, from identity to infrastructure.</p>
-    <div class="skills-grid" id="skillsGrid"></div>
+  <!-- Desktop icons -->
+  <div class="icons" id="icons">
+    <button class="icon" data-app="about"><span class="icon-glyph">👤</span><span class="icon-label">About.txt</span></button>
+    <button class="icon" data-app="skills"><span class="icon-glyph">🛠️</span><span class="icon-label">Skills.app</span></button>
+    <button class="icon" data-app="experience"><span class="icon-glyph">🗂️</span><span class="icon-label">Experience.log</span></button>
+    <button class="icon" data-app="projects"><span class="icon-glyph">📁</span><span class="icon-label">Projects.dir</span></button>
+    <button class="icon" data-app="certs"><span class="icon-glyph">🎓</span><span class="icon-label">Certifications.lic</span></button>
+    <button class="icon" data-app="contact"><span class="icon-glyph">📡</span><span class="icon-label">Contact.sh</span></button>
+    <a class="icon" href="assets/T_Dinesh_CV .pdf" download><span class="icon-glyph">📄</span><span class="icon-label">Resume.pdf</span></a>
   </div>
-</section>
 
-<section id="experience" style="background:linear-gradient(180deg,transparent,rgba(15,23,42,.4),transparent);">
-  <div class="wrap">
-    <span class="eyebrow reveal">Career</span>
-    <h2 class="sec-title reveal">Experience <span class="grad">timeline</span></h2>
-    <p class="sec-sub reveal">Real operations across NOC, enterprise support, and IT leadership.</p>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-top"><div><span class="tl-role">Team Lead – IT Infrastructure &amp; Operations</span> · <span class="tl-org">Pro-Vigil Surveillance Services</span></div><span class="tl-time">SEP 2023 — PRESENT</span></div>
-        <ul>
-          <li>Lead day-to-day IT operations across endpoint security, cloud/SaaS, IAM, ITSM, networks, monitoring, virtualization, and asset management; prioritize incidents and escalations to meet SLA targets.</li>
-          <li>Own end-to-end ITSM &amp; change management in Jira: change control, approvals, incident lifecycle, and leadership reporting.</li>
-          <li>Manage IAM (Okta SSO/MFA, Active Directory) and endpoint security across 500+ machines with NinjaOne, CrowdStrike EDR, and Webroot.</li>
-          <li>Administer Microsoft 365 &amp; Google Workspace, and coordinate US/India onboarding-offboarding and Joiner-Mover-Leaver activity.</li>
-          <li>Run multi-site network operations (Vizag, Hyderabad, HQ, SOC) with PRTG monitoring, firewall administration, Proxmox virtualization, and Matrix/COSEC physical security.</li>
-          <li>Manage IT assets via Snipe-IT, license &amp; vendor governance, and extend SOC audit support to cloud/SaaS applications.</li>
-        </ul>
-        <div class="tl-tags"><span class="tl-tag">ITSM</span><span class="tl-tag">Change Mgmt</span><span class="tl-tag">Okta</span><span class="tl-tag">NinjaOne</span><span class="tl-tag">CrowdStrike</span><span class="tl-tag">M365</span><span class="tl-tag">Proxmox</span><span class="tl-tag">Team Leadership</span></div>
-      </div>
-      <div class="tl-item past reveal">
-        <div class="tl-top"><div><span class="tl-role">System Support Specialist</span> · <span class="tl-org">Dynata</span></div><span class="tl-time">DEC 2021 — SEP 2023</span></div>
-        <ul>
-          <li>L2/L3 support for Windows servers, desktops, and business apps in a global environment.</li>
-          <li>Managed ticket resolution and escalations through Jira with strict SLA adherence.</li>
-          <li>Supported endpoint patching, vulnerability remediation, and audit readiness.</li>
-        </ul>
-        <div class="tl-tags"><span class="tl-tag">Windows Server</span><span class="tl-tag">Jira</span><span class="tl-tag">Endpoint</span></div>
-      </div>
-      <div class="tl-item past reveal">
-        <div class="tl-top"><div><span class="tl-role">Technical Engineer</span> · <span class="tl-org">HBL Power Systems Ltd.</span></div><span class="tl-time">JAN 2021 — DEC 2021</span></div>
-        <ul>
-          <li>Supported IT infrastructure — servers, networks, and firewall management.</li>
-          <li>Installed and maintained routers, switches, servers, and structured cabling.</li>
-        </ul>
-        <div class="tl-tags"><span class="tl-tag">Networking</span><span class="tl-tag">Firewall</span><span class="tl-tag">Infrastructure</span></div>
-      </div>
-      <div class="tl-item past reveal">
-        <div class="tl-top"><div><span class="tl-role">Network &amp; IT Support (NOC / Field)</span> · <span class="tl-org">Pioneer Elba's · Progressive Infovision · Piramal Swasthya</span></div><span class="tl-time">2017 — 2021</span></div>
-        <ul>
-          <li>NOC network monitoring and incident escalation ensuring enterprise uptime.</li>
-          <li>Desktop and infrastructure support; IT operations, user support, and asset tracking.</li>
-        </ul>
-        <div class="tl-tags"><span class="tl-tag">NOC</span><span class="tl-tag">Support</span><span class="tl-tag">Asset Mgmt</span></div>
-      </div>
+  <!-- Windows layer -->
+  <div class="windows" id="windows"></div>
+
+  <!-- Taskbar -->
+  <div class="taskbar">
+    <button class="start-btn" id="startBtn"><span class="start-glyph">▦</span> Start</button>
+    <div class="taskbar-tabs" id="taskbarTabs"></div>
+    <div class="taskbar-right">
+      <span class="taskbar-clock" id="clockSmall">00:00:00</span>
     </div>
   </div>
-</section>
 
-<section id="video">
-  <div class="wrap">
-    <span class="eyebrow reveal">Video byte</span>
-    <h2 class="sec-title reveal">Meet me in <span class="grad">60 seconds</span></h2>
-    <p class="sec-sub reveal">A short intro on who I am, how I lead an IT operations team, and how I think about security and uptime.</p>
-    <div class="video-shell reveal" id="videoShell">
-      <div class="video-chrome"><span class="rec"><span class="dot"></span>Intro</span><span>00:00 / 00:60</span></div>
-      <video id="introVideo" poster="assets/dinesh-photo.jpg" preload="none" playsinline>
-        <source src="assets/intro.mp4" type="video/mp4">
-      </video>
-      <div class="video-poster" id="videoPoster" style="background-image:url('assets/dinesh-photo.jpg')"></div>
-      <button class="play-btn" id="playBtn" aria-label="Play intro">▶</button>
-      <div class="video-wave" aria-hidden="true"><i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.1s"></i></div>
-      <div class="video-caption" id="videoNote">Add <b>assets/intro.mp4</b> to enable playback</div>
-    </div>
-  </div>
-</section>
-
-<section id="projects" style="background:linear-gradient(180deg,transparent,rgba(15,23,42,.4),transparent);">
-  <div class="wrap">
-    <span class="eyebrow reveal">Case files</span>
-    <h2 class="sec-title reveal">Projects &amp; <span class="grad">implementations</span></h2>
-    <p class="sec-sub reveal">Infrastructure programs I've driven end to end — scoped, built, and measured against real outcomes.</p>
-    <div class="grid-3" id="projGrid"></div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <span class="eyebrow reveal">What I do</span>
-    <h2 class="sec-title reveal">Services &amp; <span class="grad">capabilities</span></h2>
-    <p class="sec-sub reveal">How I help organizations run secure, reliable IT operations.</p>
-    <div class="grid-3" id="servGrid"></div>
-  </div>
-</section>
-
-<section id="certs" style="background:linear-gradient(180deg,transparent,rgba(15,23,42,.4),transparent);">
-  <div class="wrap">
-    <span class="eyebrow reveal">Credentials</span>
-    <h2 class="sec-title reveal">Licenses &amp; <span class="grad">certifications</span></h2>
-    <p class="sec-sub reveal">Verified training across cloud, security, and IT fundamentals.</p>
-    <div class="grid-3" id="certGrid"></div>
-  </div>
-</section>
-
-<div class="marquee" aria-hidden="true">
-  <div class="mtrack">
-    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Google Workspace</b><i>·</i><b>Active Directory</b><i>·</i><b>Firewall Mgmt</b><i>·</i><b>NinjaOne</b><i>·</i><b>CrowdStrike</b><i>·</i><b>Webroot</b><i>·</i><b>Proxmox</b><i>·</i><b>PRTG</b><i>·</i><b>Snipe-IT</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
-    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Google Workspace</b><i>·</i><b>Active Directory</b><i>·</i><b>Firewall Mgmt</b><i>·</i><b>NinjaOne</b><i>·</i><b>CrowdStrike</b><i>·</i><b>Webroot</b><i>·</i><b>Proxmox</b><i>·</i><b>PRTG</b><i>·</i><b>Snipe-IT</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
-  </div>
-</div>
-
-<section id="contact">
-  <div class="wrap">
-    <span class="eyebrow reveal">Get in touch</span>
-    <h2 class="sec-title reveal">Let's build something <span class="grad">reliable</span></h2>
-    <p class="sec-sub reveal">Open to IT leadership and senior infrastructure roles. Reach out through any channel.</p>
-    <div class="contact-grid">
-      <div class="glass-card form-card reveal">
-        <div class="field"><label>Name</label><input type="text" id="fName" placeholder="Your name"></div>
-        <div class="field"><label>Email</label><input type="email" id="fEmail" placeholder="you@company.com"></div>
-        <div class="field"><label>Phone</label><input type="tel" id="fPhone" placeholder="+91 ..."></div>
-        <div class="field"><label>Company</label><input type="text" id="fCompany" placeholder="Company (optional)"></div>
-        <div class="field"><label>Message</label><textarea id="fMsg" placeholder="How can I help?"></textarea></div>
-        <button class="btn grad" id="sendBtn" data-mag style="width:100%;justify-content:center;">Send message</button>
-      </div>
+  <!-- Start menu -->
+  <div class="start-menu" id="startMenu">
+    <div class="start-menu-head">
+      <div class="start-avatar">DT</div>
       <div>
-        <div class="channels">
-          <a href="mailto:dineshtankala85@outlook.com" class="channel reveal"><span class="ic">✉️</span><div><div class="k">Email</div><div class="v">dineshtankala85@outlook.com</div></div></a>
-          <a href="tel:+918331956172" class="channel reveal"><span class="ic">📞</span><div><div class="k">Phone</div><div class="v">+91 83319 56172</div></div></a>
-          <a href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener" class="channel reveal"><span class="ic">💼</span><div><div class="k">LinkedIn</div><div class="v">in/dinesh-tankala</div></div></a>
-          <a href="https://wa.me/918331956172" target="_blank" rel="noopener" class="channel reveal"><span class="ic">💬</span><div><div class="k">WhatsApp</div><div class="v">+91 83319 56172</div></div></a>
-        </div>
+        <div class="start-name">Dinesh Tankala</div>
+        <div class="start-role">Team Lead · IT Infrastructure &amp; Security</div>
       </div>
     </div>
-  </div>
-</section>
-
-<div class="footer">
-  <div class="wrap">
-    <div class="socials">
-      <a href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-      <a href="mailto:dineshtankala85@outlook.com" aria-label="Email">✉</a>
-      <a href="tel:+918331956172" aria-label="Phone">☎</a>
+    <div class="start-menu-list">
+      <button data-app="about">👤 About.txt</button>
+      <button data-app="skills">🛠️ Skills.app</button>
+      <button data-app="experience">🗂️ Experience.log</button>
+      <button data-app="projects">📁 Projects.dir</button>
+      <button data-app="certs">🎓 Certifications.lic</button>
+      <button data-app="contact">📡 Contact.sh</button>
     </div>
-    <div class="cp">© 2026 Dinesh Tankala · Team Lead, IT Infrastructure &amp; Operations · Visakhapatnam, India</div>
+    <div class="start-menu-foot">
+      <a href="assets/T_Dinesh_CV .pdf" download>⭳ Download Resume</a>
+    </div>
   </div>
 </div>
 
-<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+<!-- Window templates (content only, cloned by JS) -->
+<template id="tpl-about">
+  <div class="win-body prose">
+    <p class="lead">I lead the teams and systems that keep enterprise IT secure, compliant, and always on — from identity to endpoints to the cloud.</p>
+    <p>I'm an IT Infrastructure, Operations &amp; Security professional with 8+ years across enterprise IT support, system administration, cloud/SaaS administration, IAM, endpoint security, ITSM, network infrastructure, and IT governance. I now work in a Team Lead capacity — coordinating day-to-day operations, incident priorities, escalations, SLA performance, and technical support for the team.</p>
+    <p>Day to day I own IAM (Okta SSO/MFA, Active Directory), endpoint security across 500+ machines (NinjaOne, CrowdStrike EDR, Webroot), <strong>ITSM and change management</strong> in Jira, and multi-site network &amp; virtualization (Vizag, Hyderabad, HQ, SOC — Proxmox, PRTG, Firewall Administration). I also support SOC audits, license/vendor governance, and cloud/SaaS reviews across Microsoft 365, Google Workspace, and the wider enterprise app stack.</p>
+    <div class="kv-grid">
+      <div class="kv"><span class="k">Location</span><span class="v">Visakhapatnam, India</span></div>
+      <div class="kv"><span class="k">Role</span><span class="v">Team Lead — IT Infrastructure &amp; Operations</span></div>
+      <div class="kv"><span class="k">Focus</span><span class="v">IAM · Endpoint · ITSM · Network</span></div>
+      <div class="kv"><span class="k">Availability</span><span class="v">Open to roles</span></div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-skills">
+  <div class="win-body">
+    <div class="skills-cats" id="skillsCats"></div>
+  </div>
+</template>
+
+<template id="tpl-experience">
+  <div class="win-body">
+    <div class="exp-log" id="expLog"></div>
+  </div>
+</template>
+
+<template id="tpl-projects">
+  <div class="win-body">
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+</template>
+
+<template id="tpl-certs">
+  <div class="win-body">
+    <div class="cert-list" id="certList"></div>
+  </div>
+</template>
+
+<template id="tpl-contact">
+  <div class="win-body">
+    <div class="contact-terminal">
+      <div class="term-line"><span class="prompt">dinesh@ops:~$</span> whoami</div>
+      <div class="term-out">Dinesh Tankala — Team Lead, IT Infrastructure &amp; Operations</div>
+      <div class="term-line"><span class="prompt">dinesh@ops:~$</span> cat contact.info</div>
+      <div class="term-out">
+        <a href="mailto:dineshtankala85@outlook.com">✉ dineshtankala85@outlook.com</a><br>
+        <a href="tel:+918331956172">☎ +91 83319 56172</a><br>
+        <a href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener">💼 linkedin.com/in/dinesh-tankala</a><br>
+        <a href="https://wa.me/918331956172" target="_blank" rel="noopener">💬 WhatsApp +91 83319 56172</a>
+      </div>
+      <div class="term-line"><span class="prompt">dinesh@ops:~$</span> <span class="cursor-blink">▌</span></div>
+    </div>
+  </div>
+</template>
 
 <script src="script.js"></script>
 </body>
