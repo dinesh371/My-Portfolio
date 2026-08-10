@@ -105,7 +105,7 @@
 
   const appTitles = {
     about:'About.txt', skills:'Skills.app', experience:'Experience.log',
-    projects:'Projects.dir', certs:'Certifications.lic', contact:'Contact.sh'
+    projects:'Projects.dir', certs:'Certifications.lic', contact:'Contact.sh', firewall:'Firewall.sys'
   };
 
   function populateWindow(app, root){
@@ -155,6 +155,15 @@
         const row = document.createElement('div'); row.className = 'cert-row';
         row.innerHTML = '<span class="cert-ic">'+ic+'</span><div><div class="cert-name">'+name+'</div><div class="cert-issuer">'+issuer+'</div></div>';
         box.appendChild(row);
+      });
+    }
+    if(app === 'firewall'){
+      const box = root.querySelector('#fwGrid');
+      const stats = [['4','Sites protected'],['Ruckus + PRTG','Monitoring stack'],['Jira','Change control'],['24/7','Policy enforcement']];
+      stats.forEach(([n,l])=>{
+        const el = document.createElement('div'); el.className = 'fw-stat';
+        el.innerHTML = '<div class="n">'+n+'</div><div class="l">'+l+'</div>';
+        box.appendChild(el);
       });
     }
   }
