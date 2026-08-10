@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050816">
-<title>Dinesh Tankala — IT Infrastructure Manager</title>
-<meta name="description" content="Dinesh Tankala — IT Infrastructure Manager & Cybersecurity Professional. Microsoft 365, Azure, Okta, networking, ITSM & change management. Building secure, scalable, intelligent digital infrastructure.">
-<meta property="og:title" content="Dinesh Tankala — IT Infrastructure Manager">
+<meta name="theme-color" content="#0A0E13">
+<title>Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security</title>
+<meta name="description" content="Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security. IAM, Endpoint Security, ITSM & Change Management, Cloud & SaaS, Network & Virtualization. Building secure, scalable, intelligent digital infrastructure.">
+<meta property="og:title" content="Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security">
 <meta property="og:description" content="Building secure, scalable & intelligent digital infrastructure.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#050816;--bg-2:#0F172A;--blue:#3B82F6;--purple:#7C3AED;--cyan:#06B6D4;--pink:#EC4899;
-    --white:#FFFFFF;--text:#EAECF5;--muted:#8A93B2;--muted-2:#5a6485;
+    --bg:#0A0E13;--bg-2:#12181F;--blue:#E8A33D;--purple:#2DD4BF;--cyan:#5EEAD4;--pink:#F2645A;
+    --white:#FFFFFF;--text:#EEEDE8;--muted:#9AA0A6;--muted-2:#5c6268;
     --line:rgba(255,255,255,.09);--glass:rgba(255,255,255,.045);--glass-2:rgba(255,255,255,.07);
-    --radius:22px;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;--display:'Space Grotesk',sans-serif;
+    --radius:22px;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--display:'IBM Plex Sans Condensed',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;position:relative;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;position:relative;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
   ::selection{background:var(--purple);color:#fff;}
@@ -38,7 +38,12 @@
   @keyframes float3{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,-50px);}}
   #net{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;}
   body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 0%,transparent 40%,var(--bg) 88%);}
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
   .spotlight{position:fixed;width:520px;height:520px;border-radius:50%;z-index:1;pointer-events:none;background:radial-gradient(circle,rgba(124,58,237,.10),transparent 65%);transform:translate(-50%,-50%);transition:opacity .3s;opacity:0;}
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--purple),var(--cyan));border-radius:100px;border:2px solid var(--bg);}
+  html{scrollbar-color:var(--purple) var(--bg);}
 
   .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);}
   .cursor-dot{width:6px;height:6px;background:var(--cyan);}
@@ -63,12 +68,14 @@
   .navburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;}
   .navburger span{width:20px;height:2px;background:var(--text);border-radius:2px;}
 
-  .btn{font-size:14px;padding:14px 26px;border-radius:100px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:9px;transition:transform .2s,border-color .25s,background .25s,box-shadow .25s;position:relative;overflow:hidden;font-weight:500;}
-  .btn.grad{background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));background-size:180% 180%;color:#fff;border-color:transparent;font-weight:600;animation:gradShift 6s ease infinite;}
+  .btn{font-size:14px;padding:14px 26px;border-radius:100px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:9px;transition:transform .2s,border-color .25s,background .25s,box-shadow .25s;position:relative;overflow:hidden;font-weight:500;isolation:isolate;}
+  .btn::after{content:'';position:absolute;top:0;left:-60%;width:35%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);transition:left .6s ease;z-index:1;}
+  .btn:hover::after{left:130%;}
+  .btn.grad{background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));background-size:180% 180%;color:#fff;border-color:transparent;font-weight:600;animation:gradShift 6s ease infinite;box-shadow:0 1px 0 rgba(255,255,255,.25) inset;}
   @keyframes gradShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
-  .btn.grad:hover{box-shadow:0 14px 34px -12px rgba(124,58,237,.6);}
+  .btn.grad:hover{box-shadow:0 1px 0 rgba(255,255,255,.3) inset,0 14px 34px -12px rgba(124,58,237,.6);transform:translateY(-2px);}
   .btn.glass{background:var(--glass);backdrop-filter:blur(10px);}
-  .btn.glass:hover{border-color:var(--cyan);background:var(--glass-2);}
+  .btn.glass:hover{border-color:var(--cyan);background:var(--glass-2);transform:translateY(-2px);}
 
   section{padding:120px 0;position:relative;}
   .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:transparent;background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;}
@@ -77,13 +84,18 @@
   .sec-title .grad,.about-lead .grad,h1.name .grad{background:linear-gradient(120deg,var(--blue),var(--purple) 45%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .sec-sub{color:var(--muted);max-width:60ch;font-size:1.02rem;margin-bottom:64px;}
 
-  .glass-card{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--radius);position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;}
+  .glass-card{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--radius);position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 24px 48px -24px rgba(0,0,0,.55);}
   .glass-card::before{content:'';position:absolute;inset:0;border-radius:var(--radius);padding:1px;pointer-events:none;opacity:0;transition:opacity .3s;background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
-  .glass-card:hover{transform:translateY(-6px);}
+  .glass-card::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.06),transparent);transform:skewX(-18deg);transition:left .7s ease;pointer-events:none;}
+  .glass-card:hover{transform:translateY(-6px);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 32px 64px -24px rgba(6,182,212,.18),0 24px 48px -24px rgba(0,0,0,.6);}
   .glass-card:hover::before{opacity:.8;}
+  .glass-card:hover::after{left:130%;}
 
   .hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;}
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  .hero-enter{opacity:0;transform:translateY(18px);animation:heroIn .8s cubic-bezier(.2,.8,.2,1) forwards;}
+  @keyframes heroIn{to{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion:reduce){.hero-enter{opacity:1;transform:none;animation:none;}}
   .status-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--cyan);border:1px solid rgba(6,182,212,.3);background:rgba(6,182,212,.07);padding:7px 14px;border-radius:100px;margin-bottom:26px;}
   .status-pill .dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:blink 2s infinite;}
   @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
@@ -98,7 +110,7 @@
   @keyframes caret{50%{opacity:0;}}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;}
 
-  .avatar-wrap{display:flex;justify-content:center;perspective:1000px;}
+  .avatar-wrap{display:flex;justify-content:center;perspective:1000px;position:relative;padding-bottom:56px;}
   .avatar{position:relative;width:min(340px,80vw);aspect-ratio:1;border-radius:28px;padding:3px;will-change:transform;transform-style:preserve-3d;transition:transform .18s ease-out;}
   .avatar::before{content:'';position:absolute;inset:-2px;border-radius:30px;z-index:-1;background:conic-gradient(from 0deg,var(--blue),var(--purple),var(--cyan),var(--pink),var(--blue));animation:spin 6s linear infinite;filter:blur(9px);opacity:.9;}
   @keyframes spin{to{transform:rotate(360deg);}}
@@ -110,8 +122,22 @@
   .fb-2{bottom:12%;right:-10%;animation:bob 6s ease-in-out infinite .5s;}
   @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:90px;}
-  .stat{background:rgba(15,23,42,.5);backdrop-filter:blur(12px);padding:28px 24px;text-align:center;}
+  .noc-panel{position:absolute;left:50%;bottom:-8%;transform:translateX(-50%);width:min(280px,86%);background:rgba(5,8,22,.82);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 24px 50px -18px rgba(0,0,0,.7);animation:bob 7s ease-in-out infinite .3s;}
+  .noc-top{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .noc-top .live{display:inline-flex;align-items:center;gap:6px;color:#34d399;}
+  .noc-top .live .dot{width:5px;height:5px;border-radius:50%;background:#34d399;box-shadow:0 0 6px #34d399;animation:blink 2s infinite;}
+  .noc-rows{display:flex;flex-direction:column;gap:7px;}
+  .noc-row{display:flex;align-items:center;justify-content:space-between;font-size:11.5px;}
+  .noc-row .lbl{color:var(--muted);}
+  .noc-row .val{font-family:var(--mono);color:var(--text);}
+  .noc-row .val.ok{color:#34d399;}
+  .noc-wave{display:flex;align-items:flex-end;gap:2px;height:16px;margin-top:4px;}
+  .noc-wave i{display:block;width:3px;border-radius:2px;background:linear-gradient(180deg,var(--cyan),var(--purple));animation:wave 1.6s ease-in-out infinite;}
+  @keyframes wave{0%,100%{height:20%;}50%{height:100%;}}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:90px;box-shadow:0 30px 70px -30px rgba(0,0,0,.6);}
+  .stat{background:rgba(15,23,42,.5);backdrop-filter:blur(12px);padding:28px 24px;text-align:center;transition:background .3s;}
+  .stat:hover{background:rgba(15,23,42,.75);}
   .stat .n{font-family:var(--display);font-weight:700;font-size:2.1rem;background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px;}
 
@@ -119,13 +145,14 @@
   .about-lead{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.5;letter-spacing:-.01em;}
   .about-body p{color:var(--muted);margin-bottom:16px;}
   .about-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
-  .fact{padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--glass);}
+  .fact{padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--glass);box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 16px 32px -20px rgba(0,0,0,.5);transition:transform .3s,border-color .3s;}
+  .fact:hover{transform:translateY(-3px);border-color:rgba(6,182,212,.3);}
   .fact .k{font-family:var(--mono);font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.06em;}
   .fact .v{font-size:.95rem;margin-top:4px;}
 
   .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
-  .skill{padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);display:flex;flex-direction:column;gap:10px;transition:transform .25s,border-color .25s,background .25s;}
-  .skill:hover{transform:translateY(-5px);border-color:rgba(6,182,212,.4);background:var(--glass-2);}
+  .skill{padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);display:flex;flex-direction:column;gap:10px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s,background .25s,box-shadow .3s;box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 16px 32px -22px rgba(0,0,0,.5);}
+  .skill:hover{transform:translateY(-5px);border-color:rgba(6,182,212,.4);background:var(--glass-2);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 20px 40px -20px rgba(6,182,212,.2);}
   .skill .ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(124,58,237,.18));border:1px solid var(--line);}
   .skill .nm{font-weight:600;font-size:.95rem;}
   .skill .bar{height:4px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;}
@@ -148,6 +175,9 @@
   .tl-tag{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:100px;}
 
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-3 .project.featured{grid-column:span 2;}
+  .grid-3 .project.featured .preview{aspect-ratio:16/7;}
+  @media (max-width:920px){.grid-3 .project.featured{grid-column:span 1;}}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
 
   .cert{padding:24px;}
@@ -162,10 +192,15 @@
   .service p{color:var(--muted);font-size:.93rem;}
 
   .project{padding:0;display:flex;flex-direction:column;}
-  .project .preview{aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1226,#131c3a);}
-  .project .preview .glyph{font-size:3.4rem;filter:drop-shadow(0 6px 18px rgba(6,182,212,.4));transition:transform .4s;z-index:1;}
-  .project:hover .preview .glyph{transform:scale(1.12) rotate(-4deg);}
+  .project .preview{aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:
+      radial-gradient(circle at 75% 15%,rgba(124,58,237,.35),transparent 55%),
+      linear-gradient(135deg,#0b1226,#131c3a);}
+  .project .preview::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(circle at 50% 50%,black 40%,transparent 85%);}
   .project .preview::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(124,58,237,.35),transparent 60%);}
+  .proj-badge{position:relative;z-index:1;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.9rem;background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 34px -14px rgba(0,0,0,.6);transition:transform .4s cubic-bezier(.2,.8,.2,1);}
+  .project:hover .proj-badge{transform:scale(1.1) rotate(-4deg);}
+  .proj-cat{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);background:rgba(5,8,22,.65);backdrop-filter:blur(6px);border:1px solid rgba(6,182,212,.3);padding:4px 10px;border-radius:100px;}
+  .proj-featured-tag{position:absolute;top:12px;right:12px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35);padding:4px 10px;border-radius:100px;}
   .project .pv-tags{position:absolute;bottom:12px;left:12px;z-index:2;display:flex;gap:6px;flex-wrap:wrap;}
   .project .pv-tags span{font-family:var(--mono);font-size:10px;background:rgba(5,8,22,.7);backdrop-filter:blur(6px);border:1px solid var(--line);padding:3px 9px;border-radius:100px;color:var(--text);}
   .project .pbody{padding:22px 24px;flex:1;display:flex;flex-direction:column;}
@@ -175,8 +210,15 @@
   .project .metric .mn{font-family:var(--display);font-weight:700;font-size:1.25rem;background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .project .metric .ml{font-size:11px;color:var(--muted);}
 
-  .video-shell{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#0b1020;box-shadow:0 30px 80px -30px rgba(0,0,0,.7);}
+  .video-shell{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#0b1020;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 40px 90px -30px rgba(0,0,0,.75);}
+  .video-shell::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:var(--radius);padding:1px;background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));opacity:.35;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
   .video-shell video{width:100%;height:100%;object-fit:cover;display:block;}
+  .video-chrome{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--mono);font-size:11px;color:var(--muted);background:linear-gradient(180deg,rgba(5,8,22,.55),transparent);}
+  .video-chrome .rec{display:inline-flex;align-items:center;gap:6px;color:#ff6b6b;letter-spacing:.08em;text-transform:uppercase;}
+  .video-chrome .rec .dot{width:6px;height:6px;border-radius:50%;background:#ff6b6b;box-shadow:0 0 8px #ff6b6b;animation:blink 1.6s infinite;}
+  .video-caption{position:absolute;bottom:16px;right:16px;z-index:3;font-family:var(--mono);font-size:11px;color:var(--text);background:rgba(5,8,22,.7);backdrop-filter:blur(6px);padding:7px 12px;border-radius:10px;border:1px solid var(--line);}
+  .video-wave{position:absolute;bottom:16px;left:16px;z-index:3;display:flex;align-items:flex-end;gap:3px;height:20px;}
+  .video-wave i{display:block;width:3px;border-radius:2px;background:linear-gradient(180deg,var(--cyan),var(--purple));opacity:.85;animation:wave 1.4s ease-in-out infinite;}
   .video-poster{position:absolute;inset:0;background-size:cover;background-position:50% 22%;}
   .video-poster::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,22,.35),rgba(5,8,22,.75));}
   .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:84px;height:84px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;animation:ring 2.4s infinite;}
@@ -225,7 +267,7 @@
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
 
-  body.light{--bg:#f4f6fc;--bg-2:#e8ecf7;--text:#0d1330;--muted:#5a6485;--muted-2:#9aa2c0;--line:rgba(10,20,60,.12);--glass:rgba(255,255,255,.6);--glass-2:rgba(255,255,255,.8);}
+  body.light{--bg:#f6f3ec;--bg-2:#ece7db;--text:#1b1a17;--muted:#6b6f66;--muted-2:#9a9d92;--line:rgba(10,20,60,.12);--glass:rgba(255,255,255,.6);--glass-2:rgba(255,255,255,.8);}
   body.light .orb{opacity:.3;}
   body.light #net{opacity:.25;}
   body.light .stat{background:rgba(255,255,255,.6);}
@@ -250,6 +292,7 @@
 
 <div class="aurora"><div class="orb b1"></div><div class="orb b2"></div><div class="orb b3"></div><div class="orb b4"></div></div>
 <canvas id="net"></canvas>
+<div class="grain"></div>
 
 <header id="hdr">
   <nav>
@@ -275,29 +318,40 @@
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="status-pill"><span class="dot"></span>Open to IT leadership roles · Hyderabad, India</div>
-      <h1 class="name">Dinesh <span class="grad">Tankala.</span></h1>
-      <div class="rotator" id="rotator">
-        <span class="r-item on">IT Infrastructure Manager</span>
-        <span class="r-item">Cybersecurity Professional</span>
-        <span class="r-item">Microsoft 365 Administrator</span>
-        <span class="r-item">Cloud &amp; Network Engineer</span>
-        <span class="r-item">Okta Identity Specialist</span>
+      <div class="status-pill hero-enter" style="animation-delay:.05s"><span class="dot"></span>Open to IT leadership roles · Visakhapatnam, India</div>
+      <h1 class="name hero-enter" style="animation-delay:.15s">Dinesh <span class="grad">Tankala.</span></h1>
+      <div class="rotator hero-enter" id="rotator" style="animation-delay:.25s">
+        <span class="r-item on">Team Lead – IT Infrastructure &amp; Operations</span>
+        <span class="r-item">IAM &amp; Endpoint Security Specialist</span>
+        <span class="r-item">ITSM &amp; Change Management Lead</span>
+        <span class="r-item">Cloud &amp; SaaS Administrator</span>
+        <span class="r-item">Network &amp; Virtualization Lead</span>
       </div>
-      <p class="headline">Building Secure, Scalable &amp; Intelligent Digital Infrastructure</p>
-      <p class="typed"><span id="typed"></span><span class="caret"></span></p>
-      <div class="hero-cta">
+      <p class="headline hero-enter" style="animation-delay:.35s">Building Secure, Scalable &amp; Intelligent Digital Infrastructure</p>
+      <p class="typed hero-enter" style="animation-delay:.45s"><span id="typed"></span><span class="caret"></span></p>
+      <div class="hero-cta hero-enter" style="animation-delay:.55s">
         <a href="#projects" class="btn grad" data-mag>Explore my work</a>
         <a href="assets/T_Dinesh_CV .pdf" class="btn glass" download>Download resume</a>
         <a href="#contact" class="btn glass">Contact me</a>
       </div>
     </div>
-    <div class="avatar-wrap">
+    <div class="avatar-wrap hero-enter" style="animation-delay:.3s">
       <div class="avatar" id="avatar">
         <div class="ring2"></div>
         <img src="assets/dinesh-avatar.jpg" alt="Dinesh Tankala">
         <div class="float-badge fb-1"><span class="ic">🔐</span> Okta · Zero Trust</div>
         <div class="float-badge fb-2"><span class="ic">☁️</span> Azure · M365</div>
+      </div>
+      <div class="noc-panel reveal">
+        <div class="noc-top"><span>Infra Status</span><span class="live"><span class="dot"></span>Live</span></div>
+        <div class="noc-rows">
+          <div class="noc-row"><span class="lbl">Endpoints online</span><span class="val ok">500+</span></div>
+          <div class="noc-row"><span class="lbl">Uptime (30d)</span><span class="val ok">99.9%</span></div>
+          <div class="noc-row"><span class="lbl">Open incidents</span><span class="val">0 critical</span></div>
+        </div>
+        <div class="noc-wave" aria-hidden="true">
+          <i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:0s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.35s"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -318,12 +372,12 @@
     <div class="about-grid">
       <div class="reveal"><p class="about-lead">I lead the teams and systems that keep enterprise IT <span class="grad">secure, compliant, and always on</span> — from identity to endpoints to the cloud.</p></div>
       <div class="about-body reveal">
-        <p>I'm an IT infrastructure and cybersecurity professional with 8+ years spanning NOC operations, enterprise support, and now IT leadership. My focus is identity and access management, endpoint security, cloud administration, and the ITSM discipline that ties operations to measurable outcomes.</p>
-        <p>Day to day I own IAM (Okta SSO/MFA, Active Directory), endpoint and patch management across 500+ machines, Microsoft 365 &amp; Azure administration, and <strong style="color:var(--text)">ITSM and change management</strong> in Jira: structured change control, approvals, incident lifecycle, and the reporting leadership relies on.</p>
+        <p>I'm an IT Infrastructure, Operations & Security professional with 8+ years across enterprise IT support, system administration, cloud/SaaS administration, IAM, endpoint security, ITSM, network infrastructure, and IT governance. I now work in a Team Lead capacity — coordinating day-to-day operations, incident priorities, escalations, SLA performance, and technical support for the team.</p>
+        <p>Day to day I own IAM (Okta SSO/MFA, Active Directory), endpoint security across 500+ machines (NinjaOne, CrowdStrike EDR, Webroot), <strong style="color:var(--text)">ITSM and change management</strong> in Jira, and multi-site network &amp; virtualization (Vizag, Hyderabad, HQ, SOC — Proxmox, PRTG). I also support SOC audits, license/vendor governance, and cloud/SaaS reviews across Microsoft 365, Google Workspace, and the wider enterprise app stack.</p>
         <div class="about-facts">
-          <div class="fact"><div class="k">Location</div><div class="v">Hyderabad, India</div></div>
-          <div class="fact"><div class="k">Role</div><div class="v">IT Infrastructure Manager</div></div>
-          <div class="fact"><div class="k">Focus</div><div class="v">Security · Cloud · ITSM</div></div>
+          <div class="fact"><div class="k">Location</div><div class="v">Visakhapatnam, India</div></div>
+          <div class="fact"><div class="k">Role</div><div class="v">Team Lead – IT Infrastructure &amp; Operations</div></div>
+          <div class="fact"><div class="k">Focus</div><div class="v">IAM · Endpoint · ITSM · Network</div></div>
           <div class="fact"><div class="k">Availability</div><div class="v">Open to roles</div></div>
         </div>
       </div>
@@ -347,15 +401,16 @@
     <p class="sec-sub reveal">Real operations across NOC, enterprise support, and IT leadership.</p>
     <div class="timeline">
       <div class="tl-item reveal">
-        <div class="tl-top"><div><span class="tl-role">IT Infrastructure Manager / Team Lead</span> · <span class="tl-org">Pro-Vigil Surveillance Services</span></div><span class="tl-time">SEP 2023 — PRESENT</span></div>
+        <div class="tl-top"><div><span class="tl-role">Team Lead – IT Infrastructure &amp; Operations</span> · <span class="tl-org">Pro-Vigil Surveillance Services</span></div><span class="tl-time">SEP 2023 — PRESENT</span></div>
         <ul>
-          <li>Lead the IT operations team — priorities, coaching, and delivery across IAM, endpoint security, and ITSM.</li>
-          <li>Own ITSM &amp; change management in Jira: change control, approvals, incident lifecycle, SLA adherence, and leadership reporting.</li>
-          <li>Manage IAM (Okta SSO/MFA, Active Directory) and endpoint security across 500+ machines with NinjaOne.</li>
-          <li>Administer Microsoft 365 &amp; Google Workspace — provisioning, security policy, joiner-mover-leaver lifecycle.</li>
-          <li>Support SOC audits with IAM logs, endpoint evidence, and patch-compliance reporting; oversee Ruckus LAN/Wi-Fi.</li>
+          <li>Lead day-to-day IT operations across endpoint security, cloud/SaaS, IAM, ITSM, networks, monitoring, virtualization, and asset management; prioritize incidents and escalations to meet SLA targets.</li>
+          <li>Own end-to-end ITSM &amp; change management in Jira: change control, approvals, incident lifecycle, and leadership reporting.</li>
+          <li>Manage IAM (Okta SSO/MFA, Active Directory) and endpoint security across 500+ machines with NinjaOne, CrowdStrike EDR, and Webroot.</li>
+          <li>Administer Microsoft 365 &amp; Google Workspace, and coordinate US/India onboarding-offboarding and Joiner-Mover-Leaver activity.</li>
+          <li>Run multi-site network operations (Vizag, Hyderabad, HQ, SOC) with PRTG monitoring, firewall administration, Proxmox virtualization, and Matrix/COSEC physical security.</li>
+          <li>Manage IT assets via Snipe-IT, license &amp; vendor governance, and extend SOC audit support to cloud/SaaS applications.</li>
         </ul>
-        <div class="tl-tags"><span class="tl-tag">ITSM</span><span class="tl-tag">Change Mgmt</span><span class="tl-tag">Okta</span><span class="tl-tag">NinjaOne</span><span class="tl-tag">M365</span><span class="tl-tag">Team Leadership</span></div>
+        <div class="tl-tags"><span class="tl-tag">ITSM</span><span class="tl-tag">Change Mgmt</span><span class="tl-tag">Okta</span><span class="tl-tag">NinjaOne</span><span class="tl-tag">CrowdStrike</span><span class="tl-tag">M365</span><span class="tl-tag">Proxmox</span><span class="tl-tag">Team Leadership</span></div>
       </div>
       <div class="tl-item past reveal">
         <div class="tl-top"><div><span class="tl-role">System Support Specialist</span> · <span class="tl-org">Dynata</span></div><span class="tl-time">DEC 2021 — SEP 2023</span></div>
@@ -388,16 +443,18 @@
 
 <section id="video">
   <div class="wrap">
-    <span class="eyebrow reveal">Introduction</span>
+    <span class="eyebrow reveal">Video byte</span>
     <h2 class="sec-title reveal">Meet me in <span class="grad">60 seconds</span></h2>
-    <p class="sec-sub reveal">A short intro — who I am and how I work. (Recording coming soon.)</p>
+    <p class="sec-sub reveal">A short intro on who I am, how I lead an IT operations team, and how I think about security and uptime.</p>
     <div class="video-shell reveal" id="videoShell">
+      <div class="video-chrome"><span class="rec"><span class="dot"></span>Intro</span><span>00:00 / 00:60</span></div>
       <video id="introVideo" poster="assets/dinesh-photo.jpg" preload="none" playsinline>
         <source src="assets/intro.mp4" type="video/mp4">
       </video>
       <div class="video-poster" id="videoPoster" style="background-image:url('assets/dinesh-photo.jpg')"></div>
       <button class="play-btn" id="playBtn" aria-label="Play intro">▶</button>
-      <div class="video-note" id="videoNote">Add <b>assets/intro.mp4</b> to enable the intro video</div>
+      <div class="video-wave" aria-hidden="true"><i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.1s"></i></div>
+      <div class="video-caption" id="videoNote">Add <b>assets/intro.mp4</b> to enable playback</div>
     </div>
   </div>
 </section>
@@ -406,7 +463,7 @@
   <div class="wrap">
     <span class="eyebrow reveal">Case files</span>
     <h2 class="sec-title reveal">Projects &amp; <span class="grad">implementations</span></h2>
-    <p class="sec-sub reveal">Infrastructure programs driven end to end — with the impact that followed.</p>
+    <p class="sec-sub reveal">Infrastructure programs I've driven end to end — scoped, built, and measured against real outcomes.</p>
     <div class="grid-3" id="projGrid"></div>
   </div>
 </section>
@@ -431,8 +488,8 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="mtrack">
-    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Azure</b><i>·</i><b>Active Directory</b><i>·</i><b>Intune</b><i>·</i><b>NinjaOne</b><i>·</i><b>Sophos</b><i>·</i><b>Fortinet</b><i>·</i><b>Cisco</b><i>·</i><b>VMware</b><i>·</i><b>PowerShell</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
-    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Azure</b><i>·</i><b>Active Directory</b><i>·</i><b>Intune</b><i>·</i><b>NinjaOne</b><i>·</i><b>Sophos</b><i>·</i><b>Fortinet</b><i>·</i><b>Cisco</b><i>·</i><b>VMware</b><i>·</i><b>PowerShell</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
+    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Google Workspace</b><i>·</i><b>Active Directory</b><i>·</i><b>Firewall Mgmt</b><i>·</i><b>NinjaOne</b><i>·</i><b>CrowdStrike</b><i>·</i><b>Webroot</b><i>·</i><b>Proxmox</b><i>·</i><b>PRTG</b><i>·</i><b>Snipe-IT</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
+    <span><b>Okta</b><i>·</i><b>Microsoft 365</b><i>·</i><b>Google Workspace</b><i>·</i><b>Active Directory</b><i>·</i><b>Firewall Mgmt</b><i>·</i><b>NinjaOne</b><i>·</i><b>CrowdStrike</b><i>·</i><b>Webroot</b><i>·</i><b>Proxmox</b><i>·</i><b>PRTG</b><i>·</i><b>Snipe-IT</b><i>·</i><b>Jira ITSM</b><i>·</i></span>
   </div>
 </div>
 
@@ -469,7 +526,7 @@
       <a href="mailto:dineshtankala85@outlook.com" aria-label="Email">✉</a>
       <a href="tel:+918331956172" aria-label="Phone">☎</a>
     </div>
-    <div class="cp">© 2026 Dinesh Tankala · IT Infrastructure Manager · Hyderabad, India</div>
+    <div class="cp">© 2026 Dinesh Tankala · Team Lead, IT Infrastructure &amp; Operations · Visakhapatnam, India</div>
   </div>
 </div>
 
@@ -480,19 +537,26 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  const skills=[['Microsoft 365','🟦',95],['Azure','☁️',88],['Active Directory','🗂️',92],['Windows Server','🖥️',90],['VMware','🧱',80],['Hyper-V','⚙️',80],['Networking','🌐',88],['Cisco','🔀',82],['Fortinet','🛡️',80],['Okta','🔐',92],['Intune','📱',85],['Exchange Online','📧',88],['PowerShell','⌨️',82],['Linux','🐧',78],['Cybersecurity','🔒',88],['Cloud Computing','🌩️',86],['Backup & DR','💾',85],['Automation','🤖',80],['ITSM','🎫',92],['Change Management','🔁',90]];
+  const skills=[['Team Leadership','🧑\u200d💼',90],['Okta / IAM','🔐',92],['Active Directory','🗂️',90],['Firewall Management','🔥',84],['Microsoft 365','🟦',95],['Google Workspace','📇',88],['Azure','☁️',85],['NinjaOne','💾',92],['CrowdStrike EDR','🦅',85],['Webroot','🛡️',82],['Jira / ITSM','🎫',92],['Change Management','🔁',90],['PRTG Monitoring','📡',82],['Proxmox','🧱',80],['Snipe-IT','🏷️',80],['Matrix & COSEC','🚪',78],['RingCentral','☎️',82],['Zoom','🎥',82],['KnowBe4','📚',80],['Wrike','🗒️',78],['TeamViewer','🖱️',80],['greytHR / ADP','🧾',78],['SOC Audit & Compliance','🔍',88]];
   const sg=document.getElementById('skillsGrid');
   skills.forEach(([nm,ic,lvl])=>{const d=document.createElement('div');d.className='skill reveal';d.innerHTML='<div class="ic">'+ic+'</div><div class="nm">'+nm+'</div><div class="bar"><i data-lvl="'+lvl+'"></i></div>';sg.appendChild(d);});
 
-  const projects=[['Okta IAM & SSO Rollout','🔐','Centralized identity across every app and enforced MFA org-wide, cutting access-review overhead.',['Okta','SSO','MFA'],[['100%','MFA coverage'],['↓60%','access tickets']]],['NinjaOne Endpoint Automation','💾','Brought 500+ endpoints under automated, real-time patch compliance with zero-day remediation.',['NinjaOne','Automation'],[['500+','endpoints'],['↑98%','patch compliance']]],['ITSM & Change Management','🔁','Stood up structured change control, approvals, and SLA reporting in Jira for the whole IT function.',['Jira','ITSM','Change'],[['10K+','tickets'],['SLA','discipline']]],['Ruckus Wi-Fi Deployment','📡','Segmented and stabilized wireless across sites with VLAN isolation and secure SSIDs.',['Ruckus','VLAN'],[['Multi-site','coverage'],['VLAN','isolation']]],['M365 & Azure Administration','☁️','Full user lifecycle, security policy, and collaboration platform management at scale.',['M365','Azure','Entra'],[['99.9%','uptime'],['JML','lifecycle']]],['SOC Audit Enablement','🛡️','Delivered IAM logs, endpoint evidence, and compliance reporting to pass security audits.',['SOC','Compliance'],[['Audit','ready'],['Evidence','pipeline']]]];
+  const projects=[
+    ['Okta IAM & SSO Rollout','🔐','Identity','Centralized identity across every enterprise application and enforced org-wide MFA, cutting access-review overhead and closing a long-standing audit gap.',['Okta','SSO','MFA'],[['100%','MFA coverage'],['↓60%','access tickets']],true],
+    ['NinjaOne Endpoint Automation','💾','Endpoint','Brought 500+ endpoints under automated, real-time patch compliance with zero-day remediation and standardized provisioning.',['NinjaOne','Automation'],[['500+','endpoints'],['↑98%','patch compliance']],false],
+    ['ITSM & Change Management','🔁','ITSM','Stood up structured change control, approvals, and SLA reporting in Jira for the whole IT function — the backbone leadership now reports from.',['Jira','ITSM','Change'],[['10K+','tickets'],['SLA','discipline']],false],
+    ['Ruckus Wi-Fi Deployment','📡','Network','Segmented and stabilized wireless across sites with VLAN isolation and secure SSIDs, eliminating recurring connectivity complaints.',['Ruckus','VLAN'],[['Multi-site','coverage'],['VLAN','isolation']],false],
+    ['M365 & Azure Administration','☁️','Cloud','Full user lifecycle, security policy, and collaboration platform management at scale across a hybrid on-prem/cloud identity model.',['M365','Azure','Entra'],[['99.9%','uptime'],['JML','lifecycle']],false],
+    ['SOC Audit Enablement','🛡️','Compliance','Delivered IAM logs, endpoint evidence, and compliance reporting that took the org through security audits without critical findings.',['SOC','Compliance'],[['Audit','ready'],['Evidence','pipeline']],false]
+  ];
   const pg=document.getElementById('projGrid');
-  projects.forEach(([t,g,d,tags,metrics])=>{const el=document.createElement('div');el.className='glass-card project reveal';el.innerHTML='<div class="preview"><span class="glyph">'+g+'</span><div class="pv-tags">'+tags.map(x=>'<span>'+x+'</span>').join('')+'</div></div><div class="pbody"><h3>'+t+'</h3><p class="pdesc">'+d+'</p><div class="metrics">'+metrics.map(m=>'<div class="metric"><div class="mn">'+m[0]+'</div><div class="ml">'+m[1]+'</div></div>').join('')+'</div></div>';pg.appendChild(el);});
+  projects.forEach(([t,g,cat,d,tags,metrics,featured])=>{const el=document.createElement('div');el.className='glass-card project reveal'+(featured?' featured':'');el.innerHTML='<div class="preview"><span class="proj-cat">'+cat+'</span>'+(featured?'<span class="proj-featured-tag">Featured</span>':'')+'<div class="proj-badge">'+g+'</div><div class="pv-tags">'+tags.map(x=>'<span>'+x+'</span>').join('')+'</div></div><div class="pbody"><h3>'+t+'</h3><p class="pdesc">'+d+'</p><div class="metrics">'+metrics.map(m=>'<div class="metric"><div class="mn">'+m[0]+'</div><div class="ml">'+m[1]+'</div></div>').join('')+'</div></div>';pg.appendChild(el);});
 
-  const services=[['Identity & Access','🔐','Okta SSO/MFA, Active Directory, RBAC, and Zero Trust — the right access for the right people.'],['Endpoint & Patch','💾','NinjaOne, Intune, Sophos & Webroot — compliance, monitoring, and zero-day remediation.'],['Cloud & Collaboration','☁️','Microsoft 365, Azure/Entra, and Google Workspace administration across the user lifecycle.'],['ITSM & Change Mgmt','🔁','Jira change control, approvals, incident lifecycle, SLAs, and leadership reporting.'],['Network & Security','🌐','Ruckus Wi-Fi, VLAN segmentation, Fortinet/Sophos firewalls, and secure connectivity.'],['Backup & DR','🧯','Resilient backup strategy and disaster-recovery readiness for business continuity.']];
+  const services=[['Identity & Access','🔐','Okta SSO/MFA, Active Directory, RBAC, and Zero Trust — the right access for the right people.'],['Endpoint & Patch','💾','NinjaOne, Intune, Sophos & Webroot — compliance, monitoring, and zero-day remediation.'],['Cloud & Collaboration','☁️','Microsoft 365, Azure/Entra, and Google Workspace administration across the user lifecycle.'],['ITSM & Change Mgmt','🔁','Jira change control, approvals, incident lifecycle, SLAs, and leadership reporting.'],['Network & Security','🌐','Ruckus Wi-Fi, multi-site LAN, firewall administration, and PRTG monitoring — stable, secure connectivity.'],['Backup & DR','🧯','Resilient backup strategy and disaster-recovery readiness for business continuity.']];
   const svg=document.getElementById('servGrid');
   services.forEach(([t,ic,d])=>{const el=document.createElement('div');el.className='glass-card service reveal';el.innerHTML='<div class="ic">'+ic+'</div><h3>'+t+'</h3><p>'+d+'</p>';svg.appendChild(el);});
 
-  const certs=[['Azure Administrator Associate (AZ-104)','MICROSOFT','Issued Aug 2024 · ID D9F1FEF486097F16','☁️'],['Cybersecurity Fundamentals','IBM','Issued Dec 2025','🔒'],['ISC2 Candidate','ISC2','Issued Mar 2026 · Expires Mar 2027','🛡️'],['Microsoft Certified Professional','MICROSOFT','Issued Jan 2019 · ID H031-0539','🏅'],['MTA: Windows Server Administration','MICROSOFT','Issued Jul 2017 · ID 7vkC-uGhh','🖥️'],['Introduction & Essential Setup','RINGCENTRAL','Issued May 2024 · ID ds3t3oepe92b','☎️']];
+  const certs=[['Azure Administrator Associate (AZ-104)','MICROSOFT','Certified','☁️'],['Azure Fundamentals (AZ-900)','MICROSOFT','Certified','🌩️'],['Microsoft Certified Professional (MCP)','MICROSOFT','Certified','🏅'],['MTA: Windows Server Administration','MICROSOFT','Certified','🖥️'],['Microsoft 365 Administration','MICROSOFT','Certified','🟦'],['RingCentral Certified Professional','RINGCENTRAL','Issued 2024','☎️']];
   const cg=document.getElementById('certGrid');
   certs.forEach(([n,i,m,ic])=>{const el=document.createElement('div');el.className='glass-card cert reveal';el.innerHTML='<div class="badge">'+ic+'</div><h3>'+n+'</h3><div class="issuer">'+i+'</div><div class="meta">'+m+'</div>';cg.appendChild(el);});
 
@@ -538,7 +602,7 @@
   secs.forEach(function(s){spy.observe(s);});
 
   var tb=document.getElementById('themeBtn');
-  tb.onclick=function(){document.body.classList.toggle('light');var lt=document.body.classList.contains('light');tb.textContent=lt?'☀️':'🌙';document.querySelector('meta[name=theme-color]').content=lt?'#f4f6fc':'#050816';};
+  tb.onclick=function(){document.body.classList.toggle('light');var lt=document.body.classList.contains('light');tb.textContent=lt?'☀️':'🌙';document.querySelector('meta[name=theme-color]').content=lt?'#f6f3ec':'#0A0E13';};
 
   var mm=document.getElementById('mobileMenu');
   document.getElementById('burger').onclick=function(){mm.classList.add('open');};
