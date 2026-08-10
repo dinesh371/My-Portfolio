@@ -141,7 +141,7 @@
     if(app === 'projects'){
       const box = root.querySelector('#projGrid');
       projects.forEach(([name, tag, desc, metrics])=>{
-        const card = document.createElement('div'); card.className = 'proj-card';
+        const card = document.createElement('div'); card.className = 'proj-card'; card.dataset.tag = tag;
         card.innerHTML =
           '<div class="proj-top"><span class="proj-name">'+name+'</span><span class="proj-tag">'+tag+'</span></div>'+
           '<div class="proj-desc">'+desc+'</div>'+
