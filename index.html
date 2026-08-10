@@ -48,7 +48,14 @@
     <button class="icon" data-app="projects"><span class="icon-glyph">📁</span><span class="icon-label">Projects.dir</span></button>
     <button class="icon" data-app="certs"><span class="icon-glyph">🎓</span><span class="icon-label">Certifications.lic</span></button>
     <button class="icon" data-app="contact"><span class="icon-glyph">📡</span><span class="icon-label">Contact.sh</span></button>
+    <button class="icon" data-app="firewall"><span class="icon-glyph">🔥</span><span class="icon-label">Firewall.sys</span></button>
     <a class="icon" href="assets/T_Dinesh_CV .pdf" download><span class="icon-glyph">📄</span><span class="icon-label">Resume.pdf</span></a>
+    <div class="icon-divider"></div>
+    <button class="icon" data-app="tool-firewall"><span class="icon-glyph">🔥</span><span class="icon-label">Firewall.sys</span></button>
+    <button class="icon" data-app="tool-okta"><span class="icon-glyph">🔐</span><span class="icon-label">Okta.app</span></button>
+    <button class="icon" data-app="tool-ninjaone"><span class="icon-glyph">💾</span><span class="icon-label">NinjaOne.exe</span></button>
+    <button class="icon" data-app="tool-m365"><span class="icon-glyph">🟦</span><span class="icon-label">M365.app</span></button>
+    <button class="icon" data-app="tool-jira"><span class="icon-glyph">🎫</span><span class="icon-label">Jira.itsm</span></button>
   </div>
 
   <!-- Windows layer -->
@@ -79,6 +86,7 @@
       <button data-app="projects">📁 Projects.dir</button>
       <button data-app="certs">🎓 Certifications.lic</button>
       <button data-app="contact">📡 Contact.sh</button>
+      <button data-app="firewall">🔥 Firewall.sys</button>
     </div>
     <div class="start-menu-foot">
       <a href="assets/T_Dinesh_CV .pdf" download>⭳ Download Resume</a>
@@ -139,6 +147,23 @@
       </div>
       <div class="term-line"><span class="prompt">dinesh@ops:~$</span> <span class="cursor-blink">▌</span></div>
     </div>
+  </div>
+</template>
+
+<template id="tpl-firewall">
+  <div class="win-body">
+    <div class="fw-status-row">
+      <div class="fw-pill on">● Firewall Active</div>
+      <div class="fw-pill">Last policy sync: today</div>
+    </div>
+    <div class="fw-grid" id="fwGrid"></div>
+    <div class="skill-cat-title" style="margin-top:18px;">What I administer</div>
+    <ul class="fw-list">
+      <li>Enterprise firewall policy administration across Vizag, Hyderabad, HQ, and SOC network environments.</li>
+      <li>Rule review and change control coordinated through Jira change management — every policy change is logged and approved.</li>
+      <li>Works alongside Ruckus LAN/Wi-Fi controllers and PRTG monitoring for full network visibility.</li>
+      <li>Supports SOC audit evidence — firewall logs and policy documentation are part of standard compliance reporting.</li>
+    </ul>
   </div>
 </template>
 
