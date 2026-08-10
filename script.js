@@ -202,14 +202,15 @@
     win.innerHTML =
       '<div class="win-head">'+
         '<div class="win-dots">'+
-          '<span class="wd-close" data-act="close"></span>'+
-          '<span class="wd-min" data-act="min"></span>'+
-          '<span class="wd-max" data-act="max"></span>'+
+          '<span class="wd-close" data-act="close" title="Close"></span>'+
+          '<span class="wd-min" data-act="min" title="Minimize"></span>'+
+          '<span class="wd-max" data-act="max" title="Maximize"></span>'+
         '</div>'+
         '<div class="win-title">'+appTitles[app]+'</div>'+
         '<div style="width:53px"></div>'+
       '</div>'+
-      '<div class="win-scroll"></div>';
+      '<div class="win-scroll"></div>'+
+      '<div class="win-resize" title="Resize"></div>';
 
     const scrollArea = win.querySelector('.win-scroll');
     scrollArea.appendChild(tpl.content.cloneNode(true));
@@ -220,8 +221,9 @@
     const tab = document.createElement('button');
     tab.className = 'taskbar-tab';
     tab.dataset.app = app;
-    tab.textContent = appTitles[app];
-    tab.onclick = function(){ openApp(app); };
+    tab.innerHTML = '<span class="tab-label">'+appTitles[app]+'</span><span class="tab-close" data-close="'+app+'">✕</span>';
+    tab.querySelector('.tab-label').onclick = function(){ openApp(app); };
+    tab.querySelector('.tab-close').onclick = function(e){ e.stopPropagation(); closeApp(app); };
     taskbarTabs.appendChild(tab);
 
     openWins[app] = win;
@@ -229,11 +231,11 @@
     requestAnimationFrame(()=>win.classList.add('open'));
     setActiveTab(app);
     makeDraggable(win);
+    makeResizable(win);
 
     win.querySelector('[data-act="close"]').onclick = function(e){
       e.stopPropagation();
-      win.classList.remove('open');
-      setTimeout(()=>{ win.remove(); tab.remove(); delete openWins[app]; }, 180);
+      closeApp(app);
     };
     win.querySelector('[data-act="min"]').onclick = function(e){
       e.stopPropagation();
@@ -244,7 +246,19 @@
       e.stopPropagation();
       win.classList.toggle('maximized');
     };
+    win.querySelector('.win-head').addEventListener('dblclick', function(e){
+      if(e.target.closest('.win-dots')) return;
+      win.classList.toggle('maximized');
+    });
     win.addEventListener('mousedown', ()=>{ bringToFront(win); setActiveTab(app); });
+  }
+
+  function closeApp(app){
+    const win = openWins[app];
+    if(!win) return;
+    const tab = document.querySelector('.taskbar-tab[data-app="'+app+'"]');
+    win.classList.remove('open');
+    setTimeout(()=>{ win.remove(); if(tab) tab.remove(); delete openWins[app]; }, 180);
   }
 
   function makeDraggable(win){
@@ -252,6 +266,7 @@
     let dragging = false, sx=0, sy=0, ox=0, oy=0;
     head.addEventListener('pointerdown', function(e){
       if(e.target.closest('.win-dots')) return;
+      if(win.classList.contains('maximized')) return;
       dragging = true;
       sx = e.clientX; sy = e.clientY;
       const rect = win.getBoundingClientRect();
@@ -265,6 +280,28 @@
       win.style.top = Math.max(38, oy + dy) + 'px';
     });
     head.addEventListener('pointerup', function(){ dragging = false; });
+  }
+
+  function makeResizable(win){
+    const handle = win.querySelector('.win-resize');
+    if(!handle) return;
+    let resizing = false, sx=0, sy=0, sw=0, sh=0;
+    handle.addEventListener('pointerdown', function(e){
+      e.stopPropagation();
+      if(win.classList.contains('maximized')) return;
+      resizing = true;
+      sx = e.clientX; sy = e.clientY;
+      const rect = win.getBoundingClientRect();
+      sw = rect.width; sh = rect.height;
+      handle.setPointerCapture(e.pointerId);
+    });
+    handle.addEventListener('pointermove', function(e){
+      if(!resizing) return;
+      const dw = e.clientX - sx, dh = e.clientY - sy;
+      win.style.width = Math.max(320, sw + dw) + 'px';
+      win.style.maxHeight = Math.max(220, sh + dh) + 'px';
+    });
+    handle.addEventListener('pointerup', function(){ resizing = false; });
   }
 
   document.querySelectorAll('.icon[data-app]').forEach(function(icon){
