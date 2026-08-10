@@ -175,6 +175,17 @@ button{font-family:inherit;cursor:pointer;}
 .term-out a:hover{text-decoration:underline;}
 .cursor-blink{animation:blink 1s step-end infinite;color:var(--amber);}
 
+/* Firewall app */
+.fw-status-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.fw-pill{font-family:var(--mono);font-size:11px;padding:6px 11px;border-radius:100px;border:1px solid var(--line);color:var(--muted);}
+.fw-pill.on{color:var(--teal-light);border-color:rgba(45,212,191,.35);background:rgba(45,212,191,.08);}
+.fw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.fw-stat{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:rgba(255,255,255,.025);}
+.fw-stat .n{font-family:var(--mono);font-weight:600;font-size:17px;color:var(--amber);}
+.fw-stat .l{font-family:var(--mono);font-size:10px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+.fw-list{margin-top:8px;padding-left:16px;color:var(--muted);font-size:12.5px;line-height:1.75;}
+.fw-list li{margin-bottom:6px;}
+
 /* ---------- TASKBAR ---------- */
 .taskbar{
   position:absolute;bottom:0;left:0;right:0;height:48px;z-index:25;
