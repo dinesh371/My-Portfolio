@@ -2,167 +2,488 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0B0D10">
-<title>DineshOS — Dinesh Tankala, Team Lead IT Infrastructure & Security</title>
-<meta name="description" content="Dinesh Tankala — Team Lead, IT Infrastructure, Operations & Security. An interactive desktop-style portfolio: IAM, Endpoint Security, ITSM & Change Management, Cloud & SaaS, Network & Virtualization.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dinesh Tankala | Team Lead, Global IT Operations</title>
+<meta name="description" content="Dinesh Tankala: IT Infrastructure & Operations Lead with 9 years of experience in network security, endpoint security, Okta IAM, ITSM and business continuity.">
+<meta name="theme-color" content="#F6F7FB">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7FB; --surface:#FFFFFF; --soft:#EEF1FA; --ink:#1E2540; --muted:#5F6B86; --line:#E3E7F1;
+  --a1:#6C7CF5; --a2:#A98DF2; --a3:#5FC2B0; --a4:#F2A68C;
+  --t1:#EEF0FE; --t2:#F3EEFD; --t3:#E8F6F3; --t4:#FDF0EB;
+  --shadow:0 1px 2px rgba(30,37,64,.04),0 12px 32px -12px rgba(30,37,64,.12);
+  --shadow-lg:0 2px 4px rgba(30,37,64,.04),0 24px 56px -20px rgba(108,124,245,.28);
+  --grad:linear-gradient(120deg,var(--a1),var(--a2));
+  --display:"Outfit","Segoe UI",system-ui,sans-serif;
+  --body:"Plus Jakarta Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12152A; --surface:#1A1F38; --soft:#20264A; --ink:#ECEFF8; --muted:#A3ABC6; --line:#2A3152;
+    --a1:#94A0FF; --a2:#C3B1FF; --a3:#86DCCB; --a4:#F6B9A3;
+    --t1:#232A55; --t2:#2A2554; --t3:#1D3640; --t4:#3A2A33;
+    --shadow:0 1px 2px rgba(0,0,0,.2),0 12px 32px -12px rgba(0,0,0,.5);
+    --shadow-lg:0 24px 56px -20px rgba(148,160,255,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12152A; --surface:#1A1F38; --soft:#20264A; --ink:#ECEFF8; --muted:#A3ABC6; --line:#2A3152;
+  --a1:#94A0FF; --a2:#C3B1FF; --a3:#86DCCB; --a4:#F6B9A3;
+  --t1:#232A55; --t2:#2A2554; --t3:#1D3640; --t4:#3A2A33;
+  --shadow:0 1px 2px rgba(0,0,0,.2),0 12px 32px -12px rgba(0,0,0,.5);
+  --shadow-lg:0 24px 56px -20px rgba(148,160,255,.25);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:10px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* soft background blobs */
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blobs i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55}
+.blobs i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-14vmax;background:var(--t1)}
+.blobs i:nth-child(2){width:38vmax;height:38vmax;right:-10vmax;top:6vmax;background:var(--t2)}
+.blobs i:nth-child(3){width:34vmax;height:34vmax;left:30vmax;top:60vh;background:var(--t3)}
+
+/* header */
+header{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;padding:0 clamp(.75rem,3vw,1.5rem)}
+.bar{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;height:62px;padding:0 .55rem 0 1rem;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--surface) 78%,transparent);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);box-shadow:var(--shadow)}
+.brand{display:flex;align-items:center;gap:.65rem;font:700 1.05rem/1 var(--display)}
+.logo{width:36px;height:36px;border-radius:11px;background:var(--grad);display:grid;place-items:center;color:#fff;font:700 .9rem/1 var(--display)}
+nav ul{display:flex;gap:.15rem;list-style:none;margin:0;padding:0}
+nav a{display:block;padding:.5rem .8rem;border-radius:10px;color:var(--muted);font-weight:600;font-size:.9rem;transition:color .2s,background .2s}
+nav a:hover,nav a.active{color:var(--ink);background:var(--soft)}
+.hdr-right{display:flex;align-items:center;gap:.4rem}
+.menu-btn{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;place-items:center}
+.menu-btn svg{width:20px;height:20px}
+@media (max-width:940px){
+  .menu-btn{display:grid}
+  nav{position:absolute;left:clamp(.75rem,3vw,1.5rem);right:clamp(.75rem,3vw,1.5rem);top:70px;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:var(--shadow-lg);padding:.5rem;display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+  nav a{padding:.8rem 1rem;font-size:1rem}
+  .hdr-right .btn{display:none}
+}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.3rem;border-radius:14px;font:700 .95rem/1 var(--body);border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 10px 26px -10px var(--a1)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px var(--a1)}
+.btn.ghost{background:var(--surface);border-color:var(--line);color:var(--ink);box-shadow:var(--shadow)}
+.btn.ghost:hover{transform:translateY(-2px);border-color:var(--a1)}
+.btn.sm{padding:.65rem 1rem;font-size:.88rem;border-radius:12px}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:8.5rem 0 4.5rem}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center;width:100%}
+.pill{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1rem .45rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font-size:.85rem;font-weight:600;color:var(--muted);margin-bottom:1.6rem}
+.pulse{position:relative;width:9px;height:9px;border-radius:50%;background:var(--a3)}
+.pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--a3);opacity:.6;animation:ping 2.2s infinite}
+@keyframes ping{to{transform:scale(1.9);opacity:0}}
+.hi{font:600 1.15rem/1.3 var(--display);color:var(--muted);margin:0 0 .4rem}
+h1{font:700 clamp(2.9rem,7.5vw,5.4rem)/1 var(--display);letter-spacing:-.035em;margin:0 0 1rem}
+.role{font:600 clamp(1.1rem,2vw,1.35rem)/1.4 var(--display);margin:0 0 1rem}
+.lede{color:var(--muted);font-size:1.08rem;max-width:52ch;margin:0 0 1.6rem}
+.typed{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:var(--muted);margin:0 0 2rem;min-height:1.7em}
+.typed b{color:var(--a1);font-weight:700}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--a1);margin-left:-.35rem;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.8rem;color:var(--muted);font-size:.92rem}
+.meta span{display:inline-flex;align-items:center;gap:.4rem}
+.meta svg{width:16px;height:16px;color:var(--a1)}
+
+/* glance card */
+.glance{position:relative;border:1px solid var(--line);border-radius:28px;background:var(--surface);box-shadow:var(--shadow-lg);padding:1.75rem}
+.glance-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.glance-head strong{font:700 1.1rem/1 var(--display)}
+.glance-head small{font-size:.8rem;color:var(--muted);font-weight:600;display:inline-flex;align-items:center;gap:.45rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.stat{border-radius:18px;padding:1.1rem 1.15rem;background:var(--soft)}
+.stat:nth-child(1){background:var(--t1)}.stat:nth-child(2){background:var(--t2)}.stat:nth-child(3){background:var(--t3)}
+.stat:nth-child(4){background:var(--t4)}.stat:nth-child(5){background:var(--t2)}.stat:nth-child(6){background:var(--t1)}
+.stat b{display:block;font:700 1.75rem/1.1 var(--display);letter-spacing:-.02em}
+.stat span{font-size:.85rem;color:var(--muted);font-weight:500}
+.float-badge{position:absolute;left:-1.25rem;bottom:-1.25rem;display:flex;align-items:center;gap:.65rem;padding:.8rem 1rem;border-radius:16px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-lg);font-weight:700;font-size:.88rem}
+.float-badge .ic{width:34px;height:34px;border-radius:10px;background:var(--t3);color:var(--a3);display:grid;place-items:center}
+.float-badge svg{width:18px;height:18px}
+.float-badge small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+@media (max-width:960px){.hero-inner{grid-template-columns:1fr}.float-badge{left:1rem}}
+
+/* sections */
+section{padding:clamp(4.5rem,9vw,7rem) 0}
+.head{text-align:center;max-width:680px;margin:0 auto 3rem}
+.kicker{display:inline-block;padding:.35rem .9rem;border-radius:999px;background:var(--t1);color:var(--a1);font-weight:700;font-size:.85rem;margin-bottom:1rem}
+h2{font:700 clamp(2rem,4.4vw,3rem)/1.1 var(--display);letter-spacing:-.03em;margin:0 0 .8rem}
+.head p{color:var(--muted);margin:0;font-size:1.08rem}
+.card{border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow);padding:1.75rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--a1) 35%,var(--line))}
+.icon{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;margin-bottom:1.15rem}
+.icon svg{width:24px;height:24px}
+.c1{background:var(--t1);color:var(--a1)}.c2{background:var(--t2);color:var(--a2)}.c3{background:var(--t3);color:var(--a3)}.c4{background:var(--t4);color:var(--a4)}
+h3{font:700 1.2rem/1.3 var(--display);margin:0 0 .5rem;letter-spacing:-.01em}
+.card p{color:var(--muted);margin:0}
+
+/* about */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:1.5rem}
+.about .card:first-child p{font-size:1.06rem;margin-bottom:1rem}
+.about .card:first-child p:last-child{margin-bottom:0}
+.info{list-style:none;margin:0;padding:0}
+.info li{display:flex;gap:.9rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.info li:last-child{border:0;padding-bottom:0}
+.info li:first-child{padding-top:0}
+.info .icon{width:40px;height:40px;border-radius:12px;margin:0;flex:none}
+.info .icon svg{width:19px;height:19px}
+.info small{display:block;color:var(--muted);font-size:.82rem}
+.info strong{font-weight:600;font-size:.95rem}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* achievements */
+.wins{display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem}
+.wins .card{grid-column:span 2}
+.wins .card:nth-child(4),.wins .card:nth-child(5){grid-column:span 3}
+.big{font:700 2.6rem/1 var(--display);letter-spacing:-.03em;margin-bottom:.7rem;display:block}
+@media (max-width:900px){.wins{grid-template-columns:1fr}.wins .card{grid-column:auto!important}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;margin:1rem 0 0;padding:0}
+.chips li{font-size:.82rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;background:var(--soft);color:var(--ink)}
+@media (max-width:960px){.skills{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.skills{grid-template-columns:1fr}}
+
+/* experience */
+.timeline{position:relative;list-style:none;margin:0;padding:0}
+.timeline::before{content:"";position:absolute;left:19px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--a1),var(--a2),var(--line));border-radius:2px}
+.tl{position:relative;padding-left:3.5rem;margin-bottom:1.5rem}
+.tl-dot{position:absolute;left:4px;top:1.6rem;width:32px;height:32px;border-radius:50%;background:var(--surface);border:2px solid var(--a1);display:grid;place-items:center;color:var(--a1);box-shadow:0 0 0 6px var(--bg)}
+.tl-dot svg{width:15px;height:15px}
+.tl-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.5rem 1rem;margin-bottom:.2rem}
+.date{font-size:.82rem;font-weight:700;color:var(--a1);background:var(--t1);padding:.35rem .8rem;border-radius:999px;white-space:nowrap}
+.org{font-weight:600;color:var(--muted);margin:0 0 1rem}
+.now{display:inline-block;font-size:.75rem;font-weight:700;color:var(--a3);background:var(--t3);padding:.2rem .6rem;border-radius:999px;margin-left:.4rem;vertical-align:middle}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.group{border-radius:18px;background:var(--soft);padding:1.15rem 1.25rem}
+.group h4{font:700 .98rem/1.3 var(--display);margin:0 0 .5rem}
+ul.pts{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.95rem}
+ul.pts li{margin-bottom:.4rem}
+ul.pts li::marker{color:var(--a1)}
+.earlier{display:grid;gap:.75rem}
+.earlier div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.85rem 1rem;border-radius:14px;background:var(--soft)}
+.earlier strong{font-weight:600}
+.earlier span{color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.groups{grid-template-columns:1fr}.tl{padding-left:3rem}.timeline::before{left:15px}.tl-dot{left:0;width:30px;height:30px}}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.cert{display:flex;align-items:center;gap:1rem;padding:1.35rem}
+.cert .icon{margin:0;flex:none}
+.cert strong{display:block;font:600 1rem/1.35 var(--display)}
+.cert small{color:var(--muted)}
+.edu{margin-top:1.25rem;display:flex;align-items:center;gap:1rem}
+.edu .icon{margin:0;flex:none}
+@media (max-width:900px){.certs{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.certs{grid-template-columns:1fr}}
+
+/* contact */
+.cta{position:relative;overflow:hidden;border-radius:32px;padding:clamp(2.5rem,6vw,4.5rem);background:linear-gradient(135deg,var(--t1),var(--t2) 55%,var(--t3));border:1px solid var(--line);text-align:center}
+.cta h2{max-width:20ch;margin:0 auto .9rem}
+.cta>p{color:var(--muted);max-width:52ch;margin:0 auto 2.2rem;font-size:1.08rem}
+.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:left}
+.contact-item{display:flex;align-items:center;gap:.85rem;padding:1.1rem;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .2s,border-color .2s;min-width:0}
+.contact-item:hover{transform:translateY(-3px);border-color:var(--a1)}
+.contact-item .icon{width:42px;height:42px;border-radius:12px;margin:0;flex:none}
+.contact-item .icon svg{width:20px;height:20px}
+.contact-item small{display:block;color:var(--muted);font-size:.8rem}
+.contact-item strong{display:block;font-size:.9rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:960px){.contacts{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.contacts{grid-template-columns:1fr}}
+footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding-top:2rem}
+.to-top{position:fixed;right:1.25rem;bottom:calc(env(safe-area-inset-bottom,0px) + 1.25rem);width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-lg);color:var(--a1);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:15}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top svg{width:20px;height:20px}
+
+/* reveal */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
 
-<!-- BOOT SCREEN -->
-<div id="boot" class="boot">
-  <div class="boot-inner">
-    <div class="boot-logo">DINESH<span>OS</span></div>
-    <div class="boot-lines" id="bootLines"></div>
-    <div class="boot-bar"><i id="bootBar"></i></div>
-  </div>
-</div>
-
-<!-- DESKTOP -->
-<div id="desktop" class="desktop">
-  <div class="wallpaper-grid"></div>
-  <div class="wallpaper-glow"></div>
-  <div class="wallpaper-grain"></div>
-  <div class="wallpaper-vignette"></div>
-
-  <!-- Menu bar -->
-  <div class="menubar">
-    <div class="menubar-left">
-      <span class="menubar-logo">DineshOS</span>
-      <span class="menubar-sep">|</span>
-      <span class="menubar-role">Team Lead — IT Infrastructure, Operations &amp; Security</span>
-    </div>
-    <div class="menubar-right">
-      <span class="menubar-status"><span class="dot"></span>System Operational</span>
-      <span class="menubar-clock" id="clock">00:00:00</span>
+<header>
+  <div class="bar">
+    <a class="brand" href="#top"><span class="logo">DT</span>Dinesh Tankala</a>
+    <nav id="nav" aria-label="Sections"><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <div class="hdr-right">
+      <a class="btn primary sm" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener">Résumé</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
+</header>
 
-  <!-- Desktop icons -->
-  <div class="icons" id="icons">
-    <button class="icon" data-app="about"><span class="icon-glyph">👤</span><span class="icon-label">About.txt</span></button>
-    <button class="icon" data-app="skills"><span class="icon-glyph">🛠️</span><span class="icon-label">Skills.app</span></button>
-    <button class="icon" data-app="experience"><span class="icon-glyph">🗂️</span><span class="icon-label">Experience.log</span></button>
-    <button class="icon" data-app="projects"><span class="icon-glyph">📁</span><span class="icon-label">Projects.dir</span></button>
-    <button class="icon" data-app="certs"><span class="icon-glyph">🎓</span><span class="icon-label">Certifications.lic</span></button>
-    <button class="icon" data-app="contact"><span class="icon-glyph">📡</span><span class="icon-label">Contact.sh</span></button>
-    <button class="icon" data-app="firewall"><span class="icon-glyph">🔥</span><span class="icon-label">Firewall.sys</span></button>
-    <a class="icon" href="assets/T_Dinesh_CV .pdf" download><span class="icon-glyph">📄</span><span class="icon-label">Resume.pdf</span></a>
-  </div>
-
-  <!-- Windows layer -->
-  <div class="windows" id="windows"></div>
-
-  <!-- Taskbar -->
-  <div class="taskbar">
-    <button class="start-btn" id="startBtn"><span class="start-glyph">▦</span> Start</button>
-    <div class="taskbar-tabs" id="taskbarTabs"></div>
-    <div class="taskbar-right">
-      <span class="taskbar-clock" id="clockSmall">00:00:00</span>
-    </div>
-  </div>
-
-  <!-- Start menu -->
-  <div class="start-menu" id="startMenu">
-    <div class="start-menu-head">
-      <div class="start-avatar">DT</div>
-      <div>
-        <div class="start-name">Dinesh Tankala</div>
-        <div class="start-role">Team Lead · IT Infrastructure &amp; Security</div>
+<main id="top">
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="pill"><span class="pulse"></span>Open to new opportunities</div>
+      <p class="hi">Hello, I’m</p>
+      <h1><span class="grad-text">Dinesh Tankala</span></h1>
+      <p class="role">Team Lead, Global IT Operations</p>
+      <p class="lede">IT Infrastructure & Operations lead with 9 years of experience running reliable, secure enterprise IT for a US–India organization.</p>
+      <p class="typed">Focused on <b id="type"></b><span class="caret" aria-hidden="true"></span></p>
+      <div class="actions">
+        <a class="btn primary" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Download résumé</a>
+        <a class="btn ghost" href="#contact">Contact me</a>
+      </div>
+      <div class="meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Visakhapatnam, India</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="clock">--:--</span> IST</span>
       </div>
     </div>
-    <div class="start-menu-list">
-      <button data-app="about">👤 About.txt</button>
-      <button data-app="skills">🛠️ Skills.app</button>
-      <button data-app="experience">🗂️ Experience.log</button>
-      <button data-app="projects">📁 Projects.dir</button>
-      <button data-app="certs">🎓 Certifications.lic</button>
-      <button data-app="contact">📡 Contact.sh</button>
-      <button data-app="firewall">🔥 Firewall.sys</button>
-    </div>
-    <div class="start-menu-foot">
-      <a href="assets/T_Dinesh_CV .pdf" download>⭳ Download Resume</a>
+
+    <div class="glance reveal">
+      <div class="glance-head"><strong>At a glance</strong><small><span class="pulse"></span>All systems operational</small></div>
+      <div class="stats">
+        <div class="stat"><b data-count="9">9</b><span>Years in IT</span></div>
+        <div class="stat"><b>800+</b><span>Users supported</span></div>
+        <div class="stat"><b>1,000+</b><span>Endpoints secured</span></div>
+        <div class="stat"><b>50+</b><span>Applications</span></div>
+        <div class="stat"><b>10</b><span>L1/L2 team members</span></div>
+        <div class="stat"><b>4</b><span>Locations, US & India</span></div>
+      </div>
+      <div class="float-badge"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div>Azure AZ-104<small>Microsoft Certified</small></div></div>
     </div>
   </div>
 </div>
 
-<!-- Window templates (content only, cloned by JS) -->
-<template id="tpl-about">
-  <div class="win-body prose">
-    <p class="lead">I lead the teams and systems that keep enterprise IT secure, compliant, and always on — from identity to endpoints to the cloud.</p>
-    <p>I'm an IT Infrastructure, Operations &amp; Security professional with 8+ years across enterprise IT support, system administration, cloud/SaaS administration, IAM, endpoint security, ITSM, network infrastructure, and IT governance. I now work in a Team Lead capacity — coordinating day-to-day operations, incident priorities, escalations, SLA performance, and technical support for the team.</p>
-    <p>Day to day I own IAM (Okta SSO/MFA, Active Directory), endpoint security across 500+ machines (NinjaOne, CrowdStrike EDR, Webroot), <strong>ITSM and change management</strong> in Jira, and multi-site network &amp; virtualization (Vizag, Hyderabad, HQ, SOC — Proxmox, PRTG, Firewall Administration). I also support SOC audits, license/vendor governance, and cloud/SaaS reviews across Microsoft 365, Google Workspace, and the wider enterprise app stack.</p>
-    <div class="kv-grid">
-      <div class="kv"><span class="k">Location</span><span class="v">Visakhapatnam, India</span></div>
-      <div class="kv"><span class="k">Role</span><span class="v">Team Lead — IT Infrastructure &amp; Operations</span></div>
-      <div class="kv"><span class="k">Focus</span><span class="v">IAM · Endpoint · ITSM · Network</span></div>
-      <div class="kv"><span class="k">Availability</span><span class="v">Open to roles</span></div>
-    </div>
-  </div>
-</template>
-
-<template id="tpl-skills">
-  <div class="win-body">
-    <div class="skills-cats" id="skillsCats"></div>
-  </div>
-</template>
-
-<template id="tpl-experience">
-  <div class="win-body">
-    <div class="exp-log" id="expLog"></div>
-  </div>
-</template>
-
-<template id="tpl-projects">
-  <div class="win-body">
-    <div class="proj-grid" id="projGrid"></div>
-  </div>
-</template>
-
-<template id="tpl-certs">
-  <div class="win-body">
-    <div class="cert-list" id="certList"></div>
-  </div>
-</template>
-
-<template id="tpl-contact">
-  <div class="win-body">
-    <div class="contact-terminal">
-      <div class="term-line"><span class="prompt">dinesh@ops:~$</span> whoami</div>
-      <div class="term-out">Dinesh Tankala — Team Lead, IT Infrastructure &amp; Operations</div>
-      <div class="term-line"><span class="prompt">dinesh@ops:~$</span> cat contact.info</div>
-      <div class="term-out">
-        <a href="mailto:dineshtankala85@outlook.com">✉ dineshtankala85@outlook.com</a><br>
-        <a href="tel:+918331956172">☎ +91 83319 56172</a><br>
-        <a href="https://linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener">💼 linkedin.com/in/dinesh-tankala</a><br>
-        <a href="https://wa.me/918331956172" target="_blank" rel="noopener">💬 WhatsApp +91 83319 56172</a>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">About me</span><h2>Reliable systems, secure access, happy users.</h2></div>
+    <div class="about">
+      <div class="card reveal">
+        <p>I run global IT operations at <strong>Pro-Vigil Surveillance Services</strong>, owning service delivery, infrastructure availability, network security, ITSM, identity and access, and business continuity across the US and India.</p>
+        <p>I combine hands-on depth in firewalls, endpoint security and Okta with people management, vendor negotiation and audit readiness.</p>
+        <p>I lead a 10-member L1/L2 team, mentoring them in troubleshooting, incident handling and SOPs, so the people we support get fast, dependable help.</p>
       </div>
-      <div class="term-line"><span class="prompt">dinesh@ops:~$</span> <span class="cursor-blink">▌</span></div>
+      <div class="card reveal">
+        <ul class="info">
+          <li><span class="icon c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><div><small>Current role</small><strong>Team Lead, Global IT Operations</strong></div></li>
+          <li><span class="icon c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><small>Education</small><strong>BCA, Andhra University (2014–2018)</strong></div></li>
+          <li><span class="icon c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></span><div><small>Languages</small><strong>English, Hindi, Telugu, Odia</strong></div></li>
+          <li><span class="icon c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Based in</small><strong>Visakhapatnam, India</strong></div></li>
+        </ul>
+      </div>
     </div>
   </div>
-</template>
+</section>
 
-<template id="tpl-firewall">
-  <div class="win-body">
-    <div class="fw-status-row">
-      <div class="fw-pill on">● Firewall Active</div>
-      <div class="fw-pill">Last policy sync: today</div>
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Key achievements</span><h2>Results that kept the business running.</h2><p>Highlights from leading IT operations, security and identity.</p></div>
+    <div class="wins">
+      <article class="card reveal"><span class="big grad-text">3 min</span><h3>Business continuity</h3><p>Restored service within 3 minutes during a firewall outage.</p></article>
+      <article class="card reveal"><span class="big grad-text">−30%</span><h3>Fewer security incidents</h3><p>Cut security incidents by 30% while sustaining 95%+ patch compliance.</p></article>
+      <article class="card reveal"><span class="big grad-text">100%</span><h3>Endpoint visibility</h3><p>Deployed CrowdStrike Falcon to remote branches, reaching full endpoint coverage.</p></article>
+      <article class="card reveal"><span class="icon c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><h3>Zero-downtime access control</h3><p>Implemented RBAC and ACL-based controls with no operational disruption.</p></article>
+      <article class="card reveal"><span class="icon c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9m-3 3l3 3m-6 0l2 2"/></svg></span><h3>Okta SSO & MFA</h3><p>Rolled out Okta single sign-on and MFA across enterprise applications, and automated Joiner-Mover-Leaver workflows that onboard 30–50 new hires a month.</p></article>
     </div>
-    <div class="fw-grid" id="fwGrid"></div>
-    <div class="skill-cat-title" style="margin-top:18px;">What I administer</div>
-    <ul class="fw-list">
-      <li>Enterprise firewall policy administration across Vizag, Hyderabad, HQ, and SOC network environments.</li>
-      <li>Rule review and change control coordinated through Jira change management — every policy change is logged and approved.</li>
-      <li>Works alongside Ruckus LAN/Wi-Fi controllers and PRTG monitoring for full network visibility.</li>
-      <li>Supports SOC audit evidence — firewall logs and policy documentation are part of standard compliance reporting.</li>
-    </ul>
   </div>
-</template>
+</section>
 
-<script src="script.js"></script>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Skills</span><h2>What I work with every day.</h2><p>Hands-on tools and practices across infrastructure, security and service management.</p></div>
+    <div class="skills">
+      <article class="card reveal"><span class="icon c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span><h3>Network & Firewalls</h3><p>Secure, segmented networks across every site.</p>
+        <ul class="chips"><li>Sophos</li><li>SonicWall</li><li>WatchGuard</li><li>IPsec VPN</li><li>NAT</li><li>DMZ</li><li>VLAN</li><li>DNS / DHCP</li></ul></article>
+      <article class="card reveal"><span class="icon c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Endpoint Security</h3><p>Protection, patching and threat triage.</p>
+        <ul class="chips"><li>CrowdStrike Falcon</li><li>Webroot</li><li>NinjaOne RMM</li><li>Full-disk encryption</li><li>SPF / DKIM / DMARC</li></ul></article>
+      <article class="card reveal"><span class="icon c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9m-3 3l3 3m-6 0l2 2"/></svg></span><h3>Identity & Access</h3><p>The right access for the right people.</p>
+        <ul class="chips"><li>Okta</li><li>SSO</li><li>MFA</li><li>JML automation</li><li>RBAC / ACL</li></ul></article>
+      <article class="card reveal"><span class="icon c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5M8 17h3"/></svg></span><h3>ITSM & Operations</h3><p>Structured service delivery against SLAs.</p>
+        <ul class="chips"><li>Jira Service Management</li><li>ITIL</li><li>CAB</li><li>RCA</li><li>Snipe-IT</li><li>PRTG</li></ul></article>
+      <article class="card reveal"><span class="icon c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 010-10 6 6 0 0111.3 1.5A4 4 0 0117 18z"/></svg></span><h3>Cloud & Systems</h3><p>Cloud, SaaS and server administration.</p>
+        <ul class="chips"><li>Azure</li><li>Microsoft 365</li><li>Google Workspace</li><li>Windows Server</li><li>Linux</li><li>PowerShell</li></ul></article>
+      <article class="card reveal"><span class="icon c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1015.5-6.2M21 4v5h-5"/></svg></span><h3>Continuity & Compliance</h3><p>Ready for outages and audits.</p>
+        <ul class="chips"><li>DR plan</li><li>RTO / RPO</li><li>Spanning backup</li><li>ISO 27001</li><li>SOC audits</li><li>IT budgeting</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Experience</span><h2>9 years of growing responsibility.</h2><p>From NOC engineer to leading global IT operations.</p></div>
+    <ol class="timeline">
+      <li class="tl reveal">
+        <span class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
+        <div class="card">
+          <div class="tl-head"><h3>Team Lead, Global IT Operations <span class="now">Current</span></h3><span class="date">Sep 2023 – Present</span></div>
+          <p class="org">Pro-Vigil Surveillance Services · Visakhapatnam, India</p>
+          <div class="groups">
+            <div class="group"><h4>Team & service delivery</h4><ul class="pts">
+              <li>Lead and mentor a 10-member L1/L2 team on troubleshooting, incidents and SOPs.</li>
+              <li>Resolve 240 tickets a month against SLA targets and report KPIs to senior management.</li></ul></div>
+            <div class="group"><h4>IT service management (ITIL)</h4><ul class="pts">
+              <li>Configure Jira Service Management workflows, queues and SLA policies across 50+ applications.</li>
+              <li>Run CAB reviews so every production change is approved and documented.</li>
+              <li>Manage assets and licenses in Snipe-IT and negotiate vendor contracts.</li></ul></div>
+            <div class="group"><h4>Infrastructure & network</h4><ul class="pts">
+              <li>Maintain networks across 4 sites, including core services and VLAN segmentation.</li>
+              <li>Own firewall policy on Sophos, SonicWall and WatchGuard, including site-to-site IPsec VPNs.</li>
+              <li>Added 50+ PRTG sensors and alerts for faster incident response.</li>
+              <li>Administer 6 SaaS platforms, including Microsoft 365 and Google Workspace.</li></ul></div>
+            <div class="group"><h4>Security, identity & compliance</h4><ul class="pts">
+              <li>Run CrowdStrike Falcon, Webroot and NinjaOne on 1,000+ endpoints.</li>
+              <li>Govern Okta access for 800+ users with automated Joiner-Mover-Leaver workflows.</li>
+              <li>Prepared evidence for 4 SOC and ISO 27001 audits.</li>
+              <li>Keep the DR plan current with quarterly backup restore tests.</li></ul></div>
+          </div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <span class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/></svg></span>
+        <div class="card">
+          <div class="tl-head"><h3>System Support Specialist</h3><span class="date">Dec 2021 – Sep 2023</span></div>
+          <p class="org">Dynata</p>
+          <ul class="pts">
+            <li>Handled L2/L3 escalations for Windows Server, desktops and business apps for a global user base, scripting routine tasks in PowerShell.</li>
+            <li>Resolved about 130 incidents and requests a month through Jira within SLA.</li>
+            <li>Coordinated onboarding, offboarding, endpoint setup, asset tracking and access administration.</li>
+            <li>Supported audit readiness with access reviews, compliance reports and security documentation.</li></ul>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <span class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/></svg></span>
+        <div class="card">
+          <div class="tl-head"><h3>Technical Engineer</h3><span class="date">Jan 2021 – Dec 2021</span></div>
+          <p class="org">HBL Power Systems Ltd.</p>
+          <ul class="pts">
+            <li>Maintained routers, switches, servers, firewalls and cabling across 3 sites and 600+ endpoints.</li>
+            <li>Diagnosed performance issues and carried out upgrades and preventive maintenance.</li></ul>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <span class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/></svg></span>
+        <div class="card">
+          <div class="tl-head"><h3>Earlier experience</h3><span class="date">Dec 2017 – Jan 2021</span></div>
+          <div class="earlier">
+            <div><strong>IT Support Executive, Piramal Swasthya</strong><span>Feb 2019 – Jan 2021</span></div>
+            <div><strong>IT Support Engineer, Progressive Infovision</strong><span>Nov 2018 – Dec 2018</span></div>
+            <div><strong>Network Engineer (NOC), Pioneer Elba’s Ltd.</strong><span>Dec 2017 – Oct 2018</span></div>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Certifications</span><h2>Certified and always learning.</h2></div>
+    <div class="certs">
+      <div class="card cert reveal"><span class="icon c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><strong>Azure Administrator Associate</strong><small>Microsoft · AZ-104</small></div></div>
+      <div class="card cert reveal"><span class="icon c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><strong>Azure Fundamentals</strong><small>Microsoft · AZ-900</small></div></div>
+      <div class="card cert reveal"><span class="icon c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><strong>Microsoft 365 Administration</strong><small>Microsoft</small></div></div>
+      <div class="card cert reveal"><span class="icon c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><strong>Microsoft Certified Professional</strong><small>Microsoft · MCP</small></div></div>
+      <div class="card cert reveal"><span class="icon c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><strong>Microsoft Technology Associate</strong><small>Microsoft · MTA</small></div></div>
+      <div class="card cert reveal"><span class="icon c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><strong>RingCentral Certified Professional</strong><small>RingCentral · 2024</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="kicker">Contact</span>
+      <h2>Let’s keep your IT reliable and secure.</h2>
+      <p>Open to IT infrastructure, operations and security leadership roles. I’d be glad to hear from you.</p>
+      <div class="contacts">
+        <a class="contact-item" href="mailto:dineshtankala85@outlook.com"><span class="icon c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div style="min-width:0"><small>Email</small><strong>dineshtankala85@outlook.com</strong></div></a>
+        <a class="contact-item" href="tel:+918331956172"><span class="icon c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span><div style="min-width:0"><small>Phone</small><strong>+91 83319 56172</strong></div></a>
+        <a class="contact-item" href="https://www.linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener"><span class="icon c2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></span><div style="min-width:0"><small>LinkedIn</small><strong>dinesh-tankala</strong></div></a>
+        <a class="contact-item" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener"><span class="icon c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><div style="min-width:0"><small>Résumé</small><strong>Download PDF</strong></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Dinesh Tankala</span><span>Team Lead, Global IT Operations</span></div></footer>
+<a class="to-top" id="toTop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6l6-6 6 6"/></svg></a>
+
+<script>
+/* typing effect */
+(function(){
+  const words=["network security","endpoint security","identity & access (Okta)","ITSM & change management","business continuity","cloud & SaaS"];
+  const el=document.getElementById("type");
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=words[0];return}
+  let w=0,i=0,del=false;
+  (function step(){
+    const word=words[w];el.textContent=word.slice(0,i);
+    if(!del&&i<word.length){i++;setTimeout(step,60)}
+    else if(!del){del=true;setTimeout(step,1700)}
+    else if(i>0){i--;setTimeout(step,30)}
+    else{del=false;w=(w+1)%words.length;setTimeout(step,300)}
+  })();
+})();
+
+/* mobile menu */
+(function(){
+  const btn=document.getElementById("menuBtn"),nav=document.getElementById("nav");
+  btn.addEventListener("click",()=>{const o=nav.classList.toggle("open");btn.setAttribute("aria-expanded",o)});
+  nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");btn.setAttribute("aria-expanded","false")}));
+})();
+
+/* clock, year, back to top */
+function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:true})}
+tick();setInterval(tick,30000);
+document.getElementById("yr").textContent=new Date().getFullYear();
+const toTop=document.getElementById("toTop");
+addEventListener("scroll",()=>toTop.classList.toggle("show",scrollY>700),{passive:true});
+
+/* reveal on scroll */
+(function(){
+  const els=document.querySelectorAll(".reveal");
+  if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
+  els.forEach(e=>io.observe(e));
+})();
+
+/* active nav link */
+(function(){
+  const links=[...document.querySelectorAll("nav a")];
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+  document.querySelectorAll("section[id]").forEach(s=>io.observe(s));
+})();
+</script>
 </body>
 </html>
