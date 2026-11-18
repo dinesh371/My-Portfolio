@@ -716,6 +716,44 @@ section.s{padding-top:clamp(4rem,8vw,6.5rem)!important}
 .msform-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
 .msform-top h3{margin:0;font-size:1.3rem;letter-spacing:-.02em}
 .msform iframe{display:block;width:100%;height:min(1100px,150vh);border:0;border-radius:14px;background:#fff}
+/* ---------- message card + form modal ---------- */
+.mcard{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.4rem,3vw,2.6rem);align-items:center;margin:0 0 2.6rem;padding:clamp(1.4rem,3vw,2.4rem);border:1px solid transparent;border-radius:24px;
+  background:radial-gradient(500px 260px at 100% 0%,rgba(242,100,25,.12),transparent 70%) padding-box,linear-gradient(var(--g1),var(--g1)) padding-box,var(--hair) border-box}
+.mcard h3{margin:.5rem 0 .6rem;font:700 clamp(1.6rem,3vw,2.3rem)/1.05 var(--sans);letter-spacing:-.035em}
+.mcard-sub{margin:0 0 1.2rem;color:var(--g6);max-width:44ch}
+.mcard-tips{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:.55rem}
+.mcard-tips li{display:flex;gap:.7rem;align-items:baseline;color:var(--g5);font-size:.95rem}
+.mcard-tips li::before{content:"";flex:none;width:14px;height:2px;background:var(--acc);transform:translateY(-.25em)}
+.mcard-cta{display:flex;flex-wrap:wrap;gap:.6rem}
+.mcard-r{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:.9rem;padding:1.3rem;border-radius:18px;background:var(--k);border:1px solid var(--g3);transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}
+.mcard-r:hover,.mcard-r:focus-visible{border-color:var(--acc);transform:translateY(-3px) rotate(-.4deg);box-shadow:0 30px 60px -30px rgba(242,100,25,.45)}
+.mf-row{display:grid;gap:.35rem}
+.mf-l{font:500 .72rem var(--mono);color:var(--g5)}
+.mf-in{height:38px;border-radius:10px;border:1px solid var(--g3);background:var(--g1);position:relative}
+.mf-in.tall{height:84px}
+.mf-caret{position:absolute;left:12px;top:12px;width:2px;height:16px;background:var(--acc);animation:pulse 1s steps(1) infinite}
+.mf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.mf-chips i{font:500 .75rem var(--sans);font-style:normal;padding:.3rem .65rem;border-radius:999px;border:1px solid var(--g3);color:var(--g5)}
+.mf-chips i.on{background:var(--w);color:var(--k);border-color:var(--w)}
+.mf-send{justify-self:end;font:600 .85rem var(--sans);padding:.55rem 1rem;border-radius:999px;background:var(--acc);color:#fff}
+.fmodal{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:clamp(.6rem,2vw,1.6rem);background:rgba(0,0,0,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .3s}
+.fmodal.on{opacity:1}
+.fm-card{width:min(760px,100%);height:min(88vh,920px);display:flex;flex-direction:column;border-radius:22px;overflow:hidden;border:1px solid transparent;background:linear-gradient(var(--g1),var(--g1)) padding-box,var(--hair) border-box;transform:translateY(16px) scale(.98);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.fmodal.on .fm-card{transform:none}
+.fm-head{display:flex;align-items:center;gap:1rem;padding:.9rem 1rem .9rem 1.3rem;border-bottom:1px solid var(--g3)}
+.fm-head > span{flex:1;display:grid}
+.fm-head b{font-weight:600}
+.fm-head .mono{font-size:.7rem}
+.fm-ext{font:500 .78rem var(--mono);color:var(--g5);text-decoration:none}
+.fm-ext:hover{color:var(--acc)}
+.fm-x{width:38px;height:38px;border-radius:50%;border:1px solid var(--g3);background:none;cursor:pointer;display:grid;place-items:center;flex:none}
+.fm-x:hover{border-color:var(--acc);color:var(--acc)}
+.fm-body{position:relative;flex:1;background:#faf9f8}
+.fm-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.fm-load{position:absolute;inset:0;display:grid;place-items:center;color:#605e5c}
+@media (max-width:800px){.mcard{grid-template-columns:1fr}.mcard-r{display:none}.fmodal{padding:0;place-items:end center}.fm-card{height:94vh;border-radius:22px 22px 0 0}.fm-ext{display:none}}
+/* email line: never break mid-word */
+.mail{white-space:nowrap;word-break:normal!important;overflow-wrap:normal!important;font-size:min(5.2vw,4.6rem)!important}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -1143,10 +1181,36 @@ section.s{padding-top:clamp(4rem,8vw,6.5rem)!important}
   <section class="s wrap contact" id="contact">
     <div class="head"><span class="mono">Contact</span><h2>Let&#x2019;s keep your IT reliable and <em>secure.</em></h2><p>Open to full-time IT infrastructure, operations and security leadership roles, and to freelance projects.</p></div>
     <ul class="roles" aria-label="Roles I&#x2019;m open to"><li>IT Operations Manager</li><li>IT Infrastructure Lead</li><li>Security Operations (SOC) Lead</li><li>IT Service Delivery Manager</li><li>Freelance backup, DR &amp; security</li></ul>
-    <div class="msform" id="msform" hidden>
-      <div class="msform-top"><h3>Send me a message</h3><span class="mono">Secured by Microsoft Forms &middot; saved to my Excel</span></div>
-      <iframe id="msformFrame" title="Contact form" loading="lazy" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
-      <p class="mono" style="margin:.8rem 0 0">Form not showing? <a id="msformLink" href="#" target="_blank" rel="noopener" style="color:var(--acc)">Open it in a new tab</a>.</p>
+    <div class="mcard" id="msform" hidden>
+      <div class="mcard-l">
+        <p class="mono acc">[ NEW_MESSAGE / FORM ]</p>
+        <h3>Send me a message</h3>
+        <p class="mcard-sub">Takes about a minute. It comes straight to my inbox, and I reply within a day.</p>
+        <ul class="mcard-tips">
+          <li>Your name and email, so I can reply</li>
+          <li>A full-time role, a freelance project, or something else</li>
+          <li>A few lines on what you need, and your timeline</li>
+        </ul>
+        <div class="mcard-cta">
+          <button class="btn fill" type="button" id="openForm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg>Write a message</button>
+          <a class="btn" href="https://wa.me/918331956172" target="_blank" rel="noopener">WhatsApp instead</a>
+        </div>
+      </div>
+      <button class="mcard-r" type="button" id="openForm2" aria-label="Open the message form">
+        <span class="mf-row"><span class="mf-l">Name</span><span class="mf-in"></span></span>
+        <span class="mf-row"><span class="mf-l">Email address</span><span class="mf-in"></span></span>
+        <span class="mf-row"><span class="mf-l">I&rsquo;m reaching out about</span><span class="mf-chips"><i class="on">Full-time role</i><i>Freelance</i><i>Other</i></span></span>
+        <span class="mf-row"><span class="mf-l">Message</span><span class="mf-in tall"><span class="mf-caret"></span></span></span>
+        <span class="mf-send">Send &rarr;</span>
+      </button>
+    </div>
+    <div class="fmodal" id="fmodal" role="dialog" aria-modal="true" aria-labelledby="fmTitle" hidden>
+      <div class="fm-card">
+        <div class="fm-head"><span><b id="fmTitle">Send me a message</b><span class="mono">Secure form by Microsoft &middot; replies within a day</span></span>
+          <a class="fm-ext" id="msformLink" href="#" target="_blank" rel="noopener">Open in new tab &#8599;</a>
+          <button class="fm-x" id="fmClose" type="button" aria-label="Close"><svg width="14" height="14" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg></button></div>
+        <div class="fm-body"><div class="fm-load mono" id="fmLoad">Loading form&hellip;</div><iframe id="msformFrame" title="Contact form" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe></div>
+      </div>
     </div>
     <form class="cform" id="cform" novalidate>
       <h3>Send me a message</h3>
@@ -1189,6 +1253,7 @@ section.s{padding-top:clamp(4rem,8vw,6.5rem)!important}
     </div>
     <div class="ways">
       <a class="way wa" id="wayWa" href="#" target="_blank" rel="noopener"><span class="wi"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.4 1 2.5c.1.2 1.7 2.7 4.2 3.8 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></span><span><b>Chat on WhatsApp</b><small>Opens a chat with your message ready</small></span><span aria-hidden="true">&#x2197;</span></a>
+      <button class="way" type="button" id="wayForm" style="all:unset;box-sizing:border-box;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:.9rem;padding:.8rem .9rem;border:1px solid var(--g3);border-radius:16px;cursor:pointer"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span><b>Fill in the message form</b><small>Takes about a minute</small></span><span aria-hidden="true">&rarr;</span></button>
       <a class="way" id="wayMail" href="#"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Send an email</b><small>dineshtankala85@outlook.com</small></span><span aria-hidden="true">&#x2197;</span></a>
       <a class="way" href="tel:+918331956172"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></span><span><b>Call</b><small>+91 83319 56172</small></span><span aria-hidden="true">&#x2197;</span></a>
       <a class="way" href="https://www.linkedin.com/in/dinesh-tankala" target="_blank" rel="noopener"><span class="wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></span><span><b>Message on LinkedIn</b><small>dinesh-tankala</small></span><span aria-hidden="true">&#x2197;</span></a>
@@ -1574,6 +1639,7 @@ section.s{padding-top:clamp(4rem,8vw,6.5rem)!important}
       if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); } else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); } }
   });
   $('#sheetVcf').addEventListener('click', () => $('#vcard').click());
+  $('#wayForm').addEventListener('click', () => { closeSheet(); setTimeout(() => window.__openForm ? window.__openForm() : document.getElementById('contact').scrollIntoView(), 320); });
   document.querySelectorAll('[data-contact]').forEach(el => el.addEventListener('click', e => {
     e.preventDefault();
     if (el.classList.contains('wa-btn')) { window.open(waLink(el.dataset.contact), '_blank', 'noopener'); return; }
@@ -1697,11 +1763,23 @@ section.s{padding-top:clamp(4rem,8vw,6.5rem)!important}
   const glassUp = () => hdrEl.classList.toggle('glass', scrollY > 60); addEventListener('scroll', glassUp, {passive:true}); glassUp();
 
   /* ---------- Office 365 option: embed your Microsoft Form (responses go straight into Excel) ---------- */
-  const MS_FORM_URL = 'https://forms.cloud.microsoft/r/UELR3cAV99';   // paste your Microsoft Forms share link here, e.g. https://forms.office.com/r/XXXXXXXX
+  const MS_FORM_URL = 'https://forms.cloud.microsoft/r/UELR3cAV99';   // your Microsoft Form (responses go to your Excel)
   if (MS_FORM_URL) {
-    $('#msformFrame').src = MS_FORM_URL + (MS_FORM_URL.includes('?') ? '&' : '?') + 'embed=true';
-    $('#msform').hidden = false; $('#cform').hidden = true;
-    $('#msformLink').href = MS_FORM_URL;
+    $('#msform').hidden = false; $('#cform').hidden = true; $('#msformLink').href = MS_FORM_URL;
+    const fmodal = $('#fmodal'), frame = $('#msformFrame'); let fmLast = null;
+    frame.addEventListener('load', () => { $('#fmLoad').hidden = true; });
+    const openForm = () => {
+      fmLast = document.activeElement;
+      if (!frame.src) frame.src = MS_FORM_URL + (MS_FORM_URL.includes('?') ? '&' : '?') + 'embed=true';
+      fmodal.hidden = false; requestAnimationFrame(() => fmodal.classList.add('on'));
+      document.documentElement.style.overflow = 'hidden'; setTimeout(() => $('#fmClose').focus(), 60);
+    };
+    const closeForm = () => { fmodal.classList.remove('on'); document.documentElement.style.overflow = ''; setTimeout(() => { fmodal.hidden = true; }, 300); fmLast && fmLast.focus(); };
+    $('#openForm').addEventListener('click', openForm); $('#openForm2').addEventListener('click', openForm);
+    $('#fmClose').addEventListener('click', closeForm);
+    fmodal.addEventListener('click', e => { if (e.target === fmodal) closeForm(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !fmodal.hidden) closeForm(); });
+    window.__openForm = openForm;
   }
   /* ---------- Contact form: saved to your Google Sheet (and emailed to you) when LOG_URL is set ---------- */
   const cform = $('#cform'), cmsg = $('#cformMsg');
