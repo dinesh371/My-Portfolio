@@ -241,7 +241,9 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 /* preloader */
 .loader{position:fixed;inset:0;z-index:100;background:var(--k);color:var(--w);display:grid;grid-template-rows:auto 1fr auto;padding:calc(1.4rem + env(safe-area-inset-top,0px)) 1.5rem calc(1.4rem + env(safe-area-inset-bottom,0px));
   clip-path:circle(150% at 50% 50%);transition:clip-path 1.2s cubic-bezier(.76,0,.24,1)}
-.loader.out{clip-path:circle(0% at 50% 50%)}
+.loader.out{clip-path:circle(0% at 50% 50%);pointer-events:none}
+.loader{animation:ldSafe .6s ease 9s forwards}
+@keyframes ldSafe{to{opacity:0;visibility:hidden;pointer-events:none}}
 .loader::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.07),transparent 55%)}
 .ld-top{display:flex;justify-content:space-between}
 .ld-center{position:relative;display:grid;place-items:center;align-self:center;justify-self:center;width:min(440px,82vw);aspect-ratio:1}
@@ -269,8 +271,8 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .ld-enter .btn.fill{box-shadow:0 0 0 0 rgba(255,255,255,.5);animation:glowp 2s infinite}
 @keyframes glowp{70%{box-shadow:0 0 0 12px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
 .ld-done .ring .prg{stroke-width:3}
-.tapsound{position:fixed;left:50%;bottom:calc(1.4rem + env(safe-area-inset-bottom,0px));z-index:85;transform:translateX(-50%);display:flex;align-items:center;gap:.55rem;padding:.65rem 1.1rem;border-radius:999px;background:var(--w);color:var(--k);font:500 .88rem var(--sans);box-shadow:0 20px 40px -10px rgba(0,0,0,.8);animation:tapIn .5s cubic-bezier(.2,.8,.2,1)}
-@keyframes tapIn{from{opacity:0;transform:translate(-50%,16px)}}
+.tapsound{position:fixed;left:50%;top:calc(76px + env(safe-area-inset-top,0px));z-index:85;transform:translateX(-50%);display:flex;align-items:center;gap:.55rem;padding:.65rem 1.1rem;border-radius:999px;background:var(--w);color:var(--k);font:500 .88rem var(--sans);box-shadow:0 20px 40px -10px rgba(0,0,0,.8);animation:tapIn .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes tapIn{from{opacity:0;transform:translate(-50%,-12px)}}
 /* header sound toggle */
 .hdr-r{display:flex;align-items:center;gap:1.4rem}
 .snd{display:inline-flex;align-items:center;gap:.5rem;background:none;border:0;color:var(--w);cursor:pointer;font:500 .85rem var(--sans);padding:.3rem 0}
@@ -300,7 +302,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
 .wr>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .in .wr>span,.wr.in>span{transform:none}
 /* custom cursor */
-.cur{position:fixed;left:0;top:0;z-index:95;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--w);mix-blend-mode:difference;pointer-events:none;transition:width .3s,height .3s,margin .3s;display:grid;place-items:center;opacity:0}
+.cur{position:fixed;left:0;top:0;z-index:120;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--w);mix-blend-mode:difference;pointer-events:none;transition:width .3s,height .3s,margin .3s;display:grid;place-items:center;opacity:0}
 .cur.on{opacity:1}
 .cur.big{width:74px;height:74px;margin:-37px 0 0 -37px}
 .cur span{font:500 .7rem var(--mono);color:var(--k);opacity:0;transition:opacity .2s}
@@ -476,6 +478,59 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   .sheet-card{width:100%;border-radius:26px 26px 0 0;padding-bottom:calc(1.4rem + env(safe-area-inset-bottom,0px));transform:translateY(100%)}
   .purpose button{font-size:.76rem}
 }
+
+/* ---------- How I can help ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.duo-card{border:1px solid var(--g3);border-radius:26px;padding:clamp(1.5rem,3vw,2.4rem);display:flex;flex-direction:column;background:linear-gradient(180deg,var(--g1),var(--k))}
+.duo-card:first-child{background:var(--w);color:var(--k);border-color:var(--w)}
+.duo-card:first-child .mono,.duo-card:first-child .ticks li{color:var(--g4)}
+.duo-card:first-child .ticks b{color:var(--k)}
+.duo-card:first-child .ticks li::before{background:var(--k)}
+.duo-card:first-child .btn{border-color:#c9c9c9;color:var(--k)}
+.duo-card:first-child .btn.fill{background:var(--k);color:var(--w);border-color:var(--k)}
+.duo-card h3{font:700 clamp(1.4rem,2.4vw,1.9rem)/1.15 var(--sans);letter-spacing:-.03em;margin:.6rem 0 1.4rem;max-width:22ch}
+.ticks{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.9rem;flex:1}
+.ticks li{position:relative;padding-left:1.4rem;color:var(--g5);font-size:.97rem}
+.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:.6rem;height:2px;background:var(--w)}
+.ticks b{color:var(--w);font-weight:600}
+.fit{margin:0 0 1.2rem}
+.duo-cta{display:flex;flex-wrap:wrap;gap:.6rem}
+/* ---------- Case studies ---------- */
+.cases{border-top:1px solid var(--g3)}
+.case{border-bottom:1px solid var(--g3)}
+.case summary{list-style:none;display:grid;grid-template-columns:160px 1fr auto 44px;gap:1.6rem;align-items:center;padding:1.7rem 0;cursor:pointer}
+.case summary::-webkit-details-marker{display:none}
+.case summary h3{font:600 clamp(1.3rem,2.4vw,1.9rem)/1.1 var(--sans);letter-spacing:-.03em;margin:0;transition:transform .35s}
+.case summary:hover h3{transform:translateX(8px)}
+.case .m{display:flex;gap:1.8rem;text-align:right}
+.case .m b{display:block;font:700 1.5rem/1 var(--sans);letter-spacing:-.03em}
+.case .m span{font-size:.78rem;color:var(--g5)}
+.pm{width:44px;height:44px;border-radius:50%;border:1px solid var(--g3);position:relative;transition:transform .4s,background .3s}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;margin:-.75px 0 0 -7px;background:var(--w);transition:transform .4s}
+.pm::after{transform:rotate(90deg)}
+.case[open] .pm{background:var(--w)}
+.case[open] .pm::before,.case[open] .pm::after{background:var(--k)}
+.case[open] .pm::after{transform:rotate(0)}
+.case-body{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:0 0 2rem 186px;animation:caseIn .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes caseIn{from{opacity:0;transform:translateY(-8px)}}
+.case-body p{margin:.3rem 0 0;color:var(--g6);font-size:.97rem}
+.case-body .mono{margin:0;color:var(--g5)}
+.case-body ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--g6);font-size:.97rem}
+.case-body ul li{margin:.25rem 0}
+.case-body > div:last-child p:not(.mono){color:var(--w);font-weight:500}
+/* ---------- Career path ---------- */
+.path{list-style:none;margin:0 0 2.6rem;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.path::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:linear-gradient(90deg,var(--g3),var(--w))}
+.path li{position:relative;padding-top:1.6rem;padding-right:1rem}
+.path li::before{content:"";position:absolute;left:0;top:0;width:15px;height:15px;border-radius:50%;background:var(--k);border:1px solid var(--g5)}
+.path li.now-step::before{background:var(--w);border-color:var(--w);box-shadow:0 0 0 6px rgba(255,255,255,.12)}
+.path b{display:block;font-weight:600;font-size:.95rem;margin-top:.2rem;line-height:1.25}
+.xp .sum{margin:.8rem 0 0;color:var(--w);font-size:1.02rem;max-width:62ch}
+.xp .tags{margin-top:1rem;padding-left:0}
+.xp .tags li{margin:0}
+@media (max-width:1000px){.case-body{padding-left:0;grid-template-columns:1fr;gap:1.2rem}.case summary{grid-template-columns:1fr 44px;gap:.6rem 1rem}.case summary .mono{grid-column:1}.case .m{grid-column:1;text-align:left}.case .pm{grid-row:1/span 3;grid-column:2}}
+@media (max-width:900px){.duo{grid-template-columns:1fr}}
+@media (max-width:700px){.path{grid-template-columns:1fr;gap:1rem}.path::before{left:7px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(var(--g3),var(--w))}.path li{padding:0 0 0 2rem}}
 </style>
 </head>
 <body>
@@ -493,13 +548,9 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   </div>
   <div class="ld-bottom">
     <ol class="ld-log mono" id="ldLog" aria-hidden="true"></ol>
-    <div class="ld-enter" id="ldEnter">
-      <button class="btn fill" id="enterSound" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>Enter with sound</button>
-      <button class="btn" id="enterQuiet" type="button">Enter quietly</button>
-    </div>
   </div>
 </div>
-<div class="tapsound" id="tapSound" hidden><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>Tap anywhere to hear my intro</div>
+<div class="tapsound" id="tapSound" hidden><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>Tap anywhere to hear my intro (with music)</div>
 <div class="cur" id="cur" aria-hidden="true"><span id="curTxt"></span></div>
 
 <header>
@@ -507,7 +558,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     <a class="brand" href="#top">Dinesh Tankala</a>
     <nav aria-label="Main">
       <ul>
-        <li><a href="#about">About</a></li>
+        <li><a href="#help">Hire me</a></li>
         <li><a href="#security">Security</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -527,7 +578,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
       <span class="fade open mono"><i class="blink"></i>Open to full-time roles &amp; part-time projects</span>
       <h1><span>Dinesh</span><span class="ghost">Tankala</span></h1>
       <p class="fade role">Team Lead, Global IT Operations</p>
-      <p class="fade lede">9 years running reliable, secure enterprise IT for a US–India organization. Networks, endpoints, identity and the service desk.</p>
+      <p class="fade lede">I keep enterprise IT reliable and secure for 800+ people across the US and India: networks, endpoints, identity, security operations and the service desk.</p>
       <div class="fade ctas">
         <a class="btn fill" href="#contact" data-contact="job">Contact me</a>
         <a class="btn" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
@@ -572,6 +623,37 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
         <h3><em>What I do</em></h3>
         <p>Run networks, endpoints, identity and the service desk for 800+ people across 4 sites in the US and India, lead a 10-member L1/L2 team, and keep employees ready for cyber attacks with phishing simulations and training.</p>
         <ul class="proof"><li>SOC monitoring and incident RCA</li><li>Security awareness training</li><li>Backup and disaster recovery</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- HOW I CAN HELP -->
+  <section class="s wrap" id="help">
+    <div class="head"><span class="mono">How I can help</span><h2>Two ways to work <em>together.</em></h2><p>Whether you’re hiring for a full-time role or need an experienced hand on a project, here’s what you get.</p></div>
+    <div class="duo">
+      <article class="duo-card rv">
+        <p class="mono">For employers</p>
+        <h3>Hire an IT lead who has already done the job at scale.</h3>
+        <ul class="ticks">
+          <li><b>End-to-end ownership.</b> Service desk, infrastructure, security, identity and audits, run as one system rather than separate fires.</li>
+          <li><b>Calm in an incident.</b> Contain first, find the root cause, then document and fix it so it doesn’t come back.</li>
+          <li><b>A team that delivers.</b> 10 engineers working to SLA, with KPIs reported to senior management every month.</li>
+          <li><b>Security as a habit.</b> Phishing simulations and training that make employees part of the defence.</li>
+        </ul>
+        <p class="fit mono">Best fit: IT Operations Manager · IT Infrastructure Lead · SOC Lead · Service Delivery Manager</p>
+        <div class="duo-cta"><a class="btn fill" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener">Download résumé</a><button class="btn" type="button" data-contact="job">Talk about a role</button></div>
+      </article>
+      <article class="duo-card rv">
+        <p class="mono">For businesses</p>
+        <h3>Get focused help on the IT problems that keep you up at night.</h3>
+        <ul class="ticks">
+          <li><b>Backups you can trust.</b> Set up, tested with real restores, and documented.</li>
+          <li><b>A plan for the bad day.</b> Disaster recovery with clear RTO and RPO, and a drill to prove it.</li>
+          <li><b>Staff who spot attacks.</b> Phishing simulations and a short, practical training session.</li>
+          <li><b>A second pair of eyes.</b> Security health checks and plain-English incident reports.</li>
+        </ul>
+        <p class="fit mono">Part-time · Fixed scope or a few hours a week · Remote</p>
+        <div class="duo-cta"><button class="btn fill" type="button" data-contact="pt">Discuss a project</button><a class="btn" href="#parttime">See all services</a></div>
       </article>
     </div>
   </section>
@@ -692,13 +774,57 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
 
   <!-- WORK -->
   <section class="s wrap" id="work">
-    <div class="head"><span class="mono">Selected work</span><h2>Initiatives I <em>led.</em></h2></div>
-    <ul class="projects">
-      <li class="rv"><span class="mono">Identity</span><div><h3>Okta IAM &amp; SSO rollout</h3><p>Centralized identity across every enterprise application and enforced organization-wide MFA, closing a long-standing audit gap.</p></div><div class="m"><div><b>100%</b><span>MFA coverage</span></div><div><b>↓60%</b><span>Access tickets</span></div></div></li>
-      <li class="rv"><span class="mono">Endpoint</span><div><h3>NinjaOne endpoint automation</h3><p>Brought every endpoint under automated, real-time patching with fast remediation of critical vulnerabilities.</p></div><div class="m"><div><b>1,000+</b><span>Endpoints</span></div><div><b>95%+</b><span>Patch compliance</span></div></div></li>
-      <li class="rv"><span class="mono">ITSM</span><div><h3>ITSM &amp; change management</h3><p>Set up structured change control, approvals and SLA reporting in Jira for the whole IT function.</p></div><div class="m"><div><b>10K+</b><span>Tickets handled</span></div><div><b>CAB</b><span>Change approvals</span></div></div></li>
-      <li class="rv"><span class="mono">Cloud</span><div><h3>Microsoft 365 &amp; Azure administration</h3><p>Full user lifecycle, security policy and collaboration platform management across a hybrid identity model.</p></div><div class="m"><div><b>99.9%</b><span>Uptime</span></div><div><b>JML</b><span>User lifecycle</span></div></div></li>
-    </ul>
+    <div class="head"><span class="mono">Selected work</span><h2>Case studies, start to <em>finish.</em></h2><p>The problem, what I did about it, and what changed. Open any project to read the story.</p></div>
+    <div class="cases">
+      <details class="case rv" open>
+        <summary><span class="mono">Identity</span><span class="ct"><h3>Okta IAM &amp; SSO rollout</h3></span><span class="m"><div><b>100%</b><span>MFA coverage</span></div><div><b>↓60%</b><span>Access tickets</span></div></span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="case-body">
+          <div><p class="mono">The challenge</p><p>Access was spread across many separate application logins, and the audit flagged a long-standing gap in how identity was controlled.</p></div>
+          <div><p class="mono">What I did</p><ul><li>Centralized sign-in for every enterprise application with Okta SSO.</li><li>Enforced MFA across the whole organization.</li><li>Automated Joiner-Mover-Leaver workflows so access follows people as they join, move and leave.</li></ul></div>
+          <div><p class="mono">The result</p><p>Every user now signs in through one secure front door. MFA coverage reached 100%, access tickets fell by 60%, and 30–50 new hires a month are onboarded automatically.</p></div>
+        </div>
+      </details>
+      <details class="case rv">
+        <summary><span class="mono">Security</span><span class="ct"><h3>CrowdStrike Falcon at remote branches</h3></span><span class="m"><div><b>100%</b><span>Endpoint visibility</span></div><div><b>−30%</b><span>Security incidents</span></div></span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="case-body">
+          <div><p class="mono">The challenge</p><p>Remote branches didn’t have the same endpoint visibility as head office, which left blind spots for threats.</p></div>
+          <div><p class="mono">What I did</p><ul><li>Deployed CrowdStrike Falcon to every remote branch.</li><li>Brought alerts into daily SOC monitoring and triage.</li><li>Paired detection with fast patching through NinjaOne.</li></ul></div>
+          <div><p class="mono">The result</p><p>Full endpoint coverage across all sites, and security incidents down 30% while patch compliance stayed above 95%.</p></div>
+        </div>
+      </details>
+      <details class="case rv">
+        <summary><span class="mono">Continuity</span><span class="ct"><h3>Firewall outage recovery</h3></span><span class="m"><div><b>3 min</b><span>To restore</span></div><div><b>DR</b><span>Tested quarterly</span></div></span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="case-body">
+          <div><p class="mono">The challenge</p><p>A firewall outage took services down, the kind of moment where every minute costs the business.</p></div>
+          <div><p class="mono">What I did</p><ul><li>Followed a prepared recovery plan instead of improvising.</li><li>Restored service, then ran a root-cause analysis.</li><li>Kept the DR plan current with quarterly backup restore tests.</li></ul></div>
+          <div><p class="mono">The result</p><p>Service was back within 3 minutes, and the lessons went straight into the plan for next time.</p></div>
+        </div>
+      </details>
+      <details class="case rv">
+        <summary><span class="mono">Endpoint</span><span class="ct"><h3>NinjaOne endpoint automation</h3></span><span class="m"><div><b>1,000+</b><span>Endpoints</span></div><div><b>95%+</b><span>Patch compliance</span></div></span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="case-body">
+          <div><p class="mono">The challenge</p><p>Critical vulnerabilities needed to be fixed fast across more than a thousand devices in several locations.</p></div>
+          <div><p class="mono">What I did</p><ul><li>Brought every endpoint under NinjaOne with automated, real-time patching.</li><li>Prioritised critical vulnerabilities for fast remediation.</li><li>Tracked compliance so gaps were visible, not hidden.</li></ul></div>
+          <div><p class="mono">The result</p><p>Patch compliance held above 95% across 1,000+ endpoints.</p></div>
+        </div>
+      </details>
+      <details class="case rv">
+        <summary><span class="mono">ITSM</span><span class="ct"><h3>Service management &amp; change control</h3></span><span class="m"><div><b>10K+</b><span>Tickets handled</span></div><div><b>240</b><span>Tickets a month</span></div></span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="case-body">
+          <div><p class="mono">The challenge</p><p>The IT function needed structure: clear approvals for changes and honest reporting against SLAs.</p></div>
+          <div><p class="mono">What I did</p><ul><li>Built Jira Service Management workflows, queues and SLA policies across 50+ applications.</li><li>Introduced CAB review for every production change.</li><li>Reported KPIs to senior management.</li></ul></div>
+          <div><p class="mono">The result</p><p>Over 10,000 tickets handled, about 240 resolved each month within SLA, and every production change approved and documented.</p></div>
+        </div>
+      </details>
+      <details class="case rv">
+        <summary><span class="mono">Access</span><span class="ct"><h3>Zero-downtime access control</h3></span><span class="m"><div><b>0</b><span>Disruption</span></div><div><b>RBAC</b><span>ACL controls</span></div></span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="case-body">
+          <div><p class="mono">The challenge</p><p>Access rights needed tightening without interrupting the people who rely on the systems every day.</p></div>
+          <div><p class="mono">What I did</p><ul><li>Designed role-based access (RBAC) and ACL controls.</li><li>Rolled them out carefully, in stages.</li></ul></div>
+          <div><p class="mono">The result</p><p>Tighter, role-based access with no operational disruption.</p></div>
+        </div>
+      </details>
+    </div>
   </section>
 
   <!-- SKILL RACK -->
@@ -715,23 +841,36 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
 
   <!-- EXPERIENCE -->
   <section class="s wrap" id="experience">
-    <div class="head"><span class="mono">Experience</span><h2>9 years of growing <em>responsibility.</em></h2></div>
+    <div class="head"><span class="mono">Experience</span><h2>9 years of growing <em>responsibility.</em></h2><p>Each role added a layer: from watching the network, to supporting people, to running IT operations and security for a global organization.</p></div>
+    <ol class="path rv" aria-label="Career path">
+      <li><span class="mono">2017</span><b>NOC Engineer</b></li>
+      <li><span class="mono">2018</span><b>IT Support</b></li>
+      <li><span class="mono">2021</span><b>Technical Engineer</b></li>
+      <li><span class="mono">2021</span><b>System Support Specialist</b></li>
+      <li class="now-step"><span class="mono">2023</span><b>Team Lead, Global IT Ops</b></li>
+    </ol>
     <ol class="xp">
       <li class="rv"><span class="mono">Sep 2023 – Present</span><div><h3>Team Lead, Global IT Operations<span class="tag">Current</span></h3><p class="co">Pro-Vigil Surveillance Services, Visakhapatnam</p>
+        <p class="sum">I own IT end to end for 800+ users across 4 US and India sites: service delivery, infrastructure, network security, identity, security operations and business continuity.</p>
         <ul><li>Lead and mentor a 10-member L1/L2 team; resolve 240 tickets a month against SLA and report KPIs to senior management.</li>
         <li>Configure Jira Service Management workflows and SLA policies across 50+ applications, and run CAB reviews for every production change.</li>
         <li>Maintain networks across 4 sites and own firewall policy on Sophos, SonicWall and WatchGuard, including site-to-site IPsec VPNs.</li>
         <li>Run CrowdStrike Falcon, Webroot and NinjaOne on 1,000+ endpoints, and govern Okta access for 800+ users.</li>
         <li>Monitor and triage security alerts, lead incident response, and write root-cause analyses for cyber incidents.</li>
         <li>Run phishing simulations and security awareness training so employees can recognise and report attacks.</li>
-        <li>Prepared evidence for 4 SOC and ISO 27001 audits, and keep the DR plan current with quarterly restore tests.</li></ul></div></li>
+        <li>Prepared evidence for 4 SOC and ISO 27001 audits, and keep the DR plan current with quarterly restore tests.</li></ul>
+        <ul class="tags"><li>Okta</li><li>CrowdStrike</li><li>Sophos</li><li>Jira SM</li><li>NinjaOne</li><li>KnowBe4</li><li>ISO 27001</li></ul></div></li>
       <li class="rv"><span class="mono">Dec 2021 – Sep 2023</span><div><h3>System Support Specialist</h3><p class="co">Dynata</p>
-        <ul><li>Handled L2/L3 escalations for Windows Server, desktops and business apps for a global user base, scripting routine tasks in PowerShell.</li><li>Resolved about 130 incidents and requests a month through Jira within SLA.</li></ul></div></li>
+        <p class="sum">Senior support for a global user base, where the hard tickets came to me.</p>
+        <ul><li>Handled L2/L3 escalations for Windows Server, desktops and business apps, scripting routine tasks in PowerShell.</li><li>Resolved about 130 incidents and requests a month through Jira within SLA.</li><li>Coordinated onboarding, offboarding, endpoint setup, asset tracking and access administration.</li><li>Supported audit readiness with access reviews, compliance reports and security documentation.</li></ul>
+        <ul class="tags"><li>Windows Server</li><li>PowerShell</li><li>Jira</li><li>Access reviews</li></ul></div></li>
       <li class="rv"><span class="mono">Jan 2021 – Dec 2021</span><div><h3>Technical Engineer</h3><p class="co">HBL Power Systems Ltd.</p>
-        <ul><li>Maintained routers, switches, servers, firewalls and cabling across 3 sites and 600+ endpoints.</li></ul></div></li>
-      <li class="rv"><span class="mono">Feb 2019 – Jan 2021</span><div><h3>IT Support Executive</h3><p class="co">Piramal Swasthya</p></div></li>
+        <p class="sum">Hands-on infrastructure across a multi-site manufacturing business.</p>
+        <ul><li>Maintained routers, switches, servers, firewalls and cabling across 3 sites and 600+ endpoints.</li><li>Diagnosed performance issues, and carried out upgrades and preventive maintenance.</li></ul>
+        <ul class="tags"><li>Routing &amp; switching</li><li>Firewalls</li><li>Servers</li></ul></div></li>
+      <li class="rv"><span class="mono">Feb 2019 – Jan 2021</span><div><h3>IT Support Executive</h3><p class="co">Piramal Swasthya</p><p class="sum">User, device and network support, where I learned that good IT is measured by how little people notice it.</p></div></li>
       <li class="rv"><span class="mono">Nov 2018 – Dec 2018</span><div><h3>IT Support Engineer</h3><p class="co">Progressive Infovision</p></div></li>
-      <li class="rv"><span class="mono">Dec 2017 – Oct 2018</span><div><h3>Network Engineer (NOC)</h3><p class="co">Pioneer Elba’s Ltd.</p></div></li>
+      <li class="rv"><span class="mono">Dec 2017 – Oct 2018</span><div><h3>Network Engineer (NOC)</h3><p class="co">Pioneer Elba’s Ltd.</p><p class="sum">Where it started: monitoring the network and learning how everything connects.</p></div></li>
     </ol>
   </section>
 
@@ -852,13 +991,13 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const ICON_PLAY = '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 1.5v11l9-5.5z"/></svg>';
   const ICON_STOP = '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="1" y="1" width="10" height="10" rx="1.5"/></svg>';
   const SCRIPT = [
-    [0.8,  'Namaste. I’m Dinesh Tankala.'],
-    [3.6,  'Who I am: an IT infrastructure and operations leader, based in Visakhapatnam.'],
-    [9.4,  'What I’ve done: nine years, from NOC engineer to leading global IT operations across the US and India.'],
-    [16.6, 'What I do: keep networks, endpoints, identity and the service desk reliable and secure, for more than eight hundred people.'],
-    [24.6, 'If you need IT that simply works, let’s talk. Thank you.']
-  ];
-  const SPOKEN = s => s.replace(/\bIT\b/g, 'I.T.').replace(/\bNOC\b/g, 'N.O.C.').replace(/\bUS\b/g, 'U.S.');
+    [0.6,  'Hey, I’m Dinesh Tankala.'],
+    [3.2,  'For nine years, I’ve kept enterprise IT reliable and secure. Today, I lead global IT operations for teams across the US and India.'],
+    [12.4, 'I look after more than eight hundred people and over a thousand devices: firewalls, endpoints, Okta identity, and a service desk that meets its SLAs.'],
+    [22.4, 'When something breaks, or someone attacks, I find the root cause, fix it, and train people so it doesn’t happen again.'],
+    [30.6, 'Whether you’re hiring full-time, or need help with a project, let’s talk.']
+  ]
+  const SPOKEN = s => s.replace(/\bIT\b/g, 'I.T.').replace(/\bSLAs\b/g, 'S.L.A.s').replace(/\bUS\b/g, 'U.S.').replace(/\bOkta\b/g, 'Octa');
   for (let i = 0; i < 24; i++) wave.appendChild(document.createElement('i'));
   const bars = [...wave.children];
 
@@ -928,13 +1067,17 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
 
   // browser voice (fallback): prefer natural Indian-English voices
   const hasTTS = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  // prefer a natural-sounding MALE voice, Indian English first; never a known female voice
   const pickVoice = () => {
     const v = speechSynthesis.getVoices().filter(x => /^en/i.test(x.lang));
-    const nat = x => /natural|neural|online|google|premium|enhanced/i.test(x.name);
-    const male = x => /prabhat|ravi|hemant|madhur|male|rishi/i.test(x.name);
-    return v.find(x => /en-IN/i.test(x.lang) && nat(x) && male(x)) || v.find(x => /en-IN/i.test(x.lang) && nat(x)) || v.find(x => /en-IN/i.test(x.lang))
-      || v.find(x => nat(x)) || v.find(x => /en-(GB|US)/i.test(x.lang)) || v[0];
+    const female = x => /female|heera|neerja|swara|kalpana|veena|lekha|zira|aria|jenny|ava|samantha|susan|hazel|libby|sonia|karen|moira|tessa|fiona|victoria|serena|emma|michelle|natasha|clara/i.test(x.name);
+    const male = x => /\bmale\b|prabhat|ravi|hemant|madhur|rishi|aarav|kunal|david|mark|guy|ryan|thomas|george|daniel|arthur|oliver|james|christopher|eric|roger|brian|andrew|liam|william/i.test(x.name) && !/female/i.test(x.name);
+    const nat = x => /natural|neural|online|premium|enhanced/i.test(x.name);
+    const IN = x => /en-IN/i.test(x.lang);
+    return v.find(x => IN(x) && nat(x) && male(x)) || v.find(x => nat(x) && male(x)) || v.find(x => /Google UK English Male/i.test(x.name))
+      || v.find(x => IN(x) && male(x)) || v.find(male) || v.find(x => IN(x) && !female(x)) || v.find(x => !female(x)) || v[0];
   };
+
   if (hasTTS) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); }
 
   const MUSIC_FULL = .75, MUSIC_DUCK = .22;
@@ -942,8 +1085,8 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const now = () => hasMusic ? music.currentTime : (performance.now() - clockT0) / 1000;
   function say(text) {
     const u = new SpeechSynthesisUtterance(SPOKEN(text)); const v = pickVoice(); if (v) u.voice = v;
-    u.rate = .95; u.pitch = 1;
-    u.onstart = () => { ttsBusy++; music.volume = MUSIC_DUCK; talking = true; };
+    u.rate = .94; u.pitch = .86;   // a touch slower and deeper sounds more natural
+    u.onstart = () => { ttsBusy++; music.volume = MUSIC_DUCK; talking = true; typeLine(text, 34); };
     u.onend = u.onerror = () => { ttsBusy = Math.max(0, ttsBusy - 1); if (!ttsBusy && !speechSynthesis.speaking) { music.volume = MUSIC_FULL; talking = false; } };
     speechSynthesis.speak(u);
   }
@@ -954,7 +1097,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
       const c = cues ? cues.find(c => voice.currentTime >= c.start && voice.currentTime < c.end) : null;
       subs.textContent = c ? c.text : (cues ? '' : SCRIPT[Math.min(SCRIPT.length - 1, Math.floor(voice.currentTime / (voice.duration || 30) * SCRIPT.length))][1]);
     } else {
-      while (sIdx < SCRIPT.length && t >= SCRIPT[sIdx][0]) { const line = SCRIPT[sIdx++][1]; typeLine(line, 30); if (hasTTS) say(line); }
+      while (sIdx < SCRIPT.length && t >= SCRIPT[sIdx][0]) { const line = SCRIPT[sIdx++][1]; if (hasTTS && speechSynthesis.getVoices().length) say(line); else typeLine(line, 30); }
     }
     const done = hasVoice ? voice.ended && (!hasMusic || music.ended || music.currentTime > voice.duration + 2)
                           : (hasMusic ? music.ended : t > 32) && !(hasTTS && speechSynthesis.speaking);
@@ -984,15 +1127,16 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   function hideTap() { tapSound.hidden = true; removeEventListener('pointerdown', tapStart, true); removeEventListener('keydown', tapStart, true); }
   function tapStart(e) {
     if (e.type === 'keydown' && ['Tab','Shift','Escape'].includes(e.key)) return;
-    if (e.target.closest && e.target.closest('#sndBtn, #playBtn, #enterQuiet')) { hideTap(); return; }
+    if (e.target.closest && e.target.closest('#sndBtn, #playBtn')) { hideTap(); return; }
     hideTap(); if (!playing && !userChose) start();
   }
-  function armTap() { if (playing || userChose) return; tapSound.hidden = false; addEventListener('pointerdown', tapStart, true); addEventListener('keydown', tapStart, true); }
+  function armTap() { if (playing || userChose) return; tapSound.hidden = false; setTimeout(() => { tapSound.hidden = true; }, 14000); addEventListener('pointerdown', tapStart, true); addEventListener('keydown', tapStart, true); }
   // probe whether the browser lets audio start without a click
   function canAutoplay() {
     return new Promise(res => {
       const el = hasMusic ? music : hasVoice ? voice : null; if (!el) return res(false);
       const v = el.volume; el.volume = 0;
+      setTimeout(() => res(false), 1500);
       const p = el.play(); if (!p) { el.pause(); el.volume = v; return res(true); }
       p.then(() => { el.pause(); el.currentTime = 0; el.volume = v; res(true); }).catch(() => { el.volume = v; res(false); });
     });
@@ -1026,8 +1170,9 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     io.observe(h);
   });
   // loader: rolling odometer, tick ring, boot log, then "Enter with sound"
-  const loader = $('#loader'), ldPrg = $('#ldPrg'), ldOrbit = $('#ldOrbit'), ldStage = $('#ldStage'), ldLog = $('#ldLog'), ldEnter = $('#ldEnter');
+  const loader = $('#loader'), ldPrg = $('#ldPrg'), ldOrbit = $('#ldOrbit'), ldStage = $('#ldStage'), ldLog = $('#ldLog');
   const reveal = () => { document.body.classList.add('ready'); };
+  setTimeout(() => { if (document.getElementById('loader')) enter(false); }, 7000);
   const C = 2 * Math.PI * 84;
   // ticks
   const ticksG = $('#ticks'), TICKS = 60;
@@ -1057,11 +1202,9 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     if (withSound) start(); else armTap();
     loader.classList.add('out'); setTimeout(reveal, 350); setTimeout(() => loader.remove(), 1300);
   }
-  $('#enterSound').addEventListener('click', () => enter(true));
-  $('#enterQuiet').addEventListener('click', () => { userChose = true; enter(false); });
-  if (reduce) {
-    setOdo(100); ldPrg.style.strokeDashoffset = 0; ldStage.textContent = 'All systems operational'; ldEnter.classList.add('on');
-    $('#enterSound').focus();
+    if (reduce) {
+    setOdo(100); ldPrg.style.strokeDashoffset = 0; ldStage.textContent = 'All systems operational';
+    setTimeout(() => canAutoplay().then(ok => enter(ok)), 600);
   } else {
     let shown = 0, goal = 72, done = false, last = -1; const ldT0 = performance.now();
     const finish = () => goal = 100;
@@ -1087,8 +1230,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
       if (shown >= 100 && !done) {
         done = true; loader.classList.add('ld-done');
         canAutoplay().then(ok => {
-          if (ok) setTimeout(() => enter(true), 500);      // browser allows sound: play it straight away
-          else { ldEnter.classList.add('on'); $('#enterSound').focus({preventScroll:true}); setTimeout(() => enter(false), 7000); }
+          setTimeout(() => enter(ok), ok ? 450 : 650);   // sound if the browser allows it; otherwise open quietly and offer "tap anywhere"
         });
         return;
       }
@@ -1347,7 +1489,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   let greeted = false;
   function openChat(o) {
     chat.classList.toggle('open', o); askBtn.setAttribute('aria-expanded', o);
-    if (o) { if (!greeted) { greeted = true; add('Hi! I’m Dinesh’s assistant. Ask me about his experience, skills or how to reach him, or tap a question below.', 'bot'); } setTimeout(() => input.focus(), 150); }
+    if (o) { if (!greeted) { greeted = true; add('Hey! I’m Dinesh’s assistant. Ask me about his experience, his skills, or how to reach him. Or tap a question below.', 'bot'); } setTimeout(() => input.focus(), 150); }
   }
   askBtn.addEventListener('click', () => openChat(!chat.classList.contains('open')));
   $('#chatClose').addEventListener('click', () => { openChat(false); askBtn.focus(); });
