@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dinesh Tankala | Team Lead, Global IT Operations</title>
-<meta name="description" content="Dinesh Tankala: IT Infrastructure, Operations and Security Operations (SOC) lead with 9 years of experience. Incident response and RCA, security awareness training, Okta IAM, endpoint security, backup and disaster recovery. Open to full-time roles and part-time projects.">
-<meta name="keywords" content="IT Operations Manager, IT Infrastructure Lead, SOC, Security Operations, Incident Response, Root Cause Analysis, Security Awareness Training, Phishing Simulation, KnowBe4, Okta, CrowdStrike, Backup and Recovery, Disaster Recovery, Visakhapatnam, India, part-time IT consultant">
-<meta property="og:description" content="IT Operations and Security lead: SOC monitoring, incident RCA, phishing simulations, backup and recovery. Open to full-time and part-time work.">
+<meta name="description" content="Dinesh Tankala: IT Infrastructure, Operations and Security Operations (SOC) lead with 9 years of experience. Incident response and RCA, security awareness training, Okta IAM, endpoint security, backup and disaster recovery. Open to full-time roles and freelance projects.">
+<meta name="keywords" content="IT Operations Manager, IT Infrastructure Lead, SOC, Security Operations, Incident Response, Root Cause Analysis, Security Awareness Training, Phishing Simulation, KnowBe4, Okta, CrowdStrike, Backup and Recovery, Disaster Recovery, Visakhapatnam, India, freelance IT consultant">
+<meta property="og:description" content="IT Operations and Security lead: SOC monitoring, incident RCA, phishing simulations, backup and recovery. Open to full-time roles and freelance projects.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dinesh Tankala","jobTitle":"Team Lead, Global IT Operations","url":"https://dinesh371.github.io/My-Portfolio/","image":"https://dinesh371.github.io/My-Portfolio/assets/dinesh-portrait.jpg","email":"mailto:dineshtankala85@outlook.com","telephone":"+91-83319-56172","address":{"@type":"PostalAddress","addressLocality":"Visakhapatnam","addressRegion":"Andhra Pradesh","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/dinesh-tankala"],"alumniOf":"Andhra University","knowsAbout":["IT Operations","Security Operations Center (SOC)","Incident response","Root cause analysis","Security awareness training","Phishing simulation","Okta","CrowdStrike Falcon","Firewalls","Microsoft 365","Azure","Backup and recovery","Disaster recovery","ITIL","Jira Service Management"],"hasCredential":["Microsoft Certified: Azure Administrator Associate (AZ-104)","Microsoft Certified: Azure Fundamentals (AZ-900)"]}</script>
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="Dinesh Tankala | Team Lead, Global IT Operations">
@@ -17,6 +17,7 @@
 <style>
 :root{
   color-scheme:dark;
+  --acc:#F26419; --acc2:#FF752F;
   --k:#000; --w:#fff; --g1:#0d0d0d; --g2:#161616; --g3:#262626; --g4:#5c5c5c; --g5:#9a9a9a; --g6:#d4d4d4;
   --sans:"Geist","Helvetica Neue",Arial,system-ui,sans-serif;
   --mono:"Geist Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
@@ -32,7 +33,7 @@ a{color:inherit}
 img,video{display:block;max-width:100%}
 button{font:inherit;color:inherit}
 :focus-visible{outline:1.5px solid var(--w);outline-offset:3px}
-::selection{background:var(--w);color:var(--k)}
+::selection{background:var(--acc);color:#fff}
 .wrap{width:min(1280px,100% - 3rem);margin-inline:auto}
 .mono{font-family:var(--mono);font-size:.8rem;letter-spacing:.02em;color:var(--g5)}
 
@@ -42,8 +43,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:60;padding-top:env(safe-area-
 .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{text-decoration:none;font-weight:600;letter-spacing:-.01em}
 nav ul{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0}
-nav a{text-decoration:none;font-size:.92rem;color:var(--w);opacity:.6;transition:opacity .2s}
+nav a{position:relative;text-decoration:none;font-size:.92rem;color:var(--w);opacity:.6;transition:opacity .2s}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 nav a:hover,nav a.on{opacity:1}
+nav a:hover::after,nav a.on::after{transform:scaleX(1);transform-origin:left}
 
 /* ---------- Hero ---------- */
 .hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(2rem,5vw,5rem);padding:6rem 0 3rem}
@@ -77,6 +80,7 @@ nav a:hover,nav a.on{opacity:1}
 .cap{position:absolute;left:1.3rem;right:1.3rem;bottom:1.2rem;z-index:3}
 .wave{display:flex;align-items:center;gap:3px;height:22px;margin-bottom:.8rem}
 .wave i{width:3px;height:4px;border-radius:2px;background:var(--w);transition:height .12s}
+.subs.long{font-size:clamp(.95rem,1.25vw,1.08rem);line-height:1.4}
 .subs{min-height:3.2em;font:500 clamp(1.05rem,1.6vw,1.3rem)/1.35 var(--sans);letter-spacing:-.01em;margin:0}
 .subs::after{content:"";display:inline-block;width:2px;height:1em;background:var(--w);margin-left:2px;vertical-align:-2px;animation:pulse 1s steps(1) infinite}
 .frame-ctrl{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem}
@@ -427,7 +431,21 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
 .flow li:nth-child(3)::before{background:var(--w);color:var(--k)}
 .flow b{display:block;font-weight:600;margin-bottom:.2rem}
 .flow span{font-size:.88rem;color:var(--g5)}
-/* ---------- Part-time ---------- */
+/* ---------- Freelance ---------- */
+.svc .get{margin-top:1rem!important;padding-top:.9rem;border-top:1px dashed var(--g3);color:var(--g6)!important}
+.svc .get b{display:block;font:500 .72rem var(--mono);color:var(--g5);margin-bottom:.2rem;letter-spacing:.02em}
+.svc:hover .get{border-color:#bbb;color:var(--g4)!important}
+.fl-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.4rem}
+.fl-block{border:1px solid var(--g3);border-radius:22px;padding:1.5rem}
+.models,.steps{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:1rem}
+.models b,.steps b{display:block;font-weight:600}
+.models span,.steps span{color:var(--g5);font-size:.93rem}
+.models li{padding-left:1rem;border-left:2px solid var(--w)}
+.steps{counter-reset:st}
+.steps li{counter-increment:st;display:grid;grid-template-columns:32px 1fr;column-gap:.9rem}
+.steps li::before{content:counter(st);grid-row:span 2;width:32px;height:32px;border-radius:50%;border:1px solid var(--w);display:grid;place-items:center;font:500 .78rem var(--mono)}
+.steps li:first-child::before{background:var(--w);color:var(--k)}
+@media (max-width:800px){.fl-row{grid-template-columns:1fr}}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--g3);border-left:1px solid var(--g3)}
 .svc{padding:1.6rem;border-right:1px solid var(--g3);border-bottom:1px solid var(--g3);transition:background .3s,color .3s}
 .svc:hover{background:var(--w);color:var(--k)}
@@ -531,11 +549,174 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
 @media (max-width:1000px){.case-body{padding-left:0;grid-template-columns:1fr;gap:1.2rem}.case summary{grid-template-columns:1fr 44px;gap:.6rem 1rem}.case summary .mono{grid-column:1}.case .m{grid-column:1;text-align:left}.case .pm{grid-row:1/span 3;grid-column:2}}
 @media (max-width:900px){.duo{grid-template-columns:1fr}}
 @media (max-width:700px){.path{grid-template-columns:1fr;gap:1rem}.path::before{left:7px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(var(--g3),var(--w))}.path li{padding:0 0 0 2rem}}
+
+/* ---------- Philosophy ---------- */
+.quote{margin:0;position:relative;padding-left:clamp(0rem,6vw,5rem)}
+.qmark{position:absolute;left:0;top:-.15em;font:italic 400 clamp(6rem,14vw,11rem)/1 var(--serif);color:var(--g3)}
+.quote blockquote{margin:0}
+.quote blockquote p{margin:0;font:600 clamp(2rem,4.6vw,4.1rem)/1.08 var(--sans);letter-spacing:-.04em;max-width:22ch}
+.quote blockquote em{font:italic 400 1.08em var(--serif);letter-spacing:-.01em}
+.quote figcaption{display:flex;align-items:center;gap:.9rem;margin-top:2rem;flex-wrap:wrap}
+.quote figcaption img{width:44px;height:44px;border-radius:50%;object-fit:cover;filter:grayscale(1)}
+.quote figcaption b{display:block;font-weight:600}
+.quote figcaption .mono{display:block;font-size:.75rem}
+.quote figcaption .btn{margin-left:.6rem}
+.quote figcaption .btn.on{background:var(--w);color:var(--k)}
+.pillars{list-style:none;margin:3rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--g3)}
+.pillars li{padding:1.4rem 1.4rem 0 0}
+.pillars li+li{padding-left:1.4rem;border-left:1px solid var(--g3)}
+.pillars b{display:block;font:italic 400 1.9rem/1 var(--serif);margin-bottom:.5rem}
+.pillars span{color:var(--g5);font-size:.95rem}
+@media (max-width:760px){.pillars{grid-template-columns:1fr}.pillars li,.pillars li+li{padding:1.2rem 0;border-left:0;border-bottom:1px solid var(--g3)}}
+
+/* ---------- adopted: OS boot loader ---------- */
+.acc{color:var(--acc)!important}
+.ld-top b{font-weight:500}
+.ring .orbit{fill:var(--acc);filter:drop-shadow(0 0 8px var(--acc))}
+.ld-done .ring .prg{stroke:var(--acc)}
+.ld-log li b{color:var(--acc)}
+.ld-go{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;text-align:right}
+.ld-go b{font:700 clamp(1.1rem,2vw,1.5rem)/1.1 var(--sans);letter-spacing:-.02em}
+.ld-go .acc{font-size:.8rem;animation:pulse 1s steps(1) infinite}
+.loader.ld-done .ld-go{opacity:1;transform:none}
+.loader:not(.ld-ask) .ld-go b,.loader:not(.ld-ask) .ld-go span:last-child{display:none}
+.loader.ld-ask{cursor:pointer}
+.loader.ld-ask .ld-go b{display:block;animation:askp 1.6s ease-in-out infinite}
+@keyframes askp{50%{opacity:.55}}
+@media (max-width:620px){.ld-go{align-items:flex-start;text-align:left}}
+
+/* ---------- adopted: section codes, ghost titles, side index ---------- */
+.head{position:relative;isolation:isolate}
+.head::before{content:attr(data-ghost);position:absolute;left:-.04em;top:-.55em;z-index:-1;font:800 clamp(4rem,11vw,9.5rem)/1 var(--sans);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;pointer-events:none;user-select:none}
+.head > .mono.code{color:var(--acc);letter-spacing:.06em}
+.sidx{position:fixed;right:clamp(.6rem,1.4vw,1.4rem);top:50%;transform:translateY(-50%);z-index:40;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem}
+.sidx a{display:flex;align-items:center;justify-content:flex-end;gap:.5rem;text-decoration:none;font:500 .68rem var(--mono);color:var(--g4);transition:color .25s}
+.sidx a::after{content:"";width:10px;height:1px;background:currentColor;transition:width .35s cubic-bezier(.16,1,.3,1)}
+.sidx a:hover{color:var(--w)}
+.sidx a.on{color:var(--acc)}
+.sidx a.on::after{width:24px}
+.sidx .nm{opacity:0;transform:translateX(6px);transition:opacity .25s,transform .25s;color:var(--g5);white-space:nowrap}
+.sidx a:hover .nm{opacity:1;transform:none}
+@media (max-width:1240px){.sidx{display:none}}
+/* hero ID strip */
+.idstrip{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.6rem 0 0}
+.idstrip span{font:500 .72rem var(--mono);border:1px solid var(--g3);border-radius:6px;padding:.35rem .6rem;color:var(--g5)}
+.idstrip span b{color:var(--w);font-weight:500}
+.idstrip .st b{color:#3ddc84}
+.idstrip .st i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ddc84;margin-right:.4rem;box-shadow:0 0 8px #3ddc84;animation:pulse 1.6s infinite}
+.open .blink{background:var(--acc)}
+/* hero name: letters react to hover */
+.hero h1 .ch{transition:transform 1.1s cubic-bezier(.2,.8,.2,1),color .2s}
+body.ready .hero h1 .ch:hover{transform:translateY(-10px) scale(1.06);color:var(--acc);-webkit-text-stroke-color:var(--acc);transition-delay:0s!important;transition-duration:.35s}
+/* featured card in orange */
+.duo-card:first-child{background:var(--acc)!important;border-color:var(--acc)!important;color:#fff!important;box-shadow:0 30px 60px -24px rgba(242,100,25,.45)}
+.duo-card:first-child .mono,.duo-card:first-child .ticks li{color:rgba(255,255,255,.82)!important}
+.duo-card:first-child .ticks b{color:#fff!important}
+.duo-card:first-child .ticks li::before{background:#fff!important}
+.duo-card:first-child .btn{border-color:rgba(255,255,255,.5)!important;color:#fff!important}
+.duo-card:first-child .btn.fill{background:#fff!important;color:var(--k)!important;border-color:#fff!important}
+.btn.fill:hover{background:var(--acc)!important;border-color:var(--acc)!important;color:#fff!important}
+/* copy email */
+.copy{display:inline-flex;align-items:center;gap:.4rem;margin:-2rem 0 2.4rem;background:none;border:1px solid var(--g3);border-radius:999px;padding:.45rem .9rem;color:var(--g6);font:500 .8rem var(--mono);cursor:pointer}
+.copy:hover{border-color:var(--acc);color:var(--acc)}
+.toast{position:fixed;left:50%;bottom:calc(1.4rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:130;background:var(--acc);color:#fff;font:600 .82rem var(--mono);padding:.6rem 1rem;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* footer status bar */
+footer .wrap{align-items:center}
+.sysbar{display:flex;flex-wrap:wrap;gap:1.1rem;font:500 .7rem var(--mono);color:var(--g5)}
+.sysbar span{display:inline-flex;align-items:center;gap:.4rem}
+.sysbar i{width:6px;height:6px;border-radius:50%;background:#3ddc84;box-shadow:0 0 6px #3ddc84}
+.sysbar span:first-child i{background:var(--acc);box-shadow:0 0 6px var(--acc)}
+.rack .port.core::before{background:var(--acc);box-shadow:0 0 6px var(--acc)}
+.case[open] .pm{background:var(--acc)!important}
+.flow li:nth-child(3)::before{background:var(--acc)!important;border-color:var(--acc)!important;color:#fff!important}
+.path li.now-step::before{background:var(--acc)!important;border-color:var(--acc)!important;box-shadow:0 0 0 6px rgba(242,100,25,.18)!important}
+.progress i{background:var(--acc)}
+
+/* ================= PREMIUM LAYER ================= */
+:root{--hair:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 40%,rgba(242,100,25,.35) 100%)}
+body{background:
+  radial-gradient(1200px 700px at 85% -10%,rgba(242,100,25,.07),transparent 60%),
+  radial-gradient(900px 600px at -10% 30%,rgba(255,255,255,.035),transparent 60%),
+  var(--k);background-attachment:fixed}
+main::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%)}
+/* glass header once scrolled */
+header{transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+header.glass{mix-blend-mode:normal;background:rgba(10,10,10,.62);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-color:rgba(255,255,255,.06)}
+/* headline sheen */
+
+/* gradient hairline borders on key surfaces */
+.duo-card:not(:first-child),.fl-block,.soc-card,.flow,.detail,.readout,.pt-bar,.rack,.ach:not(.on),.sheet-card,.chat{
+  border:1px solid transparent!important;
+  background:linear-gradient(var(--g1),var(--g1)) padding-box,var(--hair) border-box!important}
+.soc-card:hover{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(#fff,#fff) border-box!important}
+.rack{background:linear-gradient(180deg,#080808,#000) padding-box,var(--hair) border-box!important}
+/* buttons: soft depth + sheen */
+.btn{box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 24px -14px rgba(0,0,0,.9);transition:background .25s,color .25s,border-color .25s,box-shadow .3s,transform .25s}
+.btn.fill{box-shadow:inset 0 -2px 0 rgba(0,0,0,.12),0 14px 30px -16px rgba(255,255,255,.45)}
+.btn:hover{transform:translateY(-1px)}
+.btn.fill:hover{box-shadow:0 18px 36px -14px rgba(242,100,25,.65)}
+/* hero frame: premium edge glow */
+.frame{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 0 8px rgba(255,255,255,.02),0 80px 140px -50px rgba(242,100,25,.25),0 60px 120px -60px rgba(255,255,255,.12)!important}
+.frame::before{content:"";position:absolute;inset:0;z-index:4;border-radius:inherit;pointer-events:none;padding:1px;
+  background:conic-gradient(from var(--fa,0deg),transparent 0 70%,rgba(242,100,25,.9) 80%,transparent 90%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:edge 8s linear infinite}
+@property --fa{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes edge{to{--fa:360deg}}
+/* id strip + visitor chip */
+.idstrip span{background:rgba(255,255,255,.025);backdrop-filter:blur(6px)}
+.idstrip .vc b{color:var(--acc);font-variant-numeric:tabular-nums}
+.sysbar b{color:var(--w);font-weight:500;font-variant-numeric:tabular-nums}
+/* section rhythm: thin gradient divider above each section */
+section.s::before{content:"";display:block;height:1px;margin-bottom:clamp(3rem,6vw,5rem);background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),rgba(242,100,25,.4),rgba(255,255,255,.12),transparent)}
+section.s{padding-top:clamp(4rem,8vw,6.5rem)!important}
+/* refined cards hover */
+.case summary:hover .ct h3{color:var(--acc)}
+.port:hover{box-shadow:0 0 0 3px rgba(242,100,25,.2)}
+@media (prefers-reduced-motion:reduce){.frame::before{animation:none}}
+
+/* ---------- headings: label, ghost word and title stacked cleanly ---------- */
+.head{display:block!important;position:relative;isolation:isolate;padding-top:clamp(2.6rem,6vw,4.6rem);margin-bottom:clamp(2.4rem,5vw,3.6rem)}
+.head::before{top:0!important;left:-.04em!important;font-size:clamp(3.4rem,10.5vw,8.6rem)!important;line-height:.85!important;-webkit-text-stroke:1px rgba(255,255,255,.11)!important;color:transparent!important}
+.head > .mono{display:inline-block;white-space:nowrap;position:relative;z-index:1;margin:0 0 1rem;padding:.3rem .6rem;border:1px solid rgba(242,100,25,.35);border-radius:6px;background:rgba(0,0,0,.6)}
+.head h2,.hz-top h2{color:#fff!important;-webkit-text-fill-color:#fff!important;background:none!important;position:relative;z-index:1;max-width:18ch}
+.head h2 em,.hz-top h2 em{color:#fff;-webkit-text-fill-color:#fff}
+.head p{margin:1.2rem 0 0!important;max-width:58ch;position:relative;z-index:1}
+.wr{overflow:visible}
+@media (max-width:620px){.head > .mono{white-space:normal;font-size:.72rem}}
+/* ---------- live stats ---------- */
+.live-stats{display:grid;grid-template-columns:auto repeat(3,1fr);align-items:center;gap:0;margin:0 0 2.4rem;border:1px solid transparent;border-radius:20px;overflow:hidden;
+  background:linear-gradient(var(--g1),var(--g1)) padding-box,var(--hair) border-box}
+.live-stats > div{padding:1.2rem 1.4rem;border-left:1px solid var(--g3)}
+.live-stats > div:first-child{border-left:0;display:flex;align-items:center;gap:.6rem;font:500 .75rem var(--mono);color:var(--g5);white-space:nowrap}
+.live-stats > div:first-child i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;animation:pulse 1.6s infinite}
+.live-stats b{display:block;font:800 clamp(1.6rem,3vw,2.4rem)/1 var(--sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.live-stats span{font-size:.82rem;color:var(--g5)}
+.live-stats.off b{color:var(--g4)}
+@media (max-width:700px){.live-stats{grid-template-columns:1fr 1fr 1fr}.live-stats > div:first-child{grid-column:1/-1;border-bottom:1px solid var(--g3)}.live-stats > div:nth-child(2){border-left:0}}
+/* ---------- contact form ---------- */
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0 0 2.4rem;padding:clamp(1.3rem,3vw,2rem);border:1px solid transparent;border-radius:22px;
+  background:linear-gradient(var(--g1),var(--g1)) padding-box,var(--hair) border-box}
+.cform h3{grid-column:1/-1;margin:0;font-size:1.3rem;letter-spacing:-.02em}
+.cform .full{grid-column:1/-1}
+.cform label{display:grid;gap:.4rem;font-size:.85rem;color:var(--g5)}
+.cform input,.cform select,.cform textarea{font:inherit;font-size:.95rem;color:var(--w);background:var(--k);border:1px solid var(--g3);border-radius:12px;padding:.8rem .9rem;transition:border-color .2s,box-shadow .2s}
+.cform textarea{min-height:130px;resize:vertical}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(242,100,25,.2)}
+.cform .row{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.2rem}
+.cform .note{font-size:.82rem;color:var(--g5);margin:0}
+.cform .msg{grid-column:1/-1;margin:0;font-size:.92rem}
+.cform .msg.ok{color:#3ddc84}.cform .msg.err{color:#ff8a65}
+.cform .hp{position:absolute;left:-9999px}
+@media (max-width:700px){.cform{grid-template-columns:1fr}}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
 <div class="loader" id="loader" role="dialog" aria-label="Loading portfolio">
-  <div class="ld-top mono"><span>Dinesh Tankala</span><span>IT Operations &amp; Security</span></div>
+  <div class="ld-top mono"><span>DT OS <b class="acc">v9.0.26</b></span><span>DT-2017-009 · VISAKHAPATNAM, IN</span></div>
   <div class="ld-center">
     <svg class="ring" viewBox="0 0 220 220" aria-hidden="true">
       <g id="ticks"></g>
@@ -548,9 +729,10 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   </div>
   <div class="ld-bottom">
     <ol class="ld-log mono" id="ldLog" aria-hidden="true"></ol>
+    <div class="ld-go" id="ldGo"><span class="mono acc">ACCESS GRANTED_</span><b>Click anywhere to enter</b><span class="mono">with my voice intro · or scroll to skip</span></div>
   </div>
 </div>
-<div class="tapsound" id="tapSound" hidden><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>Tap anywhere to hear my intro (with music)</div>
+<div class="tapsound" id="tapSound" hidden><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>Tap anywhere to hear my voice intro</div>
 <div class="cur" id="cur" aria-hidden="true"><span id="curTxt"></span></div>
 
 <header>
@@ -563,7 +745,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
         <li><a href="#work">Work</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#parttime">Part-time</a></li>
+        <li><a href="#freelance">Freelance</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -575,13 +757,21 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   <!-- HERO -->
   <section class="wrap hero" aria-label="Introduction">
     <div>
-      <span class="fade open mono"><i class="blink"></i>Open to full-time roles &amp; part-time projects</span>
+      <span class="fade open mono"><i class="blink"></i>Open to full-time roles &amp; freelance projects</span>
       <h1><span>Dinesh</span><span class="ghost">Tankala</span></h1>
       <p class="fade role">Team Lead, Global IT Operations</p>
       <p class="fade lede">I keep enterprise IT reliable and secure for 800+ people across the US and India: networks, endpoints, identity, security operations and the service desk.</p>
       <div class="fade ctas">
         <a class="btn fill" href="#contact" data-contact="job">Contact me</a>
         <a class="btn" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
+      </div>
+      <div class="fade idstrip" aria-label="Profile summary">
+        <span>ID <b>DT-2017-009</b></span>
+        <span>Experience <b>9+ years</b></span>
+        <span>Focus <b>IT Ops &amp; Security</b></span>
+        <span>Base <b>Visakhapatnam, IN</b></span>
+        <span class="st"><i></i>Status <b>Open to work</b></span>
+        <span class="vc" id="vcHero" hidden>Visitors <b id="vcCount">…</b></span>
       </div>
     </div>
     <div class="stage">
@@ -609,7 +799,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
       <article class="rv">
         <span class="mono">01</span>
         <h3><em>Who I am</em></h3>
-        <p>An IT infrastructure and operations leader based in Visakhapatnam, India. Hands-on with firewalls, endpoints and identity, and focused on IT that simply works for the people who rely on it.</p>
+        <p>An IT Infrastructure and Global Operations professional based in Visakhapatnam, India, with over nine years of enterprise IT experience. Hands-on with networks, cybersecurity, Okta identity, endpoint security and IT service delivery.</p>
         <ul class="proof"><li>9 years in enterprise IT</li><li>BCA, Andhra University</li><li>English, Hindi, Telugu, Odia</li></ul>
       </article>
       <article class="rv">
@@ -625,6 +815,24 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
         <ul class="proof"><li>SOC monitoring and incident RCA</li><li>Security awareness training</li><li>Backup and disaster recovery</li></ul>
       </article>
     </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="s wrap quote-s" id="belief" aria-label="What I believe">
+    <figure class="quote rv">
+      <span class="qmark" aria-hidden="true">“</span>
+      <blockquote><p>Great IT operations should be <em>secure</em>, <em>proactive</em>, and almost <em>invisible</em> to the people who depend on them.</p></blockquote>
+      <figcaption>
+        <img src="assets/dinesh-avatar.jpg" alt="" width="44" height="44">
+        <span><b>Dinesh Tankala</b><span class="mono">Team Lead, Global IT Operations</span></span>
+        <button class="btn sm" id="quotePlay" type="button" hidden><svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M3 1.5v11l9-5.5z"/></svg><span>Hear me say it</span></button>
+      </figcaption>
+    </figure>
+    <ul class="pillars rv" aria-label="What that means in practice">
+      <li><b>Secure</b><span>MFA everywhere, protected endpoints, and staff trained to spot attacks.</span></li>
+      <li><b>Proactive</b><span>Monitoring, patching and restore drills before anything breaks.</span></li>
+      <li><b>Invisible</b><span>A reliable service desk, so people can focus on their own work.</span></li>
+    </ul>
   </section>
 
   <!-- HOW I CAN HELP -->
@@ -644,16 +852,16 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
         <div class="duo-cta"><a class="btn fill" href="assets/T_Dinesh_CV.pdf" target="_blank" rel="noopener">Download résumé</a><button class="btn" type="button" data-contact="job">Talk about a role</button></div>
       </article>
       <article class="duo-card rv">
-        <p class="mono">For businesses</p>
-        <h3>Get focused help on the IT problems that keep you up at night.</h3>
+        <p class="mono">Freelance · For businesses</p>
+        <h3>Freelance IT and security help, without hiring a full-time team.</h3>
         <ul class="ticks">
-          <li><b>Backups you can trust.</b> Set up, tested with real restores, and documented.</li>
-          <li><b>A plan for the bad day.</b> Disaster recovery with clear RTO and RPO, and a drill to prove it.</li>
-          <li><b>Staff who spot attacks.</b> Phishing simulations and a short, practical training session.</li>
-          <li><b>A second pair of eyes.</b> Security health checks and plain-English incident reports.</li>
+          <li><b>Backups you can trust.</b> Set up for Microsoft 365, Google Workspace, servers and laptops, tested with real restores, and documented so anyone can follow them.</li>
+          <li><b>A plan for the bad day.</b> A disaster recovery plan with clear RTO and RPO targets, and a live drill to prove it works before you need it.</li>
+          <li><b>Staff who spot attacks.</b> Phishing simulations, a click-rate report, and a short, practical training session your team will actually remember.</li>
+          <li><b>A second pair of eyes.</b> Security health checks of firewalls, MFA, endpoints and email, plus plain-English incident reports with a root cause and a fix list.</li>
         </ul>
-        <p class="fit mono">Part-time · Fixed scope or a few hours a week · Remote</p>
-        <div class="duo-cta"><button class="btn fill" type="button" data-contact="pt">Discuss a project</button><a class="btn" href="#parttime">See all services</a></div>
+        <p class="fit mono">Freelance · Fixed-scope projects or a monthly retainer · Remote</p>
+        <div class="duo-cta"><button class="btn fill" type="button" data-contact="pt">Discuss a project</button><a class="btn" href="#freelance">See freelance services</a></div>
       </article>
     </div>
   </section>
@@ -887,28 +1095,64 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     </ul>
   </section>
 
-  <!-- PART-TIME -->
-  <section class="s wrap" id="parttime">
-    <div class="head"><span class="mono">Part-time &amp; freelance</span><h2>Need help on the side? I take on part-time <em>projects.</em></h2><p>Alongside my full-time work, I help small and mid-sized teams with focused, well-documented IT and security projects.</p></div>
+  <!-- FREELANCE -->
+  <section class="s wrap" id="freelance">
+    <div class="head"><span class="mono">Freelance</span><h2>Enterprise-grade IT, sized for your <em>business.</em></h2><p>I bring the same practices I use to protect 800+ people and 1,000+ devices to small and mid-sized teams: practical, documented, and focused on what actually reduces risk.</p></div>
+
     <div class="svc-grid">
-      <article class="svc rv"><span class="mono">01</span><h3>Backup &amp; recovery</h3><p>Set up or review backups for Microsoft 365, Google Workspace, servers and laptops, then prove they work with test restores.</p></article>
-      <article class="svc rv"><span class="mono">02</span><h3>Disaster recovery planning</h3><p>Define RTO and RPO, write a clear DR plan, and run a recovery drill so your team knows exactly what to do.</p></article>
-      <article class="svc rv"><span class="mono">03</span><h3>Phishing simulations &amp; training</h3><p>Run a phishing simulation, report who clicked, and deliver a short, practical awareness session for staff.</p></article>
-      <article class="svc rv"><span class="mono">04</span><h3>Incident review &amp; RCA</h3><p>Investigate a security incident or outage and deliver a plain-English root-cause report with fixes.</p></article>
-      <article class="svc rv"><span class="mono">05</span><h3>Security health check</h3><p>Review firewall rules, MFA, endpoint protection, email security (SPF, DKIM, DMARC) and admin access, with a prioritised fix list.</p></article>
-      <article class="svc rv"><span class="mono">06</span><h3>Identity &amp; Microsoft 365 setup</h3><p>Okta or Microsoft 365 setup, SSO and MFA rollout, and joiner-mover-leaver checklists.</p></article>
+      <article class="svc rv"><span class="mono">01</span><h3>Backup &amp; recovery</h3><p>Backups for Microsoft 365, Google Workspace, servers and laptops, checked with real test restores.</p><p class="get"><b>You get</b> a working backup setup, a restore test report, and a one-page recovery guide.</p></article>
+      <article class="svc rv"><span class="mono">02</span><h3>Disaster recovery planning</h3><p>Agree how long you can be down (RTO) and how much data you can lose (RPO), then plan for it.</p><p class="get"><b>You get</b> a written DR plan, contact and escalation lists, and a recovery drill.</p></article>
+      <article class="svc rv"><span class="mono">03</span><h3>Phishing simulations &amp; training</h3><p>A realistic, safe phishing test, followed by a short training session in plain language.</p><p class="get"><b>You get</b> a click-rate report, a 30–45 minute session, and follow-up for anyone who needs it.</p></article>
+      <article class="svc rv"><span class="mono">04</span><h3>Incident review &amp; RCA</h3><p>Something went wrong? I trace what happened, how it got in, and why it was possible.</p><p class="get"><b>You get</b> a timeline, the root cause, and a prioritised list of fixes.</p></article>
+      <article class="svc rv"><span class="mono">05</span><h3>Security health check</h3><p>A review of firewall rules, MFA, endpoint protection, admin access and email security (SPF, DKIM, DMARC).</p><p class="get"><b>You get</b> a red-amber-green report and the five fixes that matter most.</p></article>
+      <article class="svc rv"><span class="mono">06</span><h3>Identity &amp; Microsoft 365 setup</h3><p>Okta or Microsoft 365 set up properly: single sign-on, MFA for everyone, and clean admin roles.</p><p class="get"><b>You get</b> a secure setup and joiner-mover-leaver checklists for your team.</p></article>
     </div>
+
+    <div class="fl-row">
+      <div class="fl-block rv">
+        <p class="mono">Ways to work together</p>
+        <ul class="models">
+          <li><b>Project</b><span>A fixed scope with a clear finish line, such as a backup setup, a DR plan or a health check.</span></li>
+          <li><b>Monthly retainer</b><span>A few hours every week for ongoing IT and security care, reviews and questions.</span></li>
+          <li><b>Incident help</b><span>Something has gone wrong and you need calm, experienced help to contain it and find the cause.</span></li>
+        </ul>
+      </div>
+      <div class="fl-block rv">
+        <p class="mono">How it works</p>
+        <ol class="steps">
+          <li><b>Free 20-minute call</b><span>You tell me what’s worrying you. No obligation.</span></li>
+          <li><b>Quick assessment</b><span>I look at your setup and agree the scope with you in writing.</span></li>
+          <li><b>Fix and document</b><span>I do the work and write down everything I change.</span></li>
+          <li><b>Handover</b><span>Your team gets clear notes, and I stay reachable for questions.</span></li>
+        </ol>
+      </div>
+    </div>
+
     <div class="pt-bar rv">
-      <div><b>How it works</b><span>Remote, with Indian working hours and overlap available for US teams. Fixed-scope projects or a few hours a week.</span></div>
-      <a class="btn fill" href="#contact" data-contact="pt">Discuss a project</a>
+      <div><b>Good fit for</b><span>Small and mid-sized offices, startups, clinics, schools and remote teams without a full-time security person. Remote, Indian working hours, with overlap for US teams.</span></div>
+      <button class="btn fill" type="button" data-contact="pt">Book a free call</button>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="s wrap contact" id="contact">
-    <div class="head"><span class="mono">Contact</span><h2>Let’s keep your IT reliable and <em>secure.</em></h2><p>Open to full-time IT infrastructure, operations and security leadership roles, and to part-time projects.</p></div>
-    <ul class="roles" aria-label="Roles I’m open to"><li>IT Operations Manager</li><li>IT Infrastructure Lead</li><li>Security Operations (SOC) Lead</li><li>IT Service Delivery Manager</li><li>Backup &amp; DR consultant (part-time)</li></ul>
+    <div class="head"><span class="mono">Contact</span><h2>Let’s keep your IT reliable and <em>secure.</em></h2><p>Open to full-time IT infrastructure, operations and security leadership roles, and to freelance projects.</p></div>
+    <ul class="roles" aria-label="Roles I’m open to"><li>IT Operations Manager</li><li>IT Infrastructure Lead</li><li>Security Operations (SOC) Lead</li><li>IT Service Delivery Manager</li><li>Freelance backup, DR &amp; security</li></ul>
+    <form class="cform" id="cform" novalidate>
+      <h3>Send me a message</h3>
+      <label>Your name<input name="name" autocomplete="name" required></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+      <label>Company <span>(optional)</span><input name="company" autocomplete="organization"></label>
+      <label>Phone / WhatsApp <span>(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="full">I’m reaching out about
+        <select name="reason"><option>A full-time role</option><option>A freelance project</option><option>Something else</option></select></label>
+      <label class="full">Message<textarea name="message" required placeholder="A few lines about the role or project, and your timeline."></textarea></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row"><button class="btn fill" type="submit">Send message</button><p class="note">Your details go only to me, to reply to you.</p></div>
+      <p class="msg" id="cformMsg" role="status" aria-live="polite"></p>
+    </form>
     <a class="mail" href="mailto:dineshtankala85@outlook.com">dineshtankala85@outlook.com</a>
+    <button class="copy" id="copyMail" type="button"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy email</button>
     <div class="cta-row"><a class="btn fill wa-btn" href="#contact" data-contact="job"><span class="wi-s"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.4 1 2.5c.1.2 1.7 2.7 4.2 3.8 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></span>Chat on WhatsApp</a><button class="btn" type="button" data-contact="job">More ways to reach me</button></div>
     <div class="clinks">
       <a href="tel:+918331956172"><span>+91 83319 56172</span><span aria-hidden="true">↗</span></a>
@@ -930,7 +1174,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     <p class="mono sheet-q">What’s it about?</p>
     <div class="purpose" role="radiogroup" aria-label="Reason for contact">
       <button type="button" role="radio" aria-checked="true" data-p="job">Full-time role</button>
-      <button type="button" role="radio" aria-checked="false" data-p="pt">Part-time project</button>
+      <button type="button" role="radio" aria-checked="false" data-p="pt">Freelance project</button>
       <button type="button" role="radio" aria-checked="false" data-p="hi">Something else</button>
     </div>
     <div class="ways">
@@ -954,7 +1198,15 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   <div class="quick" id="quick"></div>
   <form class="chat-in" id="chatForm"><input id="chatInput" placeholder="Ask about experience, skills, contact…" aria-label="Your question" autocomplete="off"><button type="submit" aria-label="Send"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></form>
 </div>
-<footer><div class="wrap"><span>© Dinesh Tankala</span><a href="#top">Back to top</a></div></footer>
+<section class="wrap" aria-label="Live visitor count"><div class="live-stats off" id="liveStats">
+  <div><i></i>LIVE VISITOR COUNT</div>
+  <div><b id="lsTotal">…</b><span>Total visits</span></div>
+  <div><b id="lsUnique">…</b><span>Unique visitors</span></div>
+  <div><b id="lsToday">…</b><span>Visits today</span></div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 Dinesh Tankala · DT OS v9.0.26</span><span class="sysbar" aria-label="Status"><span id="vcFoot" hidden><i></i>VISITS <b id="vcTotal">…</b> · TODAY <b id="vcToday">…</b></span><span><i></i>FIREWALL ACTIVE</span><span><i></i>SECURE CHANNEL</span><span><i></i>NODE ONLINE</span></span><a href="#top">Back to top ↑</a></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<ul class="sidx" id="sidx" aria-label="Section index"></ul>
 
 <script>
 (() => {
@@ -976,13 +1228,13 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const cio = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return; cio.unobserve(e.target); if (reduce) return;
     const el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now();
-    const step = t => { const p = Math.min(1, (t - t0) / 1300); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US') + suf; if (p < 1) requestAnimationFrame(step); };
+    const step = t => { const p = Math.min(1, (t - t0) / 1300); el.textContent = (p < .3 ? Math.floor(Math.random() * end * 1.5 + 1) : Math.round(end * (1 - Math.pow(1 - p, 3)))).toLocaleString('en-US') + suf; if (p < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   }), {threshold:.6});
   $$('[data-count]').forEach(c => cio.observe(c));
 
   /* ---------- Audio intro ----------
-     Music:    assets/intro-music.m4a (Indian-classical-style bed)
+     Voice only: assets/intro-voice.mp3 (Dinesh's own recording), no background music
      Voice:    assets/intro-voice.* or assets/intro-audio.* (your own recording, from record.html)
      Captions: assets/intro.vtt (made by record.html). Without your recording, the browser's
                most natural Indian-English voice reads the script below, in time with the music. */
@@ -991,15 +1243,17 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const ICON_PLAY = '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 1.5v11l9-5.5z"/></svg>';
   const ICON_STOP = '<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="1" y="1" width="10" height="10" rx="1.5"/></svg>';
   const SCRIPT = [
-    [0.6,  'Hey, I’m Dinesh Tankala.'],
-    [3.2,  'For nine years, I’ve kept enterprise IT reliable and secure. Today, I lead global IT operations for teams across the US and India.'],
-    [12.4, 'I look after more than eight hundred people and over a thousand devices: firewalls, endpoints, Okta identity, and a service desk that meets its SLAs.'],
-    [22.4, 'When something breaks, or someone attacks, I find the root cause, fix it, and train people so it doesn’t happen again.'],
-    [30.6, 'Whether you’re hiring full-time, or need help with a project, let’s talk.']
+    [1.7,  'Hello, I’m Dinesh Tankala, an IT Infrastructure and Global Operations professional with over nine years of enterprise IT experience.'],
+    [10.1, 'I currently lead global IT operations supporting more than 800 employees across the United States and India.'],
+    [16.8, 'My expertise includes network infrastructure, cybersecurity, Okta identity management, endpoint security, and IT service delivery.'],
+    [25.5, 'Throughout my career, I’ve led improvements such as achieving 100% MFA coverage, managing more than 1,000 endpoints, and reducing security incidents by 30%.'],
+    [36.5, 'I also lead a ten-member technical support team, with a strong focus on service reliability, security, and employee experience.'],
+    [44.6, 'I believe great IT operations should be secure, proactive, and almost invisible to the people who depend on them.'],
+    [51.8, 'Thank you for visiting my portfolio.']
   ]
-  const SPOKEN = s => s.replace(/\bIT\b/g, 'I.T.').replace(/\bSLAs\b/g, 'S.L.A.s').replace(/\bUS\b/g, 'U.S.').replace(/\bOkta\b/g, 'Octa');
   for (let i = 0; i < 24; i++) wave.appendChild(document.createElement('i'));
   const bars = [...wave.children];
+  const SPOKEN = s => s.replace(/\bIT\b/g, 'I.T.').replace(/\bSLAs\b/g, 'S.L.A.s').replace(/\bUS\b/g, 'U.S.').replace(/\bOkta\b/g, 'Octa');
 
   let cues = null;
   const toSec = s => { const p = s.trim().split(':').map(parseFloat); return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1]; };
@@ -1043,7 +1297,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   // silent caption loop while nothing plays
   let typeTimer = null, silentIdx = 0, silentOn = true;
   function typeLine(text, speed, done) {
-    clearTimeout(typeTimer); let i = 0; subs.textContent = '';
+    clearTimeout(typeTimer); let i = 0; subs.textContent = ''; subs.classList.toggle('long', text.length > 100);
     if (reduce) { subs.textContent = text; if (done) typeTimer = setTimeout(done, 2600); return; }
     const step = () => { subs.textContent = text.slice(0, ++i); if (i < text.length) typeTimer = setTimeout(step, speed); else if (done) typeTimer = setTimeout(done, 1700); };
     step();
@@ -1061,9 +1315,9 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const music = new Audio(); music.preload = 'auto';
   const voice = new Audio(); voice.preload = 'auto';
   let hasMusic = false, hasVoice = false;
-  tryLoad(music, ['assets/intro-music.m4a', 'assets/intro-music.mp3'], () => { hasMusic = true; if (isFinite(music.duration)) aTime.textContent = '0:' + String(Math.round(music.duration)).padStart(2, '0'); }, () => {});
-  tryLoad(voice, ['assets/intro-voice.m4a', 'assets/intro-voice.mp3', 'assets/intro-voice.webm', 'assets/intro-audio.m4a', 'assets/intro-audio.mp3', 'assets/intro-audio.webm'],
-    () => { hasVoice = true; liveLabel.textContent = 'Voice intro'; }, () => {});
+  // intro plays Dinesh's own recording only (no background music)
+  tryLoad(voice, ['assets/intro-voice.mp3', 'assets/intro-voice.m4a', 'assets/intro-voice.webm', 'assets/intro-audio.m4a', 'assets/intro-audio.mp3', 'assets/intro-audio.webm'],
+    () => { hasVoice = true; liveLabel.textContent = 'In my own voice'; if (isFinite(voice.duration)) aTime.textContent = '0:' + String(Math.round(voice.duration)).padStart(2, '0'); if (!playing) playTxt.textContent = 'Hear my intro'; const qb = document.getElementById('quotePlay'); if (qb) qb.hidden = false; }, () => {});
 
   // browser voice (fallback): prefer natural Indian-English voices
   const hasTTS = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
@@ -1092,10 +1346,11 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   }
   function step() {
     if (!playing) return;
+    if (!tapSound.hidden) hideTap();
     const t = now();
     if (hasVoice) {
       const c = cues ? cues.find(c => voice.currentTime >= c.start && voice.currentTime < c.end) : null;
-      subs.textContent = c ? c.text : (cues ? '' : SCRIPT[Math.min(SCRIPT.length - 1, Math.floor(voice.currentTime / (voice.duration || 30) * SCRIPT.length))][1]);
+      subs.classList.toggle('long', !!(c && c.text.length > 100)); subs.textContent = c ? c.text : (cues ? '' : SCRIPT[Math.min(SCRIPT.length - 1, Math.floor(voice.currentTime / (voice.duration || 30) * SCRIPT.length))][1]);
     } else {
       while (sIdx < SCRIPT.length && t >= SCRIPT[sIdx][0]) { const line = SCRIPT[sIdx++][1]; if (hasTTS && speechSynthesis.getVoices().length) say(line); else typeLine(line, 30); }
     }
@@ -1104,7 +1359,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     if (done) return stop();
     raf = requestAnimationFrame(step);
   }
-  function setBtn(on) { playIc.innerHTML = on ? ICON_STOP : ICON_PLAY; playTxt.textContent = on ? 'Stop' : 'Play my intro'; liveLabel.textContent = on ? 'Playing' : (hasVoice ? 'Voice intro' : 'Audio intro'); }
+  function setBtn(on) { playIc.innerHTML = on ? ICON_STOP : ICON_PLAY; playTxt.textContent = on ? 'Stop' : (hasVoice ? 'Hear my intro' : 'Play my intro'); liveLabel.textContent = on ? 'Playing' : (hasVoice ? 'In my own voice' : 'Audio intro'); }
   function start() {
     stopSilent(); playing = true; sIdx = 0; clockT0 = performance.now(); setBtn(true); subs.textContent = '';
     if (hasTTS) speechSynthesis.cancel();
@@ -1194,9 +1449,14 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
       c.classList.toggle('lead', v < 100 && (k === 0 || (k === 1 && v < 10)));
     });
   }
-  const STAGES = [[0,'Booting the stack'],[18,'Bringing up firewalls'],[36,'Starting Okta SSO'],[54,'Scanning 1,000+ endpoints'],[72,'Racking 49 tools'],[90,'Tuning the tanpura'],[100,'All systems operational']];
-  const LOGS = [[8,'firewall policy','ok'],[24,'ipsec tunnels','up'],[40,'okta sso + mfa','ok'],[56,'endpoints','1,000+ secured'],[74,'service desk','sla green'],[92,'intro audio','ready']];
+  const STAGES = [[0,'Initializing profile…'],[20,'Loading experience data…'],[42,'Syncing incident archive…'],[64,'Connecting secure node…'],[86,'Loading voice intro…'],[100,'Access granted']];
+  const LOGS = [[6,'profile: dinesh.tankala','ok'],[22,'experience: 9 yrs, 6 roles','ok'],[40,'firewall · ipsec · 4 sites','up'],[56,'okta sso + mfa · 800+ users','ok'],[72,'endpoints · 1,000+ secured','ok'],[90,'voice intro · 0:52','ready']];
   let logged = 0, stageI = -1;
+  // a click (or key) on the loading screen enters straight away WITH sound; scrolling skips quietly
+  loader.addEventListener('click', () => enter(true));
+  addEventListener('keydown', e => { if (document.getElementById('loader') && !loader.classList.contains('out') && !['Tab','Shift'].includes(e.key)) enter(true); });
+  loader.addEventListener('wheel', () => enter(false), {passive:true});
+  loader.addEventListener('touchmove', () => enter(false), {passive:true});
   function enter(withSound) {
     if (loader.classList.contains('out')) return;
     if (withSound) start(); else armTap();
@@ -1230,7 +1490,9 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
       if (shown >= 100 && !done) {
         done = true; loader.classList.add('ld-done');
         canAutoplay().then(ok => {
-          setTimeout(() => enter(ok), ok ? 450 : 650);   // sound if the browser allows it; otherwise open quietly and offer "tap anywhere"
+          if (ok) { setTimeout(() => enter(true), 500); return; }          // browser allows sound: voice starts as the page opens
+          loader.classList.add('ld-ask');                                      // otherwise invite one click, which unlocks sound
+          setTimeout(() => enter(false), 4500);
         });
         return;
       }
@@ -1274,10 +1536,10 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const WA_NUMBER = '918331956172';
   const MSG = {
     job: 'Hi Dinesh, I found your portfolio and would like to talk about a full-time IT role.',
-    pt:  'Hi Dinesh, I found your portfolio and need help with a part-time IT project (backup and recovery, security or similar).',
+    pt:  'Hi Dinesh, I found your portfolio and would like your freelance help with an IT project (backup and recovery, security or similar).',
     hi:  'Hi Dinesh, I found your portfolio and wanted to get in touch.'
   };
-  const SUBJ = {job:'Full-time role: portfolio enquiry', pt:'Part-time IT project enquiry', hi:'Hello from your portfolio'};
+  const SUBJ = {job:'Full-time role: portfolio enquiry', pt:'Freelance IT project enquiry', hi:'Hello from your portfolio'};
   function waLink(k) { return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(MSG[k] || MSG.hi)}`; }
   const sheet = $('#sheet'), wayWa = $('#wayWa'), wayMail = $('#wayMail');
   let lastFocus = null;
@@ -1307,6 +1569,136 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     if (el.classList.contains('wa-btn')) { window.open(waLink(el.dataset.contact), '_blank', 'noopener'); return; }
     openSheet(el.dataset.contact);
   }));
+
+
+  /* ---------- "Hear me say it": plays just the belief line from the voice intro ---------- */
+  (() => {
+    const qb = document.getElementById('quotePlay'); if (!qb) return;
+    const A = 43.4, B = 50.55; let on = false;
+    const end = () => { on = false; voice.pause(); qb.classList.remove('on'); qb.querySelector('span').textContent = 'Hear me say it'; };
+    qb.addEventListener('click', () => {
+      userChose = true; hideTap();
+      if (on) return end();
+      if (playing) stop();
+      on = true; qb.classList.add('on'); qb.querySelector('span').textContent = 'Stop';
+      voice.currentTime = A; voice.volume = 1; voice.play().catch(end);
+    });
+    voice.addEventListener('timeupdate', () => { if (on && voice.currentTime >= B) end(); });
+  })();
+
+
+  /* ---------- Adopted: section codes [ NAME / 00N ], ghost titles, side index ---------- */
+  const heads = [...document.querySelectorAll('main section .head')];
+  const sidx = $('#sidx');
+  heads.forEach((h, k) => {
+    const lab = h.querySelector(':scope > .mono'); if (!lab) return;
+    const raw = lab.textContent.trim(), code = String(k + 1).padStart(3, '0');
+    const GH = {short:'PROFILE', belief:'BELIEF', help:'HIRE', about:'ABOUT', security:'SECURITY', work:'CASES', skills:'STACK', experience:'CAREER', certifications:'CERTIFIED', freelance:'FREELANCE', contact:'CONTACT'};
+    const sid = (h.closest('section') || {}).id;
+    h.dataset.ghost = GH[sid] || raw.split(/[\s&]+/)[0].toUpperCase();
+    lab.textContent = `[ ${raw.toUpperCase().replace(/[^A-Z0-9]+/g, '_').replace(/^_|_$/g, '')} / ${code} ]`;
+    lab.classList.add('code');
+    const sec = h.closest('section');
+    if (sec && sec.id) {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#${sec.id}"><span class="nm">${raw}</span>${code}</a>`;
+      sidx.appendChild(li);
+    }
+  });
+  const sidxLinks = [...sidx.querySelectorAll('a')];
+  const sio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) sidxLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  }), {rootMargin:'-45% 0px -50% 0px'});
+  heads.forEach(h => { const sec = h.closest('section'); if (sec && sec.id) sio.observe(sec); });
+  // copy email
+  const toast = $('#toast');
+  $('#copyMail').addEventListener('click', async () => {
+    const email = 'dineshtankala85@outlook.com';
+    try { await navigator.clipboard.writeText(email); } catch (e) {
+      const t = document.createElement('input'); t.value = email; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (_) {} t.remove();
+    }
+    toast.textContent = 'Copied: ' + email; toast.classList.add('on'); setTimeout(() => toast.classList.remove('on'), 2200);
+  });
+
+
+  /* ---------- Visitor counter (anonymous) ----------
+     Counts visits with the free Abacus counting API (no cookies, no personal data).
+       total visits  : once per browser session
+       unique visitors: once per browser
+       today          : once per session, per calendar day (IST)
+     Optional: set VISIT_LOG_URL to a Power Automate or Google Apps Script URL to also
+     add one anonymous row per visit to your Excel / Google Sheet (see VISITOR-TRACKING.md). */
+  const COUNTER_NS = 'dinesh371-portfolio';
+  const LOG_URL = '';   // paste your Power Automate / Apps Script URL here: visits AND contact-form messages go to your Excel / Sheet
+  const VISIT_LOG_URL = LOG_URL;
+  (async function visitors() {
+    const API = 'https://abacus.jasoncameron.dev';
+    const day = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Kolkata'}).format(new Date());   // YYYY-MM-DD
+    let ss = {}, ls = {};
+    try { ss = sessionStorage; ls = localStorage; } catch (e) {}
+    const once = (store, k) => { try { if (store.getItem(k)) return false; store.setItem(k, '1'); return true; } catch (e) { return true; } };
+    const newSession = once(ss, 'dt-visit-' + day), newVisitor = once(ls, 'dt-visitor');
+    const call = (op, key) => fetch(`${API}/${op}/${COUNTER_NS}/${key}`, {cache:'no-store'}).then(r => r.ok ? r.json() : Promise.reject()).then(j => j.value).catch(() => null);
+    const [total, unique, today] = await Promise.all([
+      call(newSession ? 'hit' : 'get', 'visits'),
+      call(newVisitor ? 'hit' : 'get', 'visitors'),
+      call(newSession ? 'hit' : 'get', 'day-' + day)
+    ]);
+    const fmt = n => Number(n).toLocaleString('en-IN');
+    const roll = (el, end) => {
+      if (reduce) { el.textContent = fmt(end); return; }
+      const t0 = performance.now();
+      (function f(t) { const p = Math.min(1, (t - t0) / 1400); el.textContent = fmt(Math.round(end * (1 - Math.pow(1 - p, 3)))); if (p < 1) requestAnimationFrame(f); })(t0);
+    };
+    const lsBox = $('#liveStats');
+    if (total != null) {
+      lsBox.classList.remove('off'); roll($('#lsTotal'), total); roll($('#lsUnique'), unique ?? total); $('#lsToday').textContent = today != null ? fmt(today) : '–';
+    } else { ['#lsTotal','#lsUnique','#lsToday'].forEach(id => $(id).textContent = '–'); lsBox.querySelector('div').lastChild.textContent = 'VISITOR COUNT · OFFLINE'; }
+    if (total != null) {
+      $('#vcHero').hidden = false; roll($('#vcCount'), total);
+      $('#vcFoot').hidden = false; roll($('#vcTotal'), total); $('#vcToday').textContent = today != null ? fmt(today) : '–';
+      window.__visitStats = {total, unique, today};
+    }
+    // optional: one anonymous row per new session into your spreadsheet
+    if (VISIT_LOG_URL && newSession && navigator.doNotTrack !== '1') {
+      const row = {
+        time: new Date().toISOString(), date: day, page: location.pathname + location.hash,
+        referrer: document.referrer ? new URL(document.referrer).hostname : 'direct',
+        device: matchMedia('(max-width:760px)').matches ? 'mobile' : 'desktop',
+        language: navigator.language, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        type: 'visit', newVisitor, totalVisits: total
+      };
+      fetch(VISIT_LOG_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(row)}).catch(() => {});
+    }
+  })();
+
+  const hdrEl = document.querySelector('header');
+  const glassUp = () => hdrEl.classList.toggle('glass', scrollY > 60); addEventListener('scroll', glassUp, {passive:true}); glassUp();
+
+  /* ---------- Contact form: saves to your Excel / Sheet when LOG_URL is set ---------- */
+  const cform = $('#cform'), cmsg = $('#cformMsg');
+  cform.addEventListener('submit', async e => {
+    e.preventDefault();
+    const f = cform.elements;
+    if (f.website.value) return;   // spam trap
+    const data = {type:'contact', time:new Date().toISOString(), name:f.name.value.trim(), email:f.email.value.trim(),
+      company:f.company.value.trim(), phone:f.phone.value.trim(), reason:f.reason.value, message:f.message.value.trim(), page:location.pathname};
+    if (!data.name || !data.email || !data.message || !f.email.checkValidity()) {
+      cmsg.className = 'msg err'; cmsg.textContent = 'Please add your name, a valid email address and a message.'; return;
+    }
+    const btn = cform.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Sending…';
+    const subj = encodeURIComponent(`${data.reason}: message from ${data.name}`);
+    const body = encodeURIComponent(`${data.message}\n\n${data.name}\n${data.email}${data.phone ? '\n' + data.phone : ''}${data.company ? '\n' + data.company : ''}`);
+    if (LOG_URL) {
+      try { await fetch(LOG_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(data)}); } catch (err) {}
+      cmsg.className = 'msg ok'; cmsg.innerHTML = 'Thanks, ' + data.name.replace(/[<>&]/g, '') + '. Your message is saved and I’ll reply within a day. Want a faster answer? <a href="https://wa.me/918331956172" target="_blank" rel="noopener">Message me on WhatsApp</a>.';
+      cform.reset();
+    } else {
+      location.href = `mailto:dineshtankala85@outlook.com?subject=${subj}&body=${body}`;
+      cmsg.className = 'msg ok'; cmsg.textContent = 'Your email app should open with the message ready to send.';
+    }
+    btn.disabled = false; btn.textContent = 'Send message';
+  });
 
   /* ---------- Flip card ---------- */
   const card = $('#card');
@@ -1417,16 +1809,18 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
   const chat = $('#chat'), askBtn = $('#askBtn'), msgs = $('#msgs'), quick = $('#quick'), input = $('#chatInput');
   const go = id => { openChat(false); document.getElementById(id).scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); };
   const KB = [
+    {k:['visitor','visits','how many people','traffic','views'], q:'Visitors',
+     a:'This portfolio counts visits anonymously, with no cookies or personal data. The live total is shown in the profile strip at the top and in the footer.'},
     {k:['soc','security operation','monitor','alert','threat','siem','edr','cyber','attack','hack','breach','ransomware'], q:'Security operations',
      a:'Dinesh runs security operations day to day: he monitors and triages alerts from CrowdStrike Falcon, firewalls and PRTG, leads incident response, and writes root-cause analyses for cyber incidents. His process is detect, contain, investigate, recover and prevent.', acts:[['See security work','security']]},
     {k:['phish','simulat','awareness','train','knowbe4','employee','staff','educat users'], q:'Employee security training',
      a:'He runs phishing simulations and security awareness training (KnowBe4) so employees can recognise and report attacks, and follows up with people who need extra help.', acts:[['See security work','security']]},
     {k:['rca','root cause','investigat','incident','forensic','post-mortem','postmortem'], q:'Incident RCA',
-     a:'After an outage or cyber incident he contains the damage, traces how it happened, documents the root cause, and fixes the gap so it can’t happen the same way again. He also offers incident reviews as a part-time service.', acts:[['How I handle incidents','security']]},
-    {k:['part time','part-time','parttime','freelanc','contract','consult','side project','hire for project','backup','recovery','restore','disaster'], q:'Part-time work',
-     a:'Yes, he takes on part-time projects: backup and recovery, disaster recovery planning, phishing simulations and training, incident review and RCA, security health checks, and Okta or Microsoft 365 setup. Work is remote, in Indian working hours with overlap available for US teams.', acts:[['Part-time services','parttime'],['WhatsApp about a project','#wapt'],['Email about a project','#mailpt']]},
+     a:'After an outage or cyber incident he contains the damage, traces how it happened, documents the root cause, and fixes the gap so it can’t happen the same way again. He also offers incident reviews as a freelance service.', acts:[['How I handle incidents','security']]},
+    {k:['part time','part-time','parttime','freelanc','contract','consult','side project','hire for project','backup','recovery','restore','disaster'], q:'Freelance work',
+     a:'Yes, he works freelance on: backup and recovery, disaster recovery planning, phishing simulations and training, incident review and RCA, security health checks, and Okta or Microsoft 365 setup. Work is remote, in Indian working hours with overlap available for US teams.', acts:[['Freelance services','freelance'],['WhatsApp about a project','#wapt'],['Email about a project','#mailpt']]},
     {k:['open to','looking for','job','role','full time','full-time','hiring','vacanc'], q:'Roles he’s open to',
-     a:'He’s open to full-time roles such as IT Operations Manager, IT Infrastructure Lead, Security Operations (SOC) Lead and IT Service Delivery Manager, plus part-time backup and DR projects.', acts:[['Contact','contact'],['Open résumé (PDF)','#cv']]},
+     a:'He’s open to full-time roles such as IT Operations Manager, IT Infrastructure Lead, Security Operations (SOC) Lead and IT Service Delivery Manager, plus freelance backup, DR and security projects.', acts:[['Contact','contact'],['Open résumé (PDF)','#cv']]},
     {k:['hi','hello','hey','who are you','who is','about him','about dinesh','introduce','summary','tell me about'], q:'Who is Dinesh?',
      a:'Dinesh Tankala is an IT Infrastructure & Operations lead with 9 years of experience. He’s currently <b>Team Lead, Global IT Operations</b> at Pro-Vigil Surveillance Services, running IT for 800+ users across the US and India.', acts:[['About','about'],['Experience','experience']]},
     {k:['role','current','job','now','pro-vigil','provigil','position','doing','responsib'], q:'Current role',
@@ -1453,7 +1847,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
     {k:['video','intro','play','sound','watch','voice','audio'], q:'How do I watch the intro?', a:'Scroll to the top and press <b>Play with sound</b>, or click the film to watch it full screen. Press Esc to close.', acts:[['Go to intro','top']]},
     {k:['help','how','use','navigate','site','page','what can you'], q:'What can you help with?', a:'I can answer questions about Dinesh’s role, achievements, skills, projects, certifications, experience and how to contact him, and take you to the right section.'}
   ];
-  const QUICK = ['Who is Dinesh?','Security operations','Part-time work','Roles he’s open to','Download résumé','Contact'];
+  const QUICK = ['Who is Dinesh?','Security operations','Freelance work','Roles he’s open to','Download résumé','Contact'];
   function add(html, who) { const d = document.createElement('div'); d.className = 'msg ' + who; d.innerHTML = html; msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight; return d; }
   function answer(text) {
     const s = text.toLowerCase(); let best = null, score = 0;
@@ -1476,7 +1870,7 @@ body.ready .frame .scan{animation:scan 2.2s cubic-bezier(.6,0,.2,1) .9s 1 forwar
           if (target === '#cv') { el = document.createElement('a'); el.href = 'assets/T_Dinesh_CV.pdf'; el.target = '_blank'; el.rel = 'noopener'; }
           else if (target === '#wa' || target === '#wapt') { el = document.createElement('a'); el.href = waLink(target === '#wapt' ? 'pt' : 'job'); el.target = '_blank'; el.rel = 'noopener'; }
           else if (target === '#sheet') { el = document.createElement('button'); el.type = 'button'; el.addEventListener('click', () => { openChat(false); openSheet('job'); }); }
-          else if (target === '#mailpt') { el = document.createElement('a'); el.href = 'mailto:dineshtankala85@outlook.com?subject=Part-time%20IT%20project%20enquiry'; }
+          else if (target === '#mailpt') { el = document.createElement('a'); el.href = 'mailto:dineshtankala85@outlook.com?subject=Freelance%20IT%20project%20enquiry'; }
           else { el = document.createElement('button'); el.type = 'button'; el.addEventListener('click', () => target === '#vcf' ? $('#vcard').click() : go(target)); }
           el.textContent = label; box.appendChild(el);
         });
