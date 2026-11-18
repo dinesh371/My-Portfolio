@@ -779,6 +779,9 @@ button.mf-send:disabled{opacity:.6;cursor:wait}
 .mf-tick{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--acc);color:#fff;font-size:1.6rem;box-shadow:0 0 0 8px rgba(242,100,25,.15)}
 @media (max-width:800px){.mcard-r{display:grid!important}}
 .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.mcard-alt{margin:1.1rem 0 0;font:500 .78rem var(--mono);color:var(--g5)}
+.mcard-alt a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+.mcard-alt a:hover{color:var(--acc2)}
 /* email line: never break mid-word */
 .mail{white-space:nowrap;word-break:normal!important;overflow-wrap:normal!important;font-size:min(5.2vw,4.6rem)!important}
 [hidden]{display:none!important}
@@ -1422,7 +1425,7 @@ button.mf-send:disabled{opacity:.6;cursor:wait}
     () => { hasVoice = true; liveLabel.textContent = 'In my own voice'; if (isFinite(voice.duration)) aTime.textContent = '0:' + String(Math.round(voice.duration)).padStart(2, '0'); if (!playing) playTxt.textContent = 'Hear my intro'; const qb = document.getElementById('quotePlay'); if (qb) qb.hidden = false; }, () => {});
 
   // browser voice (fallback): prefer natural Indian-English voices
-  const hasTTS = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const hasTTS = false;   // never use a computer voice: only Dinesh's own recording (assets/intro-voice.mp3) plays
   // prefer a natural-sounding MALE voice, Indian English first; never a known female voice
   const pickVoice = () => {
     const v = speechSynthesis.getVoices().filter(x => /^en/i.test(x.lang));
