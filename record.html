@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Voice studio | Dinesh Tankala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--k:#000;--w:#fff;--g1:#0d0d0d;--g2:#161616;--g3:#262626;--g4:#5c5c5c;--g5:#9a9a9a;--g6:#d4d4d4;
+  --sans:"Geist","Helvetica Neue",Arial,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--k);color:var(--w);font:400 1rem/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+button,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:1.5px solid var(--w);outline-offset:3px}
+.wrap{width:min(1200px,100% - 2rem);margin:0 auto;padding:2rem 0 4rem}
+.mono{font:500 .8rem var(--mono);color:var(--g5)}
+h1{font:800 clamp(2rem,5vw,3.4rem)/1 var(--sans);letter-spacing:-.045em;margin:.4rem 0 .6rem}
+.lead{color:var(--g5);max-width:62ch;margin:0 0 2rem}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:1.6rem;align-items:start}
+.screen{position:relative;aspect-ratio:4/5;margin:0 auto;width:min(100%,calc(76vh * .8));border-radius:24px;overflow:hidden;background:var(--g1);box-shadow:0 0 0 1px var(--g3)}
+.screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#live{transform:scaleX(-1)}
+.screen.bw video{filter:grayscale(1) contrast(1.1)}
+.guide{position:absolute;inset:12% 22% 30%;border:1px dashed rgba(255,255,255,.35);border-radius:50% 50% 45% 45%;pointer-events:none}
+.prompt{position:absolute;left:0;right:0;top:0;padding:1.2rem 1.4rem 2.4rem;background:linear-gradient(rgba(0,0,0,.85),transparent);pointer-events:none}
+.prompt .now{font:600 clamp(1.15rem,2.2vw,1.6rem)/1.3 var(--sans);letter-spacing:-.01em}
+.prompt .next{color:var(--g5);margin-top:.4rem;font-size:.95rem}
+.hud{position:absolute;left:1rem;right:1rem;bottom:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.rec{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .7rem;border-radius:999px;background:rgba(0,0,0,.6);font:500 .8rem var(--mono)}
+.rec i{width:8px;height:8px;border-radius:50%;background:var(--g5)}
+.rec.on i{background:#ff3b30;animation:p 1s infinite}
+@keyframes p{50%{opacity:.25}}
+.meter{flex:1;max-width:200px;height:6px;border-radius:6px;background:rgba(255,255,255,.15);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--w);transition:width .08s}
+.count{position:absolute;inset:0;display:none;place-items:center;font:800 9rem/1 var(--sans);letter-spacing:-.06em;background:rgba(0,0,0,.45)}
+.count.on{display:grid}
+.empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:2rem;color:var(--g5)}
+.panel{border:1px solid var(--g3);border-radius:22px;padding:1.3rem}
+.panel+.panel{margin-top:1rem}
+.panel h2{font-size:1rem;margin:0 0 .8rem;font-weight:600}
+.seg{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--g3);border-radius:999px;padding:3px;margin-bottom:1rem}
+.seg button{border:0;background:none;border-radius:999px;padding:.55rem;cursor:pointer;color:var(--g5)}
+.seg button[aria-pressed="true"]{background:var(--w);color:var(--k)}
+label{display:block;font-size:.85rem;color:var(--g5);margin:.6rem 0 .3rem}
+select,textarea{width:100%;background:var(--g1);border:1px solid var(--g3);border-radius:12px;padding:.6rem .75rem}
+textarea{min-height:170px;resize:vertical;line-height:1.5}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.2rem;border-radius:999px;border:1px solid var(--g3);background:none;cursor:pointer;font-weight:500;text-decoration:none;color:var(--w)}
+.btn:hover{border-color:var(--w)}
+.btn.fill{background:var(--w);color:var(--k);border-color:var(--w)}
+.btn.red{background:#ff3b30;border-color:#ff3b30;color:#fff}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.check{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-size:.9rem;color:var(--g6)}
+.tips{margin:0;padding-left:1.1rem;color:var(--g5);font-size:.9rem}
+.tips li{margin:.3rem 0}
+.out{display:none}
+.out.on{display:block}
+.files{list-style:none;margin:.6rem 0 0;padding:0}
+.files li{display:flex;justify-content:space-between;gap:.6rem;align-items:center;padding:.6rem 0;border-top:1px solid var(--g3)}
+.files code{font:500 .85rem var(--mono)}
+.msg{color:var(--g6);font-size:.9rem;margin:.6rem 0 0}
+.err{color:#ff8a80}
+kbd{font:500 .75rem var(--mono);border:1px solid var(--g4);border-radius:5px;padding:.05rem .35rem}
+@media (max-width:920px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="mono">Private tool. Not linked from the portfolio.</span>
+  <h1>Voice studio</h1>
+  <p class="lead">Record your own voice for the portfolio&#x2019;s audio intro. The site plays it over the Indian-style music automatically, and it will sound far more natural than any computer voice. Read each line from the prompter, press <kbd>Space</kbd> as you start the next line to time the captions, then download both files and upload them to your <code>assets/</code> folder.</p>
+
+  <div class="grid">
+    <div>
+      <div class="screen bw" id="screen">
+        <video id="live" playsinline muted></video>
+        <video id="review" playsinline controls style="display:none"></video>
+        
+        <div class="guide" id="guide" hidden></div>
+        <div class="prompt" id="prompt"><div class="now" id="pNow">Press &#x201c;Start camera&#x201d; to begin.</div><div class="next" id="pNext"></div></div>
+        <div class="hud"><span class="rec" id="rec"><i></i><span id="timer">00:00</span></span><span class="meter" aria-label="Microphone level"><i id="lvl"></i></span></div>
+        <div class="count" id="count">3</div>
+        <div class="empty" id="empty">Microphone is off.<br>Your browser will ask for permission.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h2>1. Set up</h2>
+                        <label for="micSel">Microphone</label><select id="micSel"></select>
+        <div class="row"><button class="btn fill" id="startCam" type="button">Start microphone</button></div>
+        
+      </div>
+
+      <div class="panel">
+        <h2>2. Script</h2>
+        <label for="script" style="margin-top:0">One caption per line. Edit freely.</label>
+        <textarea id="script">Hello, I&#x2019;m Dinesh Tankala, an IT Infrastructure and Global Operations professional with over nine years of enterprise IT experience.
+I currently lead global IT operations supporting more than 800 employees across the United States and India.
+My expertise includes network infrastructure, cybersecurity, Okta identity management, endpoint security, and IT service delivery.
+Throughout my career, I&#x2019;ve led improvements such as achieving 100% MFA coverage, managing more than 1,000 endpoints, and reducing security incidents by 30%.
+I also lead a ten-member technical support team, with a strong focus on service reliability, security, and employee experience.
+I believe great IT operations should be secure, proactive, and almost invisible to the people who depend on them.
+Thank you for visiting my portfolio.</textarea>
+      </div>
+
+      <div class="panel">
+        <h2>3. Record</h2>
+        <div class="row" style="margin-top:0">
+          <button class="btn red" id="recBtn" type="button" disabled>Record</button>
+          <button class="btn" id="nextBtn" type="button" disabled>Next line <kbd>Space</kbd></button>
+          <button class="btn" id="stopBtn" type="button" disabled>Stop</button>
+        </div>
+        <p class="msg" id="msg">Aim for 20&#x2013;40 seconds.</p>
+      </div>
+
+      <div class="panel out" id="out">
+        <h2>4. Download and upload</h2>
+        <ul class="files" id="files"></ul>
+        <div class="row"><button class="btn" id="retake" type="button">Record again</button></div>
+        <p class="msg">Upload these files to the <code>assets/</code> folder of your GitHub repo. The portfolio finds them automatically.</p>
+      </div>
+
+      <div class="panel">
+        <h2>Tips</h2>
+        <ul class="tips">
+          <li>Keep the phone or laptop mic about a hand&#x2019;s width from your mouth.</li>
+          <li>Quiet room. Speak a little slower than normal.</li>
+          <li>Microphone access needs https, so open this page on your GitHub Pages site, not as a local file.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const live = $('#live'), review = $('#review'), screen = $('#screen'), empty = $('#empty'), guide = $('#guide');
+  const pNow = $('#pNow'), pNext = $('#pNext'), rec = $('#rec'), timer = $('#timer'), lvl = $('#lvl'), count = $('#count'), msg = $('#msg');
+  const recBtn = $('#recBtn'), nextBtn = $('#nextBtn'), stopBtn = $('#stopBtn'), startCam = $('#startCam');
+  const camSel = $('#camSel') || document.createElement('select'), micSel = $('#micSel'), out = $('#out'), files = $('#files');
+  let mode = 'audio', stream = null, recorder = null, chunks = [], t0 = 0, tick = null, lines = [], li = 0, cues = [], actx = null, analyser = null, data = null, urls = [];
+
+  const film = document.createElement('video');
+  const NARR = [[0.9,'Hi, I\u2019m Dinesh Tankala.'],[4.4,'Team Lead, Global IT Operations, across the US and India.'],[8.7,'Nine years in IT. Eight hundred plus users. Over a thousand endpoints secured.'],[13.1,'Networks. Endpoints. Identity. And the service desk.'],[17.7,'Reliable. Secure. IT that just works.'],[21.6,'Let\u2019s talk.']];
+  const setMode = m => {
+    mode = m; $('#mVideo').setAttribute('aria-pressed', m === 'video'); $('#mAudio').setAttribute('aria-pressed', m === 'audio'); $('#mFilm').setAttribute('aria-pressed', m === 'film');
+    camSel.disabled = m !== 'video'; guide.style.display = m === 'video' ? '' : 'none';
+    film.style.display = m === 'film' ? '' : 'none';
+    if (m === 'film') { $('#script').value = NARR.map(x => x[1]).join('\n'); $('#script').disabled = true; } else $('#script').disabled = false;
+    if (stream) startStream();
+  };
+  
+  
+
+  const say = (t, bad) => { msg.textContent = t; msg.classList.toggle('err', !!bad); };
+
+  async function listDevices() {
+    const ds = await navigator.mediaDevices.enumerateDevices();
+    const fill = (sel, kind) => { const cur = sel.value; sel.innerHTML = ''; ds.filter(d => d.kind === kind).forEach((d, i) => { const o = new Option(d.label || `${kind === 'videoinput' ? 'Camera' : 'Microphone'} ${i + 1}`, d.deviceId); sel.add(o); }); if (cur) sel.value = cur; };
+    fill(camSel, 'videoinput'); fill(micSel, 'audioinput');
+  }
+  async function startStream() {
+    if (!navigator.mediaDevices?.getUserMedia) { say('This browser can\u2019t record. Try Chrome, Edge or Safari over https.', true); return; }
+    stream?.getTracks().forEach(t => t.stop());
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        audio: {deviceId: micSel.value ? {exact: micSel.value} : undefined, echoCancellation: true, noiseSuppression: true},
+        video: mode === 'video' ? {deviceId: camSel.value ? {exact: camSel.value} : undefined, width: {ideal: 1280}, height: {ideal: 720}, facingMode: 'user'} : false
+      });
+    } catch (e) { say('Camera or microphone permission was blocked. Allow it in the browser\u2019s address bar, then press Start camera again.', true); return; }
+    live.srcObject = stream; live.style.display = mode === 'video' ? '' : 'none'; review.style.display = 'none'; film.style.display = mode === 'film' ? '' : 'none';
+    try { await live.play(); } catch (e) {}
+    empty.style.display = mode === 'audio' ? 'grid' : 'none';
+    if (mode === 'audio') empty.textContent = 'Voice only. Your photo will show on the site.';
+    await listDevices();
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    const src = actx.createMediaStreamSource(stream); analyser = actx.createAnalyser(); analyser.fftSize = 512; src.connect(analyser); data = new Uint8Array(analyser.fftSize);
+    recBtn.disabled = false; startCam.textContent = 'Restart camera';
+    loadLines(); showLine(-1);
+    say('Ready. Check the level meter moves when you speak.');
+  }
+  startCam.onclick = startStream; micSel.onchange = () => stream && startStream();
+
+  (function meter() {
+    if (analyser) { analyser.getByteTimeDomainData(data); let m = 0; for (const v of data) m = Math.max(m, Math.abs(v - 128)); lvl.style.width = Math.min(100, m / 128 * 220) + '%'; }
+    requestAnimationFrame(meter);
+  })();
+
+  function loadLines() { lines = $('#script').value.split('\n').map(s => s.trim()).filter(Boolean); }
+  function showLine(i) {
+    pNow.textContent = i < 0 ? (lines[0] ? 'First line: ' + lines[0] : 'Add your script first.') : (lines[i] || 'Last line done. Press Stop.');
+    pNext.textContent = i >= 0 && lines[i + 1] ? 'Next: ' + lines[i + 1] : '';
+  }
+
+  const pickType = () => {
+    const list = mode === 'video'
+      ? ['video/mp4;codecs=avc1.42E01E,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm']
+      : ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'];
+    return list.find(t => window.MediaRecorder && MediaRecorder.isTypeSupported(t)) || '';
+  };
+
+  const now = () => (performance.now() - t0) / 1000;
+  function nextLine() {
+    if (!recorder || recorder.state !== 'recording') return;
+    const t = now();
+    if (cues.length) cues[cues.length - 1].end = t;
+    li++;
+    if (li < lines.length) { cues.push({start: t, end: null, text: lines[li]}); showLine(li); }
+    else { showLine(li); }
+  }
+
+  recBtn.onclick = async () => {
+    loadLines(); if (!lines.length) { say('Add at least one script line.', true); return; }
+    if (!window.MediaRecorder) { say('Recording isn\u2019t supported in this browser.', true); return; }
+    recBtn.disabled = true; startCam.disabled = true; out.classList.remove('on');
+    for (let n = 3; n > 0; n--) { count.textContent = n; count.classList.add('on'); await new Promise(r => setTimeout(r, 900)); }
+    count.classList.remove('on');
+    const type = pickType();
+    try { recorder = new MediaRecorder(stream, type ? {mimeType: type, videoBitsPerSecond: 4_000_000, audioBitsPerSecond: 128_000} : undefined); }
+    catch (e) { recorder = new MediaRecorder(stream); }
+    chunks = []; cues = []; li = 0;
+    recorder.ondataavailable = e => e.data.size && chunks.push(e.data);
+    recorder.onstop = finish;
+    recorder.start(250); t0 = performance.now();
+    if (mode === 'film') {
+      film.currentTime = 0; film.play().catch(() => {});
+      film.ontimeupdate = () => {
+        const t = film.currentTime; let k = -1; NARR.forEach((c, i) => { if (t >= c[0] - .4) k = i; });
+        const nx = NARR[k + 1];
+        pNow.textContent = k >= 0 ? NARR[k][1] : 'Get ready\u2026';
+        pNext.textContent = nx ? `Next in ${Math.max(0, nx[0] - t).toFixed(1)} s: ${nx[1]}` : '';
+      };
+      film.onended = () => stopBtn.click();
+      nextBtn.disabled = true;
+    } else { cues.push({start: 0, end: null, text: lines[0]}); showLine(0); }
+    rec.classList.add('on'); if (mode !== 'film') nextBtn.disabled = false; stopBtn.disabled = false;
+    tick = setInterval(() => { const s = Math.floor(now()); timer.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }, 250);
+    say(mode === 'film' ? 'Recording. Speak each line as it appears at the top. It stops when the film ends.' : 'Recording. Press Space when you start each new line.');
+  };
+  nextBtn.onclick = nextLine;
+  stopBtn.onclick = () => { if (mode === 'film') { film.pause(); film.ontimeupdate = null; } if (recorder && recorder.state === 'recording') { if (cues.length) cues[cues.length - 1].end = now(); recorder.stop(); } };
+  addEventListener('keydown', e => {
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+    if (e.code === 'Space' && recorder && recorder.state === 'recording') { e.preventDefault(); nextLine(); }
+  });
+
+  const ts = s => { const ms = Math.round(s * 1000), h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, sec = Math.floor(ms / 1000) % 60, r = ms % 1000; return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}.${String(r).padStart(3, '0')}`; };
+
+  function finish() {
+    clearInterval(tick); rec.classList.remove('on'); nextBtn.disabled = true; stopBtn.disabled = true; startCam.disabled = false; recBtn.disabled = false;
+    urls.forEach(URL.revokeObjectURL); urls = [];
+    const type = recorder.mimeType || chunks[0]?.type || (mode === 'video' ? 'video/webm' : 'audio/webm');
+    const blob = new Blob(chunks, {type});
+    const isMp4 = /mp4/.test(type);
+    const name = isMp4 ? 'intro-voice.m4a' : 'intro-voice.webm';
+    const vtt = 'WEBVTT\n\n' + cues.filter(c => c.end && c.end > c.start).map((c, i) => `${i + 1}\n${ts(c.start)} --> ${ts(c.end)}\n${c.text}`).join('\n\n') + '\n';
+    const mUrl = URL.createObjectURL(blob), vUrl = URL.createObjectURL(new Blob([vtt], {type: 'text/vtt'}));
+    urls.push(mUrl, vUrl);
+    review.src = mUrl; review.style.display = mode === 'film' ? 'none' : ''; live.style.display = 'none'; empty.style.display = 'none';
+    if (mode === 'film') { film.style.display = ''; film.currentTime = 0; film.muted = true; film.play().catch(() => {}); const pv = new Audio(mUrl); pv.play().catch(() => {}); film.onpause = () => pv.pause(); }
+    review.innerHTML = `<track kind="captions" src="${vUrl}" srclang="en" label="English" default>`;
+    files.innerHTML = `<li><code>${name}</code><a class="btn fill" href="${mUrl}" download="${name}">Download</a></li>
+      ${mode === 'film' ? '' : `<li><code>intro.vtt</code><a class="btn" href="${vUrl}" download="intro.vtt">Download</a></li>`}`;
+    out.classList.add('on');
+    pNow.textContent = 'Review your take below. Happy with it? Download both files.'; pNext.textContent = '';
+    say(`Recorded ${(blob.size / 1048576).toFixed(1)} MB. ${blob.size > 25 * 1048576 ? 'That\u2019s large for GitHub; a shorter take loads faster.' : ''}`);
+  }
+  $('#retake').onclick = () => { review.pause(); film.pause(); review.style.display = 'none'; if (mode === 'video') live.style.display = ''; else if (mode === 'film') film.style.display = ''; else empty.style.display = 'grid'; out.classList.remove('on'); showLine(-1); timer.textContent = '00:00'; };
+})();
+</script>
+</body>
+</html>
